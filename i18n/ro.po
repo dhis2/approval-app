@@ -1,24 +1,19 @@
 # 
 # Translators:
-# Guardian Sanjaya <gysanjaya@ugm.ac.id>, 2021
-# Aprisa Chrysantina <aprisa.chrysantina@gmail.com>, 2021
-# Viktor Varland <viktor@dhis2.org>, 2021
-# Yusuf Setiawan <mohammadyusufsetiawan@gmail.com>, 2021
-# Untoro Dwi Raharjo <untoro.dwi.raharjo@mail.ugm.ac.id>, 2021
-# Raja Fathurrahim, 2022
+# Valeriu Plesca <vplesca@gmail.com>, 2022
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2021-10-07T11:59:16.763Z\n"
 "PO-Revision-Date: 2021-11-04 13:40+0000\n"
-"Last-Translator: Raja Fathurrahim, 2022\n"
-"Language-Team: Indonesian (https://www.transifex.com/hisp-uio/teams/100509/id/)\n"
+"Last-Translator: Valeriu Plesca <vplesca@gmail.com>, 2022\n"
+"Language-Team: Romanian (https://www.transifex.com/hisp-uio/teams/100509/ro/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: id\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
+"Language: ro\n"
+"Plural-Forms: nplurals=3; plural=(n==1?0:(((n%100>19)||((n%100==0)&&(n!=0)))?2:1));\n"
 
 msgid "Not authorized"
 msgstr ""
@@ -32,21 +27,25 @@ msgid "Acceptance failed: {{error}}"
 msgstr ""
 
 msgid "Accept"
-msgstr "Terima"
+msgstr "Accept"
 
 msgid "Approval saved"
 msgstr ""
 
 msgid "Approve"
-msgstr ""
+msgstr "Aprobare"
 
 msgid "Approving {{count}} data sets"
 msgid_plural "Approving {{count}} data sets"
 msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
 
 msgid "Approving {{count}} data set"
 msgid_plural "Approving {{count}} data set"
 msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
 
 msgid "Are you sure you want to approve this data?"
 msgstr ""
@@ -60,19 +59,19 @@ msgid ""
 msgstr ""
 
 msgid "Cancel"
-msgstr "Batal"
+msgstr "Anulare"
 
 msgid "Unacceptance failed: {{error}}"
 msgstr ""
 
 msgid "Unaccept"
-msgstr ""
+msgstr "Neacceptare"
 
 msgid "Unapproval failed: {{error}}"
 msgstr ""
 
 msgid "Unapprove"
-msgstr ""
+msgstr "Dezaprobare"
 
 msgid "This workflow does not contain any data sets."
 msgstr ""
@@ -112,7 +111,7 @@ msgid "Approved {{- dateTimeStr}}"
 msgstr ""
 
 msgid "Ready for approval"
-msgstr ""
+msgstr "Gata pentru aprobare"
 
 msgid "Waiting for lower level approval"
 msgstr ""
@@ -139,40 +138,40 @@ msgid "Could not retrieve approval status"
 msgstr ""
 
 msgid "January"
-msgstr "Januari"
+msgstr ""
 
 msgid "February"
-msgstr "Februari"
+msgstr ""
 
 msgid "March"
-msgstr "Maret"
+msgstr ""
 
 msgid "April"
-msgstr "April"
+msgstr ""
 
 msgid "May"
-msgstr "Mei"
+msgstr ""
 
 msgid "June"
-msgstr "Juni"
+msgstr ""
 
 msgid "July"
-msgstr "Juli"
+msgstr ""
 
 msgid "August"
-msgstr "Agustus"
+msgstr ""
 
 msgid "September"
-msgstr "September"
+msgstr ""
 
 msgid "October"
-msgstr "Oktober"
+msgstr ""
 
 msgid "November"
-msgstr "November"
+msgstr ""
 
 msgid "December"
-msgstr "Desember"
+msgstr ""
 
 msgid "Week {{weekNumber}}"
 msgstr ""
@@ -181,10 +180,10 @@ msgid "Bi-Week {{biWeekNumber}}"
 msgstr ""
 
 msgid "Daily"
-msgstr "Harian"
+msgstr ""
 
 msgid "Weekly"
-msgstr "Mingguan"
+msgstr ""
 
 msgid "Weekly (Start Wednesday)"
 msgstr ""
@@ -199,46 +198,46 @@ msgid "Weekly (Start Sunday)"
 msgstr ""
 
 msgid "Bi-weekly"
-msgstr "Dwiwulanan"
+msgstr ""
 
 msgid "Monthly"
-msgstr "Bulanan"
+msgstr "Lunar"
 
 msgid "Bi-monthly"
-msgstr "Dua bulanan"
+msgstr ""
 
 msgid "Quarterly"
-msgstr "Triwulanan"
+msgstr "Trimestrial"
 
 msgid "Six-monthly"
-msgstr "Enam bulanan"
+msgstr ""
 
 msgid "Six-monthly April"
-msgstr "Semester April"
+msgstr ""
 
 msgid "Yearly"
-msgstr "Tahunan"
+msgstr "Anual"
 
 msgid "Financial year (Start November)"
-msgstr "Financial November"
+msgstr ""
 
 msgid "Financial year (Start October)"
-msgstr "Tahun finansial (Mulai Oktober)"
+msgstr ""
 
 msgid "Financial year (Start July)"
-msgstr "Tahun finansial (Mulai Juli)"
+msgstr ""
 
 msgid "Financial year (Start April)"
-msgstr "Tahun finansial (Mulai April)"
+msgstr ""
 
 msgid "Clear selections"
-msgstr "Hapus semua pilihan"
+msgstr ""
 
 msgid "Waiting for approval"
 msgstr ""
 
 msgid "Approved"
-msgstr ""
+msgstr "Aprobat"
 
 msgid "Failed to load approval state"
 msgstr ""
@@ -250,13 +249,13 @@ msgid "Choose a workflow and period first"
 msgstr ""
 
 msgid "Organisation Unit"
-msgstr "Unit Organisasi"
+msgstr "Unitate Organizațională"
 
 msgid "Choose an organisation unit"
 msgstr ""
 
 msgid "Period"
-msgstr "Periode"
+msgstr ""
 
 msgid "Choose a period"
 msgstr ""

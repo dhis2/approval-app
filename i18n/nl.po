@@ -1,13 +1,14 @@
 # 
 # Translators:
 # Cherise Beek <cherise.beek@gmail.com>, 2021
+# Rica Zamora Duchateau, 2022
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2021-10-07T11:59:16.763Z\n"
 "PO-Revision-Date: 2021-11-04 13:40+0000\n"
-"Last-Translator: Cherise Beek <cherise.beek@gmail.com>, 2021\n"
+"Last-Translator: Rica Zamora Duchateau, 2022\n"
 "Language-Team: Dutch (https://www.transifex.com/hisp-uio/teams/100509/nl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -57,7 +58,7 @@ msgid ""
 msgstr ""
 
 msgid "Cancel"
-msgstr ""
+msgstr "Annuleer"
 
 msgid "Unacceptance failed: {{error}}"
 msgstr ""
@@ -178,55 +179,55 @@ msgid "Bi-Week {{biWeekNumber}}"
 msgstr ""
 
 msgid "Daily"
-msgstr ""
+msgstr "Dagelijks"
 
 msgid "Weekly"
-msgstr ""
+msgstr "Wekelijks"
 
 msgid "Weekly (Start Wednesday)"
-msgstr ""
+msgstr "Wekelijks (Start op woensdag)"
 
 msgid "Weekly (Start Thursday)"
-msgstr ""
+msgstr "Wekelijks (Start op donderdag)"
 
 msgid "Weekly (Start Saturday)"
-msgstr ""
+msgstr "Wekelijks (Start op zaterdag)"
 
 msgid "Weekly (Start Sunday)"
-msgstr ""
+msgstr "Wekelijks (Start op zondag)"
 
 msgid "Bi-weekly"
-msgstr ""
+msgstr "Tweewekelijks"
 
 msgid "Monthly"
-msgstr ""
+msgstr "Maandelijks"
 
 msgid "Bi-monthly"
-msgstr ""
+msgstr "Tweemaandelijks"
 
 msgid "Quarterly"
-msgstr ""
+msgstr "Driemaandelijks"
 
 msgid "Six-monthly"
-msgstr ""
+msgstr "Zesmaandelijks"
 
 msgid "Six-monthly April"
-msgstr ""
+msgstr "Zesmaandelijks april"
 
 msgid "Yearly"
-msgstr ""
+msgstr "Jaarlijks"
 
 msgid "Financial year (Start November)"
-msgstr ""
+msgstr "Financieel jaar (Start november)"
 
 msgid "Financial year (Start October)"
-msgstr ""
+msgstr "Financieel jaar (Start oktober)"
 
 msgid "Financial year (Start July)"
-msgstr ""
+msgstr "Financieel jaar (Start juli)"
 
 msgid "Financial year (Start April)"
-msgstr ""
+msgstr "Financieel jaar (Start april)"
 
 msgid "Clear selections"
 msgstr ""
@@ -247,7 +248,7 @@ msgid "Choose a workflow and period first"
 msgstr ""
 
 msgid "Organisation Unit"
-msgstr ""
+msgstr "Organisatieëenheid"
 
 msgid "Choose an organisation unit"
 msgstr ""
