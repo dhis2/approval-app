@@ -22,7 +22,7 @@
         "cypress:stub": "start-server-and-test 'yarn start:nobrowser' http://localhost:3000 'yarn cypress run --env dhis2ApiVersion=39,networkMode=stub'"
     },
     "devDependencies": {
-        "@dhis2/cli-app-scripts": "^8.1.0",
+        "@dhis2/cli-app-scripts": "^10.0.0",
         "@dhis2/cli-style": "^10.4.1",
         "@dhis2/cypress-commands": "^9.0.2",
         "@dhis2/cypress-plugins": "^9.0.2",
