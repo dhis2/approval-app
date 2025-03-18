@@ -1,3 +1,13 @@
+## [100.0.17](https://github.com/dhis2/approval-app/compare/v100.0.16...v100.0.17) (2025-03-18)
+
+
+### Bug Fixes
+
+* add target to links after sanitization ([e9b8d56](https://github.com/dhis2/approval-app/commit/e9b8d568d5524de5e5a603e7083c8b4d3c91476d))
+* add target to links after sanitization ([66c6f55](https://github.com/dhis2/approval-app/commit/66c6f556f80fe6be0c5274340157505793a18bb7))
+* change ci steps to run tests only in 41 ([0ce8c8e](https://github.com/dhis2/approval-app/commit/0ce8c8eaa757978b064629c3ae72b85f7c8e1d36))
+* skip e2e as instance is down ([9808eb7](https://github.com/dhis2/approval-app/commit/9808eb767973dfee27c8c00876f96b4258f6de0d))
+
 ## [100.0.16](https://github.com/dhis2/approval-app/compare/v100.0.15...v100.0.16) (2024-12-22)
 
 
