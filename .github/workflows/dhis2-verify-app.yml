@@ -117,7 +117,7 @@ jobs:
                   CYPRESS_networkMode: stub
     release:
         runs-on: ubuntu-latest
-        needs: [build, lint, test, e2e-v41]
+        needs: [build, lint, test]
         if: "!github.event.push.repository.fork && github.actor != 'dependabot[bot]'"
         steps:
             - uses: actions/checkout@v2
