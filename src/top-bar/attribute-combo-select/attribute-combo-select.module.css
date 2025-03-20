@@ -1,0 +1,18 @@
+.menu {
+    height: 330px;
+    width: 350px;
+    overflow-y: auto;
+}
+
+.bordered {
+    border-bottom: 1px solid var(--colors-grey400);
+}
+
+.attributeComboSelect {
+    margin-left: 8px;
+    margin-top: 4px;
+}
+
+.divider {
+    margin-top: 20px !important;
+}

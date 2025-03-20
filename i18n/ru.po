@@ -1,0 +1,284 @@
+# 
+# Translators:
+# Philip Larsen Donnelly, 2021
+# Viktor Varland <viktor@dhis2.org>, 2021
+# Ulanbek Abakirov <ulans@mail.ru>, 2021
+# Yury Rogachev <yury@dhis2.org>, 2024
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: i18next-conv\n"
+"POT-Creation-Date: 2021-10-07T11:59:16.763Z\n"
+"PO-Revision-Date: 2021-11-04 13:40+0000\n"
+"Last-Translator: Yury Rogachev <yury@dhis2.org>, 2024\n"
+"Language-Team: Russian (https://app.transifex.com/hisp-uio/teams/100509/ru/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ru\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=11 && n%100<=14)? 2 : 3);\n"
+
+msgid "Not authorized"
+msgstr ""
+
+msgid ""
+"You don't have access to the Data Approval App. Contact a system "
+"administrator to request access."
+msgstr ""
+
+msgid "Acceptance failed: {{error}}"
+msgstr ""
+
+msgid "Accept"
+msgstr "Принять"
+
+msgid "Approval saved"
+msgstr ""
+
+msgid "Approve"
+msgstr "Подтвердить"
+
+msgid "Approving {{count}} data sets"
+msgid_plural "Approving {{count}} data sets"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+
+msgid "Approving {{count}} data set"
+msgid_plural "Approving {{count}} data set"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+
+msgid "Are you sure you want to approve this data?"
+msgstr ""
+
+msgid "There was a problem saving this approval"
+msgstr ""
+
+msgid ""
+"This data couldn’t be approved. Try again, or contact your system "
+"administrator."
+msgstr ""
+
+msgid "Cancel"
+msgstr "Отмена"
+
+msgid "Unacceptance failed: {{error}}"
+msgstr ""
+
+msgid "Unaccept"
+msgstr "Не принимать"
+
+msgid "Unapproval failed: {{error}}"
+msgstr ""
+
+msgid "Unapprove"
+msgstr "Не подтверждать"
+
+msgid "This workflow does not contain any data sets."
+msgstr ""
+
+msgid "Choose a data set to review"
+msgstr ""
+
+msgid ""
+"{{- workflowName}} has multiple data sets. Choose a data set from the tabs "
+"above."
+msgstr ""
+
+msgid "Loading data set"
+msgstr ""
+
+msgid "There was a problem displaying this data set"
+msgstr ""
+
+msgid ""
+"This data set couldn't be loaded or displayed. Try again, or contact your "
+"system administrator."
+msgstr ""
+
+msgid "Retry loading data set"
+msgstr ""
+
+msgid "This data set doesn't have any data for {{- period}} in {{- orgUnit}}."
+msgstr ""
+
+msgid "1 data set"
+msgstr ""
+
+msgid "{{dataSetsCount}} data sets"
+msgstr ""
+
+msgid "Approved {{- dateTimeStr}}"
+msgstr ""
+
+msgid "Ready for approval"
+msgstr "Готово к подтверждению"
+
+msgid "Waiting for lower level approval"
+msgstr ""
+
+msgid "Waiting for higher level approval"
+msgstr ""
+
+msgid "Approval by {{- name}} accepted {{timeAgo}}"
+msgstr ""
+
+msgid "Approved by {{- name}} {{timeAgo}}"
+msgstr ""
+
+msgid "Approved at higher level"
+msgstr ""
+
+msgid "You do not have authority to approve data"
+msgstr ""
+
+msgid "Cannot be approved"
+msgstr ""
+
+msgid "Could not retrieve approval status"
+msgstr ""
+
+msgid "January"
+msgstr "Январь"
+
+msgid "February"
+msgstr "Февраль"
+
+msgid "March"
+msgstr "Март"
+
+msgid "April"
+msgstr "Апрель"
+
+msgid "May"
+msgstr "Май"
+
+msgid "June"
+msgstr "Июнь"
+
+msgid "July"
+msgstr "Июль"
+
+msgid "August"
+msgstr "Август"
+
+msgid "September"
+msgstr "Сентябрь"
+
+msgid "October"
+msgstr "Октябрь"
+
+msgid "November"
+msgstr "Ноябрь"
+
+msgid "December"
+msgstr "Декабрь"
+
+msgid "Week {{weekNumber}}"
+msgstr "Неделя  {{weekNumber}}"
+
+msgid "Bi-Week {{biWeekNumber}}"
+msgstr "Двухнедельный {{biWeekNumber}}"
+
+msgid "Daily"
+msgstr "Ежедневно"
+
+msgid "Weekly"
+msgstr "Еженедельно"
+
+msgid "Weekly (Start Wednesday)"
+msgstr "Еженедельно(Начало Среда)"
+
+msgid "Weekly (Start Thursday)"
+msgstr "Еженедельно(Начало Четверг)"
+
+msgid "Weekly (Start Saturday)"
+msgstr "Еженедельно(Начало Суббота)"
+
+msgid "Weekly (Start Sunday)"
+msgstr "Еженедельно(Начало Воскресенье)"
+
+msgid "Bi-weekly"
+msgstr "Каждые две недели"
+
+msgid "Monthly"
+msgstr "Ежемесячно"
+
+msgid "Bi-monthly"
+msgstr "Раз в два месяца"
+
+msgid "Quarterly"
+msgstr "Ежеквартально"
+
+msgid "Six-monthly"
+msgstr "Раз в полугодие"
+
+msgid "Six-monthly April"
+msgstr "Полугодовой-Апрель"
+
+msgid "Yearly"
+msgstr "Ежегодно"
+
+msgid "Financial year (Start November)"
+msgstr "Финансовый год (начало Ноябрь)"
+
+msgid "Financial year (Start October)"
+msgstr "Финансовый год (начало Октябрь)"
+
+msgid "Financial year (Start July)"
+msgstr "Финансовый год (начало Июль)"
+
+msgid "Financial year (Start April)"
+msgstr "Финансовый год (начало Апрель)"
+
+msgid "Clear selections"
+msgstr "Очистить выбор"
+
+msgid "Waiting for approval"
+msgstr ""
+
+msgid "Approved"
+msgstr "Подтверждено"
+
+msgid "Failed to load approval state"
+msgstr ""
+
+msgid "Choose a period first"
+msgstr ""
+
+msgid "Choose a workflow and period first"
+msgstr ""
+
+msgid "Organisation Unit"
+msgstr "Организация"
+
+msgid "Choose an organisation unit"
+msgstr "Выбрать организационную единицу"
+
+msgid "Period"
+msgstr "Период"
+
+msgid "Choose a period"
+msgstr ""
+
+msgid "Choose a workflow first"
+msgstr ""
+
+msgid "Workflow"
+msgstr ""
+
+msgid "Choose a workflow"
+msgstr ""
+
+msgid "No workflows found. None may exist, or you may not have access to any."
+msgstr ""
+
+msgid "Could not load approval data"
+msgstr ""
+
+msgid "Retry loading approval data"
+msgstr ""

@@ -1,0 +1,276 @@
+# 
+# Translators:
+# 晓东 林 <13981924470@126.com>, 2021
+# easylin <lin_xd@126.com>, 2023
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: i18next-conv\n"
+"POT-Creation-Date: 2021-10-07T11:59:16.763Z\n"
+"PO-Revision-Date: 2021-11-04 13:40+0000\n"
+"Last-Translator: easylin <lin_xd@126.com>, 2023\n"
+"Language-Team: Chinese (China) (https://app.transifex.com/hisp-uio/teams/100509/zh_CN/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: zh_CN\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "Not authorized"
+msgstr "未经授权"
+
+msgid ""
+"You don't have access to the Data Approval App. Contact a system "
+"administrator to request access."
+msgstr "您无权访问数据审批应用程序。联系系统管理员请求访问。"
+
+msgid "Acceptance failed: {{error}}"
+msgstr "接受失败：{{error}}"
+
+msgid "Accept"
+msgstr "接受<br>"
+
+msgid "Approval saved"
+msgstr "批准已保存"
+
+msgid "Approve"
+msgstr "批准"
+
+msgid "Approving {{count}} data sets"
+msgid_plural "Approving {{count}} data sets"
+msgstr[0] "批准 {{count}} 个数据集"
+
+msgid "Approving {{count}} data set"
+msgid_plural "Approving {{count}} data set"
+msgstr[0] "批准 {{count}} 个数据集"
+
+msgid "Are you sure you want to approve this data?"
+msgstr "您确定要批准此数据吗？"
+
+msgid "There was a problem saving this approval"
+msgstr "保存此批准时出现问题"
+
+msgid ""
+"This data couldn’t be approved. Try again, or contact your system "
+"administrator."
+msgstr "无法批准此数据。请重试，或联系您的系统管理员。"
+
+msgid "Cancel"
+msgstr "取消"
+
+msgid "Unacceptance failed: {{error}}"
+msgstr "取消接受失败：{{error}}"
+
+msgid "Unaccept"
+msgstr "不接受"
+
+msgid "Unapproval failed: {{error}}"
+msgstr "取消批准失败：{{error}}"
+
+msgid "Unapprove"
+msgstr "不批准"
+
+msgid "This workflow does not contain any data sets."
+msgstr "此工作流不包含任何数据集。"
+
+msgid "Choose a data set to review"
+msgstr "选择要查看的数据集"
+
+msgid ""
+"{{- workflowName}} has multiple data sets. Choose a data set from the tabs "
+"above."
+msgstr "{{- workflowName}} 有多个数据集。从上面的选项卡中选择一个数据集。"
+
+msgid "Loading data set"
+msgstr "加载数据集"
+
+msgid "There was a problem displaying this data set"
+msgstr "显示此数据集时出现问题"
+
+msgid ""
+"This data set couldn't be loaded or displayed. Try again, or contact your "
+"system administrator."
+msgstr "无法加载或显示此数据集。请重试，或联系您的系统管理员。"
+
+msgid "Retry loading data set"
+msgstr "重试加载数据集"
+
+msgid "This data set doesn't have any data for {{- period}} in {{- orgUnit}}."
+msgstr "此数据集在 {{- orgUnit}} 中没有 {{- period}} 的任何数据。"
+
+msgid "1 data set"
+msgstr "1个数据集"
+
+msgid "{{dataSetsCount}} data sets"
+msgstr "{{dataSetsCount}} 个数据集"
+
+msgid "Approved {{- dateTimeStr}}"
+msgstr "已批准 {{- dateTimeStr}}"
+
+msgid "Ready for approval"
+msgstr "准备审批"
+
+msgid "Waiting for lower level approval"
+msgstr "等待下级批准"
+
+msgid "Waiting for higher level approval"
+msgstr "等待上级批准"
+
+msgid "Approval by {{- name}} accepted {{timeAgo}}"
+msgstr "{{- name}} 的批准已接受 {{timeAgo}}"
+
+msgid "Approved by {{- name}} {{timeAgo}}"
+msgstr "由 {{- name}} {{timeAgo}} 批准"
+
+msgid "Approved at higher level"
+msgstr "上级批准"
+
+msgid "You do not have authority to approve data"
+msgstr "您无权批准数据"
+
+msgid "Cannot be approved"
+msgstr "无法批准"
+
+msgid "Could not retrieve approval status"
+msgstr "无法检索审批状态"
+
+msgid "January"
+msgstr "01"
+
+msgid "February"
+msgstr "02"
+
+msgid "March"
+msgstr "03"
+
+msgid "April"
+msgstr "04"
+
+msgid "May"
+msgstr "05"
+
+msgid "June"
+msgstr "06"
+
+msgid "July"
+msgstr "07"
+
+msgid "August"
+msgstr "08"
+
+msgid "September"
+msgstr "09"
+
+msgid "October"
+msgstr "10"
+
+msgid "November"
+msgstr "11"
+
+msgid "December"
+msgstr "12"
+
+msgid "Week {{weekNumber}}"
+msgstr "第 {{weekNumber}} 周"
+
+msgid "Bi-Week {{biWeekNumber}}"
+msgstr "双周 {{biWeekNumber}}"
+
+msgid "Daily"
+msgstr "每日"
+
+msgid "Weekly"
+msgstr "每周"
+
+msgid "Weekly (Start Wednesday)"
+msgstr "每周（始于周二）"
+
+msgid "Weekly (Start Thursday)"
+msgstr "每周（始于周四）"
+
+msgid "Weekly (Start Saturday)"
+msgstr "每周（始于周六）"
+
+msgid "Weekly (Start Sunday)"
+msgstr "每周（始于周日）"
+
+msgid "Bi-weekly"
+msgstr "双周"
+
+msgid "Monthly"
+msgstr "每月"
+
+msgid "Bi-monthly"
+msgstr "每两月"
+
+msgid "Quarterly"
+msgstr "季度"
+
+msgid "Six-monthly"
+msgstr "六个月"
+
+msgid "Six-monthly April"
+msgstr "半年的四月"
+
+msgid "Yearly"
+msgstr "每年"
+
+msgid "Financial year (Start November)"
+msgstr "财政年度（11 月开始）"
+
+msgid "Financial year (Start October)"
+msgstr "财务十月"
+
+msgid "Financial year (Start July)"
+msgstr "财务七月"
+
+msgid "Financial year (Start April)"
+msgstr "财务四月"
+
+msgid "Clear selections"
+msgstr "清除选择"
+
+msgid "Waiting for approval"
+msgstr "等待批准"
+
+msgid "Approved"
+msgstr "得到正式认可的"
+
+msgid "Failed to load approval state"
+msgstr "无法加载批准状态"
+
+msgid "Choose a period first"
+msgstr "先选择一个时期"
+
+msgid "Choose a workflow and period first"
+msgstr "先选择工作流程和周期"
+
+msgid "Organisation Unit"
+msgstr "组织机构"
+
+msgid "Choose an organisation unit"
+msgstr "选择组织单位"
+
+msgid "Period"
+msgstr "周期"
+
+msgid "Choose a period"
+msgstr "选择一个时期"
+
+msgid "Choose a workflow first"
+msgstr "首先选择工作流程"
+
+msgid "Workflow"
+msgstr "工作流程"
+
+msgid "Choose a workflow"
+msgstr "选择工作流程"
+
+msgid "No workflows found. None may exist, or you may not have access to any."
+msgstr "未找到工作流程。可能不存在，或者您可能无权访问任何内容。"
+
+msgid "Could not load approval data"
+msgstr "无法加载审批数据"
+
+msgid "Retry loading approval data"
+msgstr "重试加载批准数据"

@@ -1,0 +1,290 @@
+# 
+# Translators:
+# trendspotter <jirka.p@volny.cz>, 2021
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: i18next-conv\n"
+"POT-Creation-Date: 2021-10-07T11:59:16.763Z\n"
+"PO-Revision-Date: 2021-11-04 13:40+0000\n"
+"Last-Translator: trendspotter <jirka.p@volny.cz>, 2021\n"
+"Language-Team: Czech (https://www.transifex.com/hisp-uio/teams/100509/cs/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: cs\n"
+"Plural-Forms: nplurals=4; plural=(n == 1 && n % 1 == 0) ? 0 : (n >= 2 && n <= 4 && n % 1 == 0) ? 1: (n % 1 != 0 ) ? 2 : 3;\n"
+
+msgid "Not authorized"
+msgstr "Neautorizováno"
+
+msgid ""
+"You don't have access to the Data Approval App. Contact a system "
+"administrator to request access."
+msgstr ""
+"Nemáte přístup k aplikaci Schvalování dat. Požádejte o přístup správce "
+"systému."
+
+msgid "Acceptance failed: {{error}}"
+msgstr "Přijetí se nezdařilo: {{error}}"
+
+msgid "Accept"
+msgstr "Přijmout"
+
+msgid "Approval saved"
+msgstr "Schválení uloženo"
+
+msgid "Approve"
+msgstr "Schválit"
+
+msgid "Approving {{count}} data sets"
+msgid_plural "Approving {{count}} data sets"
+msgstr[0] "Schvalování {{count}} datové sady"
+msgstr[1] "Schvalování {{count}} datových sad"
+msgstr[2] "Schvalování {{count}} datových sad"
+msgstr[3] "Schvalování {{count}} datových sad"
+
+msgid "Approving {{count}} data set"
+msgid_plural "Approving {{count}} data set"
+msgstr[0] "Schvalování {{count}} datové sady"
+msgstr[1] "Schvalování {{count}} datových sad"
+msgstr[2] "Schvalování {{count}} datových sad"
+msgstr[3] "Schvalování {{count}} datových sad"
+
+msgid "Are you sure you want to approve this data?"
+msgstr "Opravdu chcete tato data schválit?"
+
+msgid "There was a problem saving this approval"
+msgstr "Při ukládání tohoto schválení došlo k problému"
+
+msgid ""
+"This data couldn’t be approved. Try again, or contact your system "
+"administrator."
+msgstr ""
+"Tato data se nepodařilo schválit. Zkuste to znovu nebo se obraťte na správce"
+" systému."
+
+msgid "Cancel"
+msgstr "Zrušit"
+
+msgid "Unacceptance failed: {{error}}"
+msgstr "Nepřijetí se nezdařilo: {{error}}"
+
+msgid "Unaccept"
+msgstr "Nepřijmout"
+
+msgid "Unapproval failed: {{error}}"
+msgstr "Zrušení schválení se nezdařilo: {{error}}"
+
+msgid "Unapprove"
+msgstr "Neschválit"
+
+msgid "This workflow does not contain any data sets."
+msgstr "Tento pracovní postup neobsahuje žádné datové sady."
+
+msgid "Choose a data set to review"
+msgstr "Vyberte soubor dat, který chcete zkontrolovat"
+
+msgid ""
+"{{- workflowName}} has multiple data sets. Choose a data set from the tabs "
+"above."
+msgstr "{{- workflowName}} má více sad dat. Vyberte soubor dat z karet výše."
+
+msgid "Loading data set"
+msgstr "Načítání datové sady"
+
+msgid "There was a problem displaying this data set"
+msgstr "Při zobrazování této datové sady došlo k problému"
+
+msgid ""
+"This data set couldn't be loaded or displayed. Try again, or contact your "
+"system administrator."
+msgstr ""
+"Tuto datovou sadu nelze načíst nebo zobrazit. Zkuste to znovu nebo se "
+"obraťte na správce systému."
+
+msgid "Retry loading data set"
+msgstr "Zkuste znovu načíst datovou sadu"
+
+msgid "This data set doesn't have any data for {{- period}} in {{- orgUnit}}."
+msgstr ""
+"Tato datová sada neobsahuje žádná data za {{- period}} v {{- orgUnit}}."
+
+msgid "1 data set"
+msgstr "1 datová sada"
+
+msgid "{{dataSetsCount}} data sets"
+msgstr "{{dataSetsCount}} datové sady"
+
+msgid "Approved {{- dateTimeStr}}"
+msgstr "Schváleno {{- dateTimeStr}}"
+
+msgid "Ready for approval"
+msgstr "Připraveno ke schválení"
+
+msgid "Waiting for lower level approval"
+msgstr "Čeká se na schválení nižší úrovně"
+
+msgid "Waiting for higher level approval"
+msgstr "Čekání na schválení vyšší úrovně"
+
+msgid "Approval by {{- name}} accepted {{timeAgo}}"
+msgstr "Schválení uživatelem {{- name}} přijato {{timeAgo}}"
+
+msgid "Approved by {{- name}} {{timeAgo}}"
+msgstr "Schváleno uživatelem {{- name}} {{timeAgo}}"
+
+msgid "Approved at higher level"
+msgstr "Schváleno na vyšší úrovni"
+
+msgid "You do not have authority to approve data"
+msgstr "Nemáte oprávnění schvalovat data"
+
+msgid "Cannot be approved"
+msgstr "Nelze schválit"
+
+msgid "Could not retrieve approval status"
+msgstr "Stav schválení se nepodařilo načíst"
+
+msgid "January"
+msgstr "Leden"
+
+msgid "February"
+msgstr "únor"
+
+msgid "March"
+msgstr "Březen"
+
+msgid "April"
+msgstr "Duben"
+
+msgid "May"
+msgstr "Květen"
+
+msgid "June"
+msgstr "červen"
+
+msgid "July"
+msgstr "Červenec"
+
+msgid "August"
+msgstr "Srpen"
+
+msgid "September"
+msgstr "Září"
+
+msgid "October"
+msgstr "Říjen"
+
+msgid "November"
+msgstr "Listopad"
+
+msgid "December"
+msgstr "Prosinec"
+
+msgid "Week {{weekNumber}}"
+msgstr "Týden {{weekNumber}}"
+
+msgid "Bi-Week {{biWeekNumber}}"
+msgstr "dva týdny {{biWeekNumber}}"
+
+msgid "Daily"
+msgstr "Denně"
+
+msgid "Weekly"
+msgstr "Týdně"
+
+msgid "Weekly (Start Wednesday)"
+msgstr "Týdně (od středy)"
+
+msgid "Weekly (Start Thursday)"
+msgstr "Týdně (od čtvrtka)"
+
+msgid "Weekly (Start Saturday)"
+msgstr "Týdně (od soboty)"
+
+msgid "Weekly (Start Sunday)"
+msgstr "Týdně (začíná nedělí)"
+
+msgid "Bi-weekly"
+msgstr "po 14ti dnech"
+
+msgid "Monthly"
+msgstr "Měsíčně"
+
+msgid "Bi-monthly"
+msgstr "Dva měsíce"
+
+msgid "Quarterly"
+msgstr "Čtvrtletně"
+
+msgid "Six-monthly"
+msgstr "Šestiměsíční"
+
+msgid "Six-monthly April"
+msgstr "Duben šest měsíců"
+
+msgid "Yearly"
+msgstr "Ročně"
+
+msgid "Financial year (Start November)"
+msgstr "Finanční rok (od listopadu)"
+
+msgid "Financial year (Start October)"
+msgstr "Finanční rok (od října)"
+
+msgid "Financial year (Start July)"
+msgstr "Finanční rok (od července)"
+
+msgid "Financial year (Start April)"
+msgstr "Finanční rok (od dubna)"
+
+msgid "Clear selections"
+msgstr "Vymazat výběry"
+
+msgid "Waiting for approval"
+msgstr "Čekání na schválení"
+
+msgid "Approved"
+msgstr "Schváleno"
+
+msgid "Failed to load approval state"
+msgstr "Stav schválení se nepodařilo načíst"
+
+msgid "Choose a period first"
+msgstr "Nejprve vyberte období"
+
+msgid "Choose a workflow and period first"
+msgstr "Nejprve vyberte pracovní postup a období"
+
+msgid "Organisation Unit"
+msgstr "Organizační jednotka"
+
+msgid "Choose an organisation unit"
+msgstr "Vyberte organizační jednotku"
+
+msgid "Period"
+msgstr "Období"
+
+msgid "Choose a period"
+msgstr "Vyberte období"
+
+msgid "Choose a workflow first"
+msgstr "Nejprve vyberte pracovní postup"
+
+msgid "Workflow"
+msgstr "Pracovní postup"
+
+msgid "Choose a workflow"
+msgstr "Vyberte pracovní postup"
+
+msgid "No workflows found. None may exist, or you may not have access to any."
+msgstr ""
+"Nebyly nalezeny žádné pracovní postupy. Žádný nemusí existovat nebo k němu "
+"nemusíte mít přístup."
+
+msgid "Could not load approval data"
+msgstr "Nepodařilo se načíst údaje o schválení"
+
+msgid "Retry loading approval data"
+msgstr "Zkuste znovu načíst data schválení"

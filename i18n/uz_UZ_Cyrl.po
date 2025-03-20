@@ -1,0 +1,289 @@
+# 
+# Translators:
+# Khurshid Ibatov <Khurshid.Ibatov@tibbiysugurta.uz>, 2023
+# Philip Larsen Donnelly, 2024
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: i18next-conv\n"
+"POT-Creation-Date: 2021-10-07T11:59:16.763Z\n"
+"PO-Revision-Date: 2021-11-04 13:40+0000\n"
+"Last-Translator: Philip Larsen Donnelly, 2024\n"
+"Language-Team: Uzbek (Cyrillic) (https://app.transifex.com/hisp-uio/teams/100509/uz@Cyrl/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: uz@Cyrl\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "Not authorized"
+msgstr "Авторизациядан ўтилмаган"
+
+msgid ""
+"You don't have access to the Data Approval App. Contact a system "
+"administrator to request access."
+msgstr ""
+"Сизга маълумотлар базаси иловасига киришга рухсат берилмаган. Тизим "
+"администраторига алоқага чиқинг ва тизимга кириш рухсатномасига сўров "
+"юборинг."
+
+msgid "Acceptance failed: {{error}}"
+msgstr "Қабул қилинмади: {{error}}"
+
+msgid "Accept"
+msgstr "Қабул қилинг"
+
+msgid "Approval saved"
+msgstr "Тасдиқлаш сақланди"
+
+msgid "Approve"
+msgstr "Тасдиқлаш"
+
+msgid "Approving {{count}} data sets"
+msgid_plural "Approving {{count}} data sets"
+msgstr[0] " {{count}} та маълумотлар тўплами тасдиқланмоқда"
+
+msgid "Approving {{count}} data set"
+msgid_plural "Approving {{count}} data set"
+msgstr[0] " {{count}} та маълумот тўплами тасдиқланмоқда"
+
+msgid "Are you sure you want to approve this data?"
+msgstr "Ҳақиқатдан ҳам ушбу маълумотни тасдиқламоқчимисиз?"
+
+msgid "There was a problem saving this approval"
+msgstr "Тасдиқлашни сақлашда муаммо юз берди."
+
+msgid ""
+"This data couldn’t be approved. Try again, or contact your system "
+"administrator."
+msgstr ""
+"Ушбу маълумот учун тасдиқлашни амалга ошириб бўлмади. Қайта уриниб кўринг "
+"ёки тизим администраторига мурожаат қилинг."
+
+msgid "Cancel"
+msgstr "Бекор қилиш"
+
+msgid "Unacceptance failed: {{error}}"
+msgstr "Қабул қилинмади: {{error}}"
+
+msgid "Unaccept"
+msgstr "Қабул қилинмасин"
+
+msgid "Unapproval failed: {{error}}"
+msgstr "Тасдиқланмаган: {{error}}"
+
+msgid "Unapprove"
+msgstr "Тасдиқланмасин/Рад этилсин"
+
+msgid "This workflow does not contain any data sets."
+msgstr "Ушбу ишчи жараёнда маълумот тўпламлари мавжуд эмас"
+
+msgid "Choose a data set to review"
+msgstr "Кўриб чиқиш учун маълумотлар тўпламини танланг"
+
+msgid ""
+"{{- workflowName}} has multiple data sets. Choose a data set from the tabs "
+"above."
+msgstr ""
+"{{- workflowName}} бир неча маълумотлар тўплами мавжуд. Юқоридаги "
+"ёрлиқлардан маълумотлар тўпламини танланг."
+
+msgid "Loading data set"
+msgstr "Маълумотлар тўплами юкланмоқда"
+
+msgid "There was a problem displaying this data set"
+msgstr "Ушбу маълумотлар тўпламини экранда кўрсатишда муаммо мавжуд"
+
+msgid ""
+"This data set couldn't be loaded or displayed. Try again, or contact your "
+"system administrator."
+msgstr ""
+"Ушбу маълумот тўпламини юклаб бўлмади ёки экранда кўрсатиб бўлмади. Қайта "
+"уриниб кўринг ёки тизим администраторига мурожаат қилинг."
+
+msgid "Retry loading data set"
+msgstr "Маълумотлар тўпламини юклашда уриниб кўринг"
+
+msgid "This data set doesn't have any data for {{- period}} in {{- orgUnit}}."
+msgstr ""
+"Бу маълумотлар тўпламида {{- period}} ичида {{- orgUnit}} учун ҳеч қандай "
+"маълумот йўқ."
+
+msgid "1 data set"
+msgstr "1 та Маълумот тўплами"
+
+msgid "{{dataSetsCount}} data sets"
+msgstr "{{dataSetsCount}} маълумот тўпламлари"
+
+msgid "Approved {{- dateTimeStr}}"
+msgstr "Тасдиқланган {{- dateTimeStr}}"
+
+msgid "Ready for approval"
+msgstr "Тасдиқ учун тайёр"
+
+msgid "Waiting for lower level approval"
+msgstr "Қуйи поғонада тасдиқланиш кутилмоқда"
+
+msgid "Waiting for higher level approval"
+msgstr "Юқори поғонада тасдиқланиш кутилмоқда"
+
+msgid "Approval by {{- name}} accepted {{timeAgo}}"
+msgstr "Тасдиқламоқ {{- name}} томонидан {{timeAgo}} қабул қилинди"
+
+msgid "Approved by {{- name}} {{timeAgo}}"
+msgstr "Тасдиқланиш {{- name}} томонидан {{timeAgo}}"
+
+msgid "Approved at higher level"
+msgstr "Юқори поғона томонидан тасдиқланган"
+
+msgid "You do not have authority to approve data"
+msgstr "Сизда маълумотларни тасдиқлаш ҳуқуқи мавжуд эмас"
+
+msgid "Cannot be approved"
+msgstr "Тасдиқлаш мумкин эмас"
+
+msgid "Could not retrieve approval status"
+msgstr "Тасдиқланиш ҳолатини аниқлаб бўлмади"
+
+msgid "January"
+msgstr "Январь"
+
+msgid "February"
+msgstr "Февраль"
+
+msgid "March"
+msgstr "Март"
+
+msgid "April"
+msgstr "Апрель"
+
+msgid "May"
+msgstr "Май"
+
+msgid "June"
+msgstr "Июнь"
+
+msgid "July"
+msgstr "Июль"
+
+msgid "August"
+msgstr "Август"
+
+msgid "September"
+msgstr "Сентябрь"
+
+msgid "October"
+msgstr "Октябрь"
+
+msgid "November"
+msgstr "Ноябрь"
+
+msgid "December"
+msgstr "Декабрь"
+
+msgid "Week {{weekNumber}}"
+msgstr "Ҳафта {{weekNumber}}"
+
+msgid "Bi-Week {{biWeekNumber}}"
+msgstr "Жуфт ҳафта {{biWeekNumber}}"
+
+msgid "Daily"
+msgstr "Кунлик"
+
+msgid "Weekly"
+msgstr "Ҳафталик"
+
+msgid "Weekly (Start Wednesday)"
+msgstr "Ҳафталик (Бошланиши Чоршанба)"
+
+msgid "Weekly (Start Thursday)"
+msgstr "Ҳафталик (Бошланиши Пайшанба)"
+
+msgid "Weekly (Start Saturday)"
+msgstr "Ҳафталик (Бошланиши Шанба)"
+
+msgid "Weekly (Start Sunday)"
+msgstr "Ҳафталик (Бошланиши Якшанба)"
+
+msgid "Bi-weekly"
+msgstr "Жуфт ҳафталик"
+
+msgid "Monthly"
+msgstr "Ойлик"
+
+msgid "Bi-monthly"
+msgstr "Жуфт ойлик"
+
+msgid "Quarterly"
+msgstr "Ҳар квартал"
+
+msgid "Six-monthly"
+msgstr "Ярим йиллик"
+
+msgid "Six-monthly April"
+msgstr "Ярим йиллик Апрель"
+
+msgid "Yearly"
+msgstr "Йиллик"
+
+msgid "Financial year (Start November)"
+msgstr "Молиявий йил (Бошланиши Ноябрь)"
+
+msgid "Financial year (Start October)"
+msgstr "Молиявий йил (бошланиши Октябрь)"
+
+msgid "Financial year (Start July)"
+msgstr "Молиявий йил (бошланиши Июль)"
+
+msgid "Financial year (Start April)"
+msgstr "Молиявий йил (бошланиши Апрель)"
+
+msgid "Clear selections"
+msgstr "Танловларни тозалаш"
+
+msgid "Waiting for approval"
+msgstr "Тасдиқлаш кутилмоқда"
+
+msgid "Approved"
+msgstr "Тасдиқланган"
+
+msgid "Failed to load approval state"
+msgstr "Тасдиқ ҳолатини юклаб бўлмади"
+
+msgid "Choose a period first"
+msgstr "Дастлаь даврни танланг"
+
+msgid "Choose a workflow and period first"
+msgstr "Дастлаб иш жараёни ва даврни танланг"
+
+msgid "Organisation Unit"
+msgstr "Ташкилий Бўлим"
+
+msgid "Choose an organisation unit"
+msgstr "Ташкилий бирликни танланг"
+
+msgid "Period"
+msgstr "Давр"
+
+msgid "Choose a period"
+msgstr "Даврни танланг"
+
+msgid "Choose a workflow first"
+msgstr "Дастлаб иш жараёнини танланг"
+
+msgid "Workflow"
+msgstr "Иш жараёни"
+
+msgid "Choose a workflow"
+msgstr "Иш жараёнини танланг"
+
+msgid "No workflows found. None may exist, or you may not have access to any."
+msgstr ""
+"Ҳеч қандай иш жараёни топилмади. Ҳеч бири мавжуд бўлмаслиги мумкин ёки сиз "
+"ҳеч бирига кира олмайсиз."
+
+msgid "Could not load approval data"
+msgstr "Тасдиқлаш маълумоти юкланмади"
+
+msgid "Retry loading approval data"
+msgstr "Тасдиқлаш маълумотини қайта юклаб кўринг"

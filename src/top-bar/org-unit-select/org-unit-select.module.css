@@ -1,0 +1,43 @@
+.popoverContainer {
+    display: grid;
+    width: 400px;
+}
+
+.scrollbox {
+    min-height: 400px;
+    max-height: 70vh;
+    overflow-y: auto;
+    padding-top: var(--spacers-dp8);
+}
+
+/*
+ * Override default checked styles of organisation unit tree, which
+ * offer limited contrast against status icon colours
+ */
+.scrollbox :global(.checked) {
+    background: var(--colors-grey300) !important;
+    color: var(--colors-grey900) !important;
+}
+
+/* Center the container */
+.inputContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 4px 8px 8px 8px;
+}
+
+/* Style the input */
+.searchInput {
+    width: 100%;
+    max-width: 400px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: none;
+}
+
+.searchInput:focus {
+    border: 3px solid #5381ec !important;
+    outline: none;
+}

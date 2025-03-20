@@ -1,0 +1,287 @@
+# 
+# Translators:
+# Philip Larsen Donnelly, 2021
+# Viktor Varland <viktor@dhis2.org>, 2021
+# Thuy Nguyen <thuynguyen@hispvietnam.org>, 2021
+# Phouthasinh PHEUAYSITHIPHONE, 2023
+# Namwan Chanthavisouk, 2024
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: i18next-conv\n"
+"POT-Creation-Date: 2021-10-07T11:59:16.763Z\n"
+"PO-Revision-Date: 2021-11-04 13:40+0000\n"
+"Last-Translator: Namwan Chanthavisouk, 2024\n"
+"Language-Team: Lao (https://app.transifex.com/hisp-uio/teams/100509/lo/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: lo\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "Not authorized"
+msgstr "ບໍ່ໄດ້ຮັບອະນຸຍາດ"
+
+msgid ""
+"You don't have access to the Data Approval App. Contact a system "
+"administrator to request access."
+msgstr ""
+"ທ່ານບໍ່ໄດ້ຮັບອານຸຍາດໃຫ້ເຂົ້າເຖິງແອັບການອະນຸມັດຂໍ້ມູນ. "
+"ກະລຸນາຕິດຕໍ່ຜູ້ຮັບຜິດຊອບລະບົບເພື່ອຮ້ອງຂໍການເຂົ້າເຖິງ."
+
+msgid "Acceptance failed: {{error}}"
+msgstr "ການຍອມຮັບລົ້ມເຫລວ: {{error}}"
+
+msgid "Accept"
+msgstr "ຍອມຮັບ"
+
+msgid "Approval saved"
+msgstr "ບັນທຶກການອະນຸມັດແລ້ວ"
+
+msgid "Approve"
+msgstr "​ອະນຸມັດ"
+
+msgid "Approving {{count}} data sets"
+msgid_plural "Approving {{count}} data sets"
+msgstr[0] "ກຳລັງອະນຸມັດຊຸດຂໍ້ມູນ {{count}}"
+
+msgid "Approving {{count}} data set"
+msgid_plural "Approving {{count}} data set"
+msgstr[0] "ກຳລັງອະນຸມັດຊຸດຂໍ້ມູນ {{count}}"
+
+msgid "Are you sure you want to approve this data?"
+msgstr "ທ່ານແນ່ໃຈບໍ່ວ່າຕ້ອງການອະນຸມັດຂໍ້ມູນນີ້?"
+
+msgid "There was a problem saving this approval"
+msgstr "ພົບບັນຫາໃນການບັນທຶກການອະນຸມັດນີ້"
+
+msgid ""
+"This data couldn’t be approved. Try again, or contact your system "
+"administrator."
+msgstr ""
+"ຂໍ້ມູນນີ້ບໍ່ສາມາດອະນຸມັດໄດ້. ລອງອີກຄັ້ງ ຫຼື ຕິດຕໍ່ຜູ້ດູແລລະບົບຂອງທ່ານ."
+
+msgid "Cancel"
+msgstr "Cancel"
+
+msgid "Unacceptance failed: {{error}}"
+msgstr "ການຍອມຮັບລົ້ມເຫລວ: {{error}}"
+
+msgid "Unaccept"
+msgstr "ຍົກເລິກການຮັບຮອງ"
+
+msgid "Unapproval failed: {{error}}"
+msgstr "ການອະນຸມັດບໍ່ສຳເລັດ: {{error}}"
+
+msgid "Unapprove"
+msgstr "​ຍົກເລິກການອະນຸມັດ"
+
+msgid "This workflow does not contain any data sets."
+msgstr "ຂັ້ນຕອນການເຮັດວຽກນີ້ບໍ່ມີຊຸດຂໍ້ມູນໃດໆ."
+
+msgid "Choose a data set to review"
+msgstr "ເລືອກຊຸດຂໍ້ມູນເພື່ອກວດສອບ"
+
+msgid ""
+"{{- workflowName}} has multiple data sets. Choose a data set from the tabs "
+"above."
+msgstr ""
+"{{- workflowName}} ມີຫຼາຍຊຸດຂໍ້ມູນ. ກະລຸນາເລືອກຊຸດຂໍ້ມູນຈາກແຖບຂ້າງເທິງ."
+
+msgid "Loading data set"
+msgstr "ກຳລັງໂຫຼດຊຸດຂໍ້ມູນ"
+
+msgid "There was a problem displaying this data set"
+msgstr "ພົບບັນຫາໃນການສະແດງຊຸດຂໍ້ມູນນີ້"
+
+msgid ""
+"This data set couldn't be loaded or displayed. Try again, or contact your "
+"system administrator."
+msgstr ""
+"ບໍ່ສາມາດໂຫຼດ ຫຼື ສະແດງຊຸດຂໍ້ມູນນີ້ໄດ້. ກະລຸນາລອງໃໝ່ ຫຼື "
+"ຕິດຕໍ່ຜູ້ດູແລລະບົບຂອງທ່ານ."
+
+msgid "Retry loading data set"
+msgstr "ໂຫຼດຊຸດຂໍ້ມູນຄືນໃໝ່"
+
+msgid "This data set doesn't have any data for {{- period}} in {{- orgUnit}}."
+msgstr "ຊຸດຂໍ້ມູນນີ້ບໍ່ມີຂໍ້ມູນໃດໆສຳລັບ {{- period}} ໃນ {{- orgUnit}}."
+
+msgid "1 data set"
+msgstr "1 ຊຸດຂໍ້ມູນ"
+
+msgid "{{dataSetsCount}} data sets"
+msgstr "ຊຸດຂໍ້ມູນ {{dataSetsCount}}"
+
+msgid "Approved {{- dateTimeStr}}"
+msgstr "ອະນຸມັດ {{- dateTimeStr}}"
+
+msgid "Ready for approval"
+msgstr "​ກຽມ​ພ້ອມ​ເພື່ອ​ການ​ອະນຸມັດ"
+
+msgid "Waiting for lower level approval"
+msgstr "ກຳລັງລໍຖ້າການອະນຸມັດຈາກລະດັບລຸ່ມ"
+
+msgid "Waiting for higher level approval"
+msgstr "ກຳລັງລໍຖ້າການອະນຸມັດຈາກລະດັບເທິງ"
+
+msgid "Approval by {{- name}} accepted {{timeAgo}}"
+msgstr "ການອະນຸມັດໂດຍ {{- name}} ຍອມຮັບ {{timeAgo}}"
+
+msgid "Approved by {{- name}} {{timeAgo}}"
+msgstr "ອະນຸມັດໂດຍ {{- name}} {{timeAgo}}"
+
+msgid "Approved at higher level"
+msgstr "ອະນຸມັດໃນລະດັບຂັ້ນເທິງ"
+
+msgid "You do not have authority to approve data"
+msgstr "ທ່ານບໍ່ໄດ້ຮັບອະນຸຍາດໃນການອະນຸມັດຂໍ້ມູນ"
+
+msgid "Cannot be approved"
+msgstr "ບໍ່ສາມາດອະນຸມັດໄດ້"
+
+msgid "Could not retrieve approval status"
+msgstr "ບໍ່ສາມາດດຶງຂໍ້ມູນສະຖານະການອະນຸມັດໄດ້"
+
+msgid "January"
+msgstr "ມັງກອນ"
+
+msgid "February"
+msgstr "ກຸມພາ"
+
+msgid "March"
+msgstr "ມີນາ"
+
+msgid "April"
+msgstr "ເມສາ"
+
+msgid "May"
+msgstr "ພຶດສະພາ"
+
+msgid "June"
+msgstr "ມີຖຸນາ"
+
+msgid "July"
+msgstr "ກໍລະກົດ"
+
+msgid "August"
+msgstr "ສິງຫາ"
+
+msgid "September"
+msgstr "ກັນຍາ"
+
+msgid "October"
+msgstr "ຕຸລາ"
+
+msgid "November"
+msgstr "ພະຈິກ"
+
+msgid "December"
+msgstr "ທັນວາ"
+
+msgid "Week {{weekNumber}}"
+msgstr "ອາທິດ {{weekNumber}}"
+
+msgid "Bi-Week {{biWeekNumber}}"
+msgstr "ທຸກສອງອາທິດ {{biWeekNumber}}"
+
+msgid "Daily"
+msgstr "ທຸກໆມື້"
+
+msgid "Weekly"
+msgstr "ເປັນອາທິດ"
+
+msgid "Weekly (Start Wednesday)"
+msgstr "ເປັນອາທິດ (ເລີ່ມຈາກວັນພຸດ)"
+
+msgid "Weekly (Start Thursday)"
+msgstr "ເປັນອາທິດ (ເລີ່ມຈາກວັນພະຫັດ)"
+
+msgid "Weekly (Start Saturday)"
+msgstr "ເປັນອາທິດ (ເລີ່ມຈາກວັນເສົາ)"
+
+msgid "Weekly (Start Sunday)"
+msgstr "ເປັນອາທິດ (ເລີ່ມຈາກວັນອາທິດ)"
+
+msgid "Bi-weekly"
+msgstr "ສອງອາທິດຕໍ່ຄັ້ງ"
+
+msgid "Monthly"
+msgstr "ລາຍເດືອນ"
+
+msgid "Bi-monthly"
+msgstr "ທຸກໆສອງເດືອນ"
+
+msgid "Quarterly"
+msgstr "ໄຕມາດ"
+
+msgid "Six-monthly"
+msgstr "ແຕ່ລະ 6 ເດືອນ"
+
+msgid "Six-monthly April"
+msgstr "ແຕ່ລະຫົກເດືອນ ແລະ ເດືອນເມສາ"
+
+msgid "Yearly"
+msgstr "ລາຍປີ"
+
+msgid "Financial year (Start November)"
+msgstr "ສົກປີງົບປະມານ (ເລີ່ມແຕ່ເດືອນພະຈິກ)"
+
+msgid "Financial year (Start October)"
+msgstr "ສົກປີງົບປະມານ (ເລີ່ມແຕ່ເດືອນຕຸລາ)"
+
+msgid "Financial year (Start July)"
+msgstr "ສົກປີງົບປະມານ (ເລີ່ມແຕ່ເດືອນມິຖຸນາ)"
+
+msgid "Financial year (Start April)"
+msgstr "ສົກປີງົບປະມານ (ເລີ່ມແຕ່ເດືອນເມສາ)"
+
+msgid "Clear selections"
+msgstr "ລົບຕົວເລືອກ"
+
+msgid "Waiting for approval"
+msgstr "ກຳລັງລໍຖ້າການອະນຸມັດ"
+
+msgid "Approved"
+msgstr "​ໄດ້ຮັບອະນຸມັດແລ້ວ"
+
+msgid "Failed to load approval state"
+msgstr "ບໍ່ສາມາດໂຫຼດສະຖານະການອະນຸມັດ"
+
+msgid "Choose a period first"
+msgstr "ເລືອກໄລຍະເວລາກ່ອນ"
+
+msgid "Choose a workflow and period first"
+msgstr "ເລືອກຂັ້ນຕອນການເຮັດວຽກ ແລະ ໄລຍະເວລາກ່ອນ"
+
+msgid "Organisation Unit"
+msgstr "ຫົວໜ່ວຍ ການຈັດຕັ້ງ"
+
+msgid "Choose an organisation unit"
+msgstr "ເລືອກຫົວໜ່ວຍການຈັດຕັງ"
+
+msgid "Period"
+msgstr "ຊ່ວງເວລາ"
+
+msgid "Choose a period"
+msgstr "ເລືອກໄລຍະເວລາ"
+
+msgid "Choose a workflow first"
+msgstr "ເລືອກຂັ້ນຕອນການເຮັດວຽກກ່ອນ"
+
+msgid "Workflow"
+msgstr "ຂັນຕອນການເຮັດວຽກ"
+
+msgid "Choose a workflow"
+msgstr "ເລືອກຂັ້ນຕອນການເຮັດວຽກ"
+
+msgid "No workflows found. None may exist, or you may not have access to any."
+msgstr ""
+"ບໍ່ພົບຂັ້ນຕອນການເຮັດວຽກ. ບໍ່ພົບອັນທີ່ມີຢູ່, "
+"ຫຼືທ່ານອາດຈະບໍ່ໄດ້ຮັບອະນຸຍາດໃນການເຂົ້າເຖິງໃດໆ."
+
+msgid "Could not load approval data"
+msgstr "ບໍ່ສາມາດໂຫຼດຂໍ້ມູນການອະນຸມັດໄດ້"
+
+msgid "Retry loading approval data"
+msgstr "ໂຫຼດຂໍ້ມູນການອະນຸມັດຄືນໃໝ່"

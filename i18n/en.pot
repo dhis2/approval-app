@@ -1,0 +1,344 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: i18next-conv\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"POT-Creation-Date: 2025-02-28T07:19:16.560Z\n"
+"PO-Revision-Date: 2025-02-28T07:19:16.560Z\n"
+
+msgid "Not authorized"
+msgstr "Not authorized"
+
+msgid ""
+"You don't have access to the Data Approval App. Contact a system "
+"administrator to request access."
+msgstr ""
+"You don't have access to the Data Approval App. Contact a system "
+"administrator to request access."
+
+msgid "Acceptance failed: {{error}}"
+msgstr "Acceptance failed: {{error}}"
+
+msgid "Accept"
+msgstr "Accept"
+
+msgid "Approval saved"
+msgstr "Approval saved"
+
+msgid "Approve"
+msgstr "Approve"
+
+msgid "Approving {{count}} data sets"
+msgid_plural "Approving {{count}} data sets"
+msgstr[0] "Approving {{count}} data sets"
+msgstr[1] "Approving {{count}} data sets"
+
+msgid "Approving {{count}} data set"
+msgid_plural "Approving {{count}} data set"
+msgstr[0] "Approving {{count}} data set"
+msgstr[1] "Approving {{count}} data set"
+
+msgid "Are you sure you want to approve this data?"
+msgstr "Are you sure you want to approve this data?"
+
+msgid "There was a problem saving this approval"
+msgstr "There was a problem saving this approval"
+
+msgid ""
+"This data couldn’t be approved. Try again, or contact your system "
+"administrator."
+msgstr ""
+"This data couldn’t be approved. Try again, or contact your system "
+"administrator."
+
+msgid "Cancel"
+msgstr "Cancel"
+
+msgid "Unacceptance failed: {{error}}"
+msgstr "Unacceptance failed: {{error}}"
+
+msgid "Unaccept"
+msgstr "Unaccept"
+
+msgid "Unapproval failed: {{error}}"
+msgstr "Unapproval failed: {{error}}"
+
+msgid "Unapprove"
+msgstr "Unapprove"
+
+msgid ""
+"Workflow \"{{ workflowName }}\", organisation unit \"{{ orgunitName }}\" "
+"and attribute option combo \"{{ attrOptionComboName }}\" does not contain "
+"any data sets."
+msgstr ""
+"Workflow \"{{ workflowName }}\", organisation unit \"{{ orgunitName }}\" "
+"and attribute option combo \"{{ attrOptionComboName }}\" does not contain "
+"any data sets."
+
+msgid "Choose a data set to review"
+msgstr "Choose a data set to review"
+
+msgid ""
+"{{- workflowName}} has multiple data sets. Choose a data set from the tabs "
+"above."
+msgstr ""
+"{{- workflowName}} has multiple data sets. Choose a data set from the tabs "
+"above."
+
+msgid "Could not load approval data"
+msgstr "Could not load approval data"
+
+msgid ""
+"The selected workflow \"{{workflowName}}\" does not have any associated "
+"data sets."
+msgstr ""
+"The selected workflow \"{{workflowName}}\" does not have any associated "
+"data sets."
+
+msgid ""
+"Please verify the workflow configuration or select a different workflow "
+"that includes data sets."
+msgstr ""
+"Please verify the workflow configuration or select a different workflow "
+"that includes data sets."
+
+msgid "Loading data set"
+msgstr "Loading data set"
+
+msgid "There was a problem displaying this data set"
+msgstr "There was a problem displaying this data set"
+
+msgid ""
+"This data set couldn't be loaded or displayed. Try again, or contact your "
+"system administrator."
+msgstr ""
+"This data set couldn't be loaded or displayed. Try again, or contact your "
+"system administrator."
+
+msgid "Retry loading data set"
+msgstr "Retry loading data set"
+
+msgid "This data set doesn't have any data for {{- period}} in {{- orgUnit}}."
+msgstr "This data set doesn't have any data for {{- period}} in {{- orgUnit}}."
+
+msgid "1 data set"
+msgstr "1 data set"
+
+msgid "{{dataSetsCount}} data sets"
+msgstr "{{dataSetsCount}} data sets"
+
+msgid "Approved {{- dateTimeStr}}"
+msgstr "Approved {{- dateTimeStr}}"
+
+msgid "Ready for approval"
+msgstr "Ready for approval"
+
+msgid "Waiting for lower level approval"
+msgstr "Waiting for lower level approval"
+
+msgid "Waiting for higher level approval"
+msgstr "Waiting for higher level approval"
+
+msgid "Approval by {{- name}} accepted {{timeAgo}}"
+msgstr "Approval by {{- name}} accepted {{timeAgo}}"
+
+msgid "Approved by {{- name}} {{timeAgo}}"
+msgstr "Approved by {{- name}} {{timeAgo}}"
+
+msgid "Approved at higher level"
+msgstr "Approved at higher level"
+
+msgid "You do not have authority to approve data"
+msgstr "You do not have authority to approve data"
+
+msgid "Cannot be approved"
+msgstr "Cannot be approved"
+
+msgid "Could not retrieve approval status"
+msgstr "Could not retrieve approval status"
+
+msgid "January"
+msgstr "January"
+
+msgid "February"
+msgstr "February"
+
+msgid "March"
+msgstr "March"
+
+msgid "April"
+msgstr "April"
+
+msgid "May"
+msgstr "May"
+
+msgid "June"
+msgstr "June"
+
+msgid "July"
+msgstr "July"
+
+msgid "August"
+msgstr "August"
+
+msgid "September"
+msgstr "September"
+
+msgid "October"
+msgstr "October"
+
+msgid "November"
+msgstr "November"
+
+msgid "December"
+msgstr "December"
+
+msgid "Week {{weekNumber}}"
+msgstr "Week {{weekNumber}}"
+
+msgid "Bi-Week {{biWeekNumber}}"
+msgstr "Bi-Week {{biWeekNumber}}"
+
+msgid "Daily"
+msgstr "Daily"
+
+msgid "Weekly"
+msgstr "Weekly"
+
+msgid "Weekly (Start Wednesday)"
+msgstr "Weekly (Start Wednesday)"
+
+msgid "Weekly (Start Thursday)"
+msgstr "Weekly (Start Thursday)"
+
+msgid "Weekly (Start Saturday)"
+msgstr "Weekly (Start Saturday)"
+
+msgid "Weekly (Start Sunday)"
+msgstr "Weekly (Start Sunday)"
+
+msgid "Bi-weekly"
+msgstr "Bi-weekly"
+
+msgid "Monthly"
+msgstr "Monthly"
+
+msgid "Bi-monthly"
+msgstr "Bi-monthly"
+
+msgid "Quarterly"
+msgstr "Quarterly"
+
+msgid "Six-monthly"
+msgstr "Six-monthly"
+
+msgid "Six-monthly April"
+msgstr "Six-monthly April"
+
+msgid "Yearly"
+msgstr "Yearly"
+
+msgid "Financial year (Start November)"
+msgstr "Financial year (Start November)"
+
+msgid "Financial year (Start October)"
+msgstr "Financial year (Start October)"
+
+msgid "Financial year (Start July)"
+msgstr "Financial year (Start July)"
+
+msgid "Financial year (Start April)"
+msgstr "Financial year (Start April)"
+
+msgid "Choose a period first"
+msgstr "Choose a period first"
+
+msgid "Choose an organisation unit first"
+msgstr "Choose an organisation unit first"
+
+msgid "1 selection"
+msgstr "1 selection"
+
+msgid "0 selections"
+msgstr "0 selections"
+
+msgid "{{amount}} selections"
+msgstr "{{amount}} selections"
+
+msgid "Category Option Combo"
+msgstr "Category Option Combo"
+
+msgid "Choose a category option combo"
+msgstr "Choose a category option combo"
+
+msgid "Choose a combination"
+msgstr "Choose a combination"
+
+msgid "Hide menu"
+msgstr "Hide menu"
+
+msgid "No available options"
+msgstr "No available options"
+
+msgid ""
+"There are no options for {{categoryName}} for the selected period or "
+"organisation unit."
+msgstr ""
+"There are no options for {{categoryName}} for the selected period or "
+"organisation unit."
+
+msgid "Search for {{categoryName}}"
+msgstr "Search for {{categoryName}}"
+
+msgid "No results found for {{searchQuery}}"
+msgstr "No results found for {{searchQuery}}"
+
+msgid "Clear selections"
+msgstr "Clear selections"
+
+msgid "Waiting for approval"
+msgstr "Waiting for approval"
+
+msgid "Approved"
+msgstr "Approved"
+
+msgid "Failed to load approval state"
+msgstr "Failed to load approval state"
+
+msgid "Choose a workflow and period first"
+msgstr "Choose a workflow and period first"
+
+msgid "Organisation Unit"
+msgstr "Organisation Unit"
+
+msgid "Choose an organisation unit"
+msgstr "Choose an organisation unit"
+
+msgid "Search by name"
+msgstr "Search by name"
+
+msgid "Period"
+msgstr "Period"
+
+msgid "Choose a period"
+msgstr "Choose a period"
+
+msgid "Choose a workflow first"
+msgstr "Choose a workflow first"
+
+msgid "Workflow"
+msgstr "Workflow"
+
+msgid "Choose a workflow"
+msgstr "Choose a workflow"
+
+msgid "No workflows found. None may exist, or you may not have access to any."
+msgstr "No workflows found. None may exist, or you may not have access to any."
+
+msgid "Search"
+msgstr "Search"
+
+msgid "Retry loading approval data"
+msgstr "Retry loading approval data"

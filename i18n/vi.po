@@ -1,0 +1,280 @@
+# 
+# Translators:
+# Philip Larsen Donnelly, 2021
+# Viktor Varland <viktor@dhis2.org>, 2021
+# Mai Nguyen <thanhmai.jica@gmail.com>, 2021
+# Em Le <em.hispvietnam@gmail.com>, 2024
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: i18next-conv\n"
+"POT-Creation-Date: 2021-10-07T11:59:16.763Z\n"
+"PO-Revision-Date: 2021-11-04 13:40+0000\n"
+"Last-Translator: Em Le <em.hispvietnam@gmail.com>, 2024\n"
+"Language-Team: Vietnamese (https://app.transifex.com/hisp-uio/teams/100509/vi/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: vi\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "Not authorized"
+msgstr "Không được phép"
+
+msgid ""
+"You don't have access to the Data Approval App. Contact a system "
+"administrator to request access."
+msgstr ""
+"Bạn không có quyền truy cập vào Ứng dụng phê duyệt dữ liệu. Hãy liên hệ với "
+"quản trị viên hệ thống để yêu cầu quyền truy cập."
+
+msgid "Acceptance failed: {{error}}"
+msgstr ""
+
+msgid "Accept"
+msgstr "Chấp nhận"
+
+msgid "Approval saved"
+msgstr ""
+
+msgid "Approve"
+msgstr "Duyệt"
+
+msgid "Approving {{count}} data sets"
+msgid_plural "Approving {{count}} data sets"
+msgstr[0] ""
+
+msgid "Approving {{count}} data set"
+msgid_plural "Approving {{count}} data set"
+msgstr[0] ""
+
+msgid "Are you sure you want to approve this data?"
+msgstr ""
+
+msgid "There was a problem saving this approval"
+msgstr ""
+
+msgid ""
+"This data couldn’t be approved. Try again, or contact your system "
+"administrator."
+msgstr ""
+
+msgid "Cancel"
+msgstr "Hủy"
+
+msgid "Unacceptance failed: {{error}}"
+msgstr ""
+
+msgid "Unaccept"
+msgstr "Bỏ chấp nhận"
+
+msgid "Unapproval failed: {{error}}"
+msgstr ""
+
+msgid "Unapprove"
+msgstr "Bỏ duyệt"
+
+msgid "This workflow does not contain any data sets."
+msgstr ""
+
+msgid "Choose a data set to review"
+msgstr ""
+
+msgid ""
+"{{- workflowName}} has multiple data sets. Choose a data set from the tabs "
+"above."
+msgstr ""
+
+msgid "Loading data set"
+msgstr ""
+
+msgid "There was a problem displaying this data set"
+msgstr ""
+
+msgid ""
+"This data set couldn't be loaded or displayed. Try again, or contact your "
+"system administrator."
+msgstr ""
+
+msgid "Retry loading data set"
+msgstr ""
+
+msgid "This data set doesn't have any data for {{- period}} in {{- orgUnit}}."
+msgstr ""
+
+msgid "1 data set"
+msgstr ""
+
+msgid "{{dataSetsCount}} data sets"
+msgstr ""
+
+msgid "Approved {{- dateTimeStr}}"
+msgstr ""
+
+msgid "Ready for approval"
+msgstr "Sẵn sàng duyệt"
+
+msgid "Waiting for lower level approval"
+msgstr ""
+
+msgid "Waiting for higher level approval"
+msgstr ""
+
+msgid "Approval by {{- name}} accepted {{timeAgo}}"
+msgstr ""
+
+msgid "Approved by {{- name}} {{timeAgo}}"
+msgstr ""
+
+msgid "Approved at higher level"
+msgstr ""
+
+msgid "You do not have authority to approve data"
+msgstr ""
+
+msgid "Cannot be approved"
+msgstr ""
+
+msgid "Could not retrieve approval status"
+msgstr ""
+
+msgid "January"
+msgstr "Tháng một"
+
+msgid "February"
+msgstr "Tháng hai"
+
+msgid "March"
+msgstr "Tháng ba"
+
+msgid "April"
+msgstr "Tháng tư"
+
+msgid "May"
+msgstr "Tháng năm"
+
+msgid "June"
+msgstr "Tháng sáu"
+
+msgid "July"
+msgstr "Tháng bảy"
+
+msgid "August"
+msgstr "Tháng tám"
+
+msgid "September"
+msgstr "Tháng chín"
+
+msgid "October"
+msgstr "Tháng mười"
+
+msgid "November"
+msgstr "Tháng mười một"
+
+msgid "December"
+msgstr "Tháng mười hai"
+
+msgid "Week {{weekNumber}}"
+msgstr "Tuần {{weekNumber}}"
+
+msgid "Bi-Week {{biWeekNumber}}"
+msgstr "Hai tuần {{biWeekNumber}}"
+
+msgid "Daily"
+msgstr "Hàng ngày"
+
+msgid "Weekly"
+msgstr "Hàng tuần"
+
+msgid "Weekly (Start Wednesday)"
+msgstr "Hàng tuần (Bắt đầu từ Thứ Tư)"
+
+msgid "Weekly (Start Thursday)"
+msgstr "Hàng tuần (Bắt đầu từ Thứ Năm)"
+
+msgid "Weekly (Start Saturday)"
+msgstr "Hàng tuần (Bắt đầu từ Thứ Bảy)"
+
+msgid "Weekly (Start Sunday)"
+msgstr "Hàng tuần (Bắt đầu từ Chủ nhật)"
+
+msgid "Bi-weekly"
+msgstr "Hai-tuần"
+
+msgid "Monthly"
+msgstr "Hàng tháng"
+
+msgid "Bi-monthly"
+msgstr "Hàng 2 tháng"
+
+msgid "Quarterly"
+msgstr "Hàng quý"
+
+msgid "Six-monthly"
+msgstr "Hàng 6 tháng"
+
+msgid "Six-monthly April"
+msgstr "Hàng 6 tháng - tháng 4"
+
+msgid "Yearly"
+msgstr "Hàng năm"
+
+msgid "Financial year (Start November)"
+msgstr "Năm tài chính (Bắt đầu từ tháng 11)"
+
+msgid "Financial year (Start October)"
+msgstr "Năm Tài Chính - Tháng 10"
+
+msgid "Financial year (Start July)"
+msgstr "Năm Tài Chính - Tháng 7"
+
+msgid "Financial year (Start April)"
+msgstr "Năm Tài Chính - Tháng 4"
+
+msgid "Clear selections"
+msgstr "Xóa các lựa chọn"
+
+msgid "Waiting for approval"
+msgstr ""
+
+msgid "Approved"
+msgstr "Đã duyệt"
+
+msgid "Failed to load approval state"
+msgstr ""
+
+msgid "Choose a period first"
+msgstr ""
+
+msgid "Choose a workflow and period first"
+msgstr ""
+
+msgid "Organisation Unit"
+msgstr "Đơn vị"
+
+msgid "Choose an organisation unit"
+msgstr "Chọn một đơn vị"
+
+msgid "Period"
+msgstr "Thời điểm"
+
+msgid "Choose a period"
+msgstr "Chọn một thời điểm"
+
+msgid "Choose a workflow first"
+msgstr ""
+
+msgid "Workflow"
+msgstr ""
+
+msgid "Choose a workflow"
+msgstr ""
+
+msgid "No workflows found. None may exist, or you may not have access to any."
+msgstr ""
+
+msgid "Could not load approval data"
+msgstr ""
+
+msgid "Retry loading approval data"
+msgstr ""

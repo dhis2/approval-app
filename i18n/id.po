@@ -1,0 +1,280 @@
+# 
+# Translators:
+# Guardian Sanjaya <gysanjaya@ugm.ac.id>, 2021
+# Aprisa Chrysantina <aprisa.chrysantina@gmail.com>, 2021
+# Viktor Varland <viktor@dhis2.org>, 2021
+# Yusuf Setiawan <mohammadyusufsetiawan@gmail.com>, 2021
+# Untoro Dwi Raharjo <untoro.dwi.raharjo@mail.ugm.ac.id>, 2021
+# Raja Fathurrahim, 2022
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: i18next-conv\n"
+"POT-Creation-Date: 2021-10-07T11:59:16.763Z\n"
+"PO-Revision-Date: 2021-11-04 13:40+0000\n"
+"Last-Translator: Raja Fathurrahim, 2022\n"
+"Language-Team: Indonesian (https://www.transifex.com/hisp-uio/teams/100509/id/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: id\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "Not authorized"
+msgstr ""
+
+msgid ""
+"You don't have access to the Data Approval App. Contact a system "
+"administrator to request access."
+msgstr ""
+
+msgid "Acceptance failed: {{error}}"
+msgstr ""
+
+msgid "Accept"
+msgstr "Terima"
+
+msgid "Approval saved"
+msgstr ""
+
+msgid "Approve"
+msgstr ""
+
+msgid "Approving {{count}} data sets"
+msgid_plural "Approving {{count}} data sets"
+msgstr[0] ""
+
+msgid "Approving {{count}} data set"
+msgid_plural "Approving {{count}} data set"
+msgstr[0] ""
+
+msgid "Are you sure you want to approve this data?"
+msgstr ""
+
+msgid "There was a problem saving this approval"
+msgstr ""
+
+msgid ""
+"This data couldn’t be approved. Try again, or contact your system "
+"administrator."
+msgstr ""
+
+msgid "Cancel"
+msgstr "Batal"
+
+msgid "Unacceptance failed: {{error}}"
+msgstr ""
+
+msgid "Unaccept"
+msgstr ""
+
+msgid "Unapproval failed: {{error}}"
+msgstr ""
+
+msgid "Unapprove"
+msgstr ""
+
+msgid "This workflow does not contain any data sets."
+msgstr ""
+
+msgid "Choose a data set to review"
+msgstr ""
+
+msgid ""
+"{{- workflowName}} has multiple data sets. Choose a data set from the tabs "
+"above."
+msgstr ""
+
+msgid "Loading data set"
+msgstr ""
+
+msgid "There was a problem displaying this data set"
+msgstr ""
+
+msgid ""
+"This data set couldn't be loaded or displayed. Try again, or contact your "
+"system administrator."
+msgstr ""
+
+msgid "Retry loading data set"
+msgstr ""
+
+msgid "This data set doesn't have any data for {{- period}} in {{- orgUnit}}."
+msgstr ""
+
+msgid "1 data set"
+msgstr ""
+
+msgid "{{dataSetsCount}} data sets"
+msgstr ""
+
+msgid "Approved {{- dateTimeStr}}"
+msgstr ""
+
+msgid "Ready for approval"
+msgstr ""
+
+msgid "Waiting for lower level approval"
+msgstr ""
+
+msgid "Waiting for higher level approval"
+msgstr ""
+
+msgid "Approval by {{- name}} accepted {{timeAgo}}"
+msgstr ""
+
+msgid "Approved by {{- name}} {{timeAgo}}"
+msgstr ""
+
+msgid "Approved at higher level"
+msgstr ""
+
+msgid "You do not have authority to approve data"
+msgstr ""
+
+msgid "Cannot be approved"
+msgstr ""
+
+msgid "Could not retrieve approval status"
+msgstr ""
+
+msgid "January"
+msgstr "Januari"
+
+msgid "February"
+msgstr "Februari"
+
+msgid "March"
+msgstr "Maret"
+
+msgid "April"
+msgstr "April"
+
+msgid "May"
+msgstr "Mei"
+
+msgid "June"
+msgstr "Juni"
+
+msgid "July"
+msgstr "Juli"
+
+msgid "August"
+msgstr "Agustus"
+
+msgid "September"
+msgstr "September"
+
+msgid "October"
+msgstr "Oktober"
+
+msgid "November"
+msgstr "November"
+
+msgid "December"
+msgstr "Desember"
+
+msgid "Week {{weekNumber}}"
+msgstr ""
+
+msgid "Bi-Week {{biWeekNumber}}"
+msgstr ""
+
+msgid "Daily"
+msgstr "Harian"
+
+msgid "Weekly"
+msgstr "Mingguan"
+
+msgid "Weekly (Start Wednesday)"
+msgstr ""
+
+msgid "Weekly (Start Thursday)"
+msgstr ""
+
+msgid "Weekly (Start Saturday)"
+msgstr ""
+
+msgid "Weekly (Start Sunday)"
+msgstr ""
+
+msgid "Bi-weekly"
+msgstr "Dwiwulanan"
+
+msgid "Monthly"
+msgstr "Bulanan"
+
+msgid "Bi-monthly"
+msgstr "Dua bulanan"
+
+msgid "Quarterly"
+msgstr "Triwulanan"
+
+msgid "Six-monthly"
+msgstr "Enam bulanan"
+
+msgid "Six-monthly April"
+msgstr "Semester April"
+
+msgid "Yearly"
+msgstr "Tahunan"
+
+msgid "Financial year (Start November)"
+msgstr "Financial November"
+
+msgid "Financial year (Start October)"
+msgstr "Tahun finansial (Mulai Oktober)"
+
+msgid "Financial year (Start July)"
+msgstr "Tahun finansial (Mulai Juli)"
+
+msgid "Financial year (Start April)"
+msgstr "Tahun finansial (Mulai April)"
+
+msgid "Clear selections"
+msgstr "Hapus semua pilihan"
+
+msgid "Waiting for approval"
+msgstr ""
+
+msgid "Approved"
+msgstr ""
+
+msgid "Failed to load approval state"
+msgstr ""
+
+msgid "Choose a period first"
+msgstr ""
+
+msgid "Choose a workflow and period first"
+msgstr ""
+
+msgid "Organisation Unit"
+msgstr "Unit Organisasi"
+
+msgid "Choose an organisation unit"
+msgstr ""
+
+msgid "Period"
+msgstr "Periode"
+
+msgid "Choose a period"
+msgstr ""
+
+msgid "Choose a workflow first"
+msgstr ""
+
+msgid "Workflow"
+msgstr ""
+
+msgid "Choose a workflow"
+msgstr ""
+
+msgid "No workflows found. None may exist, or you may not have access to any."
+msgstr ""
+
+msgid "Could not load approval data"
+msgstr ""
+
+msgid "Retry loading approval data"
+msgstr ""

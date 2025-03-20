@@ -1,0 +1,297 @@
+# 
+# Translators:
+# Bram Piot <bram.piot@gmail.com>, 2021
+# Yayra Gomado <ygomado@hispwca.org>, 2021
+# Yao Selom SAKA (HISP WCA) <ysaka@hispwca.org>, 2022
+# Karoline Tufte Lien <karoline@dhis2.org>, 2024
+# Philip Larsen Donnelly, 2024
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: i18next-conv\n"
+"POT-Creation-Date: 2021-10-07T11:59:16.763Z\n"
+"PO-Revision-Date: 2021-11-04 13:40+0000\n"
+"Last-Translator: Philip Larsen Donnelly, 2024\n"
+"Language-Team: French (https://app.transifex.com/hisp-uio/teams/100509/fr/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: fr\n"
+"Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
+
+msgid "Not authorized"
+msgstr "Non autorisé"
+
+msgid ""
+"You don't have access to the Data Approval App. Contact a system "
+"administrator to request access."
+msgstr ""
+"Vous n'avez pas accès à la Data Approval App (App. \"Approbation des "
+"données\"). Contactez un administrateur système pour demander un accès."
+
+msgid "Acceptance failed: {{error}}"
+msgstr "Échec de l'acceptation: {{error}}"
+
+msgid "Accept"
+msgstr "Accepter"
+
+msgid "Approval saved"
+msgstr "Approbation enregistrée"
+
+msgid "Approve"
+msgstr "Approuver"
+
+msgid "Approving {{count}} data sets"
+msgid_plural "Approving {{count}} data sets"
+msgstr[0] "Approbation de {{count}} ensembles de données"
+msgstr[1] "Approbation de {{count}} ensembles de données"
+msgstr[2] "Approbation de {{count}} ensembles de données"
+
+msgid "Approving {{count}} data set"
+msgid_plural "Approving {{count}} data set"
+msgstr[0] "Approbation de {{count}} ensemble de données"
+msgstr[1] "Approbation de {{count}} ensemble de données"
+msgstr[2] "Approbation de {{count}} ensemble de données"
+
+msgid "Are you sure you want to approve this data?"
+msgstr "Etes-vous sûr de vouloir approuver ces données ?"
+
+msgid "There was a problem saving this approval"
+msgstr "Un problème est survenu lors de la sauvegarde de cette approbation"
+
+msgid ""
+"This data couldn’t be approved. Try again, or contact your system "
+"administrator."
+msgstr ""
+"Ces données n'ont pas pu être approuvées. Veuillez réessayer ou contacter "
+"votre administrateur système."
+
+msgid "Cancel"
+msgstr "Annuler"
+
+msgid "Unacceptance failed: {{error}}"
+msgstr "Échec de la non-acceptation : {{error}}"
+
+msgid "Unaccept"
+msgstr "Refuser"
+
+msgid "Unapproval failed: {{error}}"
+msgstr "Échec de la désapprobation : {{error}}"
+
+msgid "Unapprove"
+msgstr "Désapprouver"
+
+msgid "This workflow does not contain any data sets."
+msgstr "Ce flux de travail ne contient pas d'ensembles de données."
+
+msgid "Choose a data set to review"
+msgstr "Choisissez un ensemble de données à examiner"
+
+msgid ""
+"{{- workflowName}} has multiple data sets. Choose a data set from the tabs "
+"above."
+msgstr ""
+"{{- workflowName}} possède plusieurs ensembles de données. Choisissez un "
+"ensemble de données dans les onglets ci-dessus."
+
+msgid "Loading data set"
+msgstr "Chargement de l'ensemble de données"
+
+msgid "There was a problem displaying this data set"
+msgstr ""
+"Un problème est survenu lors de l'affichage de cet ensemble de données"
+
+msgid ""
+"This data set couldn't be loaded or displayed. Try again, or contact your "
+"system administrator."
+msgstr ""
+"Cet ensemble de données n'a pas pu être chargé ou affiché. Essayez à "
+"nouveau, ou contactez votre administrateur système."
+
+msgid "Retry loading data set"
+msgstr "Réessayer le chargement de l'ensemble de données"
+
+msgid "This data set doesn't have any data for {{- period}} in {{- orgUnit}}."
+msgstr ""
+"Cet ensemble de données ne contient pas de données pour {{- period}} dans "
+"{{- orgUnit}}."
+
+msgid "1 data set"
+msgstr "1 ensemble de données"
+
+msgid "{{dataSetsCount}} data sets"
+msgstr "{{dataSetsCount}} ensembles de données"
+
+msgid "Approved {{- dateTimeStr}}"
+msgstr "Approuvé {{- dateTimeStr}}"
+
+msgid "Ready for approval"
+msgstr "Prêt pour approbation"
+
+msgid "Waiting for lower level approval"
+msgstr "En attente de l'approbation du niveau inférieur"
+
+msgid "Waiting for higher level approval"
+msgstr "En attente de l'approbation du niveau supérieur"
+
+msgid "Approval by {{- name}} accepted {{timeAgo}}"
+msgstr "Approbation par {{- name}} accepté {{timeAgo}}"
+
+msgid "Approved by {{- name}} {{timeAgo}}"
+msgstr "Approuvé par  {{- name}} {{timeAgo}}"
+
+msgid "Approved at higher level"
+msgstr "Approuvé au niveau supérieur"
+
+msgid "You do not have authority to approve data"
+msgstr ""
+"Vous ne disposez pas de l'autorité nécessaire pour approuver les données"
+
+msgid "Cannot be approved"
+msgstr "Ne peut être approuvé"
+
+msgid "Could not retrieve approval status"
+msgstr "Impossible de récupérer le statut d'approbation"
+
+msgid "January"
+msgstr "Janvier"
+
+msgid "February"
+msgstr "Février"
+
+msgid "March"
+msgstr "Mars"
+
+msgid "April"
+msgstr "Avril"
+
+msgid "May"
+msgstr "Mai"
+
+msgid "June"
+msgstr "Juin"
+
+msgid "July"
+msgstr "Juillet"
+
+msgid "August"
+msgstr "Août"
+
+msgid "September"
+msgstr "Septembre"
+
+msgid "October"
+msgstr "Octobre"
+
+msgid "November"
+msgstr "Novembre"
+
+msgid "December"
+msgstr "Décembre"
+
+msgid "Week {{weekNumber}}"
+msgstr "Semaine {{weekNumber}}"
+
+msgid "Bi-Week {{biWeekNumber}}"
+msgstr "bi-hebdomadaire {{biWeekNumber}}"
+
+msgid "Daily"
+msgstr "Quotidien"
+
+msgid "Weekly"
+msgstr "Hebdomadaire"
+
+msgid "Weekly (Start Wednesday)"
+msgstr "Hebdomadaire (début mercredi)"
+
+msgid "Weekly (Start Thursday)"
+msgstr "Hebdomadaire (début jeudi)"
+
+msgid "Weekly (Start Saturday)"
+msgstr "Hebdomadaire (début samedi)"
+
+msgid "Weekly (Start Sunday)"
+msgstr "Hebdomadaire (début dimanche)"
+
+msgid "Bi-weekly"
+msgstr "Bi-hebdomadaire"
+
+msgid "Monthly"
+msgstr "Mensuel"
+
+msgid "Bi-monthly"
+msgstr "Bimensuel"
+
+msgid "Quarterly"
+msgstr "Trimestriel"
+
+msgid "Six-monthly"
+msgstr "Semestriel"
+
+msgid "Six-monthly April"
+msgstr "Six-mois avril"
+
+msgid "Yearly"
+msgstr "Annuel"
+
+msgid "Financial year (Start November)"
+msgstr "Année fiscale (Débutant par novembre)"
+
+msgid "Financial year (Start October)"
+msgstr "Année fiscale (Débutant par octobre)"
+
+msgid "Financial year (Start July)"
+msgstr "Année fiscale (Débutant par juillet)"
+
+msgid "Financial year (Start April)"
+msgstr "Année fiscale (Débutant par avril)"
+
+msgid "Clear selections"
+msgstr "Effacer les sélections"
+
+msgid "Waiting for approval"
+msgstr "En attente d'approbation"
+
+msgid "Approved"
+msgstr "Approuvé"
+
+msgid "Failed to load approval state"
+msgstr "Échec du chargement de l'état d'approbation"
+
+msgid "Choose a period first"
+msgstr "Choisissez d'abord une période"
+
+msgid "Choose a workflow and period first"
+msgstr "Choisissez d'abord un flux de travail et une période"
+
+msgid "Organisation Unit"
+msgstr "Unité d'organisation"
+
+msgid "Choose an organisation unit"
+msgstr "Choisissez une unité d'organisation"
+
+msgid "Period"
+msgstr "Période"
+
+msgid "Choose a period"
+msgstr "Choisissez une période"
+
+msgid "Choose a workflow first"
+msgstr "Choisissez d'abord un flux de travail"
+
+msgid "Workflow"
+msgstr "Flux de travail"
+
+msgid "Choose a workflow"
+msgstr "Choisissez un flux de travail"
+
+msgid "No workflows found. None may exist, or you may not have access to any."
+msgstr ""
+"Aucun flux de travail trouvé. Il se peut qu'il n'en existe aucun ou que vous"
+" n'y ayez pas accès."
+
+msgid "Could not load approval data"
+msgstr "Impossible de charger les données d'approbation"
+
+msgid "Retry loading approval data"
+msgstr "Réessayer le chargement des données d'approbation"

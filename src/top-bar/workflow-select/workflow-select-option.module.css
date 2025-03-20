@@ -1,0 +1,17 @@
+.bordered {
+    border-bottom: 1px solid var(--colors-grey400);
+}
+.option {
+    display: flex;
+    flex-direction: column;
+}
+.title {
+    display: inline-flex;
+    padding-bottom: 4px;
+    font-size: 16px;
+}
+.subtitle {
+    display: inline-flex;
+    font-size: 13px;
+    color: var(--colors-grey700);
+}

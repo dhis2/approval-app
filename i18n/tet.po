@@ -1,0 +1,276 @@
+# 
+# Translators:
+# phil_dhis2, 2021
+# Viktor Varland <viktor@dhis2.org>, 2021
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: i18next-conv\n"
+"POT-Creation-Date: 2021-10-07T11:59:16.763Z\n"
+"PO-Revision-Date: 2021-11-04 13:40+0000\n"
+"Last-Translator: Viktor Varland <viktor@dhis2.org>, 2021\n"
+"Language-Team: Tetum (Tetun) (https://www.transifex.com/hisp-uio/teams/100509/tet/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: tet\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "Not authorized"
+msgstr ""
+
+msgid ""
+"You don't have access to the Data Approval App. Contact a system "
+"administrator to request access."
+msgstr ""
+
+msgid "Acceptance failed: {{error}}"
+msgstr ""
+
+msgid "Accept"
+msgstr ""
+
+msgid "Approval saved"
+msgstr ""
+
+msgid "Approve"
+msgstr ""
+
+msgid "Approving {{count}} data sets"
+msgid_plural "Approving {{count}} data sets"
+msgstr[0] ""
+
+msgid "Approving {{count}} data set"
+msgid_plural "Approving {{count}} data set"
+msgstr[0] ""
+
+msgid "Are you sure you want to approve this data?"
+msgstr ""
+
+msgid "There was a problem saving this approval"
+msgstr ""
+
+msgid ""
+"This data couldn’t be approved. Try again, or contact your system "
+"administrator."
+msgstr ""
+
+msgid "Cancel"
+msgstr "Kansela"
+
+msgid "Unacceptance failed: {{error}}"
+msgstr ""
+
+msgid "Unaccept"
+msgstr ""
+
+msgid "Unapproval failed: {{error}}"
+msgstr ""
+
+msgid "Unapprove"
+msgstr ""
+
+msgid "This workflow does not contain any data sets."
+msgstr ""
+
+msgid "Choose a data set to review"
+msgstr ""
+
+msgid ""
+"{{- workflowName}} has multiple data sets. Choose a data set from the tabs "
+"above."
+msgstr ""
+
+msgid "Loading data set"
+msgstr ""
+
+msgid "There was a problem displaying this data set"
+msgstr ""
+
+msgid ""
+"This data set couldn't be loaded or displayed. Try again, or contact your "
+"system administrator."
+msgstr ""
+
+msgid "Retry loading data set"
+msgstr ""
+
+msgid "This data set doesn't have any data for {{- period}} in {{- orgUnit}}."
+msgstr ""
+
+msgid "1 data set"
+msgstr ""
+
+msgid "{{dataSetsCount}} data sets"
+msgstr ""
+
+msgid "Approved {{- dateTimeStr}}"
+msgstr ""
+
+msgid "Ready for approval"
+msgstr ""
+
+msgid "Waiting for lower level approval"
+msgstr ""
+
+msgid "Waiting for higher level approval"
+msgstr ""
+
+msgid "Approval by {{- name}} accepted {{timeAgo}}"
+msgstr ""
+
+msgid "Approved by {{- name}} {{timeAgo}}"
+msgstr ""
+
+msgid "Approved at higher level"
+msgstr ""
+
+msgid "You do not have authority to approve data"
+msgstr ""
+
+msgid "Cannot be approved"
+msgstr ""
+
+msgid "Could not retrieve approval status"
+msgstr ""
+
+msgid "January"
+msgstr "Janeiru"
+
+msgid "February"
+msgstr "Fevereiru"
+
+msgid "March"
+msgstr "Marsu"
+
+msgid "April"
+msgstr "Abril"
+
+msgid "May"
+msgstr "Mai"
+
+msgid "June"
+msgstr "Juñu"
+
+msgid "July"
+msgstr "Jullu"
+
+msgid "August"
+msgstr "Agostu"
+
+msgid "September"
+msgstr "Setembru"
+
+msgid "October"
+msgstr "Outubru"
+
+msgid "November"
+msgstr "Novembru"
+
+msgid "December"
+msgstr "Dezembru"
+
+msgid "Week {{weekNumber}}"
+msgstr ""
+
+msgid "Bi-Week {{biWeekNumber}}"
+msgstr ""
+
+msgid "Daily"
+msgstr "Diáriu"
+
+msgid "Weekly"
+msgstr "Semanal"
+
+msgid "Weekly (Start Wednesday)"
+msgstr ""
+
+msgid "Weekly (Start Thursday)"
+msgstr ""
+
+msgid "Weekly (Start Saturday)"
+msgstr ""
+
+msgid "Weekly (Start Sunday)"
+msgstr ""
+
+msgid "Bi-weekly"
+msgstr ""
+
+msgid "Monthly"
+msgstr "Mensal"
+
+msgid "Bi-monthly"
+msgstr "Bimensal"
+
+msgid "Quarterly"
+msgstr "Trimestral"
+
+msgid "Six-monthly"
+msgstr "Semestral"
+
+msgid "Six-monthly April"
+msgstr "Abril semestral"
+
+msgid "Yearly"
+msgstr "Anual"
+
+msgid "Financial year (Start November)"
+msgstr ""
+
+msgid "Financial year (Start October)"
+msgstr "Outubru finanseiru"
+
+msgid "Financial year (Start July)"
+msgstr "Jullu finanseiru"
+
+msgid "Financial year (Start April)"
+msgstr "Abril finanseiru"
+
+msgid "Clear selections"
+msgstr ""
+
+msgid "Waiting for approval"
+msgstr ""
+
+msgid "Approved"
+msgstr ""
+
+msgid "Failed to load approval state"
+msgstr ""
+
+msgid "Choose a period first"
+msgstr ""
+
+msgid "Choose a workflow and period first"
+msgstr ""
+
+msgid "Organisation Unit"
+msgstr "Unidade Organizasaun"
+
+msgid "Choose an organisation unit"
+msgstr ""
+
+msgid "Period"
+msgstr "Períodu"
+
+msgid "Choose a period"
+msgstr ""
+
+msgid "Choose a workflow first"
+msgstr ""
+
+msgid "Workflow"
+msgstr ""
+
+msgid "Choose a workflow"
+msgstr ""
+
+msgid "No workflows found. None may exist, or you may not have access to any."
+msgstr ""
+
+msgid "Could not load approval data"
+msgstr ""
+
+msgid "Retry loading approval data"
+msgstr ""

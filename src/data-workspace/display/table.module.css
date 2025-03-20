@@ -1,0 +1,12 @@
+.titleCell {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px;
+    font-weight: normal;
+}
+
+.labelCellContent,
+.labelCellContent {
+    display: block;
+    max-width: 480px;
+}

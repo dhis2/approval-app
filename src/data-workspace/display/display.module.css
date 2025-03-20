@@ -1,0 +1,47 @@
+.display {
+    min-height: 360px;
+    padding: var(--spacers-dp12) var(--spacers-dp8);
+    background: white;
+    box-shadow: inset 0 -1px 0 0 var(--colors-grey400);
+}
+
+.chooseDataSet {
+    composes: display;
+    padding: 40px var(--spacers-dp16) 0;
+}
+
+.chooseDataSet h2 {
+    margin-top: 0;
+    margin-bottom: var(--spacers-dp8);
+    font-size: 20px;
+    font-weight: normal;
+}
+
+.chooseDataSet p {
+    margin: 0;
+    color: var(--colors-grey700);
+    font-size: 14px;
+}
+
+.loadingWrapper {
+    margin-top: var(--spacers-dp24);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--colors-grey700);
+}
+
+.noData {
+    composes: display;
+    padding-top: var(--spacers-dp24);
+}
+
+.noData p {
+    margin: 0;
+    text-align: center;
+    color: var(--colors-grey700);
+}
+
+.nonDefaultFormWarning {
+    margin-bottom: var(--spacers-dp12);
+}

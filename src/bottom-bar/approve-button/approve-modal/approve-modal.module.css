@@ -1,0 +1,19 @@
+.summary {
+    background: var(--colors-grey100);
+    padding: var(--spacers-dp16);
+    margin: 0 0 var(--spacers-dp16);
+}
+
+.summaryTitle {
+    margin: 0 0 var(--spacers-dp16);
+    font-size: inherit;
+    font-weight: inherit;
+}
+
+.summaryList {
+    margin: 0;
+}
+
+.confirmationStatement {
+    margin: 0;
+}

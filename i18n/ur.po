@@ -1,0 +1,278 @@
+# 
+# Translators:
+# phil_dhis2, 2021
+# Viktor Varland <viktor@dhis2.org>, 2021
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: i18next-conv\n"
+"POT-Creation-Date: 2021-10-07T11:59:16.763Z\n"
+"PO-Revision-Date: 2021-11-04 13:40+0000\n"
+"Last-Translator: Viktor Varland <viktor@dhis2.org>, 2021\n"
+"Language-Team: Urdu (https://www.transifex.com/hisp-uio/teams/100509/ur/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ur\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Not authorized"
+msgstr ""
+
+msgid ""
+"You don't have access to the Data Approval App. Contact a system "
+"administrator to request access."
+msgstr ""
+
+msgid "Acceptance failed: {{error}}"
+msgstr ""
+
+msgid "Accept"
+msgstr ""
+
+msgid "Approval saved"
+msgstr ""
+
+msgid "Approve"
+msgstr ""
+
+msgid "Approving {{count}} data sets"
+msgid_plural "Approving {{count}} data sets"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Approving {{count}} data set"
+msgid_plural "Approving {{count}} data set"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Are you sure you want to approve this data?"
+msgstr ""
+
+msgid "There was a problem saving this approval"
+msgstr ""
+
+msgid ""
+"This data couldn’t be approved. Try again, or contact your system "
+"administrator."
+msgstr ""
+
+msgid "Cancel"
+msgstr "منسوخ"
+
+msgid "Unacceptance failed: {{error}}"
+msgstr ""
+
+msgid "Unaccept"
+msgstr ""
+
+msgid "Unapproval failed: {{error}}"
+msgstr ""
+
+msgid "Unapprove"
+msgstr ""
+
+msgid "This workflow does not contain any data sets."
+msgstr ""
+
+msgid "Choose a data set to review"
+msgstr ""
+
+msgid ""
+"{{- workflowName}} has multiple data sets. Choose a data set from the tabs "
+"above."
+msgstr ""
+
+msgid "Loading data set"
+msgstr ""
+
+msgid "There was a problem displaying this data set"
+msgstr ""
+
+msgid ""
+"This data set couldn't be loaded or displayed. Try again, or contact your "
+"system administrator."
+msgstr ""
+
+msgid "Retry loading data set"
+msgstr ""
+
+msgid "This data set doesn't have any data for {{- period}} in {{- orgUnit}}."
+msgstr ""
+
+msgid "1 data set"
+msgstr ""
+
+msgid "{{dataSetsCount}} data sets"
+msgstr ""
+
+msgid "Approved {{- dateTimeStr}}"
+msgstr ""
+
+msgid "Ready for approval"
+msgstr ""
+
+msgid "Waiting for lower level approval"
+msgstr ""
+
+msgid "Waiting for higher level approval"
+msgstr ""
+
+msgid "Approval by {{- name}} accepted {{timeAgo}}"
+msgstr ""
+
+msgid "Approved by {{- name}} {{timeAgo}}"
+msgstr ""
+
+msgid "Approved at higher level"
+msgstr ""
+
+msgid "You do not have authority to approve data"
+msgstr ""
+
+msgid "Cannot be approved"
+msgstr ""
+
+msgid "Could not retrieve approval status"
+msgstr ""
+
+msgid "January"
+msgstr "جنوری"
+
+msgid "February"
+msgstr "فروری"
+
+msgid "March"
+msgstr "مارچ"
+
+msgid "April"
+msgstr "اپریل"
+
+msgid "May"
+msgstr "مئی"
+
+msgid "June"
+msgstr "جون"
+
+msgid "July"
+msgstr "جولائی"
+
+msgid "August"
+msgstr "اگست"
+
+msgid "September"
+msgstr "ستمبر"
+
+msgid "October"
+msgstr "اکتوبر"
+
+msgid "November"
+msgstr "نومبر"
+
+msgid "December"
+msgstr "دسمبر"
+
+msgid "Week {{weekNumber}}"
+msgstr ""
+
+msgid "Bi-Week {{biWeekNumber}}"
+msgstr ""
+
+msgid "Daily"
+msgstr "روزانہ"
+
+msgid "Weekly"
+msgstr "ہفتہ وار"
+
+msgid "Weekly (Start Wednesday)"
+msgstr "ہفتہ وار (بدھ شروع کریں)"
+
+msgid "Weekly (Start Thursday)"
+msgstr "ہفتہ وار (جمعرات شروع کریں)"
+
+msgid "Weekly (Start Saturday)"
+msgstr "ہفتہ وار (ہفتہ شروع کریں)"
+
+msgid "Weekly (Start Sunday)"
+msgstr "ہفتہ (اتوار شروع کریں)"
+
+msgid "Bi-weekly"
+msgstr ""
+
+msgid "Monthly"
+msgstr "ماہانہ"
+
+msgid "Bi-monthly"
+msgstr "دو ماہی"
+
+msgid "Quarterly"
+msgstr "سہ ماہی"
+
+msgid "Six-monthly"
+msgstr "چھ ماہی"
+
+msgid "Six-monthly April"
+msgstr "چھ ماہی اپریل"
+
+msgid "Yearly"
+msgstr "سالانہ"
+
+msgid "Financial year (Start November)"
+msgstr ""
+
+msgid "Financial year (Start October)"
+msgstr "مالی سال (اکتوبر شروع کریں)"
+
+msgid "Financial year (Start July)"
+msgstr "مالی سال (جولائی شروع کریں)"
+
+msgid "Financial year (Start April)"
+msgstr "مالی سال (اپریل شروع کریں)"
+
+msgid "Clear selections"
+msgstr ""
+
+msgid "Waiting for approval"
+msgstr ""
+
+msgid "Approved"
+msgstr ""
+
+msgid "Failed to load approval state"
+msgstr ""
+
+msgid "Choose a period first"
+msgstr ""
+
+msgid "Choose a workflow and period first"
+msgstr ""
+
+msgid "Organisation Unit"
+msgstr ""
+
+msgid "Choose an organisation unit"
+msgstr ""
+
+msgid "Period"
+msgstr "مدت"
+
+msgid "Choose a period"
+msgstr ""
+
+msgid "Choose a workflow first"
+msgstr ""
+
+msgid "Workflow"
+msgstr ""
+
+msgid "Choose a workflow"
+msgstr ""
+
+msgid "No workflows found. None may exist, or you may not have access to any."
+msgstr ""
+
+msgid "Could not load approval data"
+msgstr ""
+
+msgid "Retry loading approval data"
+msgstr ""
