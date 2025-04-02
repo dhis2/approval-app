@@ -201,11 +201,11 @@ const verifyCategoryComboAssignment = (metadata, dataSet) => {
 
 const isOptionAssignedToOrgUnit = ({ categoryOption, orgUnit }) => {
     // by default, ...
-    if (!categoryOption?.organisationUnits?.length === 0) {
+    if (!categoryOption?.organisationUnits?.length) {
         return true;
     }
     
-    const found = categoryOption?.organisationUnits.filter(catOptionOrgUnit => catOptionOrgUnit.path.indexOf(orgUnit?.path)>=0)
+    const found = categoryOption?.organisationUnits.filter(catOptionOrgUnit => orgUnit?.path.indexOf(catOptionOrgUnit.path)>=0)
     
     return found.length > 0
 }
