@@ -36,7 +36,43 @@ expect.extend({
 })
 
 beforeEach(() => {
-    readQueryParams.mockImplementation(() => ({}))
+    readQueryParams.mockImplementation(() => ({})),
+    useAppContext.mockImplementation(() => ({
+        dataApprovalWorkflows: mockWorkflows,
+        metadata: {
+            categoryCombos: [
+                {
+                    displayName: "Combo 1",
+                    id: "combo_1",
+                    categories: [
+                        {
+                            name: "Category 1",
+                            displayName: "Category 1",
+                            id: "category_1",
+                            categoryOptions: [
+                                {
+                                    displayName: "Option 1",
+                                    id: "123"
+                                },
+                                {
+                                    displayName: "Option 2",
+                                    id: "456"
+                                },
+                            ]
+                        }
+                    ], 
+                    categoryOptionCombos: [
+                        {
+                            categoryOptions: [{id: "123" }],
+                            displayName: "Option Combo 1",
+                            id: "wertyuiopas"
+                        },
+                    ],
+                    isDefault: false
+                },
+            ]
+        }
+    }))
 })
 
 afterEach(() => {
@@ -48,19 +84,86 @@ const mockWorkflows = [
         displayName: 'Workflow a',
         id: 'i5m0JPw4DQi',
         periodType: 'Daily',
+        dataSets: [
+            {
+                name: "Data set 1",
+                id: "dataset_1",
+                periodType: "Daily",
+                categoryCombo: {
+                    displayName: "Combo 1",
+                    id: "combo_1",
+                    categories: [
+                        {
+                            name: "Category 1",
+                            displayName: "Category 1",
+                            id: "category_1",
+                            categoryOptions: [
+                                {
+                                    displayName: "Option 1",
+                                    id: "123"
+                                },
+                                {
+                                    displayName: "Option 2",
+                                    id: "456"
+                                },
+                            ]
+                        }
+                    ], 
+                    categoryOptionCombos: [
+                        {
+                            categoryOptions: [{id: "123" }],
+                            displayName: "Option Combo 1",
+                            id: "wertyuiopas"
+                        },
+                    ],
+                    isDefault: false
+                },
+            }
+        ]
     },
     {
         displayName: 'Workflow B',
         id: 'rIUL3hYOjJc',
         periodType: 'Daily',
+        dataSets: [
+            {
+                name: "Data set 2",
+                id: "dataset_2",
+                periodType: "Daily",
+                categoryCombo: {
+                    displayName: "Combo 1",
+                    id: "combo_1",
+                    categories: [
+                        {
+                            name: "Category 1",
+                            displayName: "Category 1",
+                            id: "category_1",
+                            categoryOptions: [
+                                {
+                                    displayName: "Option 1",
+                                    id: "123"
+                                },
+                                {
+                                    displayName: "Option 2",
+                                    id: "456"
+                                },
+                            ]
+                        }
+                    ], 
+                    categoryOptionCombos: [
+                        {
+                            categoryOptions: [{id: "123" }],
+                            displayName: "Option Combo 1",
+                            id: "wertyuiopas"
+                        },
+                    ],
+                    isDefault: false
+                },
+            }
+        ]
     },
 ]
 
-beforeEach(() => {
-    useAppContext.mockImplementation(() => ({
-        dataApprovalWorkflows: mockWorkflows,
-    }))
-})
 
 describe('useSelectionContext', () => {
     const wrapper = ({ children }) => (
@@ -74,6 +177,7 @@ describe('useSelectionContext', () => {
             workflow: expect.any(Object),
             period: expect.any(Object),
             orgUnit: expect.any(Object),
+            attributeOptionCombo: expect.any(Object),
             dataSet: expect.string(),
             openedSelect: expect.any(String),
             clearAll: expect.any(Function),
@@ -81,6 +185,7 @@ describe('useSelectionContext', () => {
             selectWorkflow: expect.any(Function),
             selectPeriod: expect.any(Function),
             selectOrgUnit: expect.any(Function),
+            selectAttributeOptionCombo: expect.any(Function),
             selectDataSet: expect.any(Function),
         })
     })
@@ -90,6 +195,7 @@ describe('useSelectionContext', () => {
             wf: 'rIUL3hYOjJc',
             pe: '20110203',
             ou: '/abc',
+            aoc: "wertyuiopas",
             dataSet: 'foobar',
             ouDisplayName: 'test',
         }))
@@ -112,6 +218,13 @@ describe('useSelectionContext', () => {
             id: 'abc',
             displayName: 'test',
         })
+
+        expect(result.current.attributeOptionCombo).toEqual({
+            categoryOptions: [ { id: '123' } ],
+            displayName: 'Option Combo 1',
+            id: 'wertyuiopas'
+        })
+        
     })
 
     describe('functions returned from the hook update the state and url', () => {
@@ -214,6 +327,31 @@ describe('useSelectionContext', () => {
             )
             expect(mock).toHaveBeenCalledTimes(1)
         })
+        
+        
+        it('selectAttributeOptionCombo', () => {
+            const mock = jest.fn()
+            pushStateToHistory.mockImplementation(mock)
+
+            const { result } = renderHook(() => useSelectionContext(), {
+                wrapper,
+            })
+            
+            // Reset count to 0 because the function is also called on initial render
+            mock.mockClear()
+
+            const expectedAttributeOptionCombo = { id: 'wertyuiopas' }
+            act(() => {
+                result.current.selectAttributeOptionCombo(expectedAttributeOptionCombo)
+            })
+            expect(result.current).toEqual(
+                expect.objectContaining({
+                    attributeOptionCombo: expectedAttributeOptionCombo
+                })
+            )
+            expect(mock).toHaveBeenCalledTimes(1)
+        })
+
 
         it('selectDataSet', () => {
             const mock = jest.fn()
@@ -267,6 +405,7 @@ describe('useSelectionContext', () => {
             expect(result.current.workflow).toEqual(null)
             expect(result.current.period).toEqual(null)
             expect(result.current.orgUnit).toEqual(null)
+            expect(result.current.attributeOptionCombo).toEqual(null)
             expect(mock).toHaveBeenCalledTimes(1)
         })
     })

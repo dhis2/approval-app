@@ -3,13 +3,17 @@ import { IconDimensionDataSet16 } from '@dhis2/ui'
 import React from 'react'
 import { useSelectionContext } from '../../selection-context/index.js'
 import { ApprovalStatusTag } from '../../shared/approval-status/index.js'
+import { filterDataSetsByAttributeOptionComboAndOrgUnit } from '../../utils/caterogy-combo-utils.js'
 import { useWorkflowContext } from '../../workflow-context/index.js'
 import styles from './title-bar.module.css'
+import { useAppContext } from '../../app-context/use-app-context.js'
 
 const TitleBar = () => {
+    const { metadata } = useAppContext()
     const { approvalStatus, approvedBy, approvedAt } = useWorkflowContext()
-    const { workflow } = useSelectionContext()
-    const { dataSets, displayName: name } = workflow
+    const { workflow, orgUnit, attributeOptionCombo } = useSelectionContext()
+    const { displayName: name } = workflow
+    const dataSets = filterDataSetsByAttributeOptionComboAndOrgUnit(metadata, workflow, orgUnit, attributeOptionCombo)
     const dataSetsCount = dataSets.length
 
     return (

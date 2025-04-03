@@ -5,9 +5,9 @@ import { useSelectionContext } from '../../selection-context/index.js'
 import classes from './clear-all-button.module.css'
 
 const ClearAllButton = () => {
-    const { clearAll, period, orgUnit } = useSelectionContext()
+    const { clearAll, period, orgUnit, attributeOptionCombo } = useSelectionContext()
 
-    return period?.id || orgUnit?.path ? (
+    return (period?.id || orgUnit?.path || attributeOptionCombo?.id ) ? (
         <Button small className={classes.button} secondary onClick={clearAll}>
             {i18n.t('Clear selections')}
         </Button>

@@ -20,12 +20,13 @@ describe('pushStateToHistory', () => {
             workflow: { id: '123' },
             period: { id: '455' },
             orgUnit: { path: '789' },
+            attributeOptionCombo: { id: "wertyuiopas" },
         })
 
         expect(mock).toHaveBeenCalledTimes(1)
         expect(mock).toHaveBeenCalledWith({
             pathname: '/',
-            search: '?ou=789&pe=455&wf=123',
+            search: '?aoc=wertyuiopas&ou=789&pe=455&wf=123',
         })
     })
     it('updates broswer history when state and query params are equivalent', () => {
@@ -36,6 +37,7 @@ describe('pushStateToHistory', () => {
             workflow: {},
             period: {},
             orgUnit: {},
+            attributeOptionCombo: {},
         })
 
         expect(mock).toHaveBeenCalledTimes(0)

@@ -1,0 +1,29 @@
+.menu {
+    max-height: 70vh;
+    overflow-y: auto;
+}
+
+.container {
+    inline-size: 350px;
+    color: #808080;
+}
+
+.bordered {
+    border-bottom: 1px solid var(--colors-grey400);
+}
+
+.inputWrapper {
+    margin: 0px 20px 20px 20px;
+}
+
+.dropdown {
+    margin-top: 20px;
+}
+
+.hideButton {
+    margin: 15px 20px;
+}
+
+.noOptionsBox {
+    margin: 8px;
+}

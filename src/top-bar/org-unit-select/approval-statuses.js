@@ -56,7 +56,7 @@ const useFetchApprovalStatus = ({ updateApprovalStatuses }) => {
         })
         requestQueue.current = []
 
-        batchedQueries.forEach(async ({ workflowId, periodId, orgUnitIds }) => {
+        batchedQueries.forEach(async ({ workflowId, periodId, orgUnitIds, aocs }) => {
             updateApprovalStatuses({
                 periodId,
                 workflowId,
@@ -78,6 +78,7 @@ const useFetchApprovalStatus = ({ updateApprovalStatuses }) => {
                             wf: workflowId,
                             pe: periodId,
                             ou: orgUnitIds,
+                            aoc: aocs
                         },
                     },
                 })

@@ -7,20 +7,74 @@ import {
 } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import React from 'react'
+import { useAppContext } from '../../app-context/index.js'
 import { SelectionContext } from '../../selection-context/index.js'
 import { Display } from './display.js'
+
+jest.mock('../../app-context/index.js', () => ({
+    useAppContext: jest.fn(),
+}))
+
+beforeEach(() => {
+    useAppContext.mockImplementation(() => ({
+        metadata: {
+            categoryCombos: [
+                {
+                    displayName: "Combo 1",
+                    id: "combo_1",
+                    categories: [
+                        {
+                            name: "Category 1",
+                            displayName: "Category 1",
+                            id: "category_1",
+                            categoryOptions: [
+                                {
+                                    displayName: "Option 1",
+                                    id: "123"
+                                },
+                                {
+                                    displayName: "Option 2",
+                                    id: "456"
+                                },
+                            ]
+                        }
+                    ], 
+                    categoryOptionCombos: [
+                        {
+                            categoryOptions: [{id: "123" }],
+                            displayName: "Option Combo 1",
+                            id: "wertyuiopas"
+                        },
+                    ],
+                    isDefault: false
+                },
+            ]
+        }
+    }))
+})
+
+afterEach(() => {
+    jest.resetAllMocks()
+})
 
 describe('<Display>', () => {
     const dataSetOne = {
         displayName: 'Mortality < 5 years',
         id: 'pBOMPrpg1QX',
         periodType: 'Monthly',
+        categoryCombo: {
+            id: "combo_1"
+        }
     }
 
     const dataSetTwo = {
         displayName: 'Mortality > 4 years',
         id: 'pBOMPrpg1QZ',
         periodType: 'Monthly',
+        categoryCombo: {
+            displayName: "Combo 1",
+            id: "combo_1"
+        }
     }
 
     it('asks the user to select a data set if none is selected', () => {
@@ -80,6 +134,13 @@ describe('<Display>', () => {
             <CustomDataProvider options={{ loadForever: true }}>
                 <SelectionContext.Provider
                     value={{
+                        attributeOptionCombo: {
+                            id: "wertyuiopas",
+                            displayName: "Option Combo 1",
+                            categoryOptions: [{
+                                id: "123"
+                            }]
+                        },
                         orgUnit: {
                             id: 'ou-2',
                             path: '/ou-2',
@@ -117,6 +178,13 @@ describe('<Display>', () => {
             <CustomDataProvider data={data}>
                 <SelectionContext.Provider
                     value={{
+                        attributeOptionCombo: {
+                            id: "wertyuiopas",
+                            displayName: "Option Combo 1",
+                            categoryOptions: [{
+                                id: "123"
+                            }]
+                        },
                         orgUnit: {
                             id: 'ou-2',
                             path: '/ou-2',
@@ -181,6 +249,13 @@ describe('<Display>', () => {
             <CustomDataProvider data={data}>
                 <SelectionContext.Provider
                     value={{
+                        attributeOptionCombo: {
+                            id: "wertyuiopas",
+                            displayName: "Option Combo 1",
+                            categoryOptions: [{
+                                id: "123"
+                            }]
+                        },
                         orgUnit: {
                             id: 'ou-2',
                             path: '/ou-2',
@@ -251,6 +326,13 @@ describe('<Display>', () => {
                 <CustomDataProvider data={data}>
                     <SelectionContext.Provider
                         value={{
+                            attributeOptionCombo: {
+                                id: "wertyuiopas",
+                                displayName: "Option Combo 1",
+                                categoryOptions: [{
+                                    id: "123"
+                                }]
+                            },
                             orgUnit: {
                                 id: 'ou-2',
                                 path: '/ou-2',
@@ -333,6 +415,13 @@ describe('<Display>', () => {
                 <CustomDataProvider data={data}>
                     <SelectionContext.Provider
                         value={{
+                            attributeOptionCombo: {
+                                id: "wertyuiopas",
+                                displayName: "Option Combo 1",
+                                categoryOptions: [{
+                                    id: "123"
+                                }]
+                            },
                             orgUnit: {
                                 id: 'ou-2',
                                 path: '/ou-2',
@@ -353,6 +442,9 @@ describe('<Display>', () => {
                                         id: 'custom',
                                         periodType: 'Monthly',
                                         formType: 'Default',
+                                        categoryCombo: {
+                                            id: "combo_1"
+                                        }
                                     },
                                 ],
                                 dataApprovalLevels: [],

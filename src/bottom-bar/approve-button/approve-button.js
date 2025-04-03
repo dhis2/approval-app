@@ -17,8 +17,10 @@ const ApproveButton = ({ disabled }) => {
     const showApprovalDialog = () => setShowApproveModal(true)
     const hideApprovalDialog = () => setShowApproveModal(false)
     const onApprove = () => {
-        const { wf, pe, ou } = params
-        approveData({ wf, pe, ou })
+        const { wf, pe, ou, aoc } = params;
+        
+        const approvals = [{"ou": ou, "aoc": aoc}];
+        approveData({ wf:[wf], pe:[pe], approvals })
     }
 
     // api
@@ -36,7 +38,7 @@ const ApproveButton = ({ disabled }) => {
 
     // derived state
     const error = approveError || unexpectedError
-
+    
     return (
         <>
             <Button
