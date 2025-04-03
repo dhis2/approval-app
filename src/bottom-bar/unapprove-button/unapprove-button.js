@@ -6,7 +6,12 @@ import { useWorkflowContext } from '../../workflow-context/index.js'
 import { useUnapproveData } from './use-unapprove-data.js'
 
 const UnapproveButton = () => {
-    const [unapproveData, { loading, error }] = useUnapproveData()
+    const [unapproveData, { loading, error }] = useUnapproveData({
+            onComplete: () => {
+                refresh()
+            },
+            onError: (e) => console.log(e.message),
+        })
     const { params, refresh } = useWorkflowContext()
     const { show } = useAlert(
         i18n.t('Unapproval failed: {{error}}', {
@@ -20,16 +25,20 @@ const UnapproveButton = () => {
             show()
         }
     }, [error?.message])
+    
+    const onUnapprove =() => {
+        const { wf, pe, ou, aoc } = params
+        
+        const unapprovals = [{"ou": ou, "aoc": aoc}]
+        unapproveData({ wf:[wf], pe:[pe], approvals: unapprovals })
+        // refresh()
+    }
 
     return (
         <Button
             small
             disabled={loading}
-            onClick={async () => {
-                const { wf, pe, ou } = params
-                await unapproveData({ wf, pe, ou })
-                refresh()
-            }}
+            onClick={onUnapprove}
         >
             {i18n.t('Unapprove')}
         </Button>

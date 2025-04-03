@@ -11,11 +11,14 @@ import {
 import PropTypes from 'prop-types'
 import React from 'react'
 import { useSelectionContext } from '../../../selection-context/index.js'
+import { filterDataSetsByAttributeOptionComboAndOrgUnit } from '../../../utils/caterogy-combo-utils.js'
 import styles from './approve-modal.module.css'
+import { useAppContext } from '../../../app-context/use-app-context.js'
 
 const ApproveModal = ({ onApprove, onCancel, error }) => {
-    const { workflow } = useSelectionContext()
-    const { dataSets } = workflow
+    const { metadata } = useAppContext()
+    const { workflow, orgUnit, attributeOptionCombo} = useSelectionContext()
+    const dataSets = filterDataSetsByAttributeOptionComboAndOrgUnit(metadata, workflow, orgUnit, attributeOptionCombo)
     const count = dataSets.length
 
     return (

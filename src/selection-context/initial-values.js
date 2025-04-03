@@ -1,16 +1,18 @@
 import { readQueryParams } from '../navigation/index.js'
 import { parsePeriodId } from '../shared/index.js'
+import { findAttributeOptionComboInWorkflow } from '../utils/caterogy-combo-utils.js'
 
-export const initialValues = (workflows) => {
+export const initialValues = (metadata, workflows, calendar) => {
     const queryParams = readQueryParams()
-    const { wf, pe, ou, ouDisplayName, dataSet: dataSetParam } = queryParams
-
+    
+    const { wf, pe, ou, aoc, ouDisplayName, dataSet: dataSetParam } = queryParams
     const workflow = initialWorkflowValue(workflows, wf)
     const period = initialPeriodValue(pe, workflow)
     const orgUnit = initialOrgUnitValue(ou, ouDisplayName)
+    const attributeComboData = initialAttributeOptionComboValue(aoc, workflow, orgUnit, period, calendar, metadata)
     const dataSet = initialDataSetValue(dataSetParam)
 
-    return { workflow, period, orgUnit, dataSet }
+    return {workflow, period, orgUnit, dataSet, attributeCombo: attributeComboData?.attributeCombo, attributeOptionCombo: attributeComboData?.attributeOptionCombo}
 }
 
 export const initialWorkflowValue = (workflows, workflowId) => {
@@ -47,6 +49,14 @@ export const initialOrgUnitValue = (path, displayName) => {
     const [lastPathSegment] = path.match(/[/]?[^/]*$/)
     const id = lastPathSegment.replace('/', '')
     return { id, path, displayName }
+}
+
+export const initialAttributeOptionComboValue = (aoc, initialWorkflow = {}, orgUnit, period, calendar, metadata = {}) => {
+    if (!aoc || !initialWorkflow.id || !metadata.categoryCombos || !orgUnit || !period) {
+        return null
+    }
+
+    return findAttributeOptionComboInWorkflow( metadata, initialWorkflow, aoc, orgUnit, period, calendar )
 }
 
 export const initialDataSetValue = (dataSetParam) => {
