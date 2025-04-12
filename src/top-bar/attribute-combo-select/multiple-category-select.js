@@ -22,7 +22,6 @@ export default function MultipleCategoySelect({
     selected,
     onChange
 }) {
-    // const [selectedItem, setSelectedItem] = useState(selected)
     useEffect(() => {
         
     }, [selected])

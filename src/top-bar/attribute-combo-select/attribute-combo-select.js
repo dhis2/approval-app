@@ -170,7 +170,7 @@ const AttributeComboSelect = () => {
     }
     
     if (!workflow || Object.keys(workflow).length < 0) {
-        return null // Renders nothing
+        return null
     }
     
     return (

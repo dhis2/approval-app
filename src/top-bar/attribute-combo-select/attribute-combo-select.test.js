@@ -1,7 +1,3 @@
-import { CustomDataProvider } from '@dhis2/app-runtime'
-import { Popover, OrganisationUnitTree, Tooltip } from '@dhis2/ui'
-import { render, screen, waitFor } from '@testing-library/react'
-import userEvent from '@testing-library/user-event'
 import { mount, shallow } from 'enzyme'
 import React from 'react'
 import { act } from 'react-dom/test-utils'
@@ -9,9 +5,8 @@ import { useAppContext } from '../../app-context/index.js'
 import { readQueryParams } from '../../navigation/read-query-params.js'
 import { useSelectionContext } from '../../selection-context/index.js'
 import { ContextSelect } from '../context-select/context-select.js'
-import { CAT_OPTION_COMBO, AttributeComboSelect } from './attribute-combo-select.js'
+import { AttributeComboSelect } from './attribute-combo-select.js'
 
-// Mock dependencies
 jest.mock('../../app-context/use-app-context', () => ({
     useAppContext: jest.fn(),
 }));
@@ -209,52 +204,10 @@ describe('<AttributeComboSelect>', () => {
             wrapper.update(); // Ensure updates are applied without delay
         });
        
-        // Assert that ContextSelect is enabled (not disabled)
         const contextSelect = wrapper.find(ContextSelect)
-        expect(contextSelect.exists()).toBe(true);  // Ensure the component exists
-        expect(contextSelect.prop('disabled')).toBe(false) // Assert the disabled prop is false
+        expect(contextSelect.exists()).toBe(true) // Ensure the component exists
+        expect(contextSelect.prop('disabled')).toBe(false)
         expect(contextSelect.prop("placeholder")).toBe('0 selections')
     })
-    
-    // it('renders the value when a category option combo is selected', async() => {
-    //     useSelectionContext.mockImplementation(() => ({
-    //         workflow: {
-    //             id: 'i5m0JPw4DQi',
-    //         },
-    //         period: {
-    //             id: '20120402',
-    //         },
-    //         orgUnit: mockOrgUnitRoots[0],
-    //         attributeOptionCombo: {
-    //             id: "wertyuiopas",
-    //             displayName: "Option Combo 1",
-    //             categoryOptions: [{
-    //                 id: "123"
-    //             }]
-    //         },
-    //         openedSelect: '',
-    //         selectAttributeOptionCombo: () => {},
-    //         selectWorkflow: () => {},
-    //         setOpenedSelect: () => {},
-    //     }))
-    //     // const wrapper = shallow(<AttributeComboSelect />)
-    //     // // Wait for the useEffect to execute
-    //     // await act(async () => {
-    //     //     wrapper.update(); // Ensure updates are applied without delay
-    //     // });
-        
-    //     // expect(wrapper.find(ContextSelect).shallow().text().includes('1 selection')).toBe(true)
-        
-    //     const wrapper = mount(<AttributeComboSelect />)
-    //     // Wait for the useEffect to execute
-    //     await act(async () => {
-    //         wrapper.update(); // Ensure updates are applied without delay
-    //     });
-       
-    //     // Assert that ContextSelect is enabled (not disabled)
-    //     const contextSelect = wrapper.find(ContextSelect)
-    //     expect(contextSelect.exists()).toBe(true);  // Ensure the component exists
-    //     expect(contextSelect.prop("placeholder")).toBe('1 selections')
-    // })
 
 })

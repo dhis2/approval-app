@@ -73,9 +73,6 @@ export default function CategoySelect({
             secondary
             className={css.hideButton}
             onClick={(_, evt) => {
-                // required as otherwise it'd trigger a `setOpen(true)` call as
-                // react thinks of this dropdown as being inside of the
-                // selector. A click on the selector opens the menu.
                 evt.stopPropagation()
                 onClose()
             }}

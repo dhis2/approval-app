@@ -24,7 +24,6 @@ export const areListsEqual = (list1, list2) => {
         return false;
     }
 
-    // Sort both lists and compare
     const sortedList1 = [...list1].sort();
     const sortedList2 = [...list2].sort();
 
