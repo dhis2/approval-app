@@ -31,41 +31,31 @@
     margin: 8px;
 }
 
-.searchInput {
-    width: 100%;
-    max-width: 400px;
-    padding: 8px;
-    border: 1px solid #a0adba;
-    border-radius: 4px;
+/* for the react-select */
+
+.selectContainer {
+    margin-bottom: 16px;
+}
+  
+.selectContainer label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+/* Prefix-based styles (classNamePrefix = "select") */
+.select__control {
+    cursor: pointer;
+    border-color: #ccc;
     box-shadow: none;
 }
 
-.filterGroup {
-    margin-bottom: 1.5rem;
+.select__option {
+    margin: 4px 8px;
 }
 
-.label {
-    font-weight: 600;
-    display: block;
-    margin-bottom: 0.5rem;
-    color: #222;
+.select__dropdown-indicator {
+    color: #666;
 }
 
-.inputWithDropdown {
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-}
-
-.searchInput {
-    padding: 0.5rem 0.75rem;
-    border: 1px solid #ccc;
-    border-radius: 0.375rem;
-    font-size: 1rem;
-  }
-
-.empty {
-    color: #999;
-    font-size: 0.875rem;
-    padding: 0.5rem;
-}

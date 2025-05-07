@@ -4,6 +4,8 @@ import PropTypes from 'prop-types'
 import React, { useEffect } from 'react'
 import css from './category-option-select.module.css'
 import { useState } from 'react'
+import Select from 'react-select'
+import 'react-select/dist/react-select.css'
 
 /**
  *
@@ -19,28 +21,28 @@ export default function MultipleCategoySelect({
     selected,
     onChange,
 }) {
-    const [searchQueries, setSearchQueries] = useState({})
+    // const [searchQueries, setSearchQueries] = useState({})
 
     useEffect(() => {}, [selected])
 
-    // Filter categoryOptions based on the search query
-    const filterCategoryOptions = (categoryId, categoryOptions) => {
-        const searchKey = searchQueries[categoryId] || "";
-        return categoryOptions.filter(
-            (catOption) =>
-                catOption.displayName
-                    .toLowerCase()
-                    .includes(searchKey.toLowerCase())
-        )
-    }
+    // // Filter categoryOptions based on the search query
+    // const filterCategoryOptions = (categoryId, categoryOptions) => {
+    //     const searchKey = searchQueries[categoryId] || "";
+    //     return categoryOptions.filter(
+    //         (catOption) =>
+    //             catOption.displayName
+    //                 .toLowerCase()
+    //                 .includes(searchKey.toLowerCase())
+    //     )
+    // }
 
-    const setSearchKey = (id, value) => {
-        setSearchQueries((prev) => ({
-            ...prev,
-            [id]: value,
-        }));
+    // const setSearchKey = (id, value) => {
+    //     setSearchQueries((prev) => ({
+    //         ...prev,
+    //         [id]: value,
+    //     }));
 
-    }
+    // }
 
     return (
         <div className={css.inputs}>
@@ -58,53 +60,25 @@ export default function MultipleCategoySelect({
                         )}
                     </NoticeBox>
                 ) : (
-                    <div className={css.filterGroup}>
+                    <div className={css.selectContainer}>
                         <label htmlFor={`search-${id}`} className={css.label}>
                             {displayName}
                         </label>
-
-                        <div className={css.inputWithDropdown}>
-                            <input
+                        <Select
+                            classNamePrefix="select"
                             id={`search-${id}`}
-                            type="text"
-                            placeholder={i18n.t('Search for {{categoryName}}', {
-                                categoryName: displayName,
-                                nsSeparator: '-:-',
-                            })}
-                            value={searchQueries[id] || ""}
-                            onChange={(e) => setSearchKey(id, e.target.value)}
-                            className={css.searchInput}
-                            />
-
-                            {filterCategoryOptions(id, categoryOptions).length === 0 ? (
-                            <div className={css.empty}>
-                                <span>
-                                {i18n.t('No results found for {{searchQuery}}', {
-                                    searchQuery: searchQueries[id],
-                                    nsSeparator: '-:-',
-                                })}
-                                </span>
-                            </div>
-                            ) : (
-                            <div className={css.dropdownWrapper}>
-                                <SingleSelectField
-                                selected={selected[id]}
-                                onChange={({ selected }) => onChange(id, selected)}
-                                >
-                                {filterCategoryOptions(id, categoryOptions).map(({ id, displayName }) => (
-                                    <SingleSelectOption
-                                    key={id}
-                                    value={id}
-                                    label={displayName}
-                                    className={css.dropdown}
-                                    />
-                                ))}
-                                </SingleSelectField>
-                            </div>
-                            )}
-                        </div>
-                        </div>
-
+                            options={categoryOptions.map(item => ({
+                                value: item.id,
+                                label: item.displayName,
+                                original: item, // optional: keep reference to original
+                              }))}
+                            onChange={(selected) => onChange(id, selected ? selected.original.id : null)}
+                            value={selected[id]}
+                            placeholder={displayName}
+                            isSearchable
+                            getOptionLabel={(e) => e.displayName}
+                        />
+                    </div>
                 )
             )}
         </div>
