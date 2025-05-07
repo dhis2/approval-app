@@ -1,10 +1,9 @@
 import i18n from '@dhis2/d2-i18n'
-import { NoticeBox, SingleSelectField, SingleSelectOption } from '@dhis2/ui'
+import { NoticeBox } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React, { useEffect } from 'react'
-import css from './category-option-select.module.css'
-import { useState } from 'react'
 import Select from 'react-select'
+import css from './category-option-select.module.css'
 import 'react-select/dist/react-select.css'
 
 /**
