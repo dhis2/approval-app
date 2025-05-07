@@ -4,8 +4,10 @@
 }
 
 .container {
-    inline-size: 350px;
     color: #808080;
+    inline-size: 350px;
+    margin-left: 20px;
+    width: 300px;
 }
 
 .bordered {
@@ -13,7 +15,8 @@
 }
 
 .inputWrapper {
-    margin: 0px 20px 20px 20px;
+    margin-top: 10px;
+    margin-bottom: 25px;
 }
 
 .dropdown {
@@ -26,4 +29,43 @@
 
 .noOptionsBox {
     margin: 8px;
+}
+
+.searchInput {
+    width: 100%;
+    max-width: 400px;
+    padding: 8px;
+    border: 1px solid #a0adba;
+    border-radius: 4px;
+    box-shadow: none;
+}
+
+.filterGroup {
+    margin-bottom: 1.5rem;
+}
+
+.label {
+    font-weight: 600;
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #222;
+}
+
+.inputWithDropdown {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.searchInput {
+    padding: 0.5rem 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 0.375rem;
+    font-size: 1rem;
+  }
+
+.empty {
+    color: #999;
+    font-size: 0.875rem;
+    padding: 0.5rem;
 }
