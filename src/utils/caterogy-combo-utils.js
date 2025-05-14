@@ -1,7 +1,7 @@
 import { areListsEqual, cloneJSON } from "./array-utils.js";
 import { isDateALessThanDateB } from "./date-utils.js";
 
-export const getCategoryCombosByFilters = (metadata, workflow, orgUnit, period, calendar) => {
+export const getCategoryCombosByFilters = (metadata, {workflow, orgUnit, period, calendar}) => {
     if(workflow == null || orgUnit == null || period == null ) return [];
     
     const categoryComboList = cloneJSON(extractCategoryCombosByWorkflow(metadata, workflow))

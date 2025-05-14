@@ -76,7 +76,7 @@ const AttributeComboSelect = () => {
     
     useEffect(() => {
         // Fetch and set the category combos
-        const _attributeCombos = getCategoryCombosByFilters(metadata, workflow, orgUnit, period, calendar)
+        const _attributeCombos = getCategoryCombosByFilters(metadata, {workflow, orgUnit, period, calendar})
 
         setAttributeCombos(_attributeCombos)
         
