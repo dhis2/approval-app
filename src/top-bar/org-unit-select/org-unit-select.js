@@ -3,12 +3,12 @@ import { OrganisationUnitTree, Divider } from '@dhis2/ui'
 import React from 'react'
 import { useAppContext } from '../../app-context/index.js'
 import { useSelectionContext } from '../../selection-context/index.js'
+import { isNullOrEmpty } from '../../utils/string-utils.js'
 import { ContextSelect } from '../context-select/index.js'
 import { ApprovalStatusIconsLegend } from './approval-status-icons-legend.js'
 import { ApprovalStatusLabel } from './approval-status-label.js'
 import classes from './org-unit-select.module.css'
 import { useOrgUnitSearch } from './use-org-unit-search.js'
-import { isNullOrEmpty } from '../../utils/string-utils.js'
 
 export const ORG_UNIT = 'ORG_UNIT'
 
@@ -22,8 +22,8 @@ const OrgUnitSelect = () => {
         openedSelect,
         setOpenedSelect,
     } = useSelectionContext()
-    const { searchText, orgUnits, loading, setSearchText } = useOrgUnitSearch();
-    
+    const { searchText, orgUnits, setSearchText } = useOrgUnitSearch();
+
     const open = openedSelect === ORG_UNIT
     const value = orgUnit?.displayName
     const requiredValuesMessage = workflow?.id
@@ -55,11 +55,11 @@ const OrgUnitSelect = () => {
                 />
             )
         }
-        
+
         return <OrganisationUnitTree
             roots={orgUnits.map(({ id }) => id)}
             onChange={onChange}
-            key={`${searchText}-${new Date().getTime()}`}
+            key={`${searchText}`}
             selected={selectedOrgUnitPath}
             singleSelection
             renderNodeLabel={({ label, node }) => (
@@ -70,7 +70,7 @@ const OrgUnitSelect = () => {
             )}
         />
     }
-    
+
     return (
         <ContextSelect
             dataTest="org-unit-context-select"
@@ -94,7 +94,7 @@ const OrgUnitSelect = () => {
                         className={classes.searchInput}
                     />
                 </div>
-                
+
                 <div className={classes.scrollbox}>
                     {renderOrgUnitTree()}
                 </div>
