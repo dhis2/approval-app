@@ -1,7 +1,7 @@
 import i18n from '@dhis2/d2-i18n'
 import { NoticeBox } from '@dhis2/ui'
 import PropTypes from 'prop-types'
-import React, { useEffect } from 'react'
+import React from 'react'
 import Select from 'react-select'
 import css from './category-option-select.module.css'
 import 'react-select/dist/react-select.css'
@@ -20,29 +20,6 @@ export default function MultipleCategoySelect({
     selected,
     onChange,
 }) {
-    // const [searchQueries, setSearchQueries] = useState({})
-
-    useEffect(() => {}, [selected])
-
-    // // Filter categoryOptions based on the search query
-    // const filterCategoryOptions = (categoryId, categoryOptions) => {
-    //     const searchKey = searchQueries[categoryId] || "";
-    //     return categoryOptions.filter(
-    //         (catOption) =>
-    //             catOption.displayName
-    //                 .toLowerCase()
-    //                 .includes(searchKey.toLowerCase())
-    //     )
-    // }
-
-    // const setSearchKey = (id, value) => {
-    //     setSearchQueries((prev) => ({
-    //         ...prev,
-    //         [id]: value,
-    //     }));
-
-    // }
-
     return (
         <div className={css.inputs}>
             {/* Categories Dropdown */}
