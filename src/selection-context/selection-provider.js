@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import React, { useEffect, useReducer } from 'react'
 import { useAppContext } from '../app-context/index.js'
 import { pushStateToHistory } from '../navigation/index.js'
-import { findAttributeOptionComboInWorkflow } from '../utils/caterogy-combo-utils.js'
+import { findAttributeOptionComboInWorkflow } from '../utils/category-combo-utils.js'
 import { initialValues, initialWorkflowValue } from './initial-values.js'
 import { SelectionContext } from './selection-context.js'
 
@@ -20,7 +20,7 @@ const ACTIONS = {
 }
 
 const reducer = (state, { type, payload }) => {
-    
+
     switch (type) {
         case ACTIONS.SET_OPENED_SELECT:
             return {
@@ -56,7 +56,7 @@ const reducer = (state, { type, payload }) => {
         }
         case ACTIONS.SELECT_PERIOD: {
             const attributeOptionComboData = findAttributeOptionComboInWorkflow(payload.metadata, state.workflow, state.attributeOptionCombo?.id, state.orgUnit, payload.period, payload.calendar)
-            
+
             return {
                 ...state,
                 /*

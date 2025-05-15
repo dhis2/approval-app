@@ -1,10 +1,10 @@
 import { readQueryParams } from '../navigation/index.js'
 import { parsePeriodId } from '../shared/index.js'
-import { findAttributeOptionComboInWorkflow } from '../utils/caterogy-combo-utils.js'
+import { findAttributeOptionComboInWorkflow } from '../utils/category-combo-utils.js'
 
 export const initialValues = (metadata, workflows, calendar) => {
     const queryParams = readQueryParams()
-    
+
     const { wf, pe, ou, aoc, ouDisplayName, dataSet: dataSetParam } = queryParams
     const workflow = initialWorkflowValue(workflows, wf)
     const period = initialPeriodValue(pe, workflow)
