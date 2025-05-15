@@ -59,7 +59,7 @@ const OrgUnitSelect = () => {
         return <OrganisationUnitTree
             roots={orgUnits.map(({ id }) => id)}
             onChange={onChange}
-            key={`${searchText}`}
+            key={`${searchText}-${new Date().getTime()}`}
             selected={selectedOrgUnitPath}
             singleSelection
             renderNodeLabel={({ label, node }) => (
