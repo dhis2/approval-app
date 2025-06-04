@@ -205,7 +205,7 @@ const isOptionAssignedToOrgUnit = ({ categoryOption, orgUnit }) => {
         return true;
     }
 
-    const found = categoryOption?.organisationUnits.filter(catOptionOrgUnit => orgUnit?.path.indexOf(catOptionOrgUnit.path)>=0)
+    const found = categoryOption?.organisationUnits.filter(catOptionOrgUnit => (orgUnit?.path.indexOf(catOptionOrgUnit.path)>=0 || catOptionOrgUnit?.path.indexOf(orgUnit.path)>=0))
     return found.length > 0
 }
 
