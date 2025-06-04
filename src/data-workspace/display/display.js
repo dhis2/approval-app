@@ -9,7 +9,7 @@ import {
     getFixedPeriodsForTypeAndDateRange,
     RetryButton,
 } from '../../shared/index.js'
-import { filterDataSetsByAttributeOptionComboAndOrgUnit, getDataSetReportFilter } from '../../utils/caterogy-combo-utils.js'
+import { filterDataSetsByAttributeOptionComboAndOrgUnit, getDataSetReportFilter } from '../../utils/category-combo-utils.js'
 import styles from './display.module.css'
 import { TableCustomDataSet } from './table-custom-data-set.js'
 import { Table } from './table.js'
@@ -96,7 +96,7 @@ const Display = ({ dataSetId }) => {
     //         <p>{i18n.t("Please verify the workflow configuration or select a different workflow that includes data sets.")}</p>
     //     </ErrorMessage>
     // }
-    
+
     if ((!called && periodIds.length) || fetching) {
         return (
             <div className={styles.display}>

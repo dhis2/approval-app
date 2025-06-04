@@ -4,8 +4,10 @@
 }
 
 .container {
-    inline-size: 350px;
     color: #808080;
+    inline-size: 350px;
+    margin-left: 20px;
+    width: 300px;
 }
 
 .bordered {
@@ -13,7 +15,8 @@
 }
 
 .inputWrapper {
-    margin: 0px 20px 20px 20px;
+    margin-top: 10px;
+    margin-bottom: 25px;
 }
 
 .dropdown {
@@ -27,3 +30,32 @@
 .noOptionsBox {
     margin: 8px;
 }
+
+/* for the react-select */
+
+.selectContainer {
+    margin-bottom: 16px;
+}
+  
+.selectContainer label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+/* Prefix-based styles (classNamePrefix = "select") */
+.select__control {
+    cursor: pointer;
+    border-color: #ccc;
+    box-shadow: none;
+}
+
+.select__option {
+    margin: 4px 8px;
+}
+
+.select__dropdown-indicator {
+    color: #666;
+}
+

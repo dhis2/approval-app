@@ -1,6 +1,6 @@
 import React from 'react'
 import { useSelectionContext } from '../selection-context/index.js'
-import { filterDataSetsByAttributeOptionComboAndOrgUnit } from '../utils/caterogy-combo-utils.js'
+import { filterDataSetsByAttributeOptionComboAndOrgUnit } from '../utils/category-combo-utils.js'
 import { DataSetNavigation } from './data-set-navigation/index.js'
 import { Display } from './display/index.js'
 import { TitleBar } from './title-bar/index.js'
@@ -11,7 +11,7 @@ const DataWorkspace = () => {
     const { metadata } = useAppContext()
     const { workflow, orgUnit, attributeOptionCombo, selectDataSet } = useSelectionContext()
     const selectedDataSet = useSelectedDataSet()
-    
+
     const dataSets = filterDataSetsByAttributeOptionComboAndOrgUnit(metadata, workflow, orgUnit, attributeOptionCombo)
 
     return (
