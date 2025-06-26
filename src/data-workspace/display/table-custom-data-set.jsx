@@ -26,6 +26,13 @@ DataTableToolbar.propTypes = {
     columns: PropTypes.number.isRequired,
 }
 
+DOMPurify.addHook('afterSanitizeAttributes', function (node) {
+    if (node.tagName.toLowerCase() === 'a') {
+        node.setAttribute('target', '_blank')
+        node.setAttribute('rel', 'noreferrer')
+    }
+})
+
 const TableCustomDataSet = ({ title, columns, rows }) => (
     <>
         <DataTable className={styles.dataTable} width="auto">
