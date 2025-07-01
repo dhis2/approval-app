@@ -26,6 +26,7 @@ jobs:
               with:
                   node-version: 18.x
                   cache: 'yarn'
+            - run: yarn install --frozen-lockfile
 
             - name: Build
               run: yarn d2-app-scripts build --standalone
