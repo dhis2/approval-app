@@ -34,32 +34,140 @@ expect.extend({
         return { pass, message }
     },
 })
+const metadata = {
+    categoryCombos: [
+        {
+            displayName: "Combo 1",
+            id: "combo_1",
+            categories: [
+                {
+                    name: "Category 1",
+                    displayName: "Category 1",
+                    id: "category_1",
+                    categoryOptions: [
+                        {
+                            displayName: "Option 1",
+                            id: "123"
+                        },
+                        {
+                            displayName: "Option 2",
+                            id: "456"
+                        },
+                    ]
+                }
+            ],
+            categoryOptionCombos: [
+                {
+                    categoryOptions: [{id: "123" }],
+                    displayName: "Option Combo 1",
+                    id: "wertyuiopas"
+                },
+            ],
+            isDefault: false
+        },
+    ]
+};
 
-beforeEach(() => {
-    readQueryParams.mockImplementation(() => ({}))
-})
-
-afterEach(() => {
-    jest.resetAllMocks()
-})
-
+const dataSetOne = {
+                name: "Data set 1",
+                id: "dataset_1",
+                periodType: "Daily",
+                categoryCombo: {
+                    displayName: "Combo 1",
+                    id: "combo_1",
+                    categories: [
+                        {
+                            name: "Category 1",
+                            displayName: "Category 1",
+                            id: "category_1",
+                            categoryOptions: [
+                                {
+                                    displayName: "Option 1",
+                                    id: "123"
+                                },
+                                {
+                                    displayName: "Option 2",
+                                    id: "456"
+                                },
+                            ]
+                        }
+                    ],
+                    categoryOptionCombos: [
+                        {
+                            categoryOptions: [{id: "123" }],
+                            displayName: "Option Combo 1",
+                            id: "wertyuiopas"
+                        },
+                    ],
+                    isDefault: false
+                },
+            }
 const mockWorkflows = [
     {
         displayName: 'Workflow a',
         id: 'i5m0JPw4DQi',
         periodType: 'Daily',
+        dataSets: [
+            dataSetOne
+        ]
     },
     {
         displayName: 'Workflow B',
         id: 'rIUL3hYOjJc',
         periodType: 'Daily',
+        dataSets: [
+            {
+                name: "Data set 2",
+                id: "dataset_2",
+                periodType: "Daily",
+                categoryCombo: {
+                    displayName: "Combo 1",
+                    id: "combo_1",
+                    categories: [
+                        {
+                            name: "Category 1",
+                            displayName: "Category 1",
+                            id: "category_1",
+                            categoryOptions: [
+                                {
+                                    displayName: "Option 1",
+                                    id: "123"
+                                },
+                                {
+                                    displayName: "Option 2",
+                                    id: "456"
+                                },
+                            ]
+                        }
+                    ],
+                    categoryOptionCombos: [
+                        {
+                            categoryOptions: [{id: "123" }],
+                            displayName: "Option Combo 1",
+                            id: "wertyuiopas"
+                        },
+                    ],
+                    isDefault: false
+                },
+                organisationUnits: [
+                    {id: 'ou-1', displayName: 'Org unit 1', path: '/ou-1'},
+                    {id: 'ou-2', displayName: 'Org unit 2', path: '/ou-2'},
+                ]
+            }
+        ]
     },
 ]
 
 beforeEach(() => {
     useAppContext.mockImplementation(() => ({
         dataApprovalWorkflows: mockWorkflows,
+        metadata
     }))
+    readQueryParams.mockImplementation(() => ({}))
+})
+
+afterEach(() => {
+    jest.resetAllMocks()
 })
 
 describe('useSelectionContext', () => {
@@ -71,16 +179,20 @@ describe('useSelectionContext', () => {
         const { result } = renderHook(() => useSelectionContext(), { wrapper })
 
         expect(result.current).toEqual({
-            workflow: expect.any(Object),
-            period: expect.any(Object),
-            orgUnit: expect.any(Object),
-            dataSet: expect.string(),
+            workflow: null,
+            period: null,
+            orgUnit: null,
+            attributeCombo: undefined,
+            attributeOptionCombo: undefined,
+            dataSet: null,
             openedSelect: expect.any(String),
             clearAll: expect.any(Function),
             setOpenedSelect: expect.any(Function),
             selectWorkflow: expect.any(Function),
             selectPeriod: expect.any(Function),
             selectOrgUnit: expect.any(Function),
+            selectAttributeOptionCombo: expect.any(Function),
+            selectAttributeCombo: expect.any(Function),
             selectDataSet: expect.any(Function),
         })
     })
@@ -89,13 +201,14 @@ describe('useSelectionContext', () => {
         readQueryParams.mockImplementation(() => ({
             wf: 'rIUL3hYOjJc',
             pe: '20110203',
-            ou: '/abc',
-            dataSet: 'foobar',
-            ouDisplayName: 'test',
+            ou: '/ou-1',
+            aoc: "wertyuiopas",
+            dataSet: dataSetOne.id,
+            ouDisplayName: 'Org unit 1',
         }))
 
         const { result } = renderHook(() => useSelectionContext(), { wrapper })
-        expect(result.current.dataSet).toEqual('foobar')
+        expect(result.current.dataSet).toEqual('dataset_1')
         expect(result.current.workflow).toEqual(mockWorkflows[1])
         expect(result.current.period).toEqual(
             expect.objectContaining({
@@ -108,10 +221,17 @@ describe('useSelectionContext', () => {
             })
         )
         expect(result.current.orgUnit).toEqual({
-            path: '/abc',
-            id: 'abc',
-            displayName: 'test',
+           id: 'ou-1', 
+           displayName: 'Org unit 1', 
+           path: '/ou-1',
         })
+
+        expect(result.current.attributeOptionCombo).toEqual({
+            categoryOptions: [ { id: '123' } ],
+            displayName: 'Option Combo 1',
+            id: 'wertyuiopas'
+        })
+
     })
 
     describe('functions returned from the hook update the state and url', () => {
@@ -143,12 +263,12 @@ describe('useSelectionContext', () => {
             })
 
             act(() => {
-                result.current.selectDataSet('foobar')
+                result.current.selectDataSet(dataSetOne)
             })
-            expect(result.current.dataSet).toBe('foobar')
+            expect(result.current.dataSet.id).toBe(dataSetOne.id)
             mock.mockClear()
 
-            const expectedWorkflow = { id: '123' }
+            const expectedWorkflow = mockWorkflows[1];
             act(() => {
                 result.current.selectWorkflow(expectedWorkflow)
             })
@@ -170,9 +290,9 @@ describe('useSelectionContext', () => {
             })
 
             act(() => {
-                result.current.selectDataSet('foobar')
+                result.current.selectDataSet(dataSetOne)
             })
-            expect(result.current.dataSet).toBe('foobar')
+            expect(result.current.dataSet.id).toBe(dataSetOne.id)
             mock.mockClear()
 
             const expectedPeriod = { id: '20210202' }
@@ -191,21 +311,23 @@ describe('useSelectionContext', () => {
         it('selectOrgUnit', () => {
             const mock = jest.fn()
             pushStateToHistory.mockImplementation(mock)
-
             const { result } = renderHook(() => useSelectionContext(), {
                 wrapper,
             })
-
             act(() => {
-                result.current.selectDataSet('foobar')
+                result.current.selectDataSet(dataSetOne)
             })
-            expect(result.current.dataSet).toBe('foobar')
+            expect(result.current.dataSet.id).toBe(dataSetOne.id)
             mock.mockClear()
 
-            const expectedOrgUnit = { path: '123' }
+            const expectedOrgUnit = {id: 'ou-1', displayName: 'Org unit 1', path: '/ou-1'}
+         
             act(() => {
+                result.current.selectWorkflow(mockWorkflows[1])
+                result.current.selectPeriod({ id: '20210202' })
                 result.current.selectOrgUnit(expectedOrgUnit)
             })
+                     
             expect(result.current).toEqual(
                 expect.objectContaining({
                     orgUnit: expectedOrgUnit,
@@ -214,6 +336,34 @@ describe('useSelectionContext', () => {
             )
             expect(mock).toHaveBeenCalledTimes(1)
         })
+
+
+        it('selectAttributeOptionCombo', () => {
+            const mock = jest.fn()
+            pushStateToHistory.mockImplementation(mock)
+
+            const { result } = renderHook(() => useSelectionContext(), {
+                wrapper,
+            })
+
+            // Reset count to 0 because the function is also called on initial render
+            mock.mockClear()
+
+            const expectedAttributeOptionCombo = { id: 'wertyuiopas' }
+            act(() => { 
+                result.current.selectWorkflow(mockWorkflows[1])
+                result.current.selectPeriod({ id: '20210202' })
+                result.current.selectOrgUnit({id: 'ou-1', displayName: 'Org unit 1', path: '/ou-1'})
+                result.current.selectAttributeOptionCombo(expectedAttributeOptionCombo)
+            })
+            expect(result.current).toEqual(
+                expect.objectContaining({
+                    attributeOptionCombo: expectedAttributeOptionCombo
+                })
+            )
+            expect(mock).toHaveBeenCalledTimes(1)
+        })
+
 
         it('selectDataSet', () => {
             const mock = jest.fn()
@@ -227,10 +377,10 @@ describe('useSelectionContext', () => {
             mock.mockClear()
 
             act(() => {
-                result.current.selectDataSet('foobar')
+                result.current.selectDataSet(dataSetOne)
             })
-
-            expect(result.current.dataSet).toEqual('foobar')
+            expect(result.current.dataSet.id).toBe(dataSetOne.id)
+            
             expect(mock).toHaveBeenCalledTimes(1)
         })
 
@@ -267,6 +417,7 @@ describe('useSelectionContext', () => {
             expect(result.current.workflow).toEqual(null)
             expect(result.current.period).toEqual(null)
             expect(result.current.orgUnit).toEqual(null)
+            expect(result.current.attributeOptionCombo).toEqual(null)
             expect(mock).toHaveBeenCalledTimes(1)
         })
     })

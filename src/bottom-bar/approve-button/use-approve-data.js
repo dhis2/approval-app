@@ -1,9 +1,9 @@
 import { useDataMutation } from '@dhis2/app-runtime'
 
 export const APPROVE_DATA_MUTATION = {
-    resource: 'dataApprovals',
+    resource: 'dataApprovals/approvals',
     type: 'create',
-    params: ({ wf, pe, ou }) => ({ wf, pe, ou }),
+    data: ({ wf, pe, approvals }) => ({ wf, pe, approvals }),
 }
 
 export const useApproveData = ({ onComplete, onError }) =>

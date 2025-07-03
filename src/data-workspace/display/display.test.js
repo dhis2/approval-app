@@ -7,20 +7,82 @@ import {
 } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import React from 'react'
+import { useAppContext } from '../../app-context/index.js'
 import { SelectionContext } from '../../selection-context/index.js'
 import { Display } from './display.js'
+
+jest.mock('../../app-context/index.js', () => ({
+    useAppContext: jest.fn(),
+}))
+
+beforeEach(() => {
+    useAppContext.mockImplementation(() => ({
+        metadata: {
+            categoryCombos: [
+                {
+                    displayName: 'Combo 1',
+                    id: 'combo_1',
+                    categories: [
+                        {
+                            name: 'Category 1',
+                            displayName: 'Category 1',
+                            id: 'category_1',
+                            categoryOptions: [
+                                {
+                                    displayName: 'Option 1',
+                                    id: '123',
+                                },
+                                {
+                                    displayName: 'Option 2',
+                                    id: '456',
+                                },
+                            ],
+                        },
+                    ],
+                    categoryOptionCombos: [
+                        {
+                            categoryOptions: [{ id: '123' }],
+                            displayName: 'Option Combo 1',
+                            id: 'wertyuiopas',
+                        },
+                    ],
+                    isDefault: false,
+                },
+            ],
+        },
+    }))
+})
+
+afterEach(() => {
+    jest.resetAllMocks()
+})
 
 describe('<Display>', () => {
     const dataSetOne = {
         displayName: 'Mortality < 5 years',
         id: 'pBOMPrpg1QX',
         periodType: 'Monthly',
+        categoryCombo: {
+            id: 'combo_1',
+        },
+        organisationUnits: [
+            { id: 'ou-1', displayName: 'Org unit 1', path: '/ou-1' },
+            { id: 'ou-2', displayName: 'Org unit 2', path: '/ou-2' },
+        ],
     }
 
     const dataSetTwo = {
         displayName: 'Mortality > 4 years',
         id: 'pBOMPrpg1QZ',
         periodType: 'Monthly',
+        categoryCombo: {
+            displayName: 'Combo 1',
+            id: 'combo_1',
+        },
+        organisationUnits: [
+            { id: 'ou-1', displayName: 'Org unit 1', path: '/ou-1' },
+            { id: 'ou-2', displayName: 'Org unit 2', path: '/ou-2' },
+        ],
     }
 
     it('asks the user to select a data set if none is selected', () => {
@@ -34,6 +96,24 @@ describe('<Display>', () => {
                             displayName: 'Workflow 1',
                             id: 'foo',
                             periodType: 'Monthly',
+                        },
+                        period: {
+                            displayName: 'January 2021',
+                            startDate: '2021-01-01',
+                            endDate: '2021-01-31',
+                            iso: '202101',
+                            id: '202101',
+                        },
+                        orgUnit: {
+                            id: 'ou-2',
+                            displayName: 'Org unit 2',
+                            path: '/ou-2',
+                        },
+                        attributeCombo: {
+                            id: 'combo_1',
+                        },
+                        attributeOptionCombo: {
+                            id: 'wertyuiopas',
                         },
                     }}
                 >
@@ -64,6 +144,15 @@ describe('<Display>', () => {
                             id: 'foo',
                             periodType: 'Monthly',
                         },
+                        orgUnit: {
+                            id: 'ou-2',
+                            displayName: 'Org unit 2',
+                            path: '/ou-2',
+                        },
+                        attributeOptionCombo: {
+                            id: 'wertyuiopas',
+                            displayName: 'Option Combo 1',
+                        },
                     }}
                 >
                     <Display dataSetId={null} />
@@ -71,7 +160,9 @@ describe('<Display>', () => {
             </CustomDataProvider>
         )
         expect(
-            screen.getByText(`This workflow does not contain any data sets.`)
+            screen.getByText(
+                `Workflow "Workflow 1", organisation unit "Org unit 2" and attribute option combo "Option Combo 1" does not contain any data sets.`
+            )
         ).toBeInTheDocument()
     })
 
@@ -80,6 +171,15 @@ describe('<Display>', () => {
             <CustomDataProvider options={{ loadForever: true }}>
                 <SelectionContext.Provider
                     value={{
+                        attributeOptionCombo: {
+                            id: 'wertyuiopas',
+                            displayName: 'Option Combo 1',
+                            categoryOptions: [
+                                {
+                                    id: '123',
+                                },
+                            ],
+                        },
                         orgUnit: {
                             id: 'ou-2',
                             path: '/ou-2',
@@ -117,6 +217,15 @@ describe('<Display>', () => {
             <CustomDataProvider data={data}>
                 <SelectionContext.Provider
                     value={{
+                        attributeOptionCombo: {
+                            id: 'wertyuiopas',
+                            displayName: 'Option Combo 1',
+                            categoryOptions: [
+                                {
+                                    id: '123',
+                                },
+                            ],
+                        },
                         orgUnit: {
                             id: 'ou-2',
                             path: '/ou-2',
@@ -181,6 +290,15 @@ describe('<Display>', () => {
             <CustomDataProvider data={data}>
                 <SelectionContext.Provider
                     value={{
+                        attributeOptionCombo: {
+                            id: 'wertyuiopas',
+                            displayName: 'Option Combo 1',
+                            categoryOptions: [
+                                {
+                                    id: '123',
+                                },
+                            ],
+                        },
                         orgUnit: {
                             id: 'ou-2',
                             path: '/ou-2',
@@ -251,6 +369,15 @@ describe('<Display>', () => {
                 <CustomDataProvider data={data}>
                     <SelectionContext.Provider
                         value={{
+                            attributeOptionCombo: {
+                                id: 'wertyuiopas',
+                                displayName: 'Option Combo 1',
+                                categoryOptions: [
+                                    {
+                                        id: '123',
+                                    },
+                                ],
+                            },
                             orgUnit: {
                                 id: 'ou-2',
                                 path: '/ou-2',
@@ -271,6 +398,21 @@ describe('<Display>', () => {
                                         id: 'custom',
                                         periodType: 'Monthly',
                                         formType: 'CUSTOM',
+                                        categoryCombo: {
+                                            id: 'combo_1',
+                                        },
+                                        organisationUnits: [
+                                            {
+                                                id: 'ou-1',
+                                                displayName: 'Org unit 1',
+                                                path: '/ou-1',
+                                            },
+                                            {
+                                                id: 'ou-2',
+                                                displayName: 'Org unit 2',
+                                                path: '/ou-2',
+                                            },
+                                        ],
                                     },
                                 ],
                                 dataApprovalLevels: [],
@@ -323,7 +465,8 @@ describe('<Display>', () => {
                         ],
                         rows: [
                             [
-                                '<span style="color:black">Programme 6: Performance Indicator</span>',
+                                'DE Test 1',
+                                12
                             ],
                         ],
                     },
@@ -333,6 +476,15 @@ describe('<Display>', () => {
                 <CustomDataProvider data={data}>
                     <SelectionContext.Provider
                         value={{
+                            attributeOptionCombo: {
+                                id: 'wertyuiopas',
+                                displayName: 'Option Combo 1',
+                                categoryOptions: [
+                                    {
+                                        id: '123',
+                                    },
+                                ],
+                            },
                             orgUnit: {
                                 id: 'ou-2',
                                 path: '/ou-2',
@@ -342,19 +494,11 @@ describe('<Display>', () => {
                                 displayName: 'January 2021',
                                 startDate: '2021-01-01',
                                 endDate: '2021-01-31',
-                                year: 2021,
                                 iso: '202101',
                                 id: '202101',
                             },
                             workflow: {
-                                dataSets: [
-                                    {
-                                        displayName: 'Another',
-                                        id: 'custom',
-                                        periodType: 'Monthly',
-                                        formType: 'Default',
-                                    },
-                                ],
+                                dataSets: [dataSetOne],
                                 dataApprovalLevels: [],
                                 displayName: 'Workflow 1',
                                 periodType: 'Monthly',
@@ -362,17 +506,16 @@ describe('<Display>', () => {
                             },
                         }}
                     >
-                        <Display dataSetId="custom" />
+                        <Display dataSetId="pBOMPrpg1QX" />
                     </SelectionContext.Provider>
                 </CustomDataProvider>
             )
 
-            await waitForElementToBeRemoved(() =>
-                screen.getByRole('progressbar')
-            )
+            // Wait for loading to finish
+            await waitForElementToBeRemoved(() => screen.getByRole('progressbar'))
 
             expect(screen.getByRole('table')).toContainHTML(
-                '&lt;span style="color:black"&gt;Programme 6: Performance Indicator&lt;/span&gt;'
+                'DE Test 1'
             )
         })
     })

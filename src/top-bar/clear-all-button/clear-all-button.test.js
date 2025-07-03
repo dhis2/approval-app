@@ -12,7 +12,7 @@ afterEach(() => {
 })
 
 describe('<ClearAllButton>', () => {
-    it('renders a button when workflow, period and org-unit are set', () => {
+    it('renders a button when workflow, period, org-unit and category-option-combo are set', () => {
         useSelectionContext.mockImplementation(() => ({
             workflow: {
                 id: '123',
@@ -23,6 +23,29 @@ describe('<ClearAllButton>', () => {
             orgUnit: {
                 path: 'abc',
             },
+            attributeOptionCombo: {
+                id: 'wertyuiopas',
+            },
+        }))
+        const wrapper = shallow(<ClearAllButton />)
+        const button = wrapper.dive().find({
+            'data-test': 'dhis2-uicore-button',
+        })
+        expect(button).toHaveLength(1)
+    })
+
+    it('renders a button when workflow, period, org-unit and category-option-combo are set', () => {
+        useSelectionContext.mockImplementation(() => ({
+            workflow: {
+                id: '123',
+            },
+            period: {
+                id: '20110203',
+            },
+            orgUnit: {
+                path: 'abc',
+            },
+            attributeOptionCombo: null,
         }))
         const wrapper = shallow(<ClearAllButton />)
         const button = wrapper.dive().find({
@@ -40,6 +63,7 @@ describe('<ClearAllButton>', () => {
                 id: '20110203',
             },
             orgUnit: {},
+            attributeOptionCombo: {},
         }))
         const wrapper = shallow(<ClearAllButton />)
         const button = wrapper.dive().find({
@@ -55,6 +79,7 @@ describe('<ClearAllButton>', () => {
             },
             period: {},
             orgUnit: {},
+            attributeOptionCombo: {},
         }))
         const wrapper = shallow(<ClearAllButton />)
         expect(wrapper.type()).toEqual(null)
@@ -65,6 +90,7 @@ describe('<ClearAllButton>', () => {
             workflow: {},
             period: {},
             orgUnit: {},
+            attributeOptionCombo: {},
         }))
         const wrapper = shallow(<ClearAllButton />)
         expect(wrapper.type()).toEqual(null)
@@ -81,6 +107,7 @@ describe('<ClearAllButton>', () => {
                 id: '20110203',
             },
             orgUnit: {},
+            attributeOptionCombo: {},
         }))
 
         shallow(<ClearAllButton />)

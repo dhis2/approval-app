@@ -1,0 +1,14 @@
+.menuSelect {
+    max-block-size: 70vh;
+    overflow: hidden;
+    overflow-y: auto;
+}
+
+.bordered {
+    border-bottom: 1px solid var(--colors-grey400);
+}
+
+.option {
+    display: flex;
+    flex-direction: column;
+}

@@ -1,0 +1,61 @@
+.menu {
+    max-height: 70vh;
+    overflow-y: auto;
+}
+
+.container {
+    color: #808080;
+    inline-size: 350px;
+    margin-left: 20px;
+    width: 300px;
+}
+
+.bordered {
+    border-bottom: 1px solid var(--colors-grey400);
+}
+
+.inputWrapper {
+    margin-top: 10px;
+    margin-bottom: 25px;
+}
+
+.dropdown {
+    margin-top: 20px;
+}
+
+.hideButton {
+    margin: 15px 20px;
+}
+
+.noOptionsBox {
+    margin: 8px;
+}
+
+/* for the react-select */
+
+.selectContainer {
+    margin-bottom: 16px;
+}
+  
+.selectContainer label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+/* Prefix-based styles (classNamePrefix = "select") */
+.select__control {
+    cursor: pointer;
+    border-color: #ccc;
+    box-shadow: none;
+}
+
+.select__option {
+    margin: 4px 8px;
+}
+
+.select__dropdown-indicator {
+    color: #666;
+}
+
