@@ -56,45 +56,50 @@ const useFetchApprovalStatus = ({ updateApprovalStatuses }) => {
         })
         requestQueue.current = []
 
-        batchedQueries.forEach(async ({ workflowId, periodId, orgUnitIds }) => {
-            updateApprovalStatuses({
-                periodId,
-                workflowId,
-                approvalStatusUpdates: orgUnitIds.reduce(
-                    (statuses, orgUnitId) => {
-                        statuses[orgUnitId] = APPROVAL_STATUSES.LOADING
-                        return statuses
-                    },
-                    {}
-                ),
-            })
-
-            const updateObject = {}
-            try {
-                const { approvalStatuses } = await engine.query({
-                    approvalStatuses: {
-                        resource: 'dataApprovals/approvals',
-                        params: {
-                            wf: workflowId,
-                            pe: periodId,
-                            ou: orgUnitIds,
+        batchedQueries.forEach(
+            async ({ workflowId, periodId, orgUnitIds, aocs }) => {
+                updateApprovalStatuses({
+                    periodId,
+                    workflowId,
+                    approvalStatusUpdates: orgUnitIds.reduce(
+                        (statuses, orgUnitId) => {
+                            statuses[orgUnitId] = APPROVAL_STATUSES.LOADING
+                            return statuses
                         },
-                    },
+                        {}
+                    ),
                 })
-                approvalStatuses.forEach(({ ou, state }) => {
-                    updateObject[ou] = state || APPROVAL_STATUSES.UNAPPROVABLE
-                })
-            } catch (error) {
-                orgUnitIds.forEach((orgUnitId) => {
-                    updateObject[orgUnitId] = APPROVAL_STATUSES.ERROR
+
+                const updateObject = {}
+                try {
+                    const { approvalStatuses } = await engine.query({
+                        approvalStatuses: {
+                            resource: 'dataApprovals/approvals',
+                            params: {
+                                wf: workflowId,
+                                pe: periodId,
+                                ou: orgUnitIds,
+                                aoc: aocs,
+                            },
+                        },
+                    })
+                    approvalStatuses.forEach(({ ou, state }) => {
+                        updateObject[ou] =
+                            state || APPROVAL_STATUSES.UNAPPROVABLE
+                    })
+                } catch (error) {
+                    console.error('Failed to fetch approval statuses:', error)
+                    for (const orgUnitId of orgUnitIds) {
+                        updateObject[orgUnitId] = APPROVAL_STATUSES.ERROR
+                    }
+                }
+                updateApprovalStatuses({
+                    periodId,
+                    workflowId,
+                    approvalStatusUpdates: updateObject,
                 })
             }
-            updateApprovalStatuses({
-                periodId,
-                workflowId,
-                approvalStatusUpdates: updateObject,
-            })
-        })
+        )
     }, 10)
 
     return ({ workflowId, periodId, orgUnitId }) => {

@@ -9,39 +9,67 @@ import { WorkflowContext } from './workflow-context.js'
 const query = {
     approvalStatus: {
         resource: 'dataApprovals',
-        params: ({ workflow, period, orgUnit }) => ({
+        params: ({ workflow, period, orgUnit, attributeOptionCombo }) => ({
             wf: workflow.id,
             pe: period.id,
             ou: orgUnit.id,
+            aoc: attributeOptionCombo.id,
         }),
     },
 }
 
 const WorkflowProvider = ({ children }) => {
-    const { workflow, period, orgUnit } = useSelectionContext()
+    const { workflow, period, orgUnit, attributeOptionCombo } =
+        useSelectionContext()
     const { fetching, error, data, called, refetch } = useDataQuery(query, {
         lazy: true,
     })
-    const fetchApprovalStatus = () => refetch({ workflow, period, orgUnit })
+
+    const fetchApprovalStatus = () =>
+        refetch({ workflow, period, orgUnit, attributeOptionCombo })
 
     useEffect(() => {
-        if (workflow && period && orgUnit) {
+        if (workflow && period && orgUnit && attributeOptionCombo) {
             fetchApprovalStatus()
         }
-    }, [workflow, period, orgUnit])
+    }, [workflow, period, orgUnit, attributeOptionCombo])
 
-    if (!workflow || !period || !orgUnit) {
+    // Handle workflow without datasets
+    if (workflow?.dataSets?.length === 0) {
+        return (
+            <ErrorMessage title={i18n.t('Could not load approval data')}>
+                <p>
+                    {i18n.t(
+                        'The selected workflow "{{workflowName}}" does not have any associated data sets.',
+                        {
+                            workflowName: workflow?.displayName,
+                        }
+                    )}
+                </p>
+                <p>
+                    {i18n.t(
+                        'Please verify the workflow configuration or select a different workflow that includes data sets.'
+                    )}
+                </p>
+            </ErrorMessage>
+        )
+    }
+
+    // Handle missing required selections
+    if (!workflow || !period || !orgUnit || !attributeOptionCombo) {
         return null
     }
 
+    // Handle loading state
     if (fetching || !called) {
         return <Loader />
     }
 
+    // Handle Fetching approval data errors
     if (error) {
         return (
             <ErrorMessage title={i18n.t('Could not load approval data')}>
-                <p>{error.message}</p>
+                <p>{error?.message}</p>
                 <RetryButton onClick={fetchApprovalStatus}>
                     {i18n.t('Retry loading approval data')}
                 </RetryButton>
@@ -49,12 +77,15 @@ const WorkflowProvider = ({ children }) => {
         )
     }
 
+    // Destructure response data
     const {
         state: approvalStatus,
         approvedBy,
         approvedAt,
+        acceptedBy,
+        acceptedAt,
         ...allowedActions
-    } = data.approvalStatus
+    } = data?.approvalStatus || {}
 
     return (
         <WorkflowContext.Provider
@@ -62,12 +93,15 @@ const WorkflowProvider = ({ children }) => {
                 approvalStatus,
                 approvedBy,
                 approvedAt,
+                acceptedBy,
+                acceptedAt,
                 allowedActions,
                 refresh: refetch,
                 params: {
                     wf: workflow.id,
                     pe: period.id,
                     ou: orgUnit.id,
+                    aoc: attributeOptionCombo?.id,
                 },
             }}
         >

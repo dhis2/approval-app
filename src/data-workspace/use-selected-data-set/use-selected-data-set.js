@@ -1,16 +1,27 @@
 import { useMemo } from 'react'
+import { useAppContext } from '../../app-context/use-app-context.js'
 import { useSelectionContext } from '../../selection-context/index.js'
+import { filterDataSetsByAttributeOptionComboAndOrgUnit } from '../../utils/category-combo-utils.js'
 
 export const useSelectedDataSet = () => {
-    const { workflow, dataSet } = useSelectionContext()
-
+    const { metadata } = useAppContext()
+    const { workflow, dataSet, orgUnit, attributeOptionCombo } =
+        useSelectionContext()
+    const availableDataSets = filterDataSetsByAttributeOptionComboAndOrgUnit(
+        metadata,
+        { workflow, orgUnit, attributeOptionCombo }
+    )
     return useMemo(() => {
-        if (workflow.dataSets.length === 1) {
-            return workflow.dataSets[0].id
+        const dataSets = attributeOptionCombo
+            ? availableDataSets
+            : workflow?.dataSets
+
+        if (dataSets.length === 1) {
+            return dataSets[0].id
         }
 
         if (dataSet) {
-            const found = workflow.dataSets.find(({ id }) => id === dataSet)
+            const found = dataSets.find(({ id }) => id === dataSet)
             return found?.id
         }
 

@@ -9,6 +9,7 @@ export const readQueryParams = () => {
         wf: params.wf,
         pe: params.pe,
         ou: params.ou,
+        aoc: params.aoc,
         ouDisplayName: params.ouDisplayName,
         dataSet: params.dataSet,
     }
