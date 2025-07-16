@@ -1,14 +1,16 @@
 import { useConfig } from '@dhis2/app-runtime'
-import { Popover, MenuItem, Tooltip } from '@dhis2/ui'
+import { MenuItem, Tooltip } from '@dhis2/ui'
+import { render } from '@testing-library/react'
+import { userEvent } from '@testing-library/user-event'
 import { shallow } from 'enzyme'
 import React from 'react'
 import { useAppContext } from '../../app-context/index.js'
 import { readQueryParams } from '../../navigation/read-query-params.js'
 import { useSelectionContext } from '../../selection-context/index.js'
-import { ContextSelect } from '../context-select/context-select.js'
-import { PeriodMenu } from './period-menu.js'
-import { PERIOD, PeriodSelect } from './period-select.js'
-import { YearNavigator } from './year-navigator.js'
+import { ContextSelect } from '../context-select/context-select.jsx'
+import { PeriodMenu } from './period-menu.jsx'
+import { PERIOD, PeriodSelect } from './period-select.jsx'
+import { YearNavigator } from './year-navigator.jsx'
 
 jest.mock('@dhis2/app-runtime', () => ({
     useConfig: jest.fn(),
@@ -219,7 +221,8 @@ describe('<PeriodSelect>', () => {
         })
     })
 
-    it('calls the setOpenedSelect to close when clicking the backdrop', () => {
+    // Refactored from enzyme
+    it('calls the setOpenedSelect to close when clicking the backdrop', async () => {
         const setOpenedSelect = jest.fn()
         useSelectionContext.mockImplementation(() => ({
             workflow: mockWorkflows[0],
@@ -229,12 +232,13 @@ describe('<PeriodSelect>', () => {
             setOpenedSelect,
         }))
 
-        shallow(<PeriodSelect />)
-            .find(ContextSelect)
-            .dive()
-            .find(Popover)
-            .dive()
-            .simulate('click')
+        render(<PeriodSelect />)
+
+        // Janky way to select the backdrop, since it uses a portal
+        const backdrop = document.querySelector(
+            '[data-test="dhis2-uicore-layer"] > .backdrop'
+        )
+        await userEvent.click(backdrop)
 
         expect(setOpenedSelect).toHaveBeenCalledTimes(1)
         expect(setOpenedSelect).toHaveBeenCalledWith('')

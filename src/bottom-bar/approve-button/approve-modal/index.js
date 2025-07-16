@@ -1,1 +1,1 @@
-export { ApproveModal } from './approve-modal.js'
+export { ApproveModal } from './approve-modal.jsx'

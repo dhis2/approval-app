@@ -20,7 +20,7 @@ const getIconColorForType = (type) => {
     }
 }
 
-const ApprovalStatusIcon = ({ approvalStatus, showTitle }) => {
+const ApprovalStatusIcon = ({ approvalStatus, showTitle = true }) => {
     const {
         icon: Icon,
         displayName,
@@ -35,10 +35,6 @@ const ApprovalStatusIcon = ({ approvalStatus, showTitle }) => {
             <Icon color={getIconColorForType(type)} />
         </span>
     )
-}
-
-ApprovalStatusIcon.defaultProps = {
-    showTitle: true,
 }
 
 ApprovalStatusIcon.propTypes = {

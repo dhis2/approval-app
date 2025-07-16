@@ -1,1 +1,1 @@
-export { ApproveButton } from './approve-button.js'
+export { ApproveButton } from './approve-button.jsx'

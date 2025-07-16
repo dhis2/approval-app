@@ -4,7 +4,7 @@ import { shallow } from 'enzyme'
 import moment from 'moment'
 import React from 'react'
 import { useSelectionContext } from '../../selection-context/index.js'
-import { PeriodMenu } from './period-menu.js'
+import { PeriodMenu } from './period-menu.jsx'
 
 jest.mock('@dhis2/app-runtime', () => ({
     useConfig: jest.fn(),

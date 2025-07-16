@@ -1,1 +1,1 @@
-export { ContextSelect } from './context-select.js'
+export { ContextSelect } from './context-select.jsx'

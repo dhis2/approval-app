@@ -1,1 +1,1 @@
-export { RetryButton } from './retry-button.js'
+export { RetryButton } from './retry-button.jsx'

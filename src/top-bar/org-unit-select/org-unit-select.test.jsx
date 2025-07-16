@@ -1,15 +1,15 @@
 import { CustomDataProvider } from '@dhis2/app-runtime'
-import { Popover, OrganisationUnitTree, Tooltip } from '@dhis2/ui'
+import { OrganisationUnitTree, Tooltip } from '@dhis2/ui'
 import { render, screen, waitFor } from '@testing-library/react'
-import userEvent from '@testing-library/user-event'
+import { userEvent } from '@testing-library/user-event'
 import { shallow } from 'enzyme'
 import React from 'react'
 import { useAppContext } from '../../app-context/index.js'
 import { readQueryParams } from '../../navigation/read-query-params.js'
 import { useSelectionContext } from '../../selection-context/index.js'
-import { ContextSelect } from '../context-select/context-select.js'
-import { ApprovalStatusesProvider } from './approval-statuses.js'
-import { ORG_UNIT, OrgUnitSelect } from './org-unit-select.js'
+import { ContextSelect } from '../context-select/context-select.jsx'
+import { ApprovalStatusesProvider } from './approval-statuses.jsx'
+import { ORG_UNIT, OrgUnitSelect } from './org-unit-select.jsx'
 
 jest.mock('../../navigation/read-query-params.js', () => ({
     readQueryParams: jest.fn(),
@@ -242,7 +242,7 @@ describe('<OrgUnitSelect>', () => {
         )
 
         await waitFor(() => screen.getByText('Sierra Leone'))
-        userEvent.click(screen.getByText('Sierra Leone'))
+        await userEvent.click(screen.getByText('Sierra Leone'))
 
         expect(selectOrgUnit).toHaveBeenCalledTimes(1)
         expect(selectOrgUnit).toHaveBeenCalledWith({
@@ -252,7 +252,8 @@ describe('<OrgUnitSelect>', () => {
         })
     })
 
-    it('calls the setOpenedSelect to close when clicking the backdrop', () => {
+    // Refactored from Enzyme
+    it('calls the setOpenedSelect to close when clicking the backdrop', async () => {
         const setOpenedSelect = jest.fn()
         useSelectionContext.mockImplementation(() => ({
             workflow: {
@@ -267,14 +268,30 @@ describe('<OrgUnitSelect>', () => {
             setOpenedSelect,
         }))
 
-        shallow(<OrgUnitSelect />)
-            .find(ContextSelect)
-            .dive()
-            .find(Popover)
-            .dive()
-            .simulate('click')
+        render(
+            <CustomDataProvider
+                data={{
+                    organisationUnits: {
+                        id: 'ImspTQPwCqd',
+                        path: '/ImspTQPwCqd',
+                        displayName: 'Sierra Leone',
+                        children: [],
+                    },
+                }}
+            >
+                <ApprovalStatusesProvider>
+                    <OrgUnitSelect />
+                </ApprovalStatusesProvider>
+            </CustomDataProvider>
+        )
 
-        expect(setOpenedSelect).toHaveBeenCalledTimes(1)
+        // Janky way to select the backdrop, since it uses a portal
+        const backdrop = document.querySelector(
+            '[data-test="dhis2-uicore-layer"] > .backdrop'
+        )
+        await userEvent.click(backdrop)
+
+        await waitFor(() => expect(setOpenedSelect).toHaveBeenCalledTimes(1))
         expect(setOpenedSelect).toHaveBeenCalledWith('')
     })
 

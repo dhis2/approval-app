@@ -1,1 +1,1 @@
-export { BottomBar } from './bottom-bar.js'
+export { BottomBar } from './bottom-bar.jsx'

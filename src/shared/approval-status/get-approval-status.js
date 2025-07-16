@@ -1,7 +1,7 @@
 import i18n from '@dhis2/d2-i18n'
 import { IconBlock16, IconError16 } from '@dhis2/ui'
 import moment from 'moment'
-import { Approved, Ready, Waiting } from './icons.js'
+import { Approved, Ready, Waiting } from './icons.jsx'
 
 const APPROVAL_STATUSES = {
     UNAPPROVED_READY: 'UNAPPROVED_READY',

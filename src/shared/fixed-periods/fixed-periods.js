@@ -186,7 +186,6 @@ const getBiWeeklyPeriodType = (formatYyyyMmDd, fnFilter) => {
 
         while (date.getFullYear() <= year) {
             const period = {}
-
             period.iso = `${year}BiW${biWeek}`
             period.id = period.iso
             period.startDate = formatYyyyMmDd(date)

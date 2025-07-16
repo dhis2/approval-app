@@ -1,1 +1,1 @@
-export { DataSetNavigation } from './data-set-navigation.js'
+export { DataSetNavigation } from './data-set-navigation.jsx'

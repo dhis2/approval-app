@@ -4,7 +4,7 @@ import React from 'react'
 import { useAppContext } from '../../app-context/index.js'
 import { useSelectionContext } from '../../selection-context/index.js'
 import { ContextSelect } from '../context-select/index.js'
-import { WorkflowSelectOption } from './workflow-select-option.js'
+import { WorkflowSelectOption } from './workflow-select-option.jsx'
 import classes from './workflow-select.module.css'
 
 const WORKFLOW = 'WORKFLOW'

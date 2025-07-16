@@ -1,6 +1,6 @@
 import { shallow } from 'enzyme'
 import React from 'react'
-import { WorkflowSelectOption } from './workflow-select-option.js'
+import { WorkflowSelectOption } from './workflow-select-option.jsx'
 
 describe('<WorkflowSelectOption>', () => {
     it('renders a MenuItem with containing a name and periodType', () => {

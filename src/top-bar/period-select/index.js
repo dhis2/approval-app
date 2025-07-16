@@ -1,1 +1,1 @@
-export { PeriodSelect } from './period-select.js'
+export { PeriodSelect } from './period-select.jsx'

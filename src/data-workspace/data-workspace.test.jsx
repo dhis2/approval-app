@@ -2,7 +2,7 @@ import { shallow } from 'enzyme'
 import React from 'react'
 import { useSelectionContext } from '../selection-context/index.js'
 import { DataSetNavigation } from './data-set-navigation/index.js'
-import { DataWorkspace } from './data-workspace.js'
+import { DataWorkspace } from './data-workspace.jsx'
 import { Display } from './display/index.js'
 import { TitleBar } from './title-bar/index.js'
 

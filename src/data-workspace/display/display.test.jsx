@@ -5,10 +5,10 @@ import {
     waitFor,
     waitForElementToBeRemoved,
 } from '@testing-library/react'
-import userEvent from '@testing-library/user-event'
+import { userEvent } from '@testing-library/user-event'
 import React from 'react'
 import { SelectionContext } from '../../selection-context/index.js'
-import { Display } from './display.js'
+import { Display } from './display.jsx'
 
 describe('<Display>', () => {
     const dataSetOne = {
@@ -159,8 +159,10 @@ describe('<Display>', () => {
         )
 
         data.dataSetReport = []
-        userEvent.click(screen.getByRole('button', 'Retry loading data set'))
-        await waitFor(() => screen.getByRole('progressbar'))
+        await userEvent.click(
+            screen.getByRole('button', 'Retry loading data set')
+        )
+        // Not really possible to catch the progress bar before the next assertion
 
         await waitFor(() => {
             expect(

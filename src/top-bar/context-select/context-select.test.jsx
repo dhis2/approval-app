@@ -1,7 +1,9 @@
 import { IconChevronDown24, IconChevronUp24, Popover, Tooltip } from '@dhis2/ui'
+import { render } from '@testing-library/react'
+import { userEvent } from '@testing-library/user-event'
 import { shallow } from 'enzyme'
 import React from 'react'
-import { ContextSelect } from './context-select.js'
+import { ContextSelect } from './context-select.jsx'
 
 describe('<ContextSelect>', () => {
     const baseProps = {
@@ -73,8 +75,18 @@ describe('<ContextSelect>', () => {
             expect(wrapper.find(IconChevronUp24)).toHaveLength(1)
         })
 
-        it('calls onClose when the backdrop layer is clicked', () => {
-            wrapper.find(Popover).dive().simulate('click')
+        // Refactored from enzyme test
+        it('calls onClose when the backdrop layer is clicked', async () => {
+            render(
+                <ContextSelect {...baseProps} open onClose={onClose}>
+                    children
+                </ContextSelect>
+            )
+            // Janky way to select the backdrop, since it uses a portal
+            const backdrop = document.querySelector(
+                '[data-test="dhis2-uicore-layer"] > .backdrop'
+            )
+            await userEvent.click(backdrop)
 
             expect(onClose).toHaveBeenCalledTimes(1)
         })
