@@ -1,10 +1,8 @@
 import i18n from '@dhis2/d2-i18n'
-import { NoticeBox } from '@dhis2/ui'
+import { NoticeBox, SingleSelectField, SingleSelectOption } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React from 'react'
-import Select from 'react-select'
 import css from './category-option-select.module.css'
-import 'react-select/dist/react-select.css'
 
 /**
  *
@@ -37,28 +35,23 @@ export default function MultipleCategoySelect({
                     </NoticeBox>
                 ) : (
                     <div className={css.selectContainer}>
-                        <label htmlFor={`search-${id}`} className={css.label}>
-                            {displayName}
-                        </label>
-                        <Select
-                            classNamePrefix="select"
-                            id={`search-${id}`}
-                            options={categoryOptions.map((item) => ({
-                                value: item.id,
-                                label: item.displayName,
-                                original: item, // optional: keep reference to original
-                            }))}
-                            onChange={(selected) =>
-                                onChange(
-                                    id,
-                                    selected ? selected.original.id : null
-                                )
+                        <SingleSelectField
+                            filterable
+                            label={displayName}
+                            noMatchText={i18n.t('No options found')}
+                            selected={selected[id] || null}
+                            onChange={(selectedItem) =>
+                                onChange(id, selectedItem.selected)
                             }
-                            value={selected[id]}
-                            placeholder={displayName}
-                            isSearchable
-                            getOptionLabel={(e) => e.displayName}
-                        />
+                        >
+                            {categoryOptions.map((item) => (
+                                <SingleSelectOption
+                                    key={item.id}
+                                    label={item.displayName}
+                                    value={item.id}
+                                />
+                            ))}
+                        </SingleSelectField>
                     </div>
                 )
             )}
