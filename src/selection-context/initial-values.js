@@ -17,14 +17,14 @@ export const initialValues = (metadata, workflows, calendar) => {
     const period = initialPeriodValue(pe, workflow)
     const orgUnit = initialOrgUnitValue(ou, ouDisplayName)
     const attributeComboData = initialAttributeOptionComboValue(
-        metadata,
         {
             aoc,
             orgUnit,
             period,
             calendar,
             workflow
-        }
+        },
+        metadata
     )
     const dataSet = initialDataSetValue(dataSetParam)
 
@@ -75,14 +75,14 @@ export const initialOrgUnitValue = (path, displayName) => {
 }
 
 export const initialAttributeOptionComboValue = (
-    metadata = {},
     {
         aoc,
         orgUnit,
         period,
         calendar,
         workflow = {}
-    }
+    },
+    metadata = {}
 ) => {
     if (
         !aoc ||
