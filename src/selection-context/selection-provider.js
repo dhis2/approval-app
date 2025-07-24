@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import React, { useEffect, useReducer } from 'react'
 import { useAppContext } from '../app-context/index.js'
 import { pushStateToHistory } from '../navigation/index.js'
-import { findAttributeOptionComboInWorkflow } from '../utils/category-combo-utils.js'
+import { handleSelectOrgUnit, handleSelectPeriod, handleSelectWorkflow } from '../utils/selection-provider-util.js'
 import { initialValues, initialWorkflowValue } from './initial-values.js'
 import { SelectionContext } from './selection-context.js'
 
@@ -35,87 +35,12 @@ const reducer = (state, { type, payload }) => {
                 attributeOptionCombo: null,
                 dataSet: null,
             }
-        case ACTIONS.SELECT_WORKFLOW: {
-            const attributeOptionComboData = findAttributeOptionComboInWorkflow(
-                payload.metadata,
-                {
-                    workflow: payload.workflow,
-                    attributeOptionComboId: state.attributeOptionCombo?.id,
-                    orgUnit: state.orgUnit,
-                    period: state.period,
-                    calendar: payload.calendar,
-                }
-            )
-
-            return {
-                ...state,
-                openedSelect: '',
-                workflow: payload.workflow,
-                period:
-                    state.workflow &&
-                    state.workflow?.periodType === payload.workflow?.periodType
-                        ? state.period
-                        : null,
-                attributeCombo: state.attributeCombo
-                    ? attributeOptionComboData?.attributeCombo
-                    : null,
-                attributeOptionCombo: state.attributeOptionCombo
-                    ? attributeOptionComboData?.attributeOptionCombo
-                    : null,
-                dataSet: null,
-            }
-        }
-        case ACTIONS.SELECT_PERIOD: {
-            const attributeOptionComboData = findAttributeOptionComboInWorkflow(
-                payload.metadata,
-                {
-                    workflow: payload.workflow,
-                    attributeOptionComboId: state.attributeOptionCombo?.id,
-                    orgUnit: state.orgUnit,
-                    period: state.period,
-                    calendar: payload.calendar,
-                }
-            )
-
-            return {
-                ...state,
-                /*
-                 * Close dropdown only if selecting a period,
-                 * not when unsetting it when the year changes
-                 */
-                openedSelect: payload.period?.id ? '' : state.openedSelect,
-                period: payload.period,
-                attributeCombo: state.attributeCombo
-                    ? attributeOptionComboData?.attributeCombo
-                    : null,
-                attributeOptionCombo: state.attributeOptionCombo
-                    ? attributeOptionComboData?.attributeOptionCombo
-                    : null,
-                dataSet: null,
-            }
-        }
-        case ACTIONS.SELECT_ORG_UNIT: {
-            const attributeOptionComboData = findAttributeOptionComboInWorkflow(
-                payload.metadata,
-                state.workflow,
-                state.attributeOptionCombo?.id,
-                payload.orgUnit,
-                state.period,
-                payload.calendar
-            )
-            return {
-                ...state,
-                openedSelect: '',
-                orgUnit: payload.orgUnit,
-                attributeCombo: state.attributeCombo
-                    ? attributeOptionComboData?.attributeCombo
-                    : null,
-                attributeOptionCombo: state.attributeOptionCombo
-                    ? attributeOptionComboData?.attributeOptionCombo
-                    : null,
-                dataSet: null,
-            }
-        }
+        case ACTIONS.SELECT_WORKFLOW:
+            return handleSelectWorkflow(state, payload)
+        case ACTIONS.SELECT_PERIOD:
+            return handleSelectPeriod(state, payload)
+        case ACTIONS.SELECT_ORG_UNIT:
+            return handleSelectOrgUnit(state, payload)
         case ACTIONS.SELECT_ATTRIBUTE_COMBO:
             return {
                 ...state,

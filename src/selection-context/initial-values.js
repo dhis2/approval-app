@@ -17,12 +17,14 @@ export const initialValues = (metadata, workflows, calendar) => {
     const period = initialPeriodValue(pe, workflow)
     const orgUnit = initialOrgUnitValue(ou, ouDisplayName)
     const attributeComboData = initialAttributeOptionComboValue(
-        aoc,
-        workflow,
-        orgUnit,
-        period,
-        calendar,
-        metadata
+        metadata,
+        {
+            aoc,
+            orgUnit,
+            period,
+            calendar,
+            workflow
+        }
     )
     const dataSet = initialDataSetValue(dataSetParam)
 
@@ -73,16 +75,18 @@ export const initialOrgUnitValue = (path, displayName) => {
 }
 
 export const initialAttributeOptionComboValue = (
-    aoc,
-    initialWorkflow = {},
-    orgUnit,
-    period,
-    calendar,
-    metadata = {}
+    metadata = {},
+    {
+        aoc,
+        orgUnit,
+        period,
+        calendar,
+        workflow = {}
+    }
 ) => {
     if (
         !aoc ||
-        !initialWorkflow.id ||
+        !workflow.id ||
         !metadata.categoryCombos ||
         !orgUnit ||
         !period
@@ -90,7 +94,7 @@ export const initialAttributeOptionComboValue = (
         return null
     }
     return findAttributeOptionComboInWorkflow(metadata, {
-        workflow: initialWorkflow,
+        workflow: workflow,
         attributeOptionComboId: aoc,
         orgUnit,
         period,

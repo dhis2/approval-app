@@ -35,7 +35,7 @@ export default function CategoySelect({
 
         const catOptionIds = selected.categoryOptions.map((item) => item.id)
         // Go through "Categories" of catCombo to find "CategoryOption" we need
-        for (var j = 0; j < categoryCombo.categories?.length; j++) {
+        for (let j = 0; j < categoryCombo.categories?.length; j++) {
             const category = categoryCombo.categories[j]
             const foundCatOptions = category.categoryOptions.filter((item) =>
                 catOptionIds.includes(item.id)

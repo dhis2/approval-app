@@ -214,8 +214,6 @@ export const getCategoryOptionsByCategoryOptionCombo = (
             return foundCatOptionCombo.categoryOptions
         }
     }
-
-    return
 }
 
 export const getDataSetReportFilter = (
@@ -371,8 +369,7 @@ const isOptionWithinPeriod = ({
 export const findAttributeOptionCombo = (attributeCombo, categoryOptionMap) => {
     const selectedCatOptionIds = Object.values(categoryOptionMap) // Get the category list
     const catOptionComboList = attributeCombo.categoryOptionCombos
-    for (let i = 0; i < catOptionComboList.length; i++) {
-        const attributeOptionCombo = catOptionComboList[i]
+    for (const attributeOptionCombo of catOptionComboList) {
         const catOptionIds = attributeOptionCombo.categoryOptions.map(
             (item) => item.id
         )
@@ -380,6 +377,4 @@ export const findAttributeOptionCombo = (attributeCombo, categoryOptionMap) => {
             return attributeOptionCombo
         }
     }
-
-    return
 }

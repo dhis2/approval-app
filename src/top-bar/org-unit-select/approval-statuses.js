@@ -88,6 +88,7 @@ const useFetchApprovalStatus = ({ updateApprovalStatuses }) => {
                             state || APPROVAL_STATUSES.UNAPPROVABLE
                     })
                 } catch (error) {
+                    console.error('Failed to fetch approval statuses:', error);
                     orgUnitIds.forEach((orgUnitId) => {
                         updateObject[orgUnitId] = APPROVAL_STATUSES.ERROR
                     })
