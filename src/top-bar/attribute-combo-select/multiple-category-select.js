@@ -43,6 +43,7 @@ export default function MultipleCategoySelect({
                             onChange={(selectedItem) =>
                                 onChange(id, selectedItem.selected)
                             }
+                            filterPlaceholder={i18n.t('Type to filter options')}
                         >
                             {categoryOptions.map((item) => (
                                 <SingleSelectOption

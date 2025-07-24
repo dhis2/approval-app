@@ -23,10 +23,7 @@ export default function SingleCategoryMenu({ category, selected, onChange }) {
             <div className={css.inputContainer}>
                 <input
                     type="text"
-                    placeholder={i18n.t('Search for {{categoryName}}', {
-                        categoryName: category.displayName,
-                        nsSeparator: '-:-',
-                    })}
+                    placeholder={i18n.t('Type to filter options')}
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
                     className={css.searchInput}
