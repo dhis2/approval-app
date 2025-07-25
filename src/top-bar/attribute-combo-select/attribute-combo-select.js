@@ -218,14 +218,6 @@ const AttributeComboSelect = () => {
             return i18n.t('0 selections')
         }
 
-        if (selectedCategoryItems.length === 1) {
-            const categoryId = selectedAttrCombo?.categories[0]
-            const category = selectedAttrCombo.categories?.find(
-                (item) => item.id == categoryId
-            )
-            return category?.displayName
-        }
-
         const amount = Object.values(selectedCategoryItems).length
 
         if (amount === 1) {
