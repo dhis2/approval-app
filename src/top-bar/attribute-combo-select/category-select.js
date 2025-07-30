@@ -8,6 +8,21 @@ import css from './category-option-select.module.css'
 import MultipleCategoySelect from './multiple-category-select.js'
 import SingleCategoryMenu from './single-category-select.js'
 
+const HideButton = ({ onClick }) => (
+    <Button
+        secondary
+        className={css.hideButton}
+        onClick={onClick}
+    >
+        {i18n.t('Hide menu')}
+    </Button>
+);
+
+HideButton.propTypes = {
+    onClick: PropTypes.func.isRequired,
+};
+
+
 /**
  *
  * @param categoryCombo An object which has an array of category objects (JSON), each options (to be rendered in a menu).
@@ -71,20 +86,6 @@ export default function CategoySelect({
         onChange( selectedCatOptionCombo)
     }
 
-    const renderHideButton = () => {
-        return (
-            <Button
-                secondary
-                className={css.hideButton}
-                onClick={(_, evt) => {
-                    evt.stopPropagation()
-                    onClose()
-                }}
-            >
-                {i18n.t('Hide menu')}
-            </Button>
-        )
-    }
     const categories = categoryCombo.categories
 
     // Check if there's exactly one category in the categories array and that category has at least one categoryOption
@@ -108,7 +109,7 @@ export default function CategoySelect({
                         )}
                     </NoticeBox>
 
-                    {renderHideButton()}
+                    <HideButton onClick={() => onClose()} />
                 </>
             )
         }
@@ -123,7 +124,7 @@ export default function CategoySelect({
                         onChange={categoryItemOnChange}
                     />
 
-                    {renderHideButton()}
+                    <HideButton onClick={() => onClose()} />
                 </>
             )
         }
@@ -137,7 +138,7 @@ export default function CategoySelect({
                 onChange={categoryItemOnChange}
             />
 
-            {renderHideButton()}
+            <HideButton onClick={() => onClose()} />
         </div>
     )
 }
@@ -175,3 +176,4 @@ CategoySelect.propTypes = {
     onClose: PropTypes.func.isRequired,
     selected: PropTypes.object,
 }
+
