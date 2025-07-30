@@ -194,6 +194,9 @@ describe('useSelectionContext', () => {
             selectAttributeOptionCombo: expect.any(Function),
             selectAttributeCombo: expect.any(Function),
             selectDataSet: expect.any(Function),
+            attrComboValue: "",
+            attributeCombos: [],
+            showAttributeSelect: true
         })
     })
 
@@ -221,8 +224,8 @@ describe('useSelectionContext', () => {
             })
         )
         expect(result.current.orgUnit).toEqual({
-           id: 'ou-1', 
-           displayName: 'Org unit 1', 
+           id: 'ou-1',
+           displayName: 'Org unit 1',
            path: '/ou-1',
         })
 
@@ -321,13 +324,13 @@ describe('useSelectionContext', () => {
             mock.mockClear()
 
             const expectedOrgUnit = {id: 'ou-1', displayName: 'Org unit 1', path: '/ou-1'}
-         
+
             act(() => {
                 result.current.selectWorkflow(mockWorkflows[1])
                 result.current.selectPeriod({ id: '20210202' })
                 result.current.selectOrgUnit(expectedOrgUnit)
             })
-                     
+
             expect(result.current).toEqual(
                 expect.objectContaining({
                     orgUnit: expectedOrgUnit,
@@ -350,17 +353,14 @@ describe('useSelectionContext', () => {
             mock.mockClear()
 
             const expectedAttributeOptionCombo = { id: 'wertyuiopas' }
-            act(() => { 
+            act(() => {
                 result.current.selectWorkflow(mockWorkflows[1])
                 result.current.selectPeriod({ id: '20210202' })
                 result.current.selectOrgUnit({id: 'ou-1', displayName: 'Org unit 1', path: '/ou-1'})
+                result.current.selectAttributeCombo(metadata.categoryCombos[0])
                 result.current.selectAttributeOptionCombo(expectedAttributeOptionCombo)
             })
-            expect(result.current).toEqual(
-                expect.objectContaining({
-                    attributeOptionCombo: expectedAttributeOptionCombo
-                })
-            )
+            expect(result.current.attributeOptionCombo).toEqual(expectedAttributeOptionCombo)
             expect(mock).toHaveBeenCalledTimes(1)
         })
 
@@ -380,7 +380,7 @@ describe('useSelectionContext', () => {
                 result.current.selectDataSet(dataSetOne)
             })
             expect(result.current.dataSet.id).toBe(dataSetOne.id)
-            
+
             expect(mock).toHaveBeenCalledTimes(1)
         })
 

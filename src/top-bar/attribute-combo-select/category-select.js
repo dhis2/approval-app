@@ -68,7 +68,7 @@ export default function CategoySelect({
             categoryCombo,
             updatedSelected
         )
-        onChange(categoryCombo, updatedSelected, selectedCatOptionCombo)
+        onChange( selectedCatOptionCombo)
     }
 
     const renderHideButton = () => {
@@ -89,9 +89,12 @@ export default function CategoySelect({
 
     // Check if there's exactly one category in the categories array and that category has at least one categoryOption
     if (categories.length === 1) {
+
         // Extracts the single category from the categories array
         const category = categories[0]
-        if (categories[0].categoryOptions?.length === 0) {
+        const categoryOptions = category.categoryOptions ?? []
+
+        if (categoryOptions.length === 0) {
             return (
                 <>
                     <NoticeBox
@@ -110,7 +113,7 @@ export default function CategoySelect({
             )
         }
 
-        if (categories[0].categoryOptions?.length > 1) {
+        if (categoryOptions.length > 1) {
             // Renders a MenuSelect for the single category with more than one category options
             return (
                 <>
@@ -124,9 +127,6 @@ export default function CategoySelect({
                 </>
             )
         }
-
-        // The attribute option combo is selected automatically in AttributeComboSelect component and we don't need to render any UI here.
-        return renderHideButton()
     }
 
     return (

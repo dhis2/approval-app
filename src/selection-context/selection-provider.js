@@ -1,9 +1,9 @@
 import { useConfig } from '@dhis2/app-runtime'
 import PropTypes from 'prop-types'
-import React, { useEffect, useReducer } from 'react'
+import React, { useEffect, useMemo, useReducer, useState } from 'react'
 import { useAppContext } from '../app-context/index.js'
 import { pushStateToHistory } from '../navigation/index.js'
-import { handleSelectOrgUnit, handleSelectPeriod, handleSelectWorkflow } from '../utils/selection-provider-util.js'
+import { getAttributeComboState, handleSelectOrgUnit, handleSelectPeriod, handleSelectWorkflow } from '../utils/selection-provider-util.js'
 import { initialValues, initialWorkflowValue } from './initial-values.js'
 import { SelectionContext } from './selection-context.js'
 
@@ -45,6 +45,7 @@ const reducer = (state, { type, payload }) => {
             return {
                 ...state,
                 attributeCombo: payload.attributeCombo,
+                attributeOptionCombo: null,
                 dataSet: null,
             }
         case ACTIONS.SELECT_CAT_OPTION_COMBO:
@@ -87,17 +88,93 @@ const SelectionProvider = ({ children }) => {
             attributeOptionCombo,
         },
         dispatch,
-    ] = useReducer(reducer, {
+    ] = useReducer(reducer,  null, () => ({
         openedSelect: '',
         ...initialValues(metadata, dataApprovalWorkflows, calendar),
+    }));
+
+    const [attributeComboState, setAttributeComboState] = useState({
+        attributeCombos: [],
+        showAttributeSelect: true,
+        attrComboValue: '',
     })
 
+    const _attributeComboState = useMemo(() => {
+        if (!metadata || !workflow || !orgUnit || !period) {
+            return null;
+        }
+
+        return getAttributeComboState({
+            metadata,
+            workflow,
+            orgUnit,
+            period,
+            calendar,
+            attributeCombo,
+            attributeOptionCombo,
+        });
+    }, [workflow, orgUnit, period, attributeCombo, attributeOptionCombo]);
+
+    useEffect(() => {
+        if (_attributeComboState) {
+            updateAttributeComboState(_attributeComboState);
+            dispatchAttributeStateIfNeeded(_attributeComboState);
+        }
+    }, [_attributeComboState]);
+
+    useEffect(() => {
+        pushStateToHistory({
+            workflow,
+            period,
+            orgUnit,
+            attributeOptionCombo,
+            dataSet,
+        })
+    }, [workflow, period, orgUnit, attributeOptionCombo, dataSet])
+
+    useEffect(() => {
+        const setStateFromQueryParams = () => {
+            dispatch({
+                type: ACTIONS.SET_STATE_FROM_QUERY_PARAMS,
+                payload: {
+                    metadata,
+                    dataApprovalWorkflows,
+                },
+            })
+        }
+        window.addEventListener('popstate', setStateFromQueryParams)
+
+        return () => {
+            window.removeEventListener('popstate', setStateFromQueryParams)
+        }
+    }, [])
+
+    const updateAttributeComboState = (_attributeState) => {
+        setAttributeComboState({
+            attributeCombos: _attributeState.attributeCombos,
+            showAttributeSelect: _attributeState.showAttributeSelect,
+            attrComboValue: _attributeState.attrComboValue,
+        });
+    }
+
+    const dispatchAttributeStateIfNeeded = (_attributeState) => {
+        if (attributeCombo?.id !== _attributeState.attributeCombo?.id) {
+            dispatch({ type: ACTIONS.SELECT_ATTRIBUTE_COMBO, payload: { attributeCombo: _attributeState.attributeCombo } });
+        }
+
+        if (attributeOptionCombo?.id !== _attributeState.attributeOptionCombo?.id) {
+            dispatch({ type: ACTIONS.SELECT_CAT_OPTION_COMBO, payload: { attributeOptionCombo: _attributeState.attributeOptionCombo } });
+        }
+    }
     const providerValue = {
         workflow,
         period,
         orgUnit,
         attributeCombo,
-        attributeOptionCombo,
+        attributeOptionCombo: attributeOptionCombo,
+        attributeCombos: attributeComboState.attributeCombos,
+        showAttributeSelect: attributeComboState.showAttributeSelect,
+        attrComboValue: attributeComboState.attrComboValue,
         openedSelect,
         dataSet,
         clearAll: () =>
@@ -142,33 +219,6 @@ const SelectionProvider = ({ children }) => {
         selectDataSet: (dataSet) =>
             dispatch({ type: ACTIONS.SELECT_DATA_SET, payload: { dataSet } }),
     }
-
-    useEffect(() => {
-        pushStateToHistory({
-            workflow,
-            period,
-            orgUnit,
-            attributeOptionCombo,
-            dataSet,
-        })
-    }, [workflow, period, orgUnit, attributeOptionCombo, dataSet])
-
-    useEffect(() => {
-        const setStateFromQueryParams = () => {
-            dispatch({
-                type: ACTIONS.SET_STATE_FROM_QUERY_PARAMS,
-                payload: {
-                    metadata,
-                    dataApprovalWorkflows,
-                },
-            })
-        }
-        window.addEventListener('popstate', setStateFromQueryParams)
-
-        return () => {
-            window.removeEventListener('popstate', setStateFromQueryParams)
-        }
-    }, [])
 
     return (
         <SelectionContext.Provider value={providerValue}>

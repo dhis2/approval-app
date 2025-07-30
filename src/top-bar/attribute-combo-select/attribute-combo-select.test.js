@@ -18,25 +18,27 @@ jest.mock('../../navigation/read-query-params.js', () => ({
     readQueryParams: jest.fn(),
 }))
 
+const mockDataSets = [
+    {
+        name: 'Data set 1',
+        id: 'dataset_1',
+        periodType: 'Daily',
+        categoryCombo: {
+            id: 'combo_1',
+        },
+        organisationUnits: [
+            { id: 'ou-1', displayName: 'Org unit 1', path: '/ou-1' },
+            { id: 'ou-2', displayName: 'Org unit 2', path: '/ou-2' },
+        ],
+    },
+]
+
 const mockWorkflows = [
     {
         displayName: 'Workflow a',
         id: 'i5m0JPw4DQi',
         periodType: 'Daily',
-        dataSets: [
-            {
-                name: 'Data set 1',
-                id: 'dataset_1',
-                periodType: 'Daily',
-                categoryCombo: {
-                    id: 'combo_1',
-                },
-                organisationUnits: [
-                    { id: 'ou-1', displayName: 'Org unit 1', path: '/ou-1' },
-                    { id: 'ou-2', displayName: 'Org unit 2', path: '/ou-2' },
-                ],
-            },
-        ],
+        dataSets: mockDataSets,
     },
     {
         displayName: 'Workflow B',
@@ -58,55 +60,41 @@ const mockWorkflows = [
         ],
     },
 ]
+
 const mockOrgUnitRoots = [
     {
-        id: 'ImspTQPwCqd',
-        path: '/ImspTQPwCqd',
-        displayName: 'Sierra Leone',
+        id: 'ou-1',
+        path: '/ou-1',
+        displayName: 'Org unit 1',
     },
 ]
+
+const mockCategoryCombo = {
+    id: 'combo_1',
+    displayName: 'Combo 1',
+    categories: [
+        {
+            id: 'category_1',
+            displayName: 'Category 1',
+            categoryOptions: [
+                { id: '123', displayName: 'Option 1' },
+                { id: '456', displayName: 'Option 2' },
+            ],
+        },
+    ],
+    categoryOptionCombos: [
+        { id: 'wertyuiopas', displayName: 'Option Combo 1', categoryOptions: [{ id: '123' }] },
+        { id: 'rewqtyuiops', displayName: 'Option Combo 2', categoryOptions: [{ id: '456' }] },
+    ],
+    isDefault: false,
+}
 
 beforeEach(() => {
     useAppContext.mockImplementation(() => ({
         dataApprovalWorkflows: mockWorkflows,
         organisationUnits: mockOrgUnitRoots,
         metadata: {
-            categoryCombos: [
-                {
-                    displayName: 'Combo 1',
-                    id: 'combo_1',
-                    categories: [
-                        {
-                            name: 'Category 1',
-                            displayName: 'Category 1',
-                            id: 'category_1',
-                            categoryOptions: [
-                                {
-                                    displayName: 'Option 1',
-                                    id: '123',
-                                },
-                                {
-                                    displayName: 'Option 2',
-                                    id: '456',
-                                },
-                            ],
-                        },
-                    ],
-                    categoryOptionCombos: [
-                        {
-                            categoryOptions: [{ id: '123' }],
-                            displayName: 'Option Combo 1',
-                            id: 'wertyuiopas',
-                        },
-                        {
-                            categoryOptions: [{ id: '456' }],
-                            displayName: 'Option Combo 2',
-                            id: 'rewqtyuiops',
-                        },
-                    ],
-                    isDefault: false,
-                },
-            ],
+            categoryCombos: [mockCategoryCombo],
         },
     }))
     readQueryParams.mockImplementation(() => ({}))
@@ -117,7 +105,7 @@ afterEach(() => {
 })
 
 describe('<AttributeComboSelect>', () => {
-    it('Do not render AttributeComboSelect if a workflow is not selected', () => {
+    it('does not render AttributeComboSelect if a workflow is not selected', () => {
         useSelectionContext.mockImplementation(() => ({
             workflow: null,
             period: {},
@@ -133,7 +121,7 @@ describe('<AttributeComboSelect>', () => {
         expect(wrapper.children()).toHaveLength(0)
     })
 
-    it('is disabled if a period and an orgUnit have not been set', () => {
+    it('does not render if a period and an orgUnit have not been set', () => {
         useSelectionContext.mockImplementation(() => ({
             workflow: mockWorkflows[0],
             period: null,
@@ -146,10 +134,10 @@ describe('<AttributeComboSelect>', () => {
         }))
         const wrapper = shallow(<AttributeComboSelect />)
 
-        expect(wrapper.find(ContextSelect).prop('disabled')).toBe(true)
+        expect(wrapper.children()).toHaveLength(0)
     })
 
-    it('is disabled if an orgUnit has not been set', () => {
+    it('does not render if an orgUnit has not been set', () => {
         useSelectionContext.mockImplementation(() => ({
             workflow: mockWorkflows[0],
             period: {
@@ -165,15 +153,10 @@ describe('<AttributeComboSelect>', () => {
         }))
         const wrapper = shallow(<AttributeComboSelect />)
 
-        expect(wrapper.find(ContextSelect).prop('disabled')).toBe(true)
-        wrapper
-            .find(ContextSelect)
-            .shallow()
-            .text()
-            .includes('Choose an organisation unit first')
+        expect(wrapper.children()).toHaveLength(0)
     })
 
-    it('is disabled if a period has not been set', () => {
+   it('does not render if a period has not been set', () => {
         useSelectionContext.mockImplementation(() => ({
             workflow: {
                 id: 'i5m0JPw4DQi',
@@ -193,11 +176,7 @@ describe('<AttributeComboSelect>', () => {
 
         const wrapper = shallow(<AttributeComboSelect />)
 
-        wrapper
-            .find(ContextSelect)
-            .shallow()
-            .text()
-            .includes('Choose a period first')
+        expect(wrapper.children()).toHaveLength(0)
     })
 
     it('is enabled if workflow, period and orgUnit have been set', async () => {
@@ -207,19 +186,24 @@ describe('<AttributeComboSelect>', () => {
                 id: '20120402',
             },
             orgUnit: mockOrgUnitRoots[0],
-            attributeOptionCombo: {},
-            openedSelect: '',
+            attributeOptionCombo: null,
+            openedSelect: 'CAT_OPTION_COMBO',
             selectAttributeOptionCombo: () => {},
             selectAttributeCombo: () => {},
             selectWorkflow: () => {},
             setOpenedSelect: () => {},
+            attributeCombo: mockCategoryCombo,
+            showAttributeSelect: true,
+            attributeCombos: [mockCategoryCombo],
+            attrComboValue: '0 selections',
         }))
 
         const wrapper = mount(<AttributeComboSelect />)
-        // Wait for the useEffect to execute
+
         await act(async () => {
-            wrapper.update() // Ensure updates are applied without delay
-        })
+            await new Promise((resolve) => setTimeout(resolve, 0));
+            wrapper.update();
+        });
 
         const contextSelect = wrapper.find(ContextSelect)
         expect(contextSelect.exists()).toBe(true) // Ensure the component exists

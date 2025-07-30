@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2025-07-24T01:02:48.565Z\n"
-"PO-Revision-Date: 2025-07-24T01:02:48.565Z\n"
+"POT-Creation-Date: 2025-07-30T04:53:04.803Z\n"
+"PO-Revision-Date: 2025-07-30T04:53:04.803Z\n"
 
 msgid "Not authorized"
 msgstr "Not authorized"
@@ -241,15 +241,6 @@ msgstr "Choose a period first"
 msgid "Choose an organisation unit first"
 msgstr "Choose an organisation unit first"
 
-msgid "1 selection"
-msgstr "1 selection"
-
-msgid "0 selections"
-msgstr "0 selections"
-
-msgid "{{amount}} selections"
-msgstr "{{amount}} selections"
-
 msgid "Category Option Combo"
 msgstr "Category Option Combo"
 
@@ -319,6 +310,15 @@ msgstr "Choose a workflow"
 
 msgid "No workflows found. None may exist, or you may not have access to any."
 msgstr "No workflows found. None may exist, or you may not have access to any."
+
+msgid "0 selections"
+msgstr "0 selections"
+
+msgid "1 selection"
+msgstr "1 selection"
+
+msgid "{{amount}} selections"
+msgstr "{{amount}} selections"
 
 msgid "Could not load approval data"
 msgstr "Could not load approval data"
