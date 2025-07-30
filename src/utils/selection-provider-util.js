@@ -168,7 +168,6 @@ export const getAttributeComboState = ({
         } else {
             _attributeCombo = singleCategoryCombo
             attributeComboValue = i18n.t('0 selections')
-            isShowAttributeComboVisible = true
         }
     }
 
