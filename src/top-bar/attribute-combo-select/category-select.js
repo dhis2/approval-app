@@ -1,7 +1,7 @@
 import i18n from '@dhis2/d2-i18n'
 import { Button, NoticeBox } from '@dhis2/ui'
 import PropTypes from 'prop-types'
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { cloneJSON } from '../../utils/array-utils.js'
 import { findAttributeOptionCombo } from '../../utils/category-combo-utils.js'
 import css from './category-option-select.module.css'
@@ -38,7 +38,6 @@ export default function CategoySelect({
     onChange,
     onClose,
 }) {
-    const [selectedItem, setSelectedItem] = useState({})
 
     // Get the selected categories if any
     const mapSelectedCategories = () => {
@@ -63,9 +62,7 @@ export default function CategoySelect({
         return categoryMap
     }
 
-    useEffect(() => {
-        setSelectedItem(mapSelectedCategories())
-    }, [])
+    const [selectedItem, setSelectedItem] = useState(() => mapSelectedCategories())
 
     const categoryItemOnChange = (categoryId, selectedOptionId) => {
         let updatedSelected = cloneJSON(selectedItem)
