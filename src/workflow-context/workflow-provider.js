@@ -40,11 +40,7 @@ const WorkflowProvider = ({ children }) => {
             <ErrorMessage title={i18n.t('Could not load approval data')}>
                 <p>
                     {i18n.t(
-                        'The selected workflow "{{workflowName}}" does not have any associated data sets.',
-                        {
-                            workflowName: workflow?.displayName,
-                            nsSeparator: '-:-',
-                        }
+                        'The selected workflow "{{workflowName}}" does not have any associated data sets.'
                     )}
                 </p>
                 <p>
@@ -54,6 +50,20 @@ const WorkflowProvider = ({ children }) => {
                 </p>
             </ErrorMessage>
         )
+    }
+
+    // Handle missing required selections
+    if (
+        !workflow ||
+        !period ||
+        !orgUnit ||
+        !attributeOptionCombo){
+        return null
+    }
+
+    // Handle loading state
+    if (fetching || !called) {
+        return <Loader />
     }
 
     // Handle Fetching approval data errors
@@ -66,24 +76,6 @@ const WorkflowProvider = ({ children }) => {
                 </RetryButton>
             </ErrorMessage>
         )
-    }
-
-    // Handle missing required selections
-    if (
-        !workflow ||
-        !period ||
-        !orgUnit ||
-        (workflow.dataSets.length > 0 && !attributeOptionCombo)
-    ) {
-        return null
-    }
-
-    // Handle loading state
-    if (
-        (workflow.dataSets.length > 0 && attributeOptionCombo && fetching) ||
-        !called
-    ) {
-        return <Loader />
     }
 
     // Destructure response data

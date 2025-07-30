@@ -33,10 +33,7 @@ export default function SingleCategoryMenu({ category, selected, onChange }) {
             {filteredCategoryOptions.length === 0 ? (
                 <div className={css.empty}>
                     <span>
-                        {i18n.t('No results found for {{searchQuery}}', {
-                            searchQuery: searchQuery,
-                            nsSeparator: '-:-',
-                        })}
+                        {i18n.t('No results found for {{searchQuery}}')}
                     </span>
                 </div>
             ) : (
