@@ -9,19 +9,14 @@ import MultipleCategoySelect from './multiple-category-select.js'
 import SingleCategoryMenu from './single-category-select.js'
 
 const HideButton = ({ onClick }) => (
-    <Button
-        secondary
-        className={css.hideButton}
-        onClick={onClick}
-    >
+    <Button secondary className={css.hideButton} onClick={onClick}>
         {i18n.t('Hide menu')}
     </Button>
-);
+)
 
 HideButton.propTypes = {
     onClick: PropTypes.func.isRequired,
-};
-
+}
 
 /**
  *
@@ -38,7 +33,6 @@ export default function CategoySelect({
     onChange,
     onClose,
 }) {
-
     // Get the selected categories if any
     const mapSelectedCategories = () => {
         const categoryMap = {}
@@ -62,7 +56,9 @@ export default function CategoySelect({
         return categoryMap
     }
 
-    const [selectedItem, setSelectedItem] = useState(() => mapSelectedCategories())
+    const [selectedItem, setSelectedItem] = useState(() =>
+        mapSelectedCategories()
+    )
 
     const categoryItemOnChange = (categoryId, selectedOptionId) => {
         let updatedSelected = cloneJSON(selectedItem)
@@ -80,14 +76,13 @@ export default function CategoySelect({
             categoryCombo,
             updatedSelected
         )
-        onChange( selectedCatOptionCombo)
+        onChange(selectedCatOptionCombo)
     }
 
     const categories = categoryCombo.categories
 
     // Check if there's exactly one category in the categories array and that category has at least one categoryOption
     if (categories.length === 1) {
-
         // Extracts the single category from the categories array
         const category = categories[0]
         const categoryOptions = category.categoryOptions ?? []
@@ -173,4 +168,3 @@ CategoySelect.propTypes = {
     onClose: PropTypes.func.isRequired,
     selected: PropTypes.object,
 }
-

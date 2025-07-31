@@ -83,8 +83,16 @@ const mockCategoryCombo = {
         },
     ],
     categoryOptionCombos: [
-        { id: 'wertyuiopas', displayName: 'Option Combo 1', categoryOptions: [{ id: '123' }] },
-        { id: 'rewqtyuiops', displayName: 'Option Combo 2', categoryOptions: [{ id: '456' }] },
+        {
+            id: 'wertyuiopas',
+            displayName: 'Option Combo 1',
+            categoryOptions: [{ id: '123' }],
+        },
+        {
+            id: 'rewqtyuiops',
+            displayName: 'Option Combo 2',
+            categoryOptions: [{ id: '456' }],
+        },
     ],
     isDefault: false,
 }
@@ -156,7 +164,7 @@ describe('<AttributeComboSelect>', () => {
         expect(wrapper.children()).toHaveLength(0)
     })
 
-   it('does not render if a period has not been set', () => {
+    it('does not render if a period has not been set', () => {
         useSelectionContext.mockImplementation(() => ({
             workflow: {
                 id: 'i5m0JPw4DQi',
@@ -201,9 +209,9 @@ describe('<AttributeComboSelect>', () => {
         const wrapper = mount(<AttributeComboSelect />)
 
         await act(async () => {
-            await new Promise((resolve) => setTimeout(resolve, 0));
-            wrapper.update();
-        });
+            await new Promise((resolve) => setTimeout(resolve, 0))
+            wrapper.update()
+        })
 
         const contextSelect = wrapper.find(ContextSelect)
         expect(contextSelect.exists()).toBe(true) // Ensure the component exists

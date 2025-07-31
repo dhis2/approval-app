@@ -42,7 +42,7 @@ const WorkflowProvider = ({ children }) => {
                     {i18n.t(
                         'The selected workflow "{{workflowName}}" does not have any associated data sets.',
                         {
-                            workflowName: workflow?.displayName
+                            workflowName: workflow?.displayName,
                         }
                     )}
                 </p>
@@ -56,11 +56,7 @@ const WorkflowProvider = ({ children }) => {
     }
 
     // Handle missing required selections
-    if (
-        !workflow ||
-        !period ||
-        !orgUnit ||
-        !attributeOptionCombo){
+    if (!workflow || !period || !orgUnit || !attributeOptionCombo) {
         return null
     }
 

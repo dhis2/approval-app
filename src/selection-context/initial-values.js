@@ -22,7 +22,7 @@ export const initialValues = (metadata, workflows, calendar) => {
             orgUnit,
             period,
             calendar,
-            workflow
+            workflow,
         },
         metadata
     )
@@ -75,13 +75,7 @@ export const initialOrgUnitValue = (path, displayName) => {
 }
 
 export const initialAttributeOptionComboValue = (
-    {
-        aoc,
-        orgUnit,
-        period,
-        calendar,
-        workflow = {}
-    },
+    { aoc, orgUnit, period, calendar, workflow = {} },
     metadata = {}
 ) => {
     if (

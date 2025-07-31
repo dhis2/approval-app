@@ -36,9 +36,7 @@ const AttributeComboSelect = () => {
         }
     }
 
-    const onChange = (
-        selectedAttrOptionCombo
-    ) => {
+    const onChange = (selectedAttrOptionCombo) => {
         selectAttributeOptionCombo(selectedAttrOptionCombo)
     }
 

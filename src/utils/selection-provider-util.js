@@ -1,17 +1,21 @@
 import i18n from '@dhis2/d2-i18n'
-import { findAttributeOptionCombo, findAttributeOptionComboInWorkflow, getCategoryComboByCategoryOptionCombo, getCategoryCombosByFilters, getCategoryOptionComboById, getCategoryOptionsByCategoryOptionCombo } from "./category-combo-utils.js"
+import {
+    findAttributeOptionCombo,
+    findAttributeOptionComboInWorkflow,
+    getCategoryComboByCategoryOptionCombo,
+    getCategoryCombosByFilters,
+    getCategoryOptionComboById,
+    getCategoryOptionsByCategoryOptionCombo,
+} from './category-combo-utils.js'
 
 export const getAttributeOptionComboData = (state, payload) => {
-    return findAttributeOptionComboInWorkflow(
-        payload.metadata,
-        {
-            workflow: payload.workflow,
-            attributeOptionComboId: state.attributeOptionCombo?.id,
-            orgUnit: state.orgUnit,
-            period: state.period,
-            calendar: payload.calendar,
-        }
-    )
+    return findAttributeOptionComboInWorkflow(payload.metadata, {
+        workflow: payload.workflow,
+        attributeOptionComboId: state.attributeOptionCombo?.id,
+        orgUnit: state.orgUnit,
+        period: state.period,
+        calendar: payload.calendar,
+    })
 }
 
 export const handleSelectWorkflow = (state, payload) => {
@@ -99,19 +103,26 @@ export const getAttributeComboState = ({
 
     const processCategoryOptions = (metadata, optionComboId) => {
         const options =
-            getCategoryOptionsByCategoryOptionCombo(metadata, optionComboId) || []
+            getCategoryOptionsByCategoryOptionCombo(metadata, optionComboId) ||
+            []
         return options.reduce((acc, option, index) => {
             acc[index] = option.id
             return acc
         }, [])
     }
 
-    const getAttributeOptionComboValue = (selectedAttrCombo, selectedCategoryItems) => {
+    const getAttributeOptionComboValue = (
+        selectedAttrCombo,
+        selectedCategoryItems
+    ) => {
         if (selectedAttrCombo?.isDefault) {
             return ''
         }
 
-        if (!Object.values(selectedCategoryItems).length || !selectedAttrCombo) {
+        if (
+            !Object.values(selectedCategoryItems).length ||
+            !selectedAttrCombo
+        ) {
             return i18n.t('0 selections')
         }
 
@@ -127,8 +138,7 @@ export const getAttributeComboState = ({
         _attributeCombo = null
         isShowAttributeComboVisible = false
         attributeComboValue = i18n.t('0 selections')
-    }
-    else if (attributeOptionCombo) {
+    } else if (attributeOptionCombo) {
         const selectedAttrCombo = getCategoryComboByCategoryOptionCombo(
             _attributeCombos,
             attributeOptionCombo.id
@@ -137,8 +147,14 @@ export const getAttributeComboState = ({
             selectedAttrCombo,
             attributeOptionCombo.id
         )
-        const categoryOptions = processCategoryOptions(metadata, attributeOptionCombo.id)
-        const value = getAttributeOptionComboValue(selectedAttrCombo, categoryOptions)
+        const categoryOptions = processCategoryOptions(
+            metadata,
+            attributeOptionCombo.id
+        )
+        const value = getAttributeOptionComboValue(
+            selectedAttrCombo,
+            categoryOptions
+        )
         _attributeCombo = selectedAttrCombo
         _attributeOptionCombo = selectedAttrOptionCombo
         attributeComboValue = value
@@ -148,8 +164,7 @@ export const getAttributeComboState = ({
             _attributeCombos[0].categories?.length === 1 &&
             _attributeCombos[0].categories[0].categoryOptions.length <= 1
         )
-    }
-    else if (_attributeCombos.length === 1) {
+    } else if (_attributeCombos.length === 1) {
         const singleCategoryCombo = _attributeCombos[0]
         if (
             singleCategoryCombo.categories?.length === 1 &&

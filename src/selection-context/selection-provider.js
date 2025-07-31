@@ -3,7 +3,12 @@ import PropTypes from 'prop-types'
 import React, { useEffect, useMemo, useReducer, useState } from 'react'
 import { useAppContext } from '../app-context/index.js'
 import { pushStateToHistory } from '../navigation/index.js'
-import { getAttributeComboState, handleSelectOrgUnit, handleSelectPeriod, handleSelectWorkflow } from '../utils/selection-provider-util.js'
+import {
+    getAttributeComboState,
+    handleSelectOrgUnit,
+    handleSelectPeriod,
+    handleSelectWorkflow,
+} from '../utils/selection-provider-util.js'
 import { initialValues, initialWorkflowValue } from './initial-values.js'
 import { SelectionContext } from './selection-context.js'
 
@@ -88,10 +93,10 @@ const SelectionProvider = ({ children }) => {
             attributeOptionCombo,
         },
         dispatch,
-    ] = useReducer(reducer,  null, () => ({
+    ] = useReducer(reducer, null, () => ({
         openedSelect: '',
         ...initialValues(metadata, dataApprovalWorkflows, calendar),
-    }));
+    }))
 
     const [attributeComboState, setAttributeComboState] = useState({
         attributeCombos: [],
@@ -101,7 +106,7 @@ const SelectionProvider = ({ children }) => {
 
     const _attributeComboState = useMemo(() => {
         if (!metadata || !workflow || !orgUnit || !period) {
-            return null;
+            return null
         }
 
         return getAttributeComboState({
@@ -112,15 +117,15 @@ const SelectionProvider = ({ children }) => {
             calendar,
             attributeCombo,
             attributeOptionCombo,
-        });
-    }, [workflow, orgUnit, period, attributeCombo, attributeOptionCombo]);
+        })
+    }, [workflow, orgUnit, period, attributeCombo, attributeOptionCombo])
 
     useEffect(() => {
         if (_attributeComboState) {
-            updateAttributeComboState(_attributeComboState);
-            dispatchAttributeStateIfNeeded(_attributeComboState);
+            updateAttributeComboState(_attributeComboState)
+            dispatchAttributeStateIfNeeded(_attributeComboState)
         }
-    }, [_attributeComboState]);
+    }, [_attributeComboState])
 
     useEffect(() => {
         pushStateToHistory({
@@ -154,16 +159,27 @@ const SelectionProvider = ({ children }) => {
             attributeCombos: _attributeState.attributeCombos,
             showAttributeSelect: _attributeState.showAttributeSelect,
             attrComboValue: _attributeState.attrComboValue,
-        });
+        })
     }
 
     const dispatchAttributeStateIfNeeded = (_attributeState) => {
         if (attributeCombo?.id !== _attributeState.attributeCombo?.id) {
-            dispatch({ type: ACTIONS.SELECT_ATTRIBUTE_COMBO, payload: { attributeCombo: _attributeState.attributeCombo } });
+            dispatch({
+                type: ACTIONS.SELECT_ATTRIBUTE_COMBO,
+                payload: { attributeCombo: _attributeState.attributeCombo },
+            })
         }
 
-        if (attributeOptionCombo?.id !== _attributeState.attributeOptionCombo?.id) {
-            dispatch({ type: ACTIONS.SELECT_CAT_OPTION_COMBO, payload: { attributeOptionCombo: _attributeState.attributeOptionCombo } });
+        if (
+            attributeOptionCombo?.id !==
+            _attributeState.attributeOptionCombo?.id
+        ) {
+            dispatch({
+                type: ACTIONS.SELECT_CAT_OPTION_COMBO,
+                payload: {
+                    attributeOptionCombo: _attributeState.attributeOptionCombo,
+                },
+            })
         }
     }
     const providerValue = {
