@@ -1,15 +1,13 @@
 import i18n from '@dhis2/d2-i18n'
 import {
     findAttributeOptionCombo,
-    findAttributeOptionComboInWorkflow,
-    getCategoryComboByCategoryOptionCombo,
+    extractValidCatComboAndCatOptionCombo,
     getCategoryCombosByFilters,
-    getCategoryOptionComboById,
-    getCategoryOptionsByCategoryOptionCombo,
+    getAttributeComboById,
 } from './category-combo-utils.js'
 
 export const getAttributeOptionComboData = (state, payload) => {
-    return findAttributeOptionComboInWorkflow(payload.metadata, {
+    return extractValidCatComboAndCatOptionCombo(payload.metadata, {
         workflow: payload.workflow,
         attributeOptionComboId: state.attributeOptionCombo?.id,
         orgUnit: state.orgUnit,
@@ -57,7 +55,7 @@ export const handleSelectPeriod = (state, payload) => {
 }
 
 export const handleSelectOrgUnit = (state, payload) => {
-    const attributeOptionComboData = findAttributeOptionComboInWorkflow(
+    const attributeOptionComboData = extractValidCatComboAndCatOptionCombo(
         payload.metadata,
         state.workflow,
         state.attributeOptionCombo?.id,
@@ -101,14 +99,10 @@ export const getAttributeComboState = ({
     let isShowAttributeComboVisible = true
     let attributeComboValue = i18n.t('0 selections')
 
-    const processCategoryOptions = (metadata, optionComboId) => {
-        const options =
-            getCategoryOptionsByCategoryOptionCombo(metadata, optionComboId) ||
-            []
-        return options.reduce((acc, option, index) => {
-            acc[index] = option.id
-            return acc
-        }, [])
+    const processCategoryOptions = (metadata, attributeOptionCombo) => {
+        return attributeOptionCombo.categoryOptionIds.map(
+            (catOptionId) => metadata.categoryOptions[catOptionId]
+        )
     }
 
     const getAttributeOptionComboValue = (
@@ -139,17 +133,12 @@ export const getAttributeComboState = ({
         isShowAttributeComboVisible = false
         attributeComboValue = i18n.t('0 selections')
     } else if (attributeOptionCombo) {
-        const selectedAttrCombo = getCategoryComboByCategoryOptionCombo(
-            _attributeCombos,
-            attributeOptionCombo.id
-        )
-        const selectedAttrOptionCombo = getCategoryOptionComboById(
-            selectedAttrCombo,
-            attributeOptionCombo.id
-        )
+        const selectedAttrCombo =
+            getAttributeComboById(metadata, attributeOptionCombo.categoryComboId)
+        const selectedAttrOptionCombo = attributeOptionCombo
         const categoryOptions = processCategoryOptions(
             metadata,
-            attributeOptionCombo.id
+            attributeOptionCombo
         )
         const value = getAttributeOptionComboValue(
             selectedAttrCombo,
@@ -161,20 +150,24 @@ export const getAttributeComboState = ({
 
         isShowAttributeComboVisible = !(
             _attributeCombos.length === 1 &&
-            _attributeCombos[0].categories?.length === 1 &&
-            _attributeCombos[0].categories[0].categoryOptions.length <= 1
+            _attributeCombos[0].categoryIds?.length === 1 &&
+            metadata.categories[_attributeCombos[0].categoryIds[0]]
+                .categoryOptionIds.length <= 1
         )
     } else if (_attributeCombos.length === 1) {
-        const singleCategoryCombo = _attributeCombos[0]
+        const [singleCategoryCombo] = _attributeCombos
+        const [categoryId] = singleCategoryCombo.categoryIds
+        const firstCategory = metadata.categories[categoryId]
+
         if (
-            singleCategoryCombo.categories?.length === 1 &&
-            singleCategoryCombo.categories[0].categoryOptions?.length === 1
+            singleCategoryCombo.categoryIds?.length === 1 &&
+            firstCategory.categoryOptionIds?.length === 1
         ) {
-            const category = singleCategoryCombo.categories[0]
+            const categoryId = singleCategoryCombo.categoryIds[0]
             const categoryOptionMap = {}
-            categoryOptionMap[category.id] = category.categoryOptions[0].id
+            categoryOptionMap[categoryId] = firstCategory.categoryOptionIds[0]
             _attributeOptionCombo = findAttributeOptionCombo(
-                singleCategoryCombo,
+                metadata,
                 categoryOptionMap
             )
             _attributeCombo = singleCategoryCombo

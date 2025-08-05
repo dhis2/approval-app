@@ -2,15 +2,14 @@ import i18n from '@dhis2/d2-i18n'
 import { NoticeBox, SingleSelectField, SingleSelectOption } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React from 'react'
+import { useAppContext } from '../../app-context/use-app-context.js'
 import css from './category-option-select.module.css'
 
 /**
  *
- * @param categoryCombo An object which has an array of category objects (JSON), each options (to be rendered in a menu).
- * @param orgUnit An object
+ * @param categories Category list
  * @param selected {<categoryId_1>: <catOptionId_1>, <categoryId_2>: <catOptionId_2>, ...}
  * @param onChange A function to handle changes in the selected options.
- * @param onClose A function to close the menu.
  *
  */
 export default function MultipleCategoySelect({
@@ -18,12 +17,15 @@ export default function MultipleCategoySelect({
     selected,
     onChange,
 }) {
+    const { metadata } = useAppContext()
+
     return (
         <div className={css.inputs}>
             {/* Categories Dropdown */}
-            {categories.map(({ id, displayName, categoryOptions }) =>
-                categoryOptions.length === 0 ? (
+            {categories.map(({ id, displayName, categoryOptionIds }) =>
+                categoryOptionIds.length === 0 ? (
                     <NoticeBox
+                        key={`notice_${id}`}
                         className={css.noOptionsBox}
                         error
                         title={i18n.t('No available options')}
@@ -34,24 +36,28 @@ export default function MultipleCategoySelect({
                         )}
                     </NoticeBox>
                 ) : (
-                    <div className={css.selectContainer}>
+                    <div key={id} className={css.selectContainer}>
                         <SingleSelectField
                             filterable
                             label={displayName}
                             noMatchText={i18n.t('No options found')}
-                            selected={selected[id] || null}
+                            selected={selected[id] ?? undefined}
                             onChange={(selectedItem) =>
                                 onChange(id, selectedItem.selected)
                             }
                             filterPlaceholder={i18n.t('Type to filter options')}
                         >
-                            {categoryOptions.map((item) => (
-                                <SingleSelectOption
-                                    key={item.id}
-                                    label={item.displayName}
-                                    value={item.id}
-                                />
-                            ))}
+                            {categoryOptionIds.map((id) => {
+                                const categoryOption =
+                                    metadata.categoryOptions[id]
+                                return (
+                                    <SingleSelectOption
+                                        key={categoryOption.id}
+                                        label={categoryOption.displayName}
+                                        value={categoryOption.id}
+                                    />
+                                )
+                            })}
                         </SingleSelectField>
                     </div>
                 )
@@ -63,12 +69,7 @@ export default function MultipleCategoySelect({
 MultipleCategoySelect.propTypes = {
     categories: PropTypes.arrayOf(
         PropTypes.shape({
-            categoryOptions: PropTypes.arrayOf(
-                PropTypes.shape({
-                    displayName: PropTypes.string.isRequired,
-                    id: PropTypes.string.isRequired,
-                })
-            ).isRequired,
+            categoryOptionIds: PropTypes.arrayOf(PropTypes.string).isRequired,
             displayName: PropTypes.string.isRequired,
             id: PropTypes.string.isRequired,
         })

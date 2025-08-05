@@ -20,23 +20,23 @@ jest.mock('../../navigation/read-query-params.js', () => ({
 
 const mockDataSets = [
     {
-        name: 'Data set 1',
         id: 'dataset_1',
+        displayName: 'Data set 1',
         periodType: 'Daily',
         categoryCombo: {
-            id: 'combo_1',
+            id: 'catComboId1',
         },
         organisationUnits: [
-            { id: 'ou-1', displayName: 'Org unit 1', path: '/ou-1' },
-            { id: 'ou-2', displayName: 'Org unit 2', path: '/ou-2' },
+            { id: 'ouId1', path: '/ouId1' },
+            { id: 'ouId2', path: '/ouId2' },
         ],
     },
 ]
 
 const mockWorkflows = [
     {
-        displayName: 'Workflow a',
         id: 'i5m0JPw4DQi',
+        displayName: 'Workflow a',
         periodType: 'Daily',
         dataSets: mockDataSets,
     },
@@ -46,15 +46,15 @@ const mockWorkflows = [
         periodType: 'Daily',
         dataSets: [
             {
-                name: 'Data set 2',
                 id: 'dataset_2',
+                displayName: 'Data set 2',
                 periodType: 'Daily',
                 categoryCombo: {
                     id: 'combo_1',
                 },
                 organisationUnits: [
-                    { id: 'ou-1', displayName: 'Org unit 1' },
-                    { id: 'ou-2', displayName: 'Org unit 2' },
+                    { id: 'ouId1', path: '/ouId1' },
+                    { id: 'ouId2', path: '/ouId2' },
                 ],
             },
         ],
@@ -63,47 +63,108 @@ const mockWorkflows = [
 
 const mockOrgUnitRoots = [
     {
-        id: 'ou-1',
-        path: '/ou-1',
+        id: 'ouId1',
+        path: '/ouId1',
         displayName: 'Org unit 1',
     },
 ]
 
-const mockCategoryCombo = {
-    id: 'combo_1',
-    displayName: 'Combo 1',
-    categories: [
-        {
-            id: 'category_1',
+const mockMetadata = {
+    categoryCombos: {
+        catComboId1: {
+            id: 'catComboId1',
+            displayName: 'Combo 1',
+            isDefault: false,
+            categoryIds: ['catId1', 'catId2'],
+        },
+    },
+    categories: {
+        catId1: {
+            id: 'catId1',
             displayName: 'Category 1',
-            categoryOptions: [
-                { id: '123', displayName: 'Option 1' },
-                { id: '456', displayName: 'Option 2' },
+            categoryOptionIds: ['catOptionId1', 'catOptionId2'],
+        },
+        catId2: {
+            id: 'catId2',
+            displayName: 'Category 2',
+            categoryOptionIds: ['catOptionId3', 'catOptionId4'],
+        },
+    },
+    categoryOptions: {
+        catOptionId1: {
+            id: 'catOptionId1',
+            startDate: '2024-01-01T00:00:00',
+            endDate: '2024-12-01T00:00:00',
+            displayName: 'Category Option 1',
+            organisationUnits: [{ id: 'ouId1', path: '/ouId1' }],
+        },
+        catOptionId2: {
+            id: 'catOptionId2',
+            startDate: '2024-01-01T00:00:00',
+            endDate: '2024-12-01T00:00:00',
+            displayName: 'Category Option 2',
+            organisationUnits: [{ id: 'ouId1', path: '/ouId1' }],
+        },
+        catOptionId3: {
+            id: 'catOptionId3',
+            startDate: '2024-01-01T00:00:00',
+            endDate: '2024-12-01T00:00:00',
+            displayName: 'Category Option 3',
+            organisationUnits: [{ id: 'ouId1', path: '/ouId1' }],
+        },
+        catOptionId4: {
+            id: 'catOptionId4',
+            startDate: '2024-01-01T00:00:00',
+            endDate: '2024-12-01T00:00:00',
+            displayName: 'Category Option 4',
+            organisationUnits: [{ id: 'ouId1', path: '/ouId1' }],
+        },
+    },
+    categoryOptionCombos: {
+        catOptionComboId1: {
+            id: 'catOptionComboId1',
+            breakdown: [
+                { categoryId: 'catId1', optionId: 'catOptionId1' },
+                { categoryId: 'catId2', optionId: 'catOptionId3' },
             ],
+            categoryOptionIds: ['catOptionId1', 'catOptionId3'],
+            categoryComboId: 'catComboId1',
         },
-    ],
-    categoryOptionCombos: [
-        {
-            id: 'wertyuiopas',
-            displayName: 'Option Combo 1',
-            categoryOptions: [{ id: '123' }],
+        catOptionComboId2: {
+            id: 'catOptionComboId2',
+            breakdown: [
+                { categoryId: 'catId1', optionId: 'catOptionId2' },
+                { categoryId: 'catId2', optionId: 'catOptionId3' },
+            ],
+            categoryOptionIds: ['catOptionId2', 'catOptionId3'],
+            categoryComboId: 'catComboId1',
         },
-        {
-            id: 'rewqtyuiops',
-            displayName: 'Option Combo 2',
-            categoryOptions: [{ id: '456' }],
+        catOptionComboId3: {
+            id: 'catOptionComboId3',
+            breakdown: [
+                { categoryId: 'catId1', optionId: 'catOptionId1' },
+                { categoryId: 'catId2', optionId: 'catOptionId4' },
+            ],
+            categoryOptionIds: ['catOptionId1', 'catOptionId4'],
+            categoryComboId: 'catComboId1',
         },
-    ],
-    isDefault: false,
+        catOptionComboId4: {
+            id: 'catOptionComboId4',
+            breakdown: [
+                { categoryId: 'catId1', optionId: 'catOptionId2' },
+                { categoryId: 'catId2', optionId: 'catOptionId4' },
+            ],
+            categoryOptionIds: ['catOptionId2', 'catOptionId4'],
+            categoryComboId: 'catComboId1',
+        },
+    },
 }
 
 beforeEach(() => {
     useAppContext.mockImplementation(() => ({
         dataApprovalWorkflows: mockWorkflows,
         organisationUnits: mockOrgUnitRoots,
-        metadata: {
-            categoryCombos: [mockCategoryCombo],
-        },
+        metadata: mockMetadata,
     }))
     readQueryParams.mockImplementation(() => ({}))
 })
@@ -113,7 +174,7 @@ afterEach(() => {
 })
 
 describe('<AttributeComboSelect>', () => {
-    it('does not render AttributeComboSelect if a workflow is not selected', () => {
+    it('does not render if a workflow is not selected', () => {
         useSelectionContext.mockImplementation(() => ({
             workflow: null,
             period: {},
@@ -149,8 +210,8 @@ describe('<AttributeComboSelect>', () => {
         useSelectionContext.mockImplementation(() => ({
             workflow: mockWorkflows[0],
             period: {
-                id: '201204',
-                displayName: 'April 2012',
+                id: '202404',
+                displayName: 'April 2024',
             },
             orgUnit: null,
             attributeOptionCombo: {},
@@ -172,8 +233,8 @@ describe('<AttributeComboSelect>', () => {
             period: null,
             orgUnit: {
                 displayName: 'Sierra Leone',
-                id: 'ImspTQPwCqd',
-                path: '/ImspTQPwCqd',
+                id: 'ouId1',
+                path: '/ouId1',
             },
             attributeOptionCombo: {},
             openedSelect: '',
@@ -200,9 +261,9 @@ describe('<AttributeComboSelect>', () => {
             selectAttributeCombo: () => {},
             selectWorkflow: () => {},
             setOpenedSelect: () => {},
-            attributeCombo: mockCategoryCombo,
+            attributeCombo: mockMetadata.categoryCombos['catComboId1'],
             showAttributeSelect: true,
-            attributeCombos: [mockCategoryCombo],
+            attributeCombos: Object.values(mockMetadata.categoryCombos),
             attrComboValue: '0 selections',
         }))
 
@@ -214,7 +275,7 @@ describe('<AttributeComboSelect>', () => {
         })
 
         const contextSelect = wrapper.find(ContextSelect)
-        expect(contextSelect.exists()).toBe(true) // Ensure the component exists
+        expect(contextSelect.exists()).toBe(true)
         expect(contextSelect.prop('disabled')).toBe(false)
         expect(contextSelect.prop('placeholder')).toBe('0 selections')
     })

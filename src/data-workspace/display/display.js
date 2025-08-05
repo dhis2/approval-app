@@ -50,7 +50,7 @@ const Display = ({ dataSetId }) => {
           ).map(({ id }) => id)
         : []
     const categoryFilter = attributeOptionCombo
-        ? getDataSetReportFilter(attributeCombo, attributeOptionCombo)
+        ? getDataSetReportFilter(metadata, attributeCombo, attributeOptionCombo)
         : ''
 
     const { called, fetching, data, error, refetch } = useDataQuery(query, {

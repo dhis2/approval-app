@@ -7,12 +7,12 @@ export const areListsEqual = (list1, list2) => {
         return false
     }
 
-    const sortedList1 = [...list1].sort((a, b) => a.localeCompare(b))
-    const sortedList2 = [...list2].sort((a, b) => a.localeCompare(b))
+    sortList(list1)
+    sortList(list2)
 
-    return sortedList1.every((value, index) => value === sortedList2[index])
+    return list1.every((value, index) => value === list2[index])
 }
 
-export const findObject = (list, property, value) => {
-    return list.find((item) => item[property] === value)
+export const sortList = (list) => {
+    list.sort((a, b) => a.localeCompare(b))
 }

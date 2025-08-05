@@ -2,8 +2,12 @@ import i18n from '@dhis2/d2-i18n'
 import { Button, NoticeBox } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React, { useState } from 'react'
+import { useAppContext } from '../../app-context/use-app-context.js'
 import { cloneJSON } from '../../utils/array-utils.js'
-import { findAttributeOptionCombo } from '../../utils/category-combo-utils.js'
+import {
+    findAttributeOptionCombo,
+    getCategoriesByCategoryCombo,
+} from '../../utils/category-combo-utils.js'
 import css from './category-option-select.module.css'
 import MultipleCategoySelect from './multiple-category-select.js'
 import SingleCategoryMenu from './single-category-select.js'
@@ -27,13 +31,14 @@ HideButton.propTypes = {
  * @param onClose A function to close the menu.
  *
  */
-export default function CategoySelect({
+export default function CategorySelect({
     categoryCombo,
-    selected,
     onChange,
     onClose,
+    selected, // attributeOptionCombo
 }) {
-    // Get the selected categories if any
+    const { metadata } = useAppContext()
+
     const mapSelectedCategories = () => {
         const categoryMap = {}
 
@@ -41,15 +46,17 @@ export default function CategoySelect({
             return categoryMap
         }
 
-        const catOptionIds = selected.categoryOptions.map((item) => item.id)
+        const categoryOptionIds = selected.categoryOptionIds
+
         // Go through "Categories" of catCombo to find "CategoryOption" we need
-        for (let j = 0; j < categoryCombo.categories?.length; j++) {
-            const category = categoryCombo.categories[j]
-            const foundCatOptions = category.categoryOptions.filter((item) =>
-                catOptionIds.includes(item.id)
+        const categories = getCategoriesByCategoryCombo(categoryCombo, metadata)
+        for (const category of categories) {
+            const foundCatOptionId = category.categoryOptionIds.filter((id) =>
+                categoryOptionIds.includes(id)
             )
-            if (foundCatOptions.length > 0) {
-                categoryMap[category.id] = foundCatOptions[0].id
+
+            if (foundCatOptionId) {
+                categoryMap[category.id] = foundCatOptionId[0]
             }
         }
 
@@ -73,19 +80,22 @@ export default function CategoySelect({
         setSelectedItem(updatedSelected)
 
         const selectedCatOptionCombo = findAttributeOptionCombo(
-            categoryCombo,
+            metadata,
             updatedSelected
         )
         onChange(selectedCatOptionCombo)
     }
 
-    const categories = categoryCombo.categories
+    const categories = getCategoriesByCategoryCombo(categoryCombo, metadata)
 
     // Check if there's exactly one category in the categories array and that category has at least one categoryOption
     if (categories.length === 1) {
         // Extracts the single category from the categories array
         const category = categories[0]
-        const categoryOptions = category.categoryOptions ?? []
+        const categoryOptions =
+            category.categoryOptionIds.map(
+                (id) => metadata.categoryOptions[id]
+            ) ?? []
 
         if (categoryOptions.length === 0) {
             return (
@@ -135,33 +145,12 @@ export default function CategoySelect({
     )
 }
 
-CategoySelect.propTypes = {
+CategorySelect.propTypes = {
     categoryCombo: PropTypes.shape({
-        categories: PropTypes.arrayOf(
-            PropTypes.shape({
-                categoryOptions: PropTypes.arrayOf(
-                    PropTypes.shape({
-                        displayName: PropTypes.string.isRequired,
-                        id: PropTypes.string.isRequired,
-                    })
-                ).isRequired,
-                displayName: PropTypes.string.isRequired,
-                id: PropTypes.string.isRequired,
-            })
-        ).isRequired,
-        categoryOptionCombos: PropTypes.arrayOf(
-            PropTypes.shape({
-                categoryOptions: PropTypes.arrayOf(
-                    PropTypes.shape({
-                        id: PropTypes.string.isRequired,
-                    })
-                ).isRequired,
-                displayName: PropTypes.string.isRequired,
-                id: PropTypes.string.isRequired,
-            })
-        ).isRequired,
+        categoryIds: PropTypes.arrayOf(PropTypes.string).isRequired,
         displayName: PropTypes.string.isRequired,
         id: PropTypes.string.isRequired,
+        isDefault: PropTypes.bool.isRequired,
     }).isRequired,
 
     onChange: PropTypes.func.isRequired,

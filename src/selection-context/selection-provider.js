@@ -118,24 +118,14 @@ const SelectionProvider = ({ children }) => {
             attributeCombo,
             attributeOptionCombo,
         })
-    }, [workflow, orgUnit, period, attributeCombo, attributeOptionCombo])
-
-    useEffect(() => {
-        if (_attributeComboState) {
-            updateAttributeComboState(_attributeComboState)
-            dispatchAttributeStateIfNeeded(_attributeComboState)
-        }
-    }, [_attributeComboState])
-
-    useEffect(() => {
-        pushStateToHistory({
-            workflow,
-            period,
-            orgUnit,
-            attributeOptionCombo,
-            dataSet,
-        })
-    }, [workflow, period, orgUnit, attributeOptionCombo, dataSet])
+    }, [
+        workflow,
+        orgUnit,
+        period,
+        attributeCombo,
+        attributeOptionCombo,
+        metadata,
+    ])
 
     useEffect(() => {
         const setStateFromQueryParams = () => {
@@ -153,6 +143,23 @@ const SelectionProvider = ({ children }) => {
             window.removeEventListener('popstate', setStateFromQueryParams)
         }
     }, [])
+
+    useEffect(() => {
+        if (_attributeComboState) {
+            updateAttributeComboState(_attributeComboState)
+            dispatchAttributeStateIfNeeded(_attributeComboState)
+        }
+    }, [_attributeComboState])
+
+    useEffect(() => {
+        pushStateToHistory({
+            workflow,
+            period,
+            orgUnit,
+            attributeOptionCombo,
+            dataSet,
+        })
+    }, [workflow, period, orgUnit, attributeOptionCombo, dataSet])
 
     const updateAttributeComboState = (_attributeState) => {
         setAttributeComboState({

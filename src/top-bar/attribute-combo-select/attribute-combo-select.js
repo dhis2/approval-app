@@ -1,11 +1,12 @@
 import i18n from '@dhis2/d2-i18n'
-import { Divider, SingleSelect, SingleSelectOption } from '@dhis2/ui'
+import { SingleSelect, SingleSelectOption } from '@dhis2/ui'
 import React from 'react'
+import { useAppContext } from '../../app-context/use-app-context.js'
 import { useSelectionContext } from '../../selection-context/index.js'
-import { findObject } from '../../utils/array-utils.js'
+import { getAttributeComboById } from '../../utils/category-combo-utils.js'
 import { ContextSelect } from '../context-select/context-select.js'
 import css from './attribute-combo-select.module.css'
-import CategoySelect from './category-select.js'
+import CategorySelect from './category-select.js'
 
 const CAT_OPTION_COMBO = 'CAT_OPTION_COMBO'
 
@@ -25,6 +26,8 @@ const AttributeComboSelect = () => {
         attrComboValue,
     } = useSelectionContext()
 
+    const { metadata } = useAppContext()
+
     const open = openedSelect === CAT_OPTION_COMBO
     const getMissingSelectionsMessage = () => {
         if (!period) {
@@ -41,8 +44,7 @@ const AttributeComboSelect = () => {
     }
 
     const onChangeCatCombo = (catComboId) => {
-        const catCombo = findObject(attributeCombos, 'id', catComboId)
-
+        const catCombo = getAttributeComboById(metadata, catComboId)
         // Update the selected attribute combo and reset attribute combo value
         selectAttributeCombo(catCombo)
     }
@@ -76,11 +78,13 @@ const AttributeComboSelect = () => {
                         className={css.menu}
                         style={{
                             height:
-                                attributeCombos.length == 1 ? '250px' : '330px',
+                                attributeCombos?.length == 1
+                                    ? '250px'
+                                    : '330px',
                         }}
                     >
                         {/* Only show Category Combo dropdown when there are more than one categoryCombo in the list */}
-                        {attributeCombos.length > 1 && (
+                        {attributeCombos?.length > 1 && (
                             <div className={css.attributeComboSelect}>
                                 <SingleSelect
                                     placeholder={i18n.t('Choose a combination')}
@@ -97,18 +101,19 @@ const AttributeComboSelect = () => {
                                         />
                                     ))}
                                 </SingleSelect>
-                                <Divider className={css.divider} />
                             </div>
                         )}
 
                         {attributeCombo && !attributeCombo.isDefault && (
-                            <CategoySelect
+                            <div className={css.categorySelectWrapper}>
+                            <CategorySelect
                                 key={`catCombo_${workflow?.id}_${attributeCombo?.id}_${period?.id}_${orgUnit?.id}`}
                                 categoryCombo={attributeCombo}
                                 selected={attributeOptionCombo}
                                 onChange={onChange}
                                 onClose={() => setOpenedSelect('')}
                             />
+                            </div>
                         )}
                     </div>
                 </ContextSelect>

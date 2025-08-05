@@ -34,134 +34,153 @@ expect.extend({
         return { pass, message }
     },
 })
-const metadata = {
-    categoryCombos: [
-        {
-            displayName: "Combo 1",
-            id: "combo_1",
-            categories: [
-                {
-                    name: "Category 1",
-                    displayName: "Category 1",
-                    id: "category_1",
-                    categoryOptions: [
-                        {
-                            displayName: "Option 1",
-                            id: "123"
-                        },
-                        {
-                            displayName: "Option 2",
-                            id: "456"
-                        },
-                    ]
-                }
-            ],
-            categoryOptionCombos: [
-                {
-                    categoryOptions: [{id: "123" }],
-                    displayName: "Option Combo 1",
-                    id: "wertyuiopas"
-                },
-            ],
-            isDefault: false
+
+const mockMetadata = {
+    categoryCombos: {
+        catComboId1: {
+            id: 'catComboId1',
+            displayName: 'Combo 1',
+            isDefault: false,
+            categoryIds: ['catId1', 'catId2'],
         },
-    ]
-};
+    },
+    categories: {
+        catId1: {
+            id: 'catId1',
+            displayName: 'Category 1',
+            categoryOptionIds: ['catOptionId1', 'catOptionId2'],
+        },
+        catId2: {
+            id: 'catId2',
+            displayName: 'Category 2',
+            categoryOptionIds: ['catOptionId3', 'catOptionId4'],
+        },
+    },
+    categoryOptions: {
+        catOptionId1: {
+            id: 'catOptionId1',
+            startDate: '2010-01-01T00:00:00',
+            endDate: '2025-12-01T00:00:00',
+            displayName: 'Category Option 1',
+            organisationUnits: [
+                { id: 'ouId1', path: '/ouId1' },
+                { id: 'ouId2', path: '/ouId2' },
+            ],
+        },
+        catOptionId2: {
+            id: 'catOptionId2',
+            startDate: '2010-01-01T00:00:00',
+            endDate: '2025-12-01T00:00:00',
+            displayName: 'Category Option 2',
+            organisationUnits: [
+                { id: 'ouId1', path: '/ouId1' },
+                { id: 'ouId2', path: '/ouId2' },
+            ],
+        },
+        catOptionId3: {
+            id: 'catOptionId3',
+            startDate: '2010-01-01T00:00:00',
+            endDate: '2025-12-01T00:00:00',
+            displayName: 'Category Option 3',
+            organisationUnits: [
+                { id: 'ouId1', path: '/ouId1' },
+                { id: 'ouId2', path: '/ouId2' },
+            ],
+        },
+        catOptionId4: {
+            id: 'catOptionId4',
+            startDate: '2010-01-01T00:00:00',
+            endDate: '2025-12-01T00:00:00',
+            displayName: 'Category Option 4',
+            organisationUnits: [
+                { id: 'ouId1', path: '/ouId1' },
+                { id: 'ouId2', path: '/ouId2' },
+            ],
+        },
+    },
+    categoryOptionCombos: {
+        catOptionComboId1: {
+            id: 'catOptionComboId1',
+            breakdown: [
+                { categoryId: 'catId1', optionId: 'catOptionId1' },
+                { categoryId: 'catId2', optionId: 'catOptionId3' },
+            ],
+            categoryOptionIds: ['catOptionId1', 'catOptionId3'],
+            categoryComboId: 'catComboId1',
+        },
+        catOptionComboId2: {
+            id: 'catOptionComboId2',
+            breakdown: [
+                { categoryId: 'catId1', optionId: 'catOptionId2' },
+                { categoryId: 'catId2', optionId: 'catOptionId3' },
+            ],
+            categoryOptionIds: ['catOptionId2', 'catOptionId3'],
+            categoryComboId: 'catComboId1',
+        },
+        catOptionComboId3: {
+            id: 'catOptionComboId3',
+            breakdown: [
+                { categoryId: 'catId1', optionId: 'catOptionId1' },
+                { categoryId: 'catId2', optionId: 'catOptionId4' },
+            ],
+            categoryOptionIds: ['catOptionId1', 'catOptionId4'],
+            categoryComboId: 'catComboId1',
+        },
+        catOptionComboId4: {
+            id: 'catOptionComboId4',
+            breakdown: [
+                { categoryId: 'catId1', optionId: 'catOptionId2' },
+                { categoryId: 'catId2', optionId: 'catOptionId4' },
+            ],
+            categoryOptionIds: ['catOptionId2', 'catOptionId4'],
+            categoryComboId: 'catComboId1',
+        },
+    },
+}
 
 const dataSetOne = {
-                name: "Data set 1",
-                id: "dataset_1",
-                periodType: "Daily",
-                categoryCombo: {
-                    displayName: "Combo 1",
-                    id: "combo_1",
-                    categories: [
-                        {
-                            name: "Category 1",
-                            displayName: "Category 1",
-                            id: "category_1",
-                            categoryOptions: [
-                                {
-                                    displayName: "Option 1",
-                                    id: "123"
-                                },
-                                {
-                                    displayName: "Option 2",
-                                    id: "456"
-                                },
-                            ]
-                        }
-                    ],
-                    categoryOptionCombos: [
-                        {
-                            categoryOptions: [{id: "123" }],
-                            displayName: "Option Combo 1",
-                            id: "wertyuiopas"
-                        },
-                    ],
-                    isDefault: false
-                },
-            }
+    name: 'Data set 1',
+    id: 'dataset_1',
+    periodType: 'Daily',
+    categoryCombo: {
+        id: 'catComboId1',
+    },
+    organisationUnits: [
+        { id: 'ouId1', path: '/ouId1' },
+        { id: 'ouId2', path: '/ouId1' },
+    ],
+}
+const dataSetTwo = {
+    name: 'Data set 2',
+    id: 'dataset_2',
+    periodType: 'Daily',
+    categoryCombo: {
+        id: 'catComboId1',
+    },
+    organisationUnits: [
+        { id: 'ouId1', path: '/ouId1' },
+        { id: 'ouId2', path: '/ouId1' },
+    ],
+}
 const mockWorkflows = [
     {
         displayName: 'Workflow a',
         id: 'i5m0JPw4DQi',
         periodType: 'Daily',
-        dataSets: [
-            dataSetOne
-        ]
+        dataSets: [dataSetOne],
     },
     {
         displayName: 'Workflow B',
         id: 'rIUL3hYOjJc',
         periodType: 'Daily',
-        dataSets: [
-            {
-                name: "Data set 2",
-                id: "dataset_2",
-                periodType: "Daily",
-                categoryCombo: {
-                    displayName: "Combo 1",
-                    id: "combo_1",
-                    categories: [
-                        {
-                            name: "Category 1",
-                            displayName: "Category 1",
-                            id: "category_1",
-                            categoryOptions: [
-                                {
-                                    displayName: "Option 1",
-                                    id: "123"
-                                },
-                                {
-                                    displayName: "Option 2",
-                                    id: "456"
-                                },
-                            ]
-                        }
-                    ],
-                    categoryOptionCombos: [
-                        {
-                            categoryOptions: [{id: "123" }],
-                            displayName: "Option Combo 1",
-                            id: "wertyuiopas"
-                        },
-                    ],
-                    isDefault: false
-                },
-                organisationUnits: [
-                    {id: 'ou-1', displayName: 'Org unit 1', path: '/ou-1'},
-                    {id: 'ou-2', displayName: 'Org unit 2', path: '/ou-2'},
-                ]
-            }
-        ]
+        dataSets: [dataSetTwo],
     },
 ]
 
 beforeEach(() => {
     useAppContext.mockImplementation(() => ({
         dataApprovalWorkflows: mockWorkflows,
-        metadata
+        metadata: mockMetadata,
     }))
     readQueryParams.mockImplementation(() => ({}))
 })
@@ -191,12 +210,12 @@ describe('useSelectionContext', () => {
             selectWorkflow: expect.any(Function),
             selectPeriod: expect.any(Function),
             selectOrgUnit: expect.any(Function),
-            selectAttributeOptionCombo: expect.any(Function),
             selectAttributeCombo: expect.any(Function),
+            selectAttributeOptionCombo: expect.any(Function),
             selectDataSet: expect.any(Function),
-            attrComboValue: "",
+            attrComboValue: '',
             attributeCombos: [],
-            showAttributeSelect: true
+            showAttributeSelect: true,
         })
     })
 
@@ -204,14 +223,13 @@ describe('useSelectionContext', () => {
         readQueryParams.mockImplementation(() => ({
             wf: 'rIUL3hYOjJc',
             pe: '20110203',
-            ou: '/ou-1',
-            aoc: "wertyuiopas",
+            ou: '/ouId1',
+            aoc: 'catOptionComboId1',
             dataSet: dataSetOne.id,
             ouDisplayName: 'Org unit 1',
         }))
 
         const { result } = renderHook(() => useSelectionContext(), { wrapper })
-        expect(result.current.dataSet).toEqual('dataset_1')
         expect(result.current.workflow).toEqual(mockWorkflows[1])
         expect(result.current.period).toEqual(
             expect.objectContaining({
@@ -223,18 +241,21 @@ describe('useSelectionContext', () => {
                 year: 2011,
             })
         )
-        expect(result.current.orgUnit).toEqual({
-           id: 'ou-1',
-           displayName: 'Org unit 1',
-           path: '/ou-1',
+        expect(result.current.orgUnit).toMatchObject({
+            id: 'ouId1',
+            path: '/ouId1',
         })
 
         expect(result.current.attributeOptionCombo).toEqual({
-            categoryOptions: [ { id: '123' } ],
-            displayName: 'Option Combo 1',
-            id: 'wertyuiopas'
+            id: 'catOptionComboId1',
+            breakdown: [
+                { categoryId: 'catId1', optionId: 'catOptionId1' },
+                { categoryId: 'catId2', optionId: 'catOptionId3' },
+            ],
+            categoryOptionIds: ['catOptionId1', 'catOptionId3'],
+            categoryComboId: 'catComboId1',
         })
-
+        expect(result.current.dataSet).toEqual('dataset_1')
     })
 
     describe('functions returned from the hook update the state and url', () => {
@@ -271,7 +292,7 @@ describe('useSelectionContext', () => {
             expect(result.current.dataSet.id).toBe(dataSetOne.id)
             mock.mockClear()
 
-            const expectedWorkflow = mockWorkflows[1];
+            const expectedWorkflow = mockWorkflows[1]
             act(() => {
                 result.current.selectWorkflow(expectedWorkflow)
             })
@@ -298,7 +319,14 @@ describe('useSelectionContext', () => {
             expect(result.current.dataSet.id).toBe(dataSetOne.id)
             mock.mockClear()
 
-            const expectedPeriod = { id: '20210202' }
+            const expectedPeriod = {
+                displayName: 'Feb 02 2021',
+                startDate: '2021-02-02',
+                endDate: '2021-02-02',
+                year: 2021,
+                iso: '202102',
+                id: '202102',
+            }
             act(() => {
                 result.current.selectPeriod(expectedPeriod)
             })
@@ -323,11 +351,22 @@ describe('useSelectionContext', () => {
             expect(result.current.dataSet.id).toBe(dataSetOne.id)
             mock.mockClear()
 
-            const expectedOrgUnit = {id: 'ou-1', displayName: 'Org unit 1', path: '/ou-1'}
+            const expectedOrgUnit = {
+                id: 'ouId1',
+                displayName: 'Org unit 1',
+                path: '/ouId1',
+            }
 
             act(() => {
                 result.current.selectWorkflow(mockWorkflows[1])
-                result.current.selectPeriod({ id: '20210202' })
+                result.current.selectPeriod({
+                    displayName: 'Feb 02 2021',
+                    startDate: '2021-02-02',
+                    endDate: '2021-02-02',
+                    year: 2021,
+                    iso: '202102',
+                    id: '202102',
+                })
                 result.current.selectOrgUnit(expectedOrgUnit)
             })
 
@@ -340,7 +379,6 @@ describe('useSelectionContext', () => {
             expect(mock).toHaveBeenCalledTimes(1)
         })
 
-
         it('selectAttributeOptionCombo', () => {
             const mock = jest.fn()
             pushStateToHistory.mockImplementation(mock)
@@ -352,18 +390,35 @@ describe('useSelectionContext', () => {
             // Reset count to 0 because the function is also called on initial render
             mock.mockClear()
 
-            const expectedAttributeOptionCombo = { id: 'wertyuiopas' }
+            const expectedCategoryOptionCombo =
+                mockMetadata.categoryOptionCombos['catOptionComboId1']
             act(() => {
                 result.current.selectWorkflow(mockWorkflows[1])
-                result.current.selectPeriod({ id: '20210202' })
-                result.current.selectOrgUnit({id: 'ou-1', displayName: 'Org unit 1', path: '/ou-1'})
-                result.current.selectAttributeCombo(metadata.categoryCombos[0])
-                result.current.selectAttributeOptionCombo(expectedAttributeOptionCombo)
+                result.current.selectPeriod({
+                    displayName: 'Feb 02 2021',
+                    startDate: '2021-02-02',
+                    endDate: '2021-02-02',
+                    year: 2021,
+                    iso: '202102',
+                    id: '202102',
+                })
+                result.current.selectOrgUnit({
+                    id: 'ouId1',
+                    displayName: 'Org unit 1',
+                    path: '/ouId1',
+                })
+                result.current.selectAttributeCombo(
+                    mockMetadata.categoryCombos['catComboId1']
+                )
+                result.current.selectAttributeOptionCombo(
+                    mockMetadata.categoryOptionCombos['catOptionComboId1']
+                )
             })
-            expect(result.current.attributeOptionCombo).toEqual(expectedAttributeOptionCombo)
+            expect(result.current.attributeOptionCombo).toEqual(
+                expectedCategoryOptionCombo
+            )
             expect(mock).toHaveBeenCalledTimes(1)
         })
-
 
         it('selectDataSet', () => {
             const mock = jest.fn()

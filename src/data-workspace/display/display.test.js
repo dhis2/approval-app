@@ -15,41 +15,112 @@ jest.mock('../../app-context/index.js', () => ({
     useAppContext: jest.fn(),
 }))
 
-beforeEach(() => {
-    useAppContext.mockImplementation(() => ({
-        metadata: {
-            categoryCombos: [
-                {
-                    displayName: 'Combo 1',
-                    id: 'combo_1',
-                    categories: [
-                        {
-                            name: 'Category 1',
-                            displayName: 'Category 1',
-                            id: 'category_1',
-                            categoryOptions: [
-                                {
-                                    displayName: 'Option 1',
-                                    id: '123',
-                                },
-                                {
-                                    displayName: 'Option 2',
-                                    id: '456',
-                                },
-                            ],
-                        },
-                    ],
-                    categoryOptionCombos: [
-                        {
-                            categoryOptions: [{ id: '123' }],
-                            displayName: 'Option Combo 1',
-                            id: 'wertyuiopas',
-                        },
-                    ],
-                    isDefault: false,
-                },
+const mockMetadata = {
+    categoryCombos: {
+        catComboId1: {
+            id: 'catComboId1',
+            displayName: 'Combo 1',
+            isDefault: false,
+            categoryIds: ['catId1', 'catId2'],
+        },
+    },
+    categories: {
+        catId1: {
+            id: 'catId1',
+            displayName: 'Category 1',
+            categoryOptionIds: ['catOptionId1', 'catOptionId2'],
+        },
+        catId2: {
+            id: 'catId2',
+            displayName: 'Category 2',
+            categoryOptionIds: ['catOptionId3', 'catOptionId4'],
+        },
+    },
+    categoryOptions: {
+        catOptionId1: {
+            id: 'catOptionId1',
+            startDate: '2024-01-01T00:00:00',
+            endDate: '2024-12-01T00:00:00',
+            displayName: 'Category Option 1',
+            organisationUnits: [
+                { id: 'ouId1', path: '/ouId1' },
+                { id: 'ouId2', path: '/ouId2' },
             ],
         },
+        catOptionId2: {
+            id: 'catOptionId2',
+            startDate: '2024-01-01T00:00:00',
+            endDate: '2024-12-01T00:00:00',
+            displayName: 'Category Option 2',
+            organisationUnits: [
+                { id: 'ouId1', path: '/ouId1' },
+                { id: 'ouId2', path: '/ouId2' },
+            ],
+        },
+        catOptionId3: {
+            id: 'catOptionId3',
+            startDate: '2024-01-01T00:00:00',
+            endDate: '2024-12-01T00:00:00',
+            displayName: 'Category Option 3',
+            organisationUnits: [
+                { id: 'ouId1', path: '/ouId1' },
+                { id: 'ouId2', path: '/ouId2' },
+            ],
+        },
+        catOptionId4: {
+            id: 'catOptionId4',
+            startDate: '2024-01-01T00:00:00',
+            endDate: '2024-12-01T00:00:00',
+            displayName: 'Category Option 4',
+            organisationUnits: [
+                { id: 'ouId1', path: '/ouId1' },
+                { id: 'ouId2', path: '/ouId2' },
+            ],
+        },
+    },
+    categoryOptionCombos: {
+        catOptionComboId1: {
+            id: 'catOptionComboId1',
+            breakdown: [
+                { categoryId: 'catId1', optionId: 'catOptionId1' },
+                { categoryId: 'catId2', optionId: 'catOptionId3' },
+            ],
+            categoryOptionIds: ['catOptionId1', 'catOptionId3'],
+            categoryComboId: 'catComboId1',
+        },
+        catOptionComboId2: {
+            id: 'catOptionComboId2',
+            breakdown: [
+                { categoryId: 'catId1', optionId: 'catOptionId2' },
+                { categoryId: 'catId2', optionId: 'catOptionId3' },
+            ],
+            categoryOptionIds: ['catOptionId2', 'catOptionId3'],
+            categoryComboId: 'catComboId1',
+        },
+        catOptionComboId3: {
+            id: 'catOptionComboId3',
+            breakdown: [
+                { categoryId: 'catId1', optionId: 'catOptionId1' },
+                { categoryId: 'catId2', optionId: 'catOptionId4' },
+            ],
+            categoryOptionIds: ['catOptionId1', 'catOptionId4'],
+            categoryComboId: 'catComboId1',
+        },
+        catOptionComboId4: {
+            id: 'catOptionComboId4',
+            breakdown: [
+                { categoryId: 'catId1', optionId: 'catOptionId2' },
+                { categoryId: 'catId2', optionId: 'catOptionId4' },
+            ],
+            categoryOptionIds: ['catOptionId2', 'catOptionId4'],
+            categoryComboId: 'catComboId1',
+        },
+    },
+}
+
+beforeEach(() => {
+    useAppContext.mockImplementation(() => ({
+        metadata: mockMetadata,
     }))
 })
 
@@ -63,11 +134,11 @@ describe('<Display>', () => {
         id: 'pBOMPrpg1QX',
         periodType: 'Monthly',
         categoryCombo: {
-            id: 'combo_1',
+            id: 'catComboId1',
         },
         organisationUnits: [
-            { id: 'ou-1', displayName: 'Org unit 1', path: '/ou-1' },
-            { id: 'ou-2', displayName: 'Org unit 2', path: '/ou-2' },
+            { id: 'ouId1', path: '/ouId1' },
+            { id: 'ouId2', path: '/ouId2' },
         ],
     }
 
@@ -76,12 +147,11 @@ describe('<Display>', () => {
         id: 'pBOMPrpg1QZ',
         periodType: 'Monthly',
         categoryCombo: {
-            displayName: 'Combo 1',
-            id: 'combo_1',
+            id: 'catComboId1',
         },
         organisationUnits: [
-            { id: 'ou-1', displayName: 'Org unit 1', path: '/ou-1' },
-            { id: 'ou-2', displayName: 'Org unit 2', path: '/ou-2' },
+            { id: 'ouId1', path: '/ouId1' },
+            { id: 'ouId2', path: '/ouId2' },
         ],
     }
 
@@ -105,16 +175,19 @@ describe('<Display>', () => {
                             id: '202101',
                         },
                         orgUnit: {
-                            id: 'ou-2',
+                            id: 'ouId2',
                             displayName: 'Org unit 2',
-                            path: '/ou-2',
+                            path: '/ouId2',
                         },
-                        attributeCombo: {
-                            id: 'combo_1',
-                        },
-                        attributeOptionCombo: {
-                            id: 'wertyuiopas',
-                        },
+                        attributeCombo:
+                            mockMetadata.categoryCombos['catComboId1'],
+                        attributeOptionCombo:
+                            mockMetadata.categoryOptionCombos[
+                                'catOptionComboId1'
+                            ],
+                        showAttributeSelect: true,
+                        attrComboValue: '2 selections',
+                        openedSelect: 'CAT_OPTION_COMBO',
                     }}
                 >
                     <Display dataSetId={null} />
@@ -144,15 +217,20 @@ describe('<Display>', () => {
                             id: 'foo',
                             periodType: 'Monthly',
                         },
+                        period: {
+                            displayName: 'January 2021',
+                            startDate: '2021-01-01',
+                            endDate: '2021-01-31',
+                            iso: '202101',
+                            id: '202101',
+                        },
                         orgUnit: {
-                            id: 'ou-2',
+                            id: 'ouId2',
                             displayName: 'Org unit 2',
-                            path: '/ou-2',
+                            path: '/ouId2',
                         },
-                        attributeOptionCombo: {
-                            id: 'wertyuiopas',
-                            displayName: 'Option Combo 1',
-                        },
+                        attributeCombo: null,
+                        attributeOptionCombo: null,
                     }}
                 >
                     <Display dataSetId={null} />
@@ -161,7 +239,7 @@ describe('<Display>', () => {
         )
         expect(
             screen.getByText(
-                `Workflow "Workflow 1", organisation unit "Org unit 2" and attribute option combo "Option Combo 1" does not contain any data sets.`
+                `Workflow "Workflow 1", organisation unit "Org unit 2" and attribute option combo "" does not contain any data sets.`
             )
         ).toBeInTheDocument()
     })
@@ -171,19 +249,14 @@ describe('<Display>', () => {
             <CustomDataProvider options={{ loadForever: true }}>
                 <SelectionContext.Provider
                     value={{
-                        attributeOptionCombo: {
-                            id: 'wertyuiopas',
-                            displayName: 'Option Combo 1',
-                            categoryOptions: [
-                                {
-                                    id: '123',
-                                },
+                        attributeCombo: mockMetadata.categoryCombos["catComboId1"],
+                        attributeOptionCombo:
+                            mockMetadata.categoryOptionCombos[
+                                'catOptionComboId1'
                             ],
-                        },
                         orgUnit: {
-                            id: 'ou-2',
-                            path: '/ou-2',
-                            displayName: 'Org unit 2',
+                            id: 'ouId2',
+                            path: '/ouId2',
                         },
                         period: {
                             displayName: 'January 2021',
@@ -217,19 +290,14 @@ describe('<Display>', () => {
             <CustomDataProvider data={data}>
                 <SelectionContext.Provider
                     value={{
-                        attributeOptionCombo: {
-                            id: 'wertyuiopas',
-                            displayName: 'Option Combo 1',
-                            categoryOptions: [
-                                {
-                                    id: '123',
-                                },
+                        attributeCombo: mockMetadata.categoryCombos["catComboId1"],
+                        attributeOptionCombo:
+                            mockMetadata.categoryOptionCombos[
+                                'catOptionComboId1'
                             ],
-                        },
                         orgUnit: {
-                            id: 'ou-2',
-                            path: '/ou-2',
-                            displayName: 'Org unit 2',
+                            id: 'ouId2',
+                            path: '/ouId2',
                         },
                         period: {
                             displayName: 'January 2021',
@@ -290,18 +358,14 @@ describe('<Display>', () => {
             <CustomDataProvider data={data}>
                 <SelectionContext.Provider
                     value={{
-                        attributeOptionCombo: {
-                            id: 'wertyuiopas',
-                            displayName: 'Option Combo 1',
-                            categoryOptions: [
-                                {
-                                    id: '123',
-                                },
+                        attributeCombo: mockMetadata.categoryCombos["catComboId1"],
+                        attributeOptionCombo:
+                            mockMetadata.categoryOptionCombos[
+                                'catOptionComboId1'
                             ],
-                        },
                         orgUnit: {
-                            id: 'ou-2',
-                            path: '/ou-2',
+                            id: 'ouId2',
+                            path: '/ouId2',
                             displayName: 'Org unit 2',
                         },
                         period: {
@@ -369,19 +433,14 @@ describe('<Display>', () => {
                 <CustomDataProvider data={data}>
                     <SelectionContext.Provider
                         value={{
-                            attributeOptionCombo: {
-                                id: 'wertyuiopas',
-                                displayName: 'Option Combo 1',
-                                categoryOptions: [
-                                    {
-                                        id: '123',
-                                    },
+                            attributeCombo: mockMetadata.categoryCombos["catComboId1"],
+                            attributeOptionCombo:
+                                mockMetadata.categoryOptionCombos[
+                                    'catOptionComboId1'
                                 ],
-                            },
                             orgUnit: {
-                                id: 'ou-2',
-                                path: '/ou-2',
-                                displayName: 'Org unit 2',
+                                id: 'ouId2',
+                                path: '/ouId2',
                             },
                             period: {
                                 displayName: 'January 2021',
@@ -399,18 +458,16 @@ describe('<Display>', () => {
                                         periodType: 'Monthly',
                                         formType: 'CUSTOM',
                                         categoryCombo: {
-                                            id: 'combo_1',
+                                            id: 'catComboId1',
                                         },
                                         organisationUnits: [
                                             {
                                                 id: 'ou-1',
-                                                displayName: 'Org unit 1',
                                                 path: '/ou-1',
                                             },
                                             {
-                                                id: 'ou-2',
-                                                displayName: 'Org unit 2',
-                                                path: '/ou-2',
+                                                id: 'ouId2',
+                                                path: '/ouId2',
                                             },
                                         ],
                                     },
@@ -463,12 +520,7 @@ describe('<Display>', () => {
                                 meta: false,
                             },
                         ],
-                        rows: [
-                            [
-                                'DE Test 1',
-                                12
-                            ],
-                        ],
+                        rows: [['DE Test 1', 12]],
                     },
                 ],
             }
@@ -476,19 +528,14 @@ describe('<Display>', () => {
                 <CustomDataProvider data={data}>
                     <SelectionContext.Provider
                         value={{
-                            attributeOptionCombo: {
-                                id: 'wertyuiopas',
-                                displayName: 'Option Combo 1',
-                                categoryOptions: [
-                                    {
-                                        id: '123',
-                                    },
+                            attributeCombo: mockMetadata.categoryCombos["catComboId1"],
+                            attributeOptionCombo:
+                                mockMetadata.categoryOptionCombos[
+                                    'catOptionComboId1'
                                 ],
-                            },
                             orgUnit: {
-                                id: 'ou-2',
-                                path: '/ou-2',
-                                displayName: 'Org unit 2',
+                                id: 'ouId2',
+                                path: '/ouId2',
                             },
                             period: {
                                 displayName: 'January 2021',
@@ -512,11 +559,11 @@ describe('<Display>', () => {
             )
 
             // Wait for loading to finish
-            await waitForElementToBeRemoved(() => screen.getByRole('progressbar'))
-
-            expect(screen.getByRole('table')).toContainHTML(
-                'DE Test 1'
+            await waitForElementToBeRemoved(() =>
+                screen.getByRole('progressbar')
             )
+
+            expect(screen.getByRole('table')).toContainHTML('DE Test 1')
         })
     })
 })

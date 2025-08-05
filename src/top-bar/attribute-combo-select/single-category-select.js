@@ -2,20 +2,24 @@ import i18n from '@dhis2/d2-i18n'
 import { Menu, MenuItem } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React, { useEffect, useState } from 'react'
+import { useAppContext } from '../../app-context/use-app-context.js'
 import css from './single-category-select.module.css'
 
 export default function SingleCategoryMenu({ category, selected, onChange }) {
+    const { metadata } = useAppContext()
     const [searchQuery, setSearchQuery] = useState('')
 
     useEffect(() => {}, [selected])
 
     // Filter categoryOptions based on the search query
-    const filteredCategoryOptions = category.categoryOptions.filter(
-        (catOption) =>
-            catOption.displayName
+    const filteredCategoryOptions = category.categoryOptionIds
+        .filter((catOptionId) => {
+            const catOption = metadata.categoryOptions[catOptionId]
+            return catOption.displayName
                 .toLowerCase()
                 .includes(searchQuery.toLowerCase())
-    )
+        })
+        .map((catOptionId) => metadata.categoryOptions[catOptionId])
 
     return (
         <>
@@ -59,12 +63,7 @@ export default function SingleCategoryMenu({ category, selected, onChange }) {
 
 SingleCategoryMenu.propTypes = {
     category: PropTypes.shape({
-        categoryOptions: PropTypes.arrayOf(
-            PropTypes.shape({
-                displayName: PropTypes.string.isRequired,
-                id: PropTypes.string.isRequired,
-            })
-        ).isRequired,
+        categoryOptionIds: PropTypes.arrayOf(PropTypes.string).isRequired,
         displayName: PropTypes.string.isRequired,
         id: PropTypes.string.isRequired,
     }).isRequired,

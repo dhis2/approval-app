@@ -1,6 +1,6 @@
 import { readQueryParams } from '../navigation/index.js'
 import { parsePeriodId } from '../shared/index.js'
-import { findAttributeOptionComboInWorkflow } from '../utils/category-combo-utils.js'
+import { extractValidCatComboAndCatOptionCombo } from '../utils/category-combo-utils.js'
 
 export const initialValues = (metadata, workflows, calendar) => {
     const queryParams = readQueryParams()
@@ -26,6 +26,7 @@ export const initialValues = (metadata, workflows, calendar) => {
         },
         metadata
     )
+
     const dataSet = initialDataSetValue(dataSetParam)
 
     return {
@@ -87,9 +88,10 @@ export const initialAttributeOptionComboValue = (
     ) {
         return null
     }
-    return findAttributeOptionComboInWorkflow(metadata, {
-        workflow: workflow,
-        attributeOptionComboId: aoc,
+
+    return extractValidCatComboAndCatOptionCombo(metadata, {
+        workflow,
+        aoc,
         orgUnit,
         period,
         calendar,
