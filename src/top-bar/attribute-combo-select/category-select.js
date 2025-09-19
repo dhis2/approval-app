@@ -9,7 +9,7 @@ import {
     getCategoriesByCategoryCombo,
 } from '../../utils/category-combo-utils.js'
 import css from './category-option-select.module.css'
-import MultipleCategoySelect from './multiple-category-select.js'
+import MultipleCategorySelect from './multiple-category-select.js'
 import SingleCategoryMenu from './single-category-select.js'
 
 const HideButton = ({ onClick }) => (
@@ -134,7 +134,7 @@ export default function CategorySelect({
 
     return (
         <div className={css.container}>
-            <MultipleCategoySelect
+            <MultipleCategorySelect
                 categories={categories}
                 selected={selectedItem}
                 onChange={categoryItemOnChange}

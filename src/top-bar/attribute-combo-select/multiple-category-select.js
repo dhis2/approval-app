@@ -12,7 +12,7 @@ import css from './category-option-select.module.css'
  * @param onChange A function to handle changes in the selected options.
  *
  */
-export default function MultipleCategoySelect({
+export default function MultipleCategorySelect({
     categories,
     selected,
     onChange,
@@ -66,7 +66,7 @@ export default function MultipleCategoySelect({
     )
 }
 
-MultipleCategoySelect.propTypes = {
+MultipleCategorySelect.propTypes = {
     categories: PropTypes.arrayOf(
         PropTypes.shape({
             categoryOptionIds: PropTypes.arrayOf(PropTypes.string).isRequired,
