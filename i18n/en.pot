@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2025-11-03T12:57:05.810Z\n"
-"PO-Revision-Date: 2025-11-03T12:57:05.811Z\n"
+"POT-Creation-Date: 2021-10-07T11:59:16.763Z\n"
+"PO-Revision-Date: 2021-10-07T11:59:16.763Z\n"
 
 msgid "Not authorized"
 msgstr "Not authorized"
@@ -29,6 +29,16 @@ msgstr "Approval saved"
 
 msgid "Approve"
 msgstr "Approve"
+
+msgid "Approving {{count}} data sets"
+msgid_plural "Approving {{count}} data sets"
+msgstr[0] "Approving {{count}} data sets"
+msgstr[1] "Approving {{count}} data sets"
+
+msgid "Approving {{count}} data set"
+msgid_plural "Approving {{count}} data set"
+msgstr[0] "Approving {{count}} data set"
+msgstr[1] "Approving {{count}} data set"
 
 msgid "Are you sure you want to approve this data?"
 msgstr "Are you sure you want to approve this data?"

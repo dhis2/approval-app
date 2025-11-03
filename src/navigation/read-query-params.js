@@ -1,8 +1,8 @@
-import queryString from 'query-string'
+import { parse } from 'query-string'
 import { history } from './history.js'
 
 export const readQueryParams = () => {
-    const params = queryString.parse(history.location.search)
+    const params = parse(history.location.search)
 
     // ensure only known params are returned
     return {

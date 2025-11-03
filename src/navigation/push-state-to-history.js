@@ -1,8 +1,8 @@
-import queryString from 'query-string'
+import { stringify } from 'query-string'
 import { history } from './history.js'
 
 export const pushStateToHistory = (state) => {
-    const paramString = queryString.stringify({
+    const paramString = stringify({
         wf: state.workflow?.id,
         pe: state.period?.id,
         ou: state.orgUnit?.path,
