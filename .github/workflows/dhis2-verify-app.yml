@@ -97,7 +97,7 @@ jobs:
                   node-version: 20.x
 
             - name: End-to-End tests
-              uses: cypress-io/github-action@v2
+              uses: cypress-io/github-action@v6
               with:
                   start: yarn d2-app-scripts start
                   wait-on: 'http://localhost:3000'
@@ -109,7 +109,7 @@ jobs:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
                   CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
                   CYPRESS_dhis2BaseUrl: http://localhost:8080
-                  CYPRESS_dhis2ApiVersion: 41
+                  CYPRESS_dhis2ApiVersion: 43
                   CYPRESS_networkMode: stub
     release:
         runs-on: ubuntu-latest
