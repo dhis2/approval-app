@@ -89,7 +89,7 @@ jobs:
                   cache: yarn
             - uses: cypress-io/github-action@v6
               with:
-                  start: npx --yes @dhis2/cli-cluster up 2.43 --channel dev --db-version 2.43 --seed, yarn start:nobrowser
+                  start: npx --yes @dhis2/cli-cluster up 2.42 --channel dev --db-version 2.42 --seed, yarn start:nobrowser
                   wait-on: http://localhost:8080/dhis-web-commons/security/login.action, http://localhost:3000
                   wait-on-timeout: 600
               env:
@@ -97,7 +97,7 @@ jobs:
                   CYPRESS_LOGIN_NAME: ${{ secrets.CYPRESS_LOGIN_NAME }}
                   CYPRESS_LOGIN_PASSWORD: ${{ secrets.CYPRESS_LOGIN_PASSWORD }}
                   CYPRESS_LOGIN_SERVER: http://localhost:8080
-            - run: npx --yes @dhis2/cli-cluster down 2.43
+            - run: npx --yes @dhis2/cli-cluster down 2.42
 
     release:
         runs-on: ubuntu-latest
