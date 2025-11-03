@@ -1,3 +1,3 @@
-import { stringify } from 'query-string'
+import queryString from 'query-string'
 
-export const createHref = (state) => `/#/?${stringify(state)}`
+export const createHref = (state) => `/#/?${queryString.stringify(state)}`
