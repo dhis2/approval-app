@@ -127,8 +127,8 @@ export const filterDataSetsByAttributeOptionComboAndOrgUnit = (
 
             // Check if the data set assigned to "orgUnit"
             const checkOrgunit = dataSet.organisationUnits.find(
-                (dsOrgUnit) => dsOrgUnit.path.indexOf(orgUnit?.path) >= 0
-            )
+                (dsOrgUnit) => dsOrgUnit.path.includes(orgUnit?.path)
+            );
 
             if (checkAttrOptionCombo && checkOrgunit) {
                 result.push(dataSet)

@@ -1,6 +1,6 @@
 import { convertToIso8601 } from '@dhis2/multi-calendar-dates'
 
-const GREGORY_CALENDARS = ['gregory', 'gregorian', 'iso8601'] // calendars that can be parsed by JS Date
+const GREGORY_CALENDARS = new Set(['gregory', 'gregorian', 'iso8601']) // calendars that can be parsed by JS Date
 const DATE_ONLY_REGEX = new RegExp(/^\d{4}-\d{2}-\d{2}$/)
 
 /**
@@ -93,12 +93,12 @@ export const isDateALessThanDateB = (
     const dateBDate = new Date(dateBString)
 
     // if dates are invalid, return null
-    if (isNaN(dateADate)) {
-        console.error(`Invalid date: ${dateA}`, dateAString, dateAISO)
-        return null
+    if (Number.isNaN(dateADate)) {
+        console.error(`Invalid date: ${dateA}`, dateAString, dateAISO);
+        return null;
     }
 
-    if (isNaN(dateBDate)) {
+    if (Number.isNaN(dateBDate)) {
         console.error(`Invalid date: ${dateB}`, dateBString, dateBISO)
         return null
     }
@@ -138,7 +138,7 @@ const convertToIso8601ToString = (date, calendar) => {
     }
 
     // return without conversion if already a gregory date
-    if (GREGORY_CALENDARS.includes(calendar)) {
+    if (GREGORY_CALENDARS.has(calendar)) {
         return date
     }
 

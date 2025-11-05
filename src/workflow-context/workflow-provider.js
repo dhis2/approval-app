@@ -35,7 +35,7 @@ const WorkflowProvider = ({ children }) => {
     }, [workflow, period, orgUnit, attributeOptionCombo])
 
     // Handle workflow without datasets
-    if (workflow && workflow.dataSets.length == 0) {
+    if (workflow?.dataSets?.length === 0) {
         return (
             <ErrorMessage title={i18n.t('Could not load approval data')}>
                 <p>

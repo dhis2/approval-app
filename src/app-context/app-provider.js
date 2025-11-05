@@ -71,17 +71,14 @@ const AppProvider = ({ children }) => {
     const dataApprovalWorkflows =
         workflowData?.dataApprovalWorkflows?.dataApprovalWorkflows ?? []
 
-    const categoryComboIdSets = dataApprovalWorkflows.reduce(
-        (ids, workflow) => {
-            workflow.dataSets.forEach((dataSet) => {
-                if (dataSet.categoryCombo?.id) {
-                    ids.add(dataSet.categoryCombo.id)
-                }
-            })
-            return ids
-        },
-        new Set()
-    )
+    const categoryComboIdSets = dataApprovalWorkflows.reduce((ids, workflow) => {
+        for (const dataSet of workflow.dataSets) {
+            if (dataSet.categoryCombo?.id) {
+                ids.add(dataSet.categoryCombo.id);
+            }
+        }
+        return ids;
+    }, new Set());
 
     const categoryComboIds = [...categoryComboIdSets]
     // Only fetch metadata if there are category combo IDs to avoid unnecessary queries
