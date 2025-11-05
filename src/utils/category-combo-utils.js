@@ -96,7 +96,7 @@ export const getDataSetReportFilter = (
     )
     const categories = getCategoriesByCategoryCombo(categoryCombo, metadata)
     for (const category of categories) {
-        const matchedOptionId = category.categoryOptionIds.some((optionId) =>
+        const matchedOptionId = category.categoryOptionIds.find((optionId) =>
             attributeOptionCombo.categoryOptionIds.includes(optionId)
         )
 
