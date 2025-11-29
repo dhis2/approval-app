@@ -17,12 +17,14 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "Not authorized"
-msgstr ""
+msgstr "अनुमति नहीं है"
 
 msgid ""
 "You don't have access to the Data Approval App. Contact a system "
 "administrator to request access."
 msgstr ""
+"आपके पास डेटा अप्रूवल ऐप का एक्सेस नहीं है। एक्सेस का अनुरोध करने के लिए "
+"सिस्टम एडमिनिस्ट्रेटर से संपर्क करें।"
 
 msgid "Acceptance failed: {{error}}"
 msgstr ""
