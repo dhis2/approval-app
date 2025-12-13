@@ -139,40 +139,40 @@ msgid "Could not retrieve approval status"
 msgstr ""
 
 msgid "January"
-msgstr ""
+msgstr "जनवरी"
 
 msgid "February"
-msgstr ""
+msgstr "फ़रवरी"
 
 msgid "March"
-msgstr ""
+msgstr "मार्च"
 
 msgid "April"
-msgstr ""
+msgstr "अप्रैल"
 
 msgid "May"
-msgstr ""
+msgstr "मई"
 
 msgid "June"
-msgstr ""
+msgstr "जून"
 
 msgid "July"
-msgstr ""
+msgstr "जुलाई"
 
 msgid "August"
-msgstr ""
+msgstr "अगस्त"
 
 msgid "September"
-msgstr ""
+msgstr "सितंबर"
 
 msgid "October"
-msgstr ""
+msgstr "अक्टूबर"
 
 msgid "November"
-msgstr ""
+msgstr "नवंबर"
 
 msgid "December"
-msgstr ""
+msgstr "दिसंबर"
 
 msgid "Week {{weekNumber}}"
 msgstr ""
@@ -187,16 +187,16 @@ msgid "Weekly"
 msgstr "साप्ताहिक"
 
 msgid "Weekly (Start Wednesday)"
-msgstr ""
+msgstr "साप्ताहिक (बुधवार से शुरू)"
 
 msgid "Weekly (Start Thursday)"
-msgstr ""
+msgstr "साप्ताहिक (गुरुवार से शुरू)"
 
 msgid "Weekly (Start Saturday)"
-msgstr ""
+msgstr "साप्ताहिक (शनिवार से शुरू)"
 
 msgid "Weekly (Start Sunday)"
-msgstr ""
+msgstr "साप्ताहिक (रविवार से शुरू)"
 
 msgid "Bi-weekly"
 msgstr ""
@@ -259,7 +259,7 @@ msgid "Period"
 msgstr ""
 
 msgid "Choose a period"
-msgstr ""
+msgstr "एक अवधि चुनें"
 
 msgid "Choose a workflow first"
 msgstr ""
