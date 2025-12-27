@@ -1,62 +1,49 @@
 # 
 # Translators:
-# Philip Larsen Donnelly, 2021
-# Viktor Varland <viktor@dhis2.org>, 2021
-# Hamza <7amza.it@gmail.com>, 2022
-# noor waleed, 2025
+# Rohit Wadhwani, 2025
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2021-10-07T11:59:16.763Z\n"
 "PO-Revision-Date: 2021-11-04 13:40+0000\n"
-"Last-Translator: noor waleed, 2025\n"
-"Language-Team: Arabic (https://app.transifex.com/hisp-uio/teams/100509/ar/)\n"
+"Last-Translator: Rohit Wadhwani, 2025\n"
+"Language-Team: English (United States) (https://app.transifex.com/hisp-uio/teams/100509/en_US/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ar\n"
-"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+"Language: en_US\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "Not authorized"
-msgstr "غير مخول"
+msgstr ""
 
 msgid ""
 "You don't have access to the Data Approval App. Contact a system "
 "administrator to request access."
 msgstr ""
-"لبس لديك صلاحية الوصول الى تطبيق الموافقة على البيانات. تواصل مع مسؤول "
-"النظام لطلب الوصول."
 
 msgid "Acceptance failed: {{error}}"
 msgstr ""
 
 msgid "Accept"
-msgstr "قبول"
+msgstr ""
 
 msgid "Approval saved"
 msgstr ""
 
 msgid "Approve"
-msgstr "موافقة"
+msgstr ""
 
 msgid "Approving {{count}} data sets"
 msgid_plural "Approving {{count}} data sets"
 msgstr[0] ""
 msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
-msgstr[5] ""
 
 msgid "Approving {{count}} data set"
 msgid_plural "Approving {{count}} data set"
 msgstr[0] ""
 msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
-msgstr[5] ""
 
 msgid "Are you sure you want to approve this data?"
 msgstr ""
@@ -70,19 +57,19 @@ msgid ""
 msgstr ""
 
 msgid "Cancel"
-msgstr "إلغاء"
+msgstr "कैंसल"
 
 msgid "Unacceptance failed: {{error}}"
 msgstr ""
 
 msgid "Unaccept"
-msgstr "إلغاء القبول"
+msgstr ""
 
 msgid "Unapproval failed: {{error}}"
 msgstr ""
 
 msgid "Unapprove"
-msgstr "إلغاء الموافقة"
+msgstr ""
 
 msgid "This workflow does not contain any data sets."
 msgstr ""
@@ -122,7 +109,7 @@ msgid "Approved {{- dateTimeStr}}"
 msgstr ""
 
 msgid "Ready for approval"
-msgstr "جاهز للموافقة"
+msgstr ""
 
 msgid "Waiting for lower level approval"
 msgstr ""
@@ -149,106 +136,106 @@ msgid "Could not retrieve approval status"
 msgstr ""
 
 msgid "January"
-msgstr "يناير"
+msgstr ""
 
 msgid "February"
-msgstr "فبراير"
+msgstr ""
 
 msgid "March"
-msgstr "مارس"
+msgstr ""
 
 msgid "April"
-msgstr "ابريل"
+msgstr ""
 
 msgid "May"
-msgstr "مايو"
+msgstr ""
 
 msgid "June"
-msgstr "يونيو"
+msgstr ""
 
 msgid "July"
-msgstr "يوليو"
+msgstr ""
 
 msgid "August"
-msgstr "اغسطس"
+msgstr ""
 
 msgid "September"
-msgstr "سبتمبر"
+msgstr ""
 
 msgid "October"
-msgstr "اكتوبر"
+msgstr ""
 
 msgid "November"
-msgstr "نوفمبر"
+msgstr ""
 
 msgid "December"
-msgstr "ديسمبر"
+msgstr ""
 
 msgid "Week {{weekNumber}}"
-msgstr "الإسبوع {{weekNumber}}"
+msgstr ""
 
 msgid "Bi-Week {{biWeekNumber}}"
-msgstr "ثنائي الإسبوع {{biWeekNumber}}"
+msgstr ""
 
 msgid "Daily"
-msgstr "يومي"
+msgstr ""
 
 msgid "Weekly"
-msgstr "أسبوعي"
+msgstr ""
 
 msgid "Weekly (Start Wednesday)"
-msgstr "اسبوعياً (يبدأ الأربعاء)"
+msgstr ""
 
 msgid "Weekly (Start Thursday)"
-msgstr "اسبوعياً (يبدأ الخميس)"
+msgstr ""
 
 msgid "Weekly (Start Saturday)"
-msgstr "اسبوعياً (يبدأ السبت)"
+msgstr ""
 
 msgid "Weekly (Start Sunday)"
-msgstr "اسبوعياً (يبدأ الأحد)"
+msgstr ""
 
 msgid "Bi-weekly"
-msgstr "كل اسبوعين"
+msgstr ""
 
 msgid "Monthly"
-msgstr "شهري"
+msgstr ""
 
 msgid "Bi-monthly"
-msgstr "كل شهرين"
+msgstr ""
 
 msgid "Quarterly"
-msgstr "ربعي"
+msgstr ""
 
 msgid "Six-monthly"
-msgstr "كل ستة-أشهر"
+msgstr ""
 
 msgid "Six-monthly April"
-msgstr "نصف سنوي، كل ستة أشهر، ابريل"
+msgstr ""
 
 msgid "Yearly"
-msgstr "سنوي"
+msgstr ""
 
 msgid "Financial year (Start November)"
-msgstr "السنة المالية (تبدأ في نوفمبر)"
+msgstr ""
 
 msgid "Financial year (Start October)"
-msgstr "السنة المالية (تبدأ في اكتوبر)"
+msgstr ""
 
 msgid "Financial year (Start July)"
-msgstr "السنة المالية (تبدأ في يوليو)"
+msgstr ""
 
 msgid "Financial year (Start April)"
-msgstr "السنة المالية (تبدأ في ابريل)"
+msgstr ""
 
 msgid "Clear selections"
-msgstr "إلغاء تحديد ماتم تحديده"
+msgstr ""
 
 msgid "Waiting for approval"
 msgstr ""
 
 msgid "Approved"
-msgstr "تم الموافقة عليه"
+msgstr ""
 
 msgid "Failed to load approval state"
 msgstr ""
@@ -260,16 +247,16 @@ msgid "Choose a workflow and period first"
 msgstr ""
 
 msgid "Organisation Unit"
-msgstr "الوحدة التنظيمية"
+msgstr ""
 
 msgid "Choose an organisation unit"
 msgstr ""
 
 msgid "Period"
-msgstr "الفترة الزمنية"
+msgstr ""
 
 msgid "Choose a period"
-msgstr "اختر فترة"
+msgstr ""
 
 msgid "Choose a workflow first"
 msgstr ""
