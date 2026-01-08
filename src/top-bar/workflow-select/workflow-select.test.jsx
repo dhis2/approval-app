@@ -1,12 +1,13 @@
-import { Popover } from '@dhis2/ui'
+import { render } from '@testing-library/react'
+import { userEvent } from '@testing-library/user-event'
 import { shallow } from 'enzyme'
 import React from 'react'
 import { useAppContext } from '../../app-context/index.js'
 import { readQueryParams } from '../../navigation/read-query-params.js'
 import { useSelectionContext } from '../../selection-context/index.js'
-import { ContextSelect } from '../context-select/context-select.js'
-import { WorkflowSelectOption } from './workflow-select-option.js'
-import { WORKFLOW, WorkflowSelect } from './workflow-select.js'
+import { ContextSelect } from '../context-select/context-select.jsx'
+import { WorkflowSelectOption } from './workflow-select-option.jsx'
+import { WORKFLOW, WorkflowSelect } from './workflow-select.jsx'
 
 jest.mock('../../navigation/read-query-params.js', () => ({
     readQueryParams: jest.fn(),
@@ -159,7 +160,8 @@ describe('<WorkflowSelect>', () => {
         expect(selectWorkflow).toHaveBeenCalledWith(mockWorkflows[0])
     })
 
-    it('calls the setOpenedSelect to close when clicking the backdrop', () => {
+    // Refactored from Enzyme
+    it('calls the setOpenedSelect to close when clicking the backdrop', async () => {
         const setOpenedSelect = jest.fn()
         useSelectionContext.mockImplementation(() => ({
             workflow: {},
@@ -168,12 +170,13 @@ describe('<WorkflowSelect>', () => {
             setOpenedSelect,
         }))
 
-        shallow(<WorkflowSelect />)
-            .find(ContextSelect)
-            .dive()
-            .find(Popover)
-            .dive()
-            .simulate('click')
+        render(<WorkflowSelect />)
+
+        // Janky way to select the backdrop, since it uses a portal
+        const backdrop = document.querySelector(
+            '[data-test="dhis2-uicore-layer"] > .backdrop'
+        )
+        await userEvent.click(backdrop)
 
         expect(setOpenedSelect).toHaveBeenCalledTimes(1)
         expect(setOpenedSelect).toHaveBeenCalledWith('')

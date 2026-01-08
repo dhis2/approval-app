@@ -1,7 +1,7 @@
 import { TabBar, Tab } from '@dhis2/ui'
 import { shallow } from 'enzyme'
 import React from 'react'
-import { DataSetNavigation } from './data-set-navigation.js'
+import { DataSetNavigation } from './data-set-navigation.jsx'
 
 describe('<DataSetNavigation>', () => {
     const onChange = jest.fn()

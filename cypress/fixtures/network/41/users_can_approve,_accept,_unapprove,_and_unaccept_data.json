@@ -66,7 +66,7 @@
         }
     },
     {
-        "path": "/api/41/organisationUnits/ImspTQPwCqd?fields=displayName,path,id&paging=false",
+        "path": "/api/41/organisationUnits/ImspTQPwCqd?fields=displayName,path,id",
         "featureName": "Users can approve, accept, unapprove, and unaccept data",
         "static": false,
         "count": 4,
@@ -132,6 +132,39 @@
     },
     {
         "path": "/api/41/organisationUnits/ImspTQPwCqd?fields=id,path,children%5Bid%2Cpath%2CdisplayName%5D",
+        "featureName": "Users can approve, accept, unapprove, and unaccept data",
+        "static": false,
+        "count": 4,
+        "nonDeterministic": false,
+        "method": "GET",
+        "requestBody": "",
+        "requestHeaders": {
+            "host": "debug.dhis2.org",
+            "connection": "keep-alive",
+            "accept": "application/json",
+            "origin": "http://localhost:3000",
+            "sec-fetch-site": "cross-site",
+            "sec-fetch-mode": "cors"
+        },
+        "statusCode": 200,
+        "responseBody": "{\"children\":[{\"path\":\"/ImspTQPwCqd/at6UHUQatSo\",\"displayName\":\"Western Area\",\"id\":\"at6UHUQatSo\"},{\"path\":\"/ImspTQPwCqd/TEQlaapDQoK\",\"displayName\":\"Port Loko\",\"id\":\"TEQlaapDQoK\"},{\"path\":\"/ImspTQPwCqd/PMa2VCrupOd\",\"displayName\":\"Kambia\",\"id\":\"PMa2VCrupOd\"},{\"path\":\"/ImspTQPwCqd/qhqAxPSTUXp\",\"displayName\":\"Koinadugu\",\"id\":\"qhqAxPSTUXp\"},{\"path\":\"/ImspTQPwCqd/kJq2mPyFEHo\",\"displayName\":\"Kenema\",\"id\":\"kJq2mPyFEHo\"},{\"path\":\"/ImspTQPwCqd/jmIPBj66vD6\",\"displayName\":\"Moyamba\",\"id\":\"jmIPBj66vD6\"},{\"path\":\"/ImspTQPwCqd/Vth0fbpFcsO\",\"displayName\":\"Kono\",\"id\":\"Vth0fbpFcsO\"},{\"path\":\"/ImspTQPwCqd/jUb8gELQApl\",\"displayName\":\"Kailahun\",\"id\":\"jUb8gELQApl\"},{\"path\":\"/ImspTQPwCqd/fdc6uOvgoji\",\"displayName\":\"Bombali\",\"id\":\"fdc6uOvgoji\"},{\"path\":\"/ImspTQPwCqd/eIQbndfxQMb\",\"displayName\":\"Tonkolili\",\"id\":\"eIQbndfxQMb\"},{\"path\":\"/ImspTQPwCqd/O6uvpzGd5pu\",\"displayName\":\"Bo\",\"id\":\"O6uvpzGd5pu\"},{\"path\":\"/ImspTQPwCqd/lc3eMKXaEfw\",\"displayName\":\"Bonthe\",\"id\":\"lc3eMKXaEfw\"},{\"path\":\"/ImspTQPwCqd/bL4ooGhyHRQ\",\"displayName\":\"Pujehun\",\"id\":\"bL4ooGhyHRQ\"}],\"path\":\"/ImspTQPwCqd\",\"id\":\"ImspTQPwCqd\"}",
+        "responseSize": 1083,
+        "responseHeaders": {
+            "server": "nginx/1.23.0",
+            "content-type": "application/json;charset=UTF-8",
+            "transfer-encoding": "chunked",
+            "connection": "keep-alive",
+            "access-control-allow-credentials": "true",
+            "access-control-allow-origin": "http://localhost:3000",
+            "vary": "Origin",
+            "access-control-expose-headers": "ETag, Location",
+            "cache-control": "no-cache, private",
+            "x-content-type-options": "nosniff",
+            "x-xss-protection": "1; mode=block"
+        }
+    },
+    {
+        "path": "/api/41/organisationUnits/ImspTQPwCqd?fields=path,children%3A%3Asize",
         "featureName": "Users can approve, accept, unapprove, and unaccept data",
         "static": false,
         "count": 4,

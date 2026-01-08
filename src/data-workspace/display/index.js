@@ -1,1 +1,1 @@
-export { Display } from './display.js'
+export { Display } from './display.jsx'

@@ -1,1 +1,1 @@
-export { OrgUnitSelect } from './org-unit-select.js'
+export { OrgUnitSelect } from './org-unit-select.jsx'

@@ -11,7 +11,7 @@ module.exports = {
     },
     overrides: [
         {
-            files: ['*.test.js'],
+            files: ['*.test.jsx', '*.test.js'],
             rules: {
                 'no-unused-vars': 'off',
             },

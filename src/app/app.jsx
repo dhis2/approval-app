@@ -7,7 +7,7 @@ import { DataWorkspace } from '../data-workspace/index.js'
 import { SelectionProvider } from '../selection-context/index.js'
 import { TopBar } from '../top-bar/index.js'
 import { WorkflowProvider } from '../workflow-context/index.js'
-import { Layout } from './layout.js'
+import { Layout } from './layout.jsx'
 
 const App = () => (
     <>

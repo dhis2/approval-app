@@ -1,4 +1,4 @@
-import { renderHook } from '@testing-library/react-hooks'
+import { renderHook } from '@testing-library/react'
 import { useSelectionContext } from '../../selection-context/index.js'
 import { useSelectedDataSet } from './use-selected-data-set.js'
 

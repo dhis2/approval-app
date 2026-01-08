@@ -1,3 +1,14 @@
+## [100.0.18](https://github.com/dhis2/approval-app/compare/v100.0.17...v100.0.18) (2025-07-16)
+
+
+### Bug Fixes
+
+* add back yarnm installs ([02fe5ee](https://github.com/dhis2/approval-app/commit/02fe5ee24ca1da8cf5a5c93498880dceca17fbbf))
+* remove space tp retrigger deployment ([c576a5c](https://github.com/dhis2/approval-app/commit/c576a5ceddc8ceefaeeb959dc37b068079c8faa2))
+* try removing gha yarn cache ([fb5f9f8](https://github.com/dhis2/approval-app/commit/fb5f9f88f9bc8f93b6e7f4b068aa318aeb0a0bb6))
+* try updating fixtures ([172bcd6](https://github.com/dhis2/approval-app/commit/172bcd636d5a032f5f075e1379a89531773caa5b))
+* **app-platform:** upgrade platform tools to use vite and react 18 ([5b4cc28](https://github.com/dhis2/approval-app/commit/5b4cc286f3a2ce88f1aa8360d50e904a63425c46))
+
 ## [100.0.17](https://github.com/dhis2/approval-app/compare/v100.0.16...v100.0.17) (2025-03-18)
 
 

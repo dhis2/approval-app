@@ -14,8 +14,8 @@ import {
     getDataSetReportFilter,
 } from '../../utils/category-combo-utils.js'
 import styles from './display.module.css'
-import { TableCustomDataSet } from './table-custom-data-set.js'
-import { Table } from './table.js'
+import { TableCustomDataSet } from './table-custom-data-set.jsx'
+import { Table } from './table.jsx'
 
 const query = {
     dataSetReport: {

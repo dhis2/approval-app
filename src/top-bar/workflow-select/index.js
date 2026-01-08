@@ -1,1 +1,1 @@
-export { WorkflowSelect } from './workflow-select.js'
+export { WorkflowSelect } from './workflow-select.jsx'

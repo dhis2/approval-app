@@ -1,1 +1,1 @@
-export { ClearAllButton } from './clear-all-button.js'
+export { ClearAllButton } from './clear-all-button.jsx'

@@ -1,1 +1,1 @@
-export { TopBar } from './top-bar.js'
+export { TopBar } from './top-bar.jsx'

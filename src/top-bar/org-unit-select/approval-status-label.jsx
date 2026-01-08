@@ -5,7 +5,7 @@ import React, { useEffect } from 'react'
 import { useSelectionContext } from '../../selection-context/index.js'
 import { ApprovalStatusIcon, APPROVAL_STATUSES } from '../../shared/index.js'
 import classes from './approval-status-label.module.css'
-import { useApprovalStatus } from './approval-statuses.js'
+import { useApprovalStatus } from './approval-statuses.jsx'
 
 const renderIcon = (approvalStatus) => {
     if (approvalStatus === APPROVAL_STATUSES.LOADING) {

@@ -1,1 +1,1 @@
-export { TitleBar } from './title-bar.js'
+export { TitleBar } from './title-bar.jsx'

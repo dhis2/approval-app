@@ -1,7 +1,7 @@
 import { Button } from '@dhis2/ui'
 import { shallow } from 'enzyme'
 import React from 'react'
-import { YearNavigator } from './year-navigator.js'
+import { YearNavigator } from './year-navigator.jsx'
 
 describe('<YearNavigator>', () => {
     it('renders two buttons and a span', () => {

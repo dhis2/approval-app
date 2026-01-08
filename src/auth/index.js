@@ -1,1 +1,1 @@
-export { AuthWall } from './auth-wall.js'
+export { AuthWall } from './auth-wall.jsx'

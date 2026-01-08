@@ -27,11 +27,10 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v2
-            - uses: actions/setup-node@v1
+            - uses: actions/setup-node@v3
               with:
-                  node-version: 12.x
-
-            - uses: c-hive/gha-yarn-cache@v1
+                  node-version: 18.x
+                  cache: 'yarn'
             - run: yarn install --frozen-lockfile
 
             - name: Build
@@ -49,11 +48,9 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v2
-            - uses: actions/setup-node@v1
+            - uses: actions/setup-node@v3
               with:
-                  node-version: 12.x
-
-            - uses: c-hive/gha-yarn-cache@v1
+                  node-version: 18.x
             - run: yarn install --frozen-lockfile
 
             # Can be removed if translations aren't required for tests,
@@ -68,11 +65,10 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v2
-            - uses: actions/setup-node@v1
+            - uses: actions/setup-node@v3
               with:
-                  node-version: 12.x
-
-            - uses: c-hive/gha-yarn-cache@v1
+                  node-version: 18.x
+                  cache: 'yarn'
             - run: yarn install --frozen-lockfile
 
             # Can be removed if translations aren't required for tests,
@@ -98,7 +94,7 @@ jobs:
 
             - uses: actions/setup-node@v1
               with:
-                  node-version: 12.x
+                  node-version: 18.x
 
             - name: End-to-End tests
               uses: cypress-io/github-action@v2
@@ -124,16 +120,16 @@ jobs:
               with:
                   token: ${{ secrets.DHIS2_BOT_GITHUB_TOKEN }}
 
-            - uses: actions/setup-node@v1
+            - uses: actions/setup-node@v3
               with:
-                  node-version: 12.x
+                  node-version: 18.x
+                  cache: 'yarn'
+            - run: yarn install --frozen-lockfile
 
             - uses: actions/download-artifact@v4
               with:
                   name: app-build
 
-            # ensure that d2-app-scripts is available
-            - uses: c-hive/gha-yarn-cache@v1
             - run: yarn install --frozen-lockfile
 
             - uses: dhis2/action-semantic-release@master

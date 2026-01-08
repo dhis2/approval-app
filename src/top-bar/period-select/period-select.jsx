@@ -3,8 +3,8 @@ import React, { useEffect, useState } from 'react'
 import { useSelectionContext } from '../../selection-context/index.js'
 import { getMostRecentCompletedYear } from '../../shared/index.js'
 import { ContextSelect } from '../context-select/index.js'
-import { PeriodMenu } from './period-menu.js'
-import { YearNavigator } from './year-navigator.js'
+import { PeriodMenu } from './period-menu.jsx'
+import { YearNavigator } from './year-navigator.jsx'
 
 export const PERIOD = 'PERIOD'
 

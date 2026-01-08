@@ -1,8 +1,7 @@
-import { NoticeBox } from '@dhis2/ui'
 import { shallow } from 'enzyme'
 import React from 'react'
 import { ErrorMessage } from '../shared/index.js'
-import { AuthWall } from './auth-wall.js'
+import { AuthWall } from './auth-wall.jsx'
 import { useIsAuthorized } from './use-is-authorized.js'
 
 jest.mock('./use-is-authorized', () => ({

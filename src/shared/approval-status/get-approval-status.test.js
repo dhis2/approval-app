@@ -4,7 +4,7 @@ import {
     getApprovalStatusDisplayData,
     APPROVAL_STATUSES,
 } from './get-approval-status.js'
-import { Approved, Ready, Waiting } from './icons.js'
+import { Approved, Ready, Waiting } from './icons.jsx'
 
 jest.mock('moment', () => {
     const now = new Date()
