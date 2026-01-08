@@ -1,1 +1,1 @@
-export { AttributeComboSelect } from './attribute-combo-select.js'
+export { AttributeComboSelect } from './attribute-combo-select.jsx'

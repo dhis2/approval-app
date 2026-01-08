@@ -1,11 +1,10 @@
 export const cloneJSON = (object) => {
-    /* eslint-disable no-undef */
     if (typeof structuredClone === 'function') {
-        return structuredClone(object);
+        return structuredClone(object)
     }
-    /* eslint-enable no-undef */
-    return JSON.parse(JSON.stringify(object));
-};
+
+    return JSON.parse(JSON.stringify(object))
+}
 
 export const areListsEqual = (list1, list2) => {
     if (list1.length !== list2.length) {

@@ -4,8 +4,8 @@ import { act } from 'react-dom/test-utils'
 import { useAppContext } from '../../app-context/index.js'
 import { readQueryParams } from '../../navigation/read-query-params.js'
 import { useSelectionContext } from '../../selection-context/index.js'
-import { ContextSelect } from '../context-select/context-select.js'
-import { AttributeComboSelect } from './attribute-combo-select.js'
+import { ContextSelect } from '../context-select/context-select.jsx'
+import { AttributeComboSelect } from './attribute-combo-select.jsx'
 
 jest.mock('../../app-context/use-app-context', () => ({
     useAppContext: jest.fn(),

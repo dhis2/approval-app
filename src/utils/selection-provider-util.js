@@ -133,8 +133,10 @@ export const getAttributeComboState = ({
         isShowAttributeComboVisible = false
         attributeComboValue = i18n.t('0 selections')
     } else if (attributeOptionCombo) {
-        const selectedAttrCombo =
-            getAttributeComboById(metadata, attributeOptionCombo.categoryComboId)
+        const selectedAttrCombo = getAttributeComboById(
+            metadata,
+            attributeOptionCombo.categoryComboId
+        )
         const selectedAttrOptionCombo = attributeOptionCombo
         const categoryOptions = processCategoryOptions(
             metadata,

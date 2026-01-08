@@ -4,9 +4,9 @@ import React from 'react'
 import { useAppContext } from '../../app-context/use-app-context.js'
 import { useSelectionContext } from '../../selection-context/index.js'
 import { getAttributeComboById } from '../../utils/category-combo-utils.js'
-import { ContextSelect } from '../context-select/context-select.js'
+import { ContextSelect } from '../context-select/context-select.jsx'
 import css from './attribute-combo-select.module.css'
-import CategorySelect from './category-select.js'
+import CategorySelect from './category-select.jsx'
 
 const CAT_OPTION_COMBO = 'CAT_OPTION_COMBO'
 
@@ -106,13 +106,13 @@ const AttributeComboSelect = () => {
 
                         {attributeCombo && !attributeCombo.isDefault && (
                             <div className={css.categorySelectWrapper}>
-                            <CategorySelect
-                                key={`catCombo_${workflow?.id}_${attributeCombo?.id}_${period?.id}_${orgUnit?.id}`}
-                                categoryCombo={attributeCombo}
-                                selected={attributeOptionCombo}
-                                onChange={onChange}
-                                onClose={() => setOpenedSelect('')}
-                            />
+                                <CategorySelect
+                                    key={`catCombo_${workflow?.id}_${attributeCombo?.id}_${period?.id}_${orgUnit?.id}`}
+                                    categoryCombo={attributeCombo}
+                                    selected={attributeOptionCombo}
+                                    onChange={onChange}
+                                    onClose={() => setOpenedSelect('')}
+                                />
                             </div>
                         )}
                     </div>

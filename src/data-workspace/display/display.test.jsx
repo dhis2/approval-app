@@ -249,7 +249,8 @@ describe('<Display>', () => {
             <CustomDataProvider options={{ loadForever: true }}>
                 <SelectionContext.Provider
                     value={{
-                        attributeCombo: mockMetadata.categoryCombos["catComboId1"],
+                        attributeCombo:
+                            mockMetadata.categoryCombos['catComboId1'],
                         attributeOptionCombo:
                             mockMetadata.categoryOptionCombos[
                                 'catOptionComboId1'
@@ -290,7 +291,8 @@ describe('<Display>', () => {
             <CustomDataProvider data={data}>
                 <SelectionContext.Provider
                     value={{
-                        attributeCombo: mockMetadata.categoryCombos["catComboId1"],
+                        attributeCombo:
+                            mockMetadata.categoryCombos['catComboId1'],
                         attributeOptionCombo:
                             mockMetadata.categoryOptionCombos[
                                 'catOptionComboId1'
@@ -360,7 +362,8 @@ describe('<Display>', () => {
             <CustomDataProvider data={data}>
                 <SelectionContext.Provider
                     value={{
-                        attributeCombo: mockMetadata.categoryCombos["catComboId1"],
+                        attributeCombo:
+                            mockMetadata.categoryCombos['catComboId1'],
                         attributeOptionCombo:
                             mockMetadata.categoryOptionCombos[
                                 'catOptionComboId1'
@@ -435,7 +438,8 @@ describe('<Display>', () => {
                 <CustomDataProvider data={data}>
                     <SelectionContext.Provider
                         value={{
-                            attributeCombo: mockMetadata.categoryCombos["catComboId1"],
+                            attributeCombo:
+                                mockMetadata.categoryCombos['catComboId1'],
                             attributeOptionCombo:
                                 mockMetadata.categoryOptionCombos[
                                     'catOptionComboId1'
@@ -530,7 +534,8 @@ describe('<Display>', () => {
                 <CustomDataProvider data={data}>
                     <SelectionContext.Provider
                         value={{
-                            attributeCombo: mockMetadata.categoryCombos["catComboId1"],
+                            attributeCombo:
+                                mockMetadata.categoryCombos['catComboId1'],
                             attributeOptionCombo:
                                 mockMetadata.categoryOptionCombos[
                                     'catOptionComboId1'

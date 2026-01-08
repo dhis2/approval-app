@@ -9,8 +9,8 @@ import {
     getCategoriesByCategoryCombo,
 } from '../../utils/category-combo-utils.js'
 import css from './category-option-select.module.css'
-import MultipleCategorySelect from './multiple-category-select.js'
-import SingleCategoryMenu from './single-category-select.js'
+import MultipleCategorySelect from './multiple-category-select.jsx'
+import SingleCategoryMenu from './single-category-select.jsx'
 
 const HideButton = ({ onClick }) => (
     <Button secondary className={css.hideButton} onClick={onClick}>

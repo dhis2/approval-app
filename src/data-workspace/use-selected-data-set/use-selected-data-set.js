@@ -14,7 +14,7 @@ export const useSelectedDataSet = () => {
     return useMemo(() => {
         const dataSets = attributeOptionCombo
             ? availableDataSets
-            : workflow?.dataSets;
+            : workflow?.dataSets
 
         if (dataSets.length === 1) {
             return dataSets[0].id

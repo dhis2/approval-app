@@ -94,8 +94,8 @@ export const isDateALessThanDateB = (
 
     // if dates are invalid, return null
     if (Number.isNaN(dateADate)) {
-        console.error(`Invalid date: ${dateA}`, dateAString, dateAISO);
-        return null;
+        console.error(`Invalid date: ${dateA}`, dateAString, dateAISO)
+        return null
     }
 
     if (Number.isNaN(dateBDate)) {

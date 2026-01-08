@@ -39,13 +39,15 @@ export const normalizeMetadata = (
  */
 const normalizeCatCombos = (originalCatCombos) => {
     const categoryCombos = Object.fromEntries(
-        originalCatCombos.map((catCombo) => [
-            catCombo.id,
-            {
-                ...catCombo,
-                categoryIds: catCombo.categories.map((c) => c.id),
-            },
-        ]).map(([id, combo]) => [id, omitField(combo, 'categories')])
+        originalCatCombos
+            .map((catCombo) => [
+                catCombo.id,
+                {
+                    ...catCombo,
+                    categoryIds: catCombo.categories.map((c) => c.id),
+                },
+            ])
+            .map(([id, combo]) => [id, omitField(combo, 'categories')])
     )
 
     return categoryCombos

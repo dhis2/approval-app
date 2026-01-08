@@ -36,7 +36,7 @@
 .selectContainer {
     margin-bottom: 16px;
 }
-  
+
 .selectContainer label {
     display: block;
     font-weight: 600;
@@ -58,4 +58,3 @@
 .select__dropdown-indicator {
     color: #666;
 }
-
