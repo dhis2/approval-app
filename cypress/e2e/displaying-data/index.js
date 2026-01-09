@@ -1,5 +1,5 @@
 import '../common/index.js'
-import { Then, When } from 'cypress-cucumber-preprocessor/steps'
+import { Then, When } from '@badeball/cypress-cucumber-preprocessor'
 
 Then('a tab bar is displayed with a single tab "Mortality < 5 years"', () => {
     cy.get('[data-test="dhis2-uicore-tabbar"]').should('have.length', 1)

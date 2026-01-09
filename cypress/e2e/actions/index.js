@@ -3,7 +3,7 @@ import {
     When,
     Then,
     defineParameterType,
-} from 'cypress-cucumber-preprocessor/steps'
+} from '@badeball/cypress-cucumber-preprocessor'
 
 const buttonLabels = ['Approve', 'Accept', 'Unapprove', 'Unaccept']
 defineParameterType({
