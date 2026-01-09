@@ -1,9 +1,9 @@
-const { defineConfig } = require('cypress')
 const {
     networkShim,
     chromeAllowXSiteCookies,
     cucumberPreprocessor,
 } = require('@dhis2/cypress-plugins')
+const { defineConfig } = require('cypress')
 
 module.exports = defineConfig({
     projectId: '3wojdo',
