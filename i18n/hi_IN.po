@@ -1,62 +1,52 @@
 # 
 # Translators:
-# Philip Larsen Donnelly, 2021
-# Viktor Varland <viktor@dhis2.org>, 2021
-# Hamza <7amza.it@gmail.com>, 2022
-# noor waleed, 2025
+# Siddharth Agarwal, 2025
+# Rohit Wadhwani, 2025
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2021-10-07T11:59:16.763Z\n"
 "PO-Revision-Date: 2021-11-04 13:40+0000\n"
-"Last-Translator: noor waleed, 2025\n"
-"Language-Team: Arabic (https://app.transifex.com/hisp-uio/teams/100509/ar/)\n"
+"Last-Translator: Rohit Wadhwani, 2025\n"
+"Language-Team: Hindi (India) (https://app.transifex.com/hisp-uio/teams/100509/hi_IN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ar\n"
-"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+"Language: hi_IN\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "Not authorized"
-msgstr "غير مخول"
+msgstr "अनुमति नहीं है"
 
 msgid ""
 "You don't have access to the Data Approval App. Contact a system "
 "administrator to request access."
 msgstr ""
-"لبس لديك صلاحية الوصول الى تطبيق الموافقة على البيانات. تواصل مع مسؤول "
-"النظام لطلب الوصول."
+"आपके पास डेटा अप्रूवल ऐप का एक्सेस नहीं है। एक्सेस का अनुरोध करने के लिए "
+"सिस्टम एडमिनिस्ट्रेटर से संपर्क करें।"
 
 msgid "Acceptance failed: {{error}}"
 msgstr ""
 
 msgid "Accept"
-msgstr "قبول"
+msgstr "स्वीकार करें"
 
 msgid "Approval saved"
 msgstr ""
 
 msgid "Approve"
-msgstr "موافقة"
+msgstr ""
 
 msgid "Approving {{count}} data sets"
 msgid_plural "Approving {{count}} data sets"
 msgstr[0] ""
 msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
-msgstr[5] ""
 
 msgid "Approving {{count}} data set"
 msgid_plural "Approving {{count}} data set"
 msgstr[0] ""
 msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
-msgstr[5] ""
 
 msgid "Are you sure you want to approve this data?"
 msgstr ""
@@ -70,19 +60,19 @@ msgid ""
 msgstr ""
 
 msgid "Cancel"
-msgstr "إلغاء"
+msgstr "रद्द करें"
 
 msgid "Unacceptance failed: {{error}}"
 msgstr ""
 
 msgid "Unaccept"
-msgstr "إلغاء القبول"
+msgstr ""
 
 msgid "Unapproval failed: {{error}}"
 msgstr ""
 
 msgid "Unapprove"
-msgstr "إلغاء الموافقة"
+msgstr ""
 
 msgid "This workflow does not contain any data sets."
 msgstr ""
@@ -122,7 +112,7 @@ msgid "Approved {{- dateTimeStr}}"
 msgstr ""
 
 msgid "Ready for approval"
-msgstr "جاهز للموافقة"
+msgstr ""
 
 msgid "Waiting for lower level approval"
 msgstr ""
@@ -149,106 +139,106 @@ msgid "Could not retrieve approval status"
 msgstr ""
 
 msgid "January"
-msgstr "يناير"
+msgstr "जनवरी"
 
 msgid "February"
-msgstr "فبراير"
+msgstr "फ़रवरी"
 
 msgid "March"
-msgstr "مارس"
+msgstr "मार्च"
 
 msgid "April"
-msgstr "ابريل"
+msgstr "अप्रैल"
 
 msgid "May"
-msgstr "مايو"
+msgstr "मई"
 
 msgid "June"
-msgstr "يونيو"
+msgstr "जून"
 
 msgid "July"
-msgstr "يوليو"
+msgstr "जुलाई"
 
 msgid "August"
-msgstr "اغسطس"
+msgstr "अगस्त"
 
 msgid "September"
-msgstr "سبتمبر"
+msgstr "सितंबर"
 
 msgid "October"
-msgstr "اكتوبر"
+msgstr "अक्टूबर"
 
 msgid "November"
-msgstr "نوفمبر"
+msgstr "नवंबर"
 
 msgid "December"
-msgstr "ديسمبر"
+msgstr "दिसंबर"
 
 msgid "Week {{weekNumber}}"
-msgstr "الإسبوع {{weekNumber}}"
-
-msgid "Bi-Week {{biWeekNumber}}"
-msgstr "ثنائي الإسبوع {{biWeekNumber}}"
-
-msgid "Daily"
-msgstr "يومي"
-
-msgid "Weekly"
-msgstr "أسبوعي"
-
-msgid "Weekly (Start Wednesday)"
-msgstr "اسبوعياً (يبدأ الأربعاء)"
-
-msgid "Weekly (Start Thursday)"
-msgstr "اسبوعياً (يبدأ الخميس)"
-
-msgid "Weekly (Start Saturday)"
-msgstr "اسبوعياً (يبدأ السبت)"
-
-msgid "Weekly (Start Sunday)"
-msgstr "اسبوعياً (يبدأ الأحد)"
-
-msgid "Bi-weekly"
-msgstr "كل اسبوعين"
-
-msgid "Monthly"
-msgstr "شهري"
-
-msgid "Bi-monthly"
-msgstr "كل شهرين"
-
-msgid "Quarterly"
-msgstr "ربعي"
-
-msgid "Six-monthly"
-msgstr "كل ستة-أشهر"
-
-msgid "Six-monthly April"
-msgstr "نصف سنوي، كل ستة أشهر، ابريل"
-
-msgid "Yearly"
-msgstr "سنوي"
-
-msgid "Financial year (Start November)"
-msgstr "السنة المالية (تبدأ في نوفمبر)"
-
-msgid "Financial year (Start October)"
-msgstr "السنة المالية (تبدأ في اكتوبر)"
-
-msgid "Financial year (Start July)"
-msgstr "السنة المالية (تبدأ في يوليو)"
-
-msgid "Financial year (Start April)"
-msgstr "السنة المالية (تبدأ في ابريل)"
-
-msgid "Clear selections"
-msgstr "إلغاء تحديد ماتم تحديده"
-
-msgid "Waiting for approval"
 msgstr ""
 
+msgid "Bi-Week {{biWeekNumber}}"
+msgstr ""
+
+msgid "Daily"
+msgstr "रोज़ाना"
+
+msgid "Weekly"
+msgstr "साप्ताहिक"
+
+msgid "Weekly (Start Wednesday)"
+msgstr "साप्ताहिक (बुधवार से शुरू)"
+
+msgid "Weekly (Start Thursday)"
+msgstr "साप्ताहिक (गुरुवार से शुरू)"
+
+msgid "Weekly (Start Saturday)"
+msgstr "साप्ताहिक (शनिवार से शुरू)"
+
+msgid "Weekly (Start Sunday)"
+msgstr "साप्ताहिक (रविवार से शुरू)"
+
+msgid "Bi-weekly"
+msgstr ""
+
+msgid "Monthly"
+msgstr "मासिक"
+
+msgid "Bi-monthly"
+msgstr ""
+
+msgid "Quarterly"
+msgstr ""
+
+msgid "Six-monthly"
+msgstr ""
+
+msgid "Six-monthly April"
+msgstr ""
+
+msgid "Yearly"
+msgstr "वार्षिक"
+
+msgid "Financial year (Start November)"
+msgstr ""
+
+msgid "Financial year (Start October)"
+msgstr ""
+
+msgid "Financial year (Start July)"
+msgstr ""
+
+msgid "Financial year (Start April)"
+msgstr ""
+
+msgid "Clear selections"
+msgstr ""
+
+msgid "Waiting for approval"
+msgstr "अनुमति की प्रतीक्षा हो रही है"
+
 msgid "Approved"
-msgstr "تم الموافقة عليه"
+msgstr ""
 
 msgid "Failed to load approval state"
 msgstr ""
@@ -260,16 +250,16 @@ msgid "Choose a workflow and period first"
 msgstr ""
 
 msgid "Organisation Unit"
-msgstr "الوحدة التنظيمية"
+msgstr ""
 
 msgid "Choose an organisation unit"
 msgstr ""
 
 msgid "Period"
-msgstr "الفترة الزمنية"
+msgstr ""
 
 msgid "Choose a period"
-msgstr "اختر فترة"
+msgstr "एक अवधि चुनें"
 
 msgid "Choose a workflow first"
 msgstr ""

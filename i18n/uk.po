@@ -3,13 +3,14 @@
 # Philip Larsen Donnelly, 2021
 # Viktor Varland <viktor@dhis2.org>, 2021
 # Nadiia <semchuk@aph.org.ua>, 2022
+# Mykhailo Siusko <m.siusko@redcross.org.ua>, 2025
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2021-10-07T11:59:16.763Z\n"
 "PO-Revision-Date: 2021-11-04 13:40+0000\n"
-"Last-Translator: Nadiia <semchuk@aph.org.ua>, 2022\n"
+"Last-Translator: Mykhailo Siusko <m.siusko@redcross.org.ua>, 2025\n"
 "Language-Team: Ukrainian (https://app.transifex.com/hisp-uio/teams/100509/uk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -235,7 +236,7 @@ msgid "Financial year (Start April)"
 msgstr "Фінансовий рік (Початок у квітні)"
 
 msgid "Clear selections"
-msgstr ""
+msgstr "Очистити вибір"
 
 msgid "Waiting for approval"
 msgstr ""
@@ -256,7 +257,7 @@ msgid "Organisation Unit"
 msgstr "Організаційний підрозділ"
 
 msgid "Choose an organisation unit"
-msgstr ""
+msgstr "Оберіть організаційний підрозділ"
 
 msgid "Period"
 msgstr "Період"
