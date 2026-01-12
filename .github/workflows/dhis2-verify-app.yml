@@ -26,10 +26,10 @@ jobs:
     build:
         runs-on: ubuntu-latest
         steps:
-            - uses: actions/checkout@v2
-            - uses: actions/setup-node@v3
+            - uses: actions/checkout@v4
+            - uses: actions/setup-node@v4
               with:
-                  node-version: 18.x
+                  node-version: 20
                   cache: 'yarn'
             - run: yarn install --frozen-lockfile
 
@@ -47,10 +47,10 @@ jobs:
     lint:
         runs-on: ubuntu-latest
         steps:
-            - uses: actions/checkout@v2
-            - uses: actions/setup-node@v3
+            - uses: actions/checkout@v4
+            - uses: actions/setup-node@v4
               with:
-                  node-version: 18.x
+                  node-version: 20
             - run: yarn install --frozen-lockfile
 
             # Can be removed if translations aren't required for tests,
@@ -64,10 +64,10 @@ jobs:
     test:
         runs-on: ubuntu-latest
         steps:
-            - uses: actions/checkout@v2
-            - uses: actions/setup-node@v3
+            - uses: actions/checkout@v4
+            - uses: actions/setup-node@v4
               with:
-                  node-version: 18.x
+                  node-version: 20
                   cache: 'yarn'
             - run: yarn install --frozen-lockfile
 
@@ -79,50 +79,50 @@ jobs:
             - name: Test
               run: yarn d2-app-scripts test
 
-    # e2e-v41:
-    #     runs-on: ubuntu-latest
-    #     if: "!github.event.push.repository.fork && github.actor != 'dependabot[bot]'"
+    e2e:
+        runs-on: ubuntu-latest
+        if: "!github.event.push.repository.fork && github.actor != 'dependabot[bot]'"
 
-    #     strategy:
-    #         fail-fast: false
-    #         matrix:
-    #             containers: [1, 2]
+        strategy:
+            fail-fast: false
+            matrix:
+                containers: [1, 2]
 
-    #     steps:
-    #         - name: Checkout
-    #           uses: actions/checkout@v2
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v4
 
-    #         - uses: actions/setup-node@v1
-    #           with:
-    #               node-version: 18.x
+            - uses: actions/setup-node@v4
+              with:
+                  node-version: 20
 
-    #         - name: End-to-End tests
-    #           uses: cypress-io/github-action@v2
-    #           with:
-    #               start: yarn d2-app-scripts start
-    #               wait-on: 'http://localhost:3000'
-    #               wait-on-timeout: 300
-    #               record: true
-    #               parallel: true
-    #           env:
-    #               BROWSER: none
-    #               GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    #               CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
-    #               CYPRESS_dhis2BaseUrl: http://localhost:8080
-    #               CYPRESS_dhis2ApiVersion: 41
-    #               CYPRESS_networkMode: stub
+            - name: End-to-End tests
+              uses: cypress-io/github-action@v2
+              with:
+                  start: yarn d2-app-scripts start
+                  wait-on: 'http://localhost:3000'
+                  wait-on-timeout: 300
+                  record: true
+                  parallel: true
+              env:
+                  BROWSER: none
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                  CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+                  CYPRESS_dhis2BaseUrl: http://localhost:8080
+                  CYPRESS_dhis2ApiVersion: 43
+                  CYPRESS_networkMode: stub
     release:
         runs-on: ubuntu-latest
         needs: [build, lint, test]
         if: "!github.event.push.repository.fork && github.actor != 'dependabot[bot]'"
         steps:
-            - uses: actions/checkout@v2
+            - uses: actions/checkout@v4
               with:
                   token: ${{ secrets.DHIS2_BOT_GITHUB_TOKEN }}
 
-            - uses: actions/setup-node@v3
+            - uses: actions/setup-node@v4
               with:
-                  node-version: 18.x
+                  node-version: 20
                   cache: 'yarn'
             - run: yarn install --frozen-lockfile
 

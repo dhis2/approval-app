@@ -14,8 +14,8 @@
         "start:nobrowser": "BROWSER=none d2-app-scripts start",
         "test": "TZ=Etc/UTC d2-app-scripts test",
         "cypress:live": "start-server-and-test 'yarn start:nobrowser' http://localhost:3000 'yarn cypress open --env networkMode=live'",
-        "cypress:capture": "start-server-and-test 'yarn start:nobrowser' http://localhost:3000 'yarn cypress run --env dhis2ApiVersion=41,networkMode=capture'",
-        "cypress:stub": "start-server-and-test 'yarn start:nobrowser' http://localhost:3000 'yarn cypress run --env dhis2ApiVersion=41,networkMode=stub'"
+        "cypress:capture": "start-server-and-test 'yarn start:nobrowser' http://localhost:3000 'yarn cypress run --env networkMode=capture'",
+        "cypress:stub": "start-server-and-test 'yarn start:nobrowser' http://localhost:3000 'yarn cypress run --env networkMode=stub'"
     },
     "devDependencies": {
         "@cfaester/enzyme-adapter-react-18": "^0.8.0",
