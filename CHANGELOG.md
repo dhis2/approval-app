@@ -1,3 +1,10 @@
+# [100.1.0](https://github.com/dhis2/approval-app/compare/v100.0.18...v100.1.0) (2026-01-14)
+
+
+### Features
+
+* implement aoc functionality ([a91c523](https://github.com/dhis2/approval-app/commit/a91c5238c72f1141e683bc3efc8a81cd45f0d153))
+
 ## [100.0.18](https://github.com/dhis2/approval-app/compare/v100.0.17...v100.0.18) (2025-07-16)
 
 
