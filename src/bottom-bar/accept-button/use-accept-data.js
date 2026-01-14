@@ -1,9 +1,10 @@
 import { useDataMutation } from '@dhis2/app-runtime'
 
 export const ACCEPT_DATA_MUTATION = {
-    resource: 'dataAcceptances',
+    resource: 'dataAcceptances/acceptances',
     type: 'create',
-    params: ({ wf, pe, ou }) => ({ wf, pe, ou }),
+    data: ({ wf, pe, approvals }) => ({ wf, pe, approvals }),
 }
 
-export const useAcceptData = () => useDataMutation(ACCEPT_DATA_MUTATION)
+export const useAcceptData = ({ onComplete, onError }) =>
+    useDataMutation(ACCEPT_DATA_MUTATION, { onComplete, onError })

@@ -7,20 +7,152 @@ import {
 } from '@testing-library/react'
 import { userEvent } from '@testing-library/user-event'
 import React from 'react'
+import { useAppContext } from '../../app-context/index.js'
 import { SelectionContext } from '../../selection-context/index.js'
 import { Display } from './display.jsx'
+
+jest.mock('../../app-context/index.js', () => ({
+    useAppContext: jest.fn(),
+}))
+
+const mockMetadata = {
+    categoryCombos: {
+        catComboId1: {
+            id: 'catComboId1',
+            displayName: 'Combo 1',
+            isDefault: false,
+            categoryIds: ['catId1', 'catId2'],
+        },
+    },
+    categories: {
+        catId1: {
+            id: 'catId1',
+            displayName: 'Category 1',
+            categoryOptionIds: ['catOptionId1', 'catOptionId2'],
+        },
+        catId2: {
+            id: 'catId2',
+            displayName: 'Category 2',
+            categoryOptionIds: ['catOptionId3', 'catOptionId4'],
+        },
+    },
+    categoryOptions: {
+        catOptionId1: {
+            id: 'catOptionId1',
+            startDate: '2024-01-01T00:00:00',
+            endDate: '2024-12-01T00:00:00',
+            displayName: 'Category Option 1',
+            organisationUnits: [
+                { id: 'ouId1', path: '/ouId1' },
+                { id: 'ouId2', path: '/ouId2' },
+            ],
+        },
+        catOptionId2: {
+            id: 'catOptionId2',
+            startDate: '2024-01-01T00:00:00',
+            endDate: '2024-12-01T00:00:00',
+            displayName: 'Category Option 2',
+            organisationUnits: [
+                { id: 'ouId1', path: '/ouId1' },
+                { id: 'ouId2', path: '/ouId2' },
+            ],
+        },
+        catOptionId3: {
+            id: 'catOptionId3',
+            startDate: '2024-01-01T00:00:00',
+            endDate: '2024-12-01T00:00:00',
+            displayName: 'Category Option 3',
+            organisationUnits: [
+                { id: 'ouId1', path: '/ouId1' },
+                { id: 'ouId2', path: '/ouId2' },
+            ],
+        },
+        catOptionId4: {
+            id: 'catOptionId4',
+            startDate: '2024-01-01T00:00:00',
+            endDate: '2024-12-01T00:00:00',
+            displayName: 'Category Option 4',
+            organisationUnits: [
+                { id: 'ouId1', path: '/ouId1' },
+                { id: 'ouId2', path: '/ouId2' },
+            ],
+        },
+    },
+    categoryOptionCombos: {
+        catOptionComboId1: {
+            id: 'catOptionComboId1',
+            breakdown: [
+                { categoryId: 'catId1', optionId: 'catOptionId1' },
+                { categoryId: 'catId2', optionId: 'catOptionId3' },
+            ],
+            categoryOptionIds: ['catOptionId1', 'catOptionId3'],
+            categoryComboId: 'catComboId1',
+        },
+        catOptionComboId2: {
+            id: 'catOptionComboId2',
+            breakdown: [
+                { categoryId: 'catId1', optionId: 'catOptionId2' },
+                { categoryId: 'catId2', optionId: 'catOptionId3' },
+            ],
+            categoryOptionIds: ['catOptionId2', 'catOptionId3'],
+            categoryComboId: 'catComboId1',
+        },
+        catOptionComboId3: {
+            id: 'catOptionComboId3',
+            breakdown: [
+                { categoryId: 'catId1', optionId: 'catOptionId1' },
+                { categoryId: 'catId2', optionId: 'catOptionId4' },
+            ],
+            categoryOptionIds: ['catOptionId1', 'catOptionId4'],
+            categoryComboId: 'catComboId1',
+        },
+        catOptionComboId4: {
+            id: 'catOptionComboId4',
+            breakdown: [
+                { categoryId: 'catId1', optionId: 'catOptionId2' },
+                { categoryId: 'catId2', optionId: 'catOptionId4' },
+            ],
+            categoryOptionIds: ['catOptionId2', 'catOptionId4'],
+            categoryComboId: 'catComboId1',
+        },
+    },
+}
+
+beforeEach(() => {
+    useAppContext.mockImplementation(() => ({
+        metadata: mockMetadata,
+    }))
+})
+
+afterEach(() => {
+    jest.resetAllMocks()
+})
 
 describe('<Display>', () => {
     const dataSetOne = {
         displayName: 'Mortality < 5 years',
         id: 'pBOMPrpg1QX',
         periodType: 'Monthly',
+        categoryCombo: {
+            id: 'catComboId1',
+        },
+        organisationUnits: [
+            { id: 'ouId1', path: '/ouId1' },
+            { id: 'ouId2', path: '/ouId2' },
+        ],
     }
 
     const dataSetTwo = {
         displayName: 'Mortality > 4 years',
         id: 'pBOMPrpg1QZ',
         periodType: 'Monthly',
+        categoryCombo: {
+            id: 'catComboId1',
+        },
+        organisationUnits: [
+            { id: 'ouId1', path: '/ouId1' },
+            { id: 'ouId2', path: '/ouId2' },
+        ],
     }
 
     it('asks the user to select a data set if none is selected', () => {
@@ -35,6 +167,27 @@ describe('<Display>', () => {
                             id: 'foo',
                             periodType: 'Monthly',
                         },
+                        period: {
+                            displayName: 'January 2021',
+                            startDate: '2021-01-01',
+                            endDate: '2021-01-31',
+                            iso: '202101',
+                            id: '202101',
+                        },
+                        orgUnit: {
+                            id: 'ouId2',
+                            displayName: 'Org unit 2',
+                            path: '/ouId2',
+                        },
+                        attributeCombo:
+                            mockMetadata.categoryCombos['catComboId1'],
+                        attributeOptionCombo:
+                            mockMetadata.categoryOptionCombos[
+                                'catOptionComboId1'
+                            ],
+                        showAttributeSelect: true,
+                        attrComboValue: '2 selections',
+                        openedSelect: 'CAT_OPTION_COMBO',
                     }}
                 >
                     <Display dataSetId={null} />
@@ -64,6 +217,20 @@ describe('<Display>', () => {
                             id: 'foo',
                             periodType: 'Monthly',
                         },
+                        period: {
+                            displayName: 'January 2021',
+                            startDate: '2021-01-01',
+                            endDate: '2021-01-31',
+                            iso: '202101',
+                            id: '202101',
+                        },
+                        orgUnit: {
+                            id: 'ouId2',
+                            displayName: 'Org unit 2',
+                            path: '/ouId2',
+                        },
+                        attributeCombo: null,
+                        attributeOptionCombo: null,
                     }}
                 >
                     <Display dataSetId={null} />
@@ -71,7 +238,9 @@ describe('<Display>', () => {
             </CustomDataProvider>
         )
         expect(
-            screen.getByText(`This workflow does not contain any data sets.`)
+            screen.getByText(
+                `Workflow "Workflow 1", organisation unit "Org unit 2" and attribute option combo "" does not contain any data sets.`
+            )
         ).toBeInTheDocument()
     })
 
@@ -80,10 +249,15 @@ describe('<Display>', () => {
             <CustomDataProvider options={{ loadForever: true }}>
                 <SelectionContext.Provider
                     value={{
+                        attributeCombo:
+                            mockMetadata.categoryCombos['catComboId1'],
+                        attributeOptionCombo:
+                            mockMetadata.categoryOptionCombos[
+                                'catOptionComboId1'
+                            ],
                         orgUnit: {
-                            id: 'ou-2',
-                            path: '/ou-2',
-                            displayName: 'Org unit 2',
+                            id: 'ouId2',
+                            path: '/ouId2',
                         },
                         period: {
                             displayName: 'January 2021',
@@ -117,10 +291,15 @@ describe('<Display>', () => {
             <CustomDataProvider data={data}>
                 <SelectionContext.Provider
                     value={{
+                        attributeCombo:
+                            mockMetadata.categoryCombos['catComboId1'],
+                        attributeOptionCombo:
+                            mockMetadata.categoryOptionCombos[
+                                'catOptionComboId1'
+                            ],
                         orgUnit: {
-                            id: 'ou-2',
-                            path: '/ou-2',
-                            displayName: 'Org unit 2',
+                            id: 'ouId2',
+                            path: '/ouId2',
                         },
                         period: {
                             displayName: 'January 2021',
@@ -183,9 +362,15 @@ describe('<Display>', () => {
             <CustomDataProvider data={data}>
                 <SelectionContext.Provider
                     value={{
+                        attributeCombo:
+                            mockMetadata.categoryCombos['catComboId1'],
+                        attributeOptionCombo:
+                            mockMetadata.categoryOptionCombos[
+                                'catOptionComboId1'
+                            ],
                         orgUnit: {
-                            id: 'ou-2',
-                            path: '/ou-2',
+                            id: 'ouId2',
+                            path: '/ouId2',
                             displayName: 'Org unit 2',
                         },
                         period: {
@@ -253,10 +438,15 @@ describe('<Display>', () => {
                 <CustomDataProvider data={data}>
                     <SelectionContext.Provider
                         value={{
+                            attributeCombo:
+                                mockMetadata.categoryCombos['catComboId1'],
+                            attributeOptionCombo:
+                                mockMetadata.categoryOptionCombos[
+                                    'catOptionComboId1'
+                                ],
                             orgUnit: {
-                                id: 'ou-2',
-                                path: '/ou-2',
-                                displayName: 'Org unit 2',
+                                id: 'ouId2',
+                                path: '/ouId2',
                             },
                             period: {
                                 displayName: 'January 2021',
@@ -273,6 +463,19 @@ describe('<Display>', () => {
                                         id: 'custom',
                                         periodType: 'Monthly',
                                         formType: 'CUSTOM',
+                                        categoryCombo: {
+                                            id: 'catComboId1',
+                                        },
+                                        organisationUnits: [
+                                            {
+                                                id: 'ou-1',
+                                                path: '/ou-1',
+                                            },
+                                            {
+                                                id: 'ouId2',
+                                                path: '/ouId2',
+                                            },
+                                        ],
                                     },
                                 ],
                                 dataApprovalLevels: [],
@@ -323,11 +526,7 @@ describe('<Display>', () => {
                                 meta: false,
                             },
                         ],
-                        rows: [
-                            [
-                                '<span style="color:black">Programme 6: Performance Indicator</span>',
-                            ],
-                        ],
+                        rows: [['DE Test 1', 12]],
                     },
                 ],
             }
@@ -335,28 +534,25 @@ describe('<Display>', () => {
                 <CustomDataProvider data={data}>
                     <SelectionContext.Provider
                         value={{
+                            attributeCombo:
+                                mockMetadata.categoryCombos['catComboId1'],
+                            attributeOptionCombo:
+                                mockMetadata.categoryOptionCombos[
+                                    'catOptionComboId1'
+                                ],
                             orgUnit: {
-                                id: 'ou-2',
-                                path: '/ou-2',
-                                displayName: 'Org unit 2',
+                                id: 'ouId2',
+                                path: '/ouId2',
                             },
                             period: {
                                 displayName: 'January 2021',
                                 startDate: '2021-01-01',
                                 endDate: '2021-01-31',
-                                year: 2021,
                                 iso: '202101',
                                 id: '202101',
                             },
                             workflow: {
-                                dataSets: [
-                                    {
-                                        displayName: 'Another',
-                                        id: 'custom',
-                                        periodType: 'Monthly',
-                                        formType: 'Default',
-                                    },
-                                ],
+                                dataSets: [dataSetOne],
                                 dataApprovalLevels: [],
                                 displayName: 'Workflow 1',
                                 periodType: 'Monthly',
@@ -364,18 +560,17 @@ describe('<Display>', () => {
                             },
                         }}
                     >
-                        <Display dataSetId="custom" />
+                        <Display dataSetId="pBOMPrpg1QX" />
                     </SelectionContext.Provider>
                 </CustomDataProvider>
             )
 
+            // Wait for loading to finish
             await waitForElementToBeRemoved(() =>
                 screen.getByRole('progressbar')
             )
 
-            expect(screen.getByRole('table')).toContainHTML(
-                '&lt;span style="color:black"&gt;Programme 6: Performance Indicator&lt;/span&gt;'
-            )
+            expect(screen.getByRole('table')).toContainHTML('DE Test 1')
         })
     })
 })

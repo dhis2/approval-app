@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2021-10-07T11:59:16.763Z\n"
-"PO-Revision-Date: 2021-10-07T11:59:16.763Z\n"
+"POT-Creation-Date: 2025-07-30T04:53:04.803Z\n"
+"PO-Revision-Date: 2025-07-30T04:53:04.803Z\n"
 
 msgid "Not authorized"
 msgstr "Not authorized"
@@ -68,8 +68,14 @@ msgstr "Unapproval failed: {{error}}"
 msgid "Unapprove"
 msgstr "Unapprove"
 
-msgid "This workflow does not contain any data sets."
-msgstr "This workflow does not contain any data sets."
+msgid ""
+"Workflow \"{{ workflowName }}\", organisation unit \"{{ orgunitName }}\" "
+"and attribute option combo \"{{ attrOptionComboName }}\" does not contain "
+"any data sets."
+msgstr ""
+"Workflow \"{{ workflowName }}\", organisation unit \"{{ orgunitName }}\" "
+"and attribute option combo \"{{ attrOptionComboName }}\" does not contain "
+"any data sets."
 
 msgid "Choose a data set to review"
 msgstr "Choose a data set to review"
@@ -229,6 +235,43 @@ msgstr "Financial year (Start July)"
 msgid "Financial year (Start April)"
 msgstr "Financial year (Start April)"
 
+msgid "Choose a period first"
+msgstr "Choose a period first"
+
+msgid "Choose an organisation unit first"
+msgstr "Choose an organisation unit first"
+
+msgid "Category Option Combo"
+msgstr "Category Option Combo"
+
+msgid "Choose a category option combo"
+msgstr "Choose a category option combo"
+
+msgid "Choose a combination"
+msgstr "Choose a combination"
+
+msgid "Hide menu"
+msgstr "Hide menu"
+
+msgid "No available options"
+msgstr "No available options"
+
+msgid ""
+"There are no options for {{categoryName}} for the selected period or "
+"organisation unit."
+msgstr ""
+"There are no options for {{categoryName}} for the selected period or "
+"organisation unit."
+
+msgid "No options found"
+msgstr "No options found"
+
+msgid "Type to filter options"
+msgstr "Type to filter options"
+
+msgid "No results found for {{searchQuery}}"
+msgstr "No results found for {{searchQuery}}"
+
 msgid "Clear selections"
 msgstr "Clear selections"
 
@@ -240,9 +283,6 @@ msgstr "Approved"
 
 msgid "Failed to load approval state"
 msgstr "Failed to load approval state"
-
-msgid "Choose a period first"
-msgstr "Choose a period first"
 
 msgid "Choose a workflow and period first"
 msgstr "Choose a workflow and period first"
@@ -271,8 +311,31 @@ msgstr "Choose a workflow"
 msgid "No workflows found. None may exist, or you may not have access to any."
 msgstr "No workflows found. None may exist, or you may not have access to any."
 
+msgid "0 selections"
+msgstr "0 selections"
+
+msgid "1 selection"
+msgstr "1 selection"
+
+msgid "{{amount}} selections"
+msgstr "{{amount}} selections"
+
 msgid "Could not load approval data"
 msgstr "Could not load approval data"
+
+msgid ""
+"The selected workflow \"{{workflowName}}\" does not have any associated "
+"data sets."
+msgstr ""
+"The selected workflow \"{{workflowName}}\" does not have any associated "
+"data sets."
+
+msgid ""
+"Please verify the workflow configuration or select a different workflow "
+"that includes data sets."
+msgstr ""
+"Please verify the workflow configuration or select a different workflow "
+"that includes data sets."
 
 msgid "Retry loading approval data"
 msgstr "Retry loading approval data"

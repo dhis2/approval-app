@@ -6,7 +6,12 @@ import { useWorkflowContext } from '../../workflow-context/index.js'
 import { useUnacceptData } from './use-unaccept-data.js'
 
 const UnacceptButton = () => {
-    const [unacceptData, { loading, error }] = useUnacceptData()
+    const [unacceptData, { loading, error }] = useUnacceptData({
+        onComplete: () => {
+            refresh()
+        },
+        onError: (e) => console.log(e.message),
+    })
     const { params, refresh } = useWorkflowContext()
     const { show } = useAlert(
         i18n.t('Unacceptance failed: {{error}}', {
@@ -21,16 +26,16 @@ const UnacceptButton = () => {
         }
     }, [error?.message])
 
+    const onUnaccept = () => {
+        const { wf, pe, ou, aoc } = params
+
+        const unapprovals = [{ ou: ou, aoc: aoc }]
+        unacceptData({ wf: [wf], pe: [pe], approvals: unapprovals })
+        // refresh()
+    }
+
     return (
-        <Button
-            small
-            disabled={loading}
-            onClick={async () => {
-                const { wf, pe, ou } = params
-                await unacceptData({ wf, pe, ou })
-                refresh()
-            }}
-        >
+        <Button small disabled={loading} onClick={onUnaccept}>
             {i18n.t('Unaccept')}
         </Button>
     )

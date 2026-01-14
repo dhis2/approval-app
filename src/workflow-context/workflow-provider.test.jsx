@@ -37,10 +37,13 @@ describe('<WorkflowProvider>', () => {
         displayName: 'Org unit 456',
     }
 
+    const attributeOptionCombo = { id: 'wertyuiopas' }
+
     useSelectionContext.mockImplementation(() => ({
         workflow,
         period,
         orgUnit,
+        attributeOptionCombo,
     }))
 
     it('shows a spinner when fetching', () => {
@@ -103,6 +106,7 @@ describe('<WorkflowProvider>', () => {
             workflow: null,
             period,
             orgUnit,
+            attributeOptionCombo,
         }))
 
         const wrapper = shallow(<WorkflowProvider>Child</WorkflowProvider>)
@@ -114,6 +118,7 @@ describe('<WorkflowProvider>', () => {
             workflow,
             period: null,
             orgUnit,
+            attributeOptionCombo,
         }))
 
         const wrapper = shallow(<WorkflowProvider>Child</WorkflowProvider>)
@@ -125,6 +130,7 @@ describe('<WorkflowProvider>', () => {
             workflow,
             period,
             orgUnit: null,
+            attributeOptionCombo: null,
         }))
 
         const wrapper = shallow(<WorkflowProvider>Child</WorkflowProvider>)
