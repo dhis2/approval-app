@@ -1,21 +1,19 @@
 # 
 # Translators:
-# Viktor Varland <viktor@dhis2.org>, 2021
-# channara rin, 2026
-# Philip Larsen Donnelly, 2026
+# Rohit Wadhwani, 2025
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2025-07-30T04:53:04.803Z\n"
 "PO-Revision-Date: 2021-11-04 13:40+0000\n"
-"Last-Translator: Philip Larsen Donnelly, 2026\n"
-"Language-Team: Khmer (https://app.transifex.com/hisp-uio/teams/100509/km/)\n"
+"Last-Translator: Rohit Wadhwani, 2025\n"
+"Language-Team: English (United States) (https://app.transifex.com/hisp-uio/teams/100509/en_US/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: km\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
+"Language: en_US\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "Not authorized"
 msgstr ""
@@ -29,7 +27,7 @@ msgid "Acceptance failed: {{error}}"
 msgstr ""
 
 msgid "Accept"
-msgstr "ទទួលយក"
+msgstr ""
 
 msgid "Approval saved"
 msgstr ""
@@ -40,10 +38,12 @@ msgstr ""
 msgid "Approving {{count}} data sets"
 msgid_plural "Approving {{count}} data sets"
 msgstr[0] ""
+msgstr[1] ""
 
 msgid "Approving {{count}} data set"
 msgid_plural "Approving {{count}} data set"
 msgstr[0] ""
+msgstr[1] ""
 
 msgid "Are you sure you want to approve this data?"
 msgstr ""
@@ -57,7 +57,7 @@ msgid ""
 msgstr ""
 
 msgid "Cancel"
-msgstr "បោះបង់"
+msgstr "कैंसल"
 
 msgid "Unacceptance failed: {{error}}"
 msgstr ""
@@ -139,40 +139,40 @@ msgid "Could not retrieve approval status"
 msgstr ""
 
 msgid "January"
-msgstr "មករា​"
+msgstr ""
 
 msgid "February"
-msgstr "កុម្ភៈ​"
+msgstr ""
 
 msgid "March"
-msgstr "មីនា​"
+msgstr ""
 
 msgid "April"
-msgstr "មេសា​"
+msgstr ""
 
 msgid "May"
-msgstr "ឧសភា​"
+msgstr ""
 
 msgid "June"
-msgstr "មិថុនា​"
+msgstr ""
 
 msgid "July"
-msgstr "កក្កដា​"
+msgstr ""
 
 msgid "August"
-msgstr "សីហា​"
+msgstr ""
 
 msgid "September"
-msgstr "កញ្ញា​"
+msgstr ""
 
 msgid "October"
-msgstr "តុលា​"
+msgstr ""
 
 msgid "November"
-msgstr "វិច្ឆិកា​"
+msgstr ""
 
 msgid "December"
-msgstr "ធ្នូ​"
+msgstr ""
 
 msgid "Week {{weekNumber}}"
 msgstr ""
@@ -181,10 +181,10 @@ msgid "Bi-Week {{biWeekNumber}}"
 msgstr ""
 
 msgid "Daily"
-msgstr "រាល់​ថ្ងៃ"
+msgstr ""
 
 msgid "Weekly"
-msgstr "រាល់​សប្ដាហ៍"
+msgstr ""
 
 msgid "Weekly (Start Wednesday)"
 msgstr ""
@@ -202,22 +202,22 @@ msgid "Bi-weekly"
 msgstr ""
 
 msgid "Monthly"
-msgstr "រាល់​ខែ"
+msgstr ""
 
 msgid "Bi-monthly"
-msgstr "រាល់ពីរសប្តាហ៍"
+msgstr ""
 
 msgid "Quarterly"
-msgstr "រាល់ត្រីមាស"
+msgstr ""
 
 msgid "Six-monthly"
-msgstr "រាល់ឆមាស"
+msgstr ""
 
 msgid "Six-monthly April"
-msgstr "ប្រចាំឆមាស​ពីខែមេសា"
+msgstr ""
 
 msgid "Yearly"
-msgstr "ប្រចាំឆ្នាំ"
+msgstr ""
 
 msgid "Financial year (Start November)"
 msgstr ""
@@ -247,7 +247,7 @@ msgid "Choose a combination"
 msgstr ""
 
 msgid "Hide menu"
-msgstr "បិទ​ម៉ឺនុយ"
+msgstr ""
 
 msgid "No available options"
 msgstr ""
@@ -258,10 +258,10 @@ msgid ""
 msgstr ""
 
 msgid "No options found"
-msgstr "មិនមានមុខងារបង្ហាញ"
+msgstr ""
 
 msgid "Type to filter options"
-msgstr "វាយបញ្ចូលមុខងារដើម្បីច្រោះ"
+msgstr ""
 
 msgid "No results found for {{searchQuery}}"
 msgstr ""
@@ -282,13 +282,13 @@ msgid "Choose a workflow and period first"
 msgstr ""
 
 msgid "Organisation Unit"
-msgstr "ផ្នែក​នៃ​អង្គការ"
+msgstr ""
 
 msgid "Choose an organisation unit"
 msgstr ""
 
 msgid "Period"
-msgstr "កំឡុងពេល"
+msgstr ""
 
 msgid "Choose a period"
 msgstr ""

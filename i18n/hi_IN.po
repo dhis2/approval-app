@@ -1,35 +1,36 @@
 # 
 # Translators:
-# Viktor Varland <viktor@dhis2.org>, 2021
-# channara rin, 2026
-# Philip Larsen Donnelly, 2026
+# Siddharth Agarwal, 2025
+# Rohit Wadhwani, 2026
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2025-07-30T04:53:04.803Z\n"
 "PO-Revision-Date: 2021-11-04 13:40+0000\n"
-"Last-Translator: Philip Larsen Donnelly, 2026\n"
-"Language-Team: Khmer (https://app.transifex.com/hisp-uio/teams/100509/km/)\n"
+"Last-Translator: Rohit Wadhwani, 2026\n"
+"Language-Team: Hindi (India) (https://app.transifex.com/hisp-uio/teams/100509/hi_IN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: km\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
+"Language: hi_IN\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "Not authorized"
-msgstr ""
+msgstr "अनुमति नहीं है"
 
 msgid ""
 "You don't have access to the Data Approval App. Contact a system "
 "administrator to request access."
 msgstr ""
+"आपके पास डेटा अप्रूवल ऐप का एक्सेस नहीं है। एक्सेस का अनुरोध करने के लिए "
+"सिस्टम एडमिनिस्ट्रेटर से संपर्क करें।"
 
 msgid "Acceptance failed: {{error}}"
 msgstr ""
 
 msgid "Accept"
-msgstr "ទទួលយក"
+msgstr "स्वीकार करें"
 
 msgid "Approval saved"
 msgstr ""
@@ -40,10 +41,12 @@ msgstr ""
 msgid "Approving {{count}} data sets"
 msgid_plural "Approving {{count}} data sets"
 msgstr[0] ""
+msgstr[1] ""
 
 msgid "Approving {{count}} data set"
 msgid_plural "Approving {{count}} data set"
 msgstr[0] ""
+msgstr[1] ""
 
 msgid "Are you sure you want to approve this data?"
 msgstr ""
@@ -57,7 +60,7 @@ msgid ""
 msgstr ""
 
 msgid "Cancel"
-msgstr "បោះបង់"
+msgstr "रद्द करें"
 
 msgid "Unacceptance failed: {{error}}"
 msgstr ""
@@ -139,40 +142,40 @@ msgid "Could not retrieve approval status"
 msgstr ""
 
 msgid "January"
-msgstr "មករា​"
+msgstr "जनवरी"
 
 msgid "February"
-msgstr "កុម្ភៈ​"
+msgstr "फ़रवरी"
 
 msgid "March"
-msgstr "មីនា​"
+msgstr "मार्च"
 
 msgid "April"
-msgstr "មេសា​"
+msgstr "अप्रैल"
 
 msgid "May"
-msgstr "ឧសភា​"
+msgstr "मई"
 
 msgid "June"
-msgstr "មិថុនា​"
+msgstr "जून"
 
 msgid "July"
-msgstr "កក្កដា​"
+msgstr "जुलाई"
 
 msgid "August"
-msgstr "សីហា​"
+msgstr "अगस्त"
 
 msgid "September"
-msgstr "កញ្ញា​"
+msgstr "सितंबर"
 
 msgid "October"
-msgstr "តុលា​"
+msgstr "अक्टूबर"
 
 msgid "November"
-msgstr "វិច្ឆិកា​"
+msgstr "नवंबर"
 
 msgid "December"
-msgstr "ធ្នូ​"
+msgstr "दिसंबर"
 
 msgid "Week {{weekNumber}}"
 msgstr ""
@@ -181,43 +184,43 @@ msgid "Bi-Week {{biWeekNumber}}"
 msgstr ""
 
 msgid "Daily"
-msgstr "រាល់​ថ្ងៃ"
+msgstr "रोज़ाना"
 
 msgid "Weekly"
-msgstr "រាល់​សប្ដាហ៍"
+msgstr "साप्ताहिक"
 
 msgid "Weekly (Start Wednesday)"
-msgstr ""
+msgstr "साप्ताहिक (बुधवार से शुरू)"
 
 msgid "Weekly (Start Thursday)"
-msgstr ""
+msgstr "साप्ताहिक (गुरुवार से शुरू)"
 
 msgid "Weekly (Start Saturday)"
-msgstr ""
+msgstr "साप्ताहिक (शनिवार से शुरू)"
 
 msgid "Weekly (Start Sunday)"
-msgstr ""
+msgstr "साप्ताहिक (रविवार से शुरू)"
 
 msgid "Bi-weekly"
 msgstr ""
 
 msgid "Monthly"
-msgstr "រាល់​ខែ"
+msgstr "मासिक"
 
 msgid "Bi-monthly"
-msgstr "រាល់ពីរសប្តាហ៍"
+msgstr ""
 
 msgid "Quarterly"
-msgstr "រាល់ត្រីមាស"
+msgstr ""
 
 msgid "Six-monthly"
-msgstr "រាល់ឆមាស"
+msgstr ""
 
 msgid "Six-monthly April"
-msgstr "ប្រចាំឆមាស​ពីខែមេសា"
+msgstr ""
 
 msgid "Yearly"
-msgstr "ប្រចាំឆ្នាំ"
+msgstr "वार्षिक"
 
 msgid "Financial year (Start November)"
 msgstr ""
@@ -247,10 +250,10 @@ msgid "Choose a combination"
 msgstr ""
 
 msgid "Hide menu"
-msgstr "បិទ​ម៉ឺនុយ"
+msgstr "मेनू छुपाएँ"
 
 msgid "No available options"
-msgstr ""
+msgstr "कोई उपलब्ध ऑप्शन नहीं है"
 
 msgid ""
 "There are no options for {{categoryName}} for the selected period or "
@@ -258,10 +261,10 @@ msgid ""
 msgstr ""
 
 msgid "No options found"
-msgstr "មិនមានមុខងារបង្ហាញ"
+msgstr ""
 
 msgid "Type to filter options"
-msgstr "វាយបញ្ចូលមុខងារដើម្បីច្រោះ"
+msgstr ""
 
 msgid "No results found for {{searchQuery}}"
 msgstr ""
@@ -270,7 +273,7 @@ msgid "Clear selections"
 msgstr ""
 
 msgid "Waiting for approval"
-msgstr ""
+msgstr "अनुमति की प्रतीक्षा हो रही है"
 
 msgid "Approved"
 msgstr ""
@@ -282,16 +285,16 @@ msgid "Choose a workflow and period first"
 msgstr ""
 
 msgid "Organisation Unit"
-msgstr "ផ្នែក​នៃ​អង្គការ"
+msgstr ""
 
 msgid "Choose an organisation unit"
 msgstr ""
 
 msgid "Period"
-msgstr "កំឡុងពេល"
+msgstr ""
 
 msgid "Choose a period"
-msgstr ""
+msgstr "एक अवधि चुनें"
 
 msgid "Choose a workflow first"
 msgstr ""
