@@ -1,14 +1,14 @@
 # 
 # Translators:
-# trendspotter <jirka.p@volny.cz>, 2021
+# Jiří Podhorecký <jirka.p@volny.cz>, 2026
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-10-07T11:59:16.763Z\n"
+"POT-Creation-Date: 2025-07-30T04:53:04.803Z\n"
 "PO-Revision-Date: 2021-11-04 13:40+0000\n"
-"Last-Translator: trendspotter <jirka.p@volny.cz>, 2021\n"
-"Language-Team: Czech (https://www.transifex.com/hisp-uio/teams/100509/cs/)\n"
+"Last-Translator: Jiří Podhorecký <jirka.p@volny.cz>, 2026\n"
+"Language-Team: Czech (https://app.transifex.com/hisp-uio/teams/100509/cs/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -79,8 +79,11 @@ msgstr "Zrušení schválení se nezdařilo: {{error}}"
 msgid "Unapprove"
 msgstr "Neschválit"
 
-msgid "This workflow does not contain any data sets."
-msgstr "Tento pracovní postup neobsahuje žádné datové sady."
+msgid ""
+"Workflow \"{{ workflowName }}\", organisation unit \"{{ orgunitName }}\" and"
+" attribute option combo \"{{ attrOptionComboName }}\" does not contain any "
+"data sets."
+msgstr ""
 
 msgid "Choose a data set to review"
 msgstr "Vyberte soubor dat, který chcete zkontrolovat"
@@ -239,6 +242,43 @@ msgstr "Finanční rok (od července)"
 msgid "Financial year (Start April)"
 msgstr "Finanční rok (od dubna)"
 
+msgid "Choose a period first"
+msgstr "Nejprve vyberte období"
+
+msgid "Choose an organisation unit first"
+msgstr ""
+
+msgid "Category Option Combo"
+msgstr ""
+
+msgid "Choose a category option combo"
+msgstr ""
+
+msgid "Choose a combination"
+msgstr ""
+
+msgid "Hide menu"
+msgstr ""
+
+msgid "No available options"
+msgstr ""
+
+msgid ""
+"There are no options for {{categoryName}} for the selected period or "
+"organisation unit."
+msgstr ""
+"Pro {{categoryName}} pro vybrané období nebo organizační jednotku nejsou k "
+"dispozici žádné možnosti."
+
+msgid "No options found"
+msgstr "Nenalezeny žádné možnosti"
+
+msgid "Type to filter options"
+msgstr "Zadáním filtrujete možnosti"
+
+msgid "No results found for {{searchQuery}}"
+msgstr ""
+
 msgid "Clear selections"
 msgstr "Vymazat výběry"
 
@@ -250,9 +290,6 @@ msgstr "Schváleno"
 
 msgid "Failed to load approval state"
 msgstr "Stav schválení se nepodařilo načíst"
-
-msgid "Choose a period first"
-msgstr "Nejprve vyberte období"
 
 msgid "Choose a workflow and period first"
 msgstr "Nejprve vyberte pracovní postup a období"
@@ -283,8 +320,27 @@ msgstr ""
 "Nebyly nalezeny žádné pracovní postupy. Žádný nemusí existovat nebo k němu "
 "nemusíte mít přístup."
 
+msgid "0 selections"
+msgstr ""
+
+msgid "1 selection"
+msgstr ""
+
+msgid "{{amount}} selections"
+msgstr ""
+
 msgid "Could not load approval data"
 msgstr "Nepodařilo se načíst údaje o schválení"
+
+msgid ""
+"The selected workflow \"{{workflowName}}\" does not have any associated data"
+" sets."
+msgstr ""
+
+msgid ""
+"Please verify the workflow configuration or select a different workflow that"
+" includes data sets."
+msgstr ""
 
 msgid "Retry loading approval data"
 msgstr "Zkuste znovu načíst data schválení"

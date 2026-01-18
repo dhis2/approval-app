@@ -1,14 +1,14 @@
 # 
 # Translators:
-# 晓东 林 <13981924470@126.com>, 2021
-# easylin <lin_xd@126.com>, 2023
+# easylin <lin_xd@126.com>, 2026
+# 晓东 林 <13981924470@126.com>, 2026
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-10-07T11:59:16.763Z\n"
+"POT-Creation-Date: 2025-07-30T04:53:04.803Z\n"
 "PO-Revision-Date: 2021-11-04 13:40+0000\n"
-"Last-Translator: easylin <lin_xd@126.com>, 2023\n"
+"Last-Translator: 晓东 林 <13981924470@126.com>, 2026\n"
 "Language-Team: Chinese (China) (https://app.transifex.com/hisp-uio/teams/100509/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -70,8 +70,11 @@ msgstr "取消批准失败：{{error}}"
 msgid "Unapprove"
 msgstr "不批准"
 
-msgid "This workflow does not contain any data sets."
-msgstr "此工作流不包含任何数据集。"
+msgid ""
+"Workflow \"{{ workflowName }}\", organisation unit \"{{ orgunitName }}\" and"
+" attribute option combo \"{{ attrOptionComboName }}\" does not contain any "
+"data sets."
+msgstr ""
 
 msgid "Choose a data set to review"
 msgstr "选择要查看的数据集"
@@ -227,6 +230,41 @@ msgstr "财务七月"
 msgid "Financial year (Start April)"
 msgstr "财务四月"
 
+msgid "Choose a period first"
+msgstr "先选择一个时期"
+
+msgid "Choose an organisation unit first"
+msgstr ""
+
+msgid "Category Option Combo"
+msgstr ""
+
+msgid "Choose a category option combo"
+msgstr ""
+
+msgid "Choose a combination"
+msgstr ""
+
+msgid "Hide menu"
+msgstr "隐藏菜单"
+
+msgid "No available options"
+msgstr ""
+
+msgid ""
+"There are no options for {{categoryName}} for the selected period or "
+"organisation unit."
+msgstr ""
+
+msgid "No options found"
+msgstr ""
+
+msgid "Type to filter options"
+msgstr "键入过滤选项"
+
+msgid "No results found for {{searchQuery}}"
+msgstr ""
+
 msgid "Clear selections"
 msgstr "清除选择"
 
@@ -238,9 +276,6 @@ msgstr "得到正式认可的"
 
 msgid "Failed to load approval state"
 msgstr "无法加载批准状态"
-
-msgid "Choose a period first"
-msgstr "先选择一个时期"
 
 msgid "Choose a workflow and period first"
 msgstr "先选择工作流程和周期"
@@ -269,8 +304,27 @@ msgstr "选择工作流程"
 msgid "No workflows found. None may exist, or you may not have access to any."
 msgstr "未找到工作流程。可能不存在，或者您可能无权访问任何内容。"
 
+msgid "0 selections"
+msgstr ""
+
+msgid "1 selection"
+msgstr ""
+
+msgid "{{amount}} selections"
+msgstr ""
+
 msgid "Could not load approval data"
 msgstr "无法加载审批数据"
+
+msgid ""
+"The selected workflow \"{{workflowName}}\" does not have any associated data"
+" sets."
+msgstr ""
+
+msgid ""
+"Please verify the workflow configuration or select a different workflow that"
+" includes data sets."
+msgstr ""
 
 msgid "Retry loading approval data"
 msgstr "重试加载批准数据"

@@ -1,17 +1,18 @@
 # 
 # Translators:
-# Philip Larsen Donnelly, 2021
 # Viktor Varland <viktor@dhis2.org>, 2021
 # Thuy Nguyen <thuynguyen@hispvietnam.org>, 2021
 # Phouthasinh PHEUAYSITHIPHONE, 2023
-# Namwan Chanthavisouk, 2024
+# Namwan Chanthavisouk, 2026
+# Philip Larsen Donnelly, 2026
+# Saysamone Sibounma, 2026
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-10-07T11:59:16.763Z\n"
+"POT-Creation-Date: 2025-07-30T04:53:04.803Z\n"
 "PO-Revision-Date: 2021-11-04 13:40+0000\n"
-"Last-Translator: Namwan Chanthavisouk, 2024\n"
+"Last-Translator: Saysamone Sibounma, 2026\n"
 "Language-Team: Lao (https://app.transifex.com/hisp-uio/teams/100509/lo/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -76,8 +77,11 @@ msgstr "ການອະນຸມັດບໍ່ສຳເລັດ: {{error}}"
 msgid "Unapprove"
 msgstr "​ຍົກເລິກການອະນຸມັດ"
 
-msgid "This workflow does not contain any data sets."
-msgstr "ຂັ້ນຕອນການເຮັດວຽກນີ້ບໍ່ມີຊຸດຂໍ້ມູນໃດໆ."
+msgid ""
+"Workflow \"{{ workflowName }}\", organisation unit \"{{ orgunitName }}\" and"
+" attribute option combo \"{{ attrOptionComboName }}\" does not contain any "
+"data sets."
+msgstr ""
 
 msgid "Choose a data set to review"
 msgstr "ເລືອກຊຸດຂໍ້ມູນເພື່ອກວດສອບ"
@@ -236,6 +240,43 @@ msgstr "ສົກປີງົບປະມານ (ເລີ່ມແຕ່ເດ�
 msgid "Financial year (Start April)"
 msgstr "ສົກປີງົບປະມານ (ເລີ່ມແຕ່ເດືອນເມສາ)"
 
+msgid "Choose a period first"
+msgstr "ເລືອກໄລຍະເວລາກ່ອນ"
+
+msgid "Choose an organisation unit first"
+msgstr ""
+
+msgid "Category Option Combo"
+msgstr ""
+
+msgid "Choose a category option combo"
+msgstr ""
+
+msgid "Choose a combination"
+msgstr ""
+
+msgid "Hide menu"
+msgstr "ເຊື່ອງ ເມນຍູ"
+
+msgid "No available options"
+msgstr "ບໍ່ມີຕົວເລືອກ"
+
+msgid ""
+"There are no options for {{categoryName}} for the selected period or "
+"organisation unit."
+msgstr ""
+"ບໍ່ມີຕົວເລືອກສຳລັບ {{categoryName}}ສຳລັບຊ່ວງເວລາ ຫຼື "
+"ຫົວໜ່ວຍການຈັດຕັ້ງທີ່ເລືອກ"
+
+msgid "No options found"
+msgstr "ບໍ່ພົບຕົວເລືອກ"
+
+msgid "Type to filter options"
+msgstr "ປະເພດຕົວເລືອກການກອງ"
+
+msgid "No results found for {{searchQuery}}"
+msgstr ""
+
 msgid "Clear selections"
 msgstr "ລົບຕົວເລືອກ"
 
@@ -247,9 +288,6 @@ msgstr "​ໄດ້ຮັບອະນຸມັດແລ້ວ"
 
 msgid "Failed to load approval state"
 msgstr "ບໍ່ສາມາດໂຫຼດສະຖານະການອະນຸມັດ"
-
-msgid "Choose a period first"
-msgstr "ເລືອກໄລຍະເວລາກ່ອນ"
 
 msgid "Choose a workflow and period first"
 msgstr "ເລືອກຂັ້ນຕອນການເຮັດວຽກ ແລະ ໄລຍະເວລາກ່ອນ"
@@ -280,8 +318,27 @@ msgstr ""
 "ບໍ່ພົບຂັ້ນຕອນການເຮັດວຽກ. ບໍ່ພົບອັນທີ່ມີຢູ່, "
 "ຫຼືທ່ານອາດຈະບໍ່ໄດ້ຮັບອະນຸຍາດໃນການເຂົ້າເຖິງໃດໆ."
 
+msgid "0 selections"
+msgstr "0 ການເລືອກ"
+
+msgid "1 selection"
+msgstr "1 ການເລືອກ"
+
+msgid "{{amount}} selections"
+msgstr "{{amount}}ການເລືອກ"
+
 msgid "Could not load approval data"
 msgstr "ບໍ່ສາມາດໂຫຼດຂໍ້ມູນການອະນຸມັດໄດ້"
+
+msgid ""
+"The selected workflow \"{{workflowName}}\" does not have any associated data"
+" sets."
+msgstr ""
+
+msgid ""
+"Please verify the workflow configuration or select a different workflow that"
+" includes data sets."
+msgstr ""
 
 msgid "Retry loading approval data"
 msgstr "ໂຫຼດຂໍ້ມູນການອະນຸມັດຄືນໃໝ່"

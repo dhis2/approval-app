@@ -1,14 +1,14 @@
 # 
 # Translators:
-# Khurshid Ibatov <Khurshid.Ibatov@tibbiysugurta.uz>, 2023
 # Philip Larsen Donnelly, 2024
+# Khurshid Ibatov <x.ibatov@dtsj.uz>, 2026
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-10-07T11:59:16.763Z\n"
+"POT-Creation-Date: 2025-07-30T04:53:04.803Z\n"
 "PO-Revision-Date: 2021-11-04 13:40+0000\n"
-"Last-Translator: Philip Larsen Donnelly, 2024\n"
+"Last-Translator: Khurshid Ibatov <x.ibatov@dtsj.uz>, 2026\n"
 "Language-Team: Uzbek (Cyrillic) (https://app.transifex.com/hisp-uio/teams/100509/uz@Cyrl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -75,8 +75,11 @@ msgstr "Тасдиқланмаган: {{error}}"
 msgid "Unapprove"
 msgstr "Тасдиқланмасин/Рад этилсин"
 
-msgid "This workflow does not contain any data sets."
-msgstr "Ушбу ишчи жараёнда маълумот тўпламлари мавжуд эмас"
+msgid ""
+"Workflow \"{{ workflowName }}\", organisation unit \"{{ orgunitName }}\" and"
+" attribute option combo \"{{ attrOptionComboName }}\" does not contain any "
+"data sets."
+msgstr ""
 
 msgid "Choose a data set to review"
 msgstr "Кўриб чиқиш учун маълумотлар тўпламини танланг"
@@ -238,6 +241,43 @@ msgstr "Молиявий йил (бошланиши Июль)"
 msgid "Financial year (Start April)"
 msgstr "Молиявий йил (бошланиши Апрель)"
 
+msgid "Choose a period first"
+msgstr "Дастлаь даврни танланг"
+
+msgid "Choose an organisation unit first"
+msgstr ""
+
+msgid "Category Option Combo"
+msgstr ""
+
+msgid "Choose a category option combo"
+msgstr ""
+
+msgid "Choose a combination"
+msgstr ""
+
+msgid "Hide menu"
+msgstr "Меню беркитилсин"
+
+msgid "No available options"
+msgstr "Мавжуд вариантлар йўқ"
+
+msgid ""
+"There are no options for {{categoryName}} for the selected period or "
+"organisation unit."
+msgstr ""
+"Танланган давр ёки иташкилот бирлиги {{categoryName}} учун ҳеч қандай "
+"вариантлар мавжуд эмас."
+
+msgid "No options found"
+msgstr ""
+
+msgid "Type to filter options"
+msgstr ""
+
+msgid "No results found for {{searchQuery}}"
+msgstr ""
+
 msgid "Clear selections"
 msgstr "Танловларни тозалаш"
 
@@ -249,9 +289,6 @@ msgstr "Тасдиқланган"
 
 msgid "Failed to load approval state"
 msgstr "Тасдиқ ҳолатини юклаб бўлмади"
-
-msgid "Choose a period first"
-msgstr "Дастлаь даврни танланг"
 
 msgid "Choose a workflow and period first"
 msgstr "Дастлаб иш жараёни ва даврни танланг"
@@ -282,8 +319,27 @@ msgstr ""
 "Ҳеч қандай иш жараёни топилмади. Ҳеч бири мавжуд бўлмаслиги мумкин ёки сиз "
 "ҳеч бирига кира олмайсиз."
 
+msgid "0 selections"
+msgstr "Танланганлар 0"
+
+msgid "1 selection"
+msgstr "Танланган 1 та"
+
+msgid "{{amount}} selections"
+msgstr "{{amount}} та танлов"
+
 msgid "Could not load approval data"
 msgstr "Тасдиқлаш маълумоти юкланмади"
+
+msgid ""
+"The selected workflow \"{{workflowName}}\" does not have any associated data"
+" sets."
+msgstr ""
+
+msgid ""
+"Please verify the workflow configuration or select a different workflow that"
+" includes data sets."
+msgstr ""
 
 msgid "Retry loading approval data"
 msgstr "Тасдиқлаш маълумотини қайта юклаб кўринг"

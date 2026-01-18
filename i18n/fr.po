@@ -4,14 +4,17 @@
 # Yayra Gomado <ygomado@hispwca.org>, 2021
 # Yao Selom SAKA (HISP WCA) <ysaka@hispwca.org>, 2022
 # Karoline Tufte Lien <karoline@dhis2.org>, 2024
-# Philip Larsen Donnelly, 2024
+# Esther Tokouli, 2026
+# Philip Larsen Donnelly, 2026
+# Elise Desailly, 2026
+# Cyrille Kabrane, 2026
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-10-07T11:59:16.763Z\n"
+"POT-Creation-Date: 2025-07-30T04:53:04.803Z\n"
 "PO-Revision-Date: 2021-11-04 13:40+0000\n"
-"Last-Translator: Philip Larsen Donnelly, 2024\n"
+"Last-Translator: Cyrille Kabrane, 2026\n"
 "Language-Team: French (https://app.transifex.com/hisp-uio/teams/100509/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -81,8 +84,11 @@ msgstr "Échec de la désapprobation : {{error}}"
 msgid "Unapprove"
 msgstr "Désapprouver"
 
-msgid "This workflow does not contain any data sets."
-msgstr "Ce flux de travail ne contient pas d'ensembles de données."
+msgid ""
+"Workflow \"{{ workflowName }}\", organisation unit \"{{ orgunitName }}\" and"
+" attribute option combo \"{{ attrOptionComboName }}\" does not contain any "
+"data sets."
+msgstr ""
 
 msgid "Choose a data set to review"
 msgstr "Choisissez un ensemble de données à examiner"
@@ -246,6 +252,43 @@ msgstr "Année fiscale (Débutant par juillet)"
 msgid "Financial year (Start April)"
 msgstr "Année fiscale (Débutant par avril)"
 
+msgid "Choose a period first"
+msgstr "Choisissez d'abord une période"
+
+msgid "Choose an organisation unit first"
+msgstr ""
+
+msgid "Category Option Combo"
+msgstr ""
+
+msgid "Choose a category option combo"
+msgstr ""
+
+msgid "Choose a combination"
+msgstr ""
+
+msgid "Hide menu"
+msgstr "Masquer le menu"
+
+msgid "No available options"
+msgstr "Aucune option disponible"
+
+msgid ""
+"There are no options for {{categoryName}} for the selected period or "
+"organisation unit."
+msgstr ""
+"Il n'y a aucune option pour {{categoryName}} pour la période ou l'unité "
+"d'organisation sélectionnée."
+
+msgid "No options found"
+msgstr "Pas d'options trouvées"
+
+msgid "Type to filter options"
+msgstr "Taper pour filtrer les options"
+
+msgid "No results found for {{searchQuery}}"
+msgstr ""
+
 msgid "Clear selections"
 msgstr "Effacer les sélections"
 
@@ -257,9 +300,6 @@ msgstr "Approuvé"
 
 msgid "Failed to load approval state"
 msgstr "Échec du chargement de l'état d'approbation"
-
-msgid "Choose a period first"
-msgstr "Choisissez d'abord une période"
 
 msgid "Choose a workflow and period first"
 msgstr "Choisissez d'abord un flux de travail et une période"
@@ -290,8 +330,27 @@ msgstr ""
 "Aucun flux de travail trouvé. Il se peut qu'il n'en existe aucun ou que vous"
 " n'y ayez pas accès."
 
+msgid "0 selections"
+msgstr "0 sélections"
+
+msgid "1 selection"
+msgstr "1 sélection"
+
+msgid "{{amount}} selections"
+msgstr "{{amount}} sélections"
+
 msgid "Could not load approval data"
 msgstr "Impossible de charger les données d'approbation"
+
+msgid ""
+"The selected workflow \"{{workflowName}}\" does not have any associated data"
+" sets."
+msgstr ""
+
+msgid ""
+"Please verify the workflow configuration or select a different workflow that"
+" includes data sets."
+msgstr ""
 
 msgid "Retry loading approval data"
 msgstr "Réessayer le chargement des données d'approbation"
