@@ -1,15 +1,15 @@
 # 
 # Translators:
-# Philip Larsen Donnelly, 2021
 # 晓东 林 <13981924470@126.com>, 2021
-# easylin <lin_xd@126.com>, 2021
+# Philip Larsen Donnelly, 2026
+# easylin <lin_xd@126.com>, 2026
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-10-07T11:59:16.763Z\n"
+"POT-Creation-Date: 2025-07-30T04:53:04.803Z\n"
 "PO-Revision-Date: 2021-11-04 13:40+0000\n"
-"Last-Translator: easylin <lin_xd@126.com>, 2021\n"
+"Last-Translator: easylin <lin_xd@126.com>, 2026\n"
 "Language-Team: Chinese (https://app.transifex.com/hisp-uio/teams/100509/zh/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -71,8 +71,13 @@ msgstr "未批准失败：{{error}}"
 msgid "Unapprove"
 msgstr "不批准"
 
-msgid "This workflow does not contain any data sets."
-msgstr "此工作流不包含任何数据集。"
+msgid ""
+"Workflow \"{{ workflowName }}\", organisation unit \"{{ orgunitName }}\" and"
+" attribute option combo \"{{ attrOptionComboName }}\" does not contain any "
+"data sets."
+msgstr ""
+"工作流 \"{{ workflowName }}\" 、组织单位 \"{{ orgunitName }}\" 和属性选项组合 \"{{ "
+"attrOptionComboName }}\" 不包含任何数据集。"
 
 msgid "Choose a data set to review"
 msgstr "选择要查看的数据集"
@@ -228,6 +233,41 @@ msgstr "财政年度（从七月开始）"
 msgid "Financial year (Start April)"
 msgstr "财政年度（从四月开始）"
 
+msgid "Choose a period first"
+msgstr "首先选择一个时期"
+
+msgid "Choose an organisation unit first"
+msgstr "首先选择一个组织单位"
+
+msgid "Category Option Combo"
+msgstr "类别 选项组合"
+
+msgid "Choose a category option combo"
+msgstr "选择类别选项组合"
+
+msgid "Choose a combination"
+msgstr "选择组合"
+
+msgid "Hide menu"
+msgstr "隐藏菜单"
+
+msgid "No available options"
+msgstr "无可用选项"
+
+msgid ""
+"There are no options for {{categoryName}} for the selected period or "
+"organisation unit."
+msgstr "对于选定的时期或组织单位，没有{{categoryName}} 选项。"
+
+msgid "No options found"
+msgstr "没有找到选项"
+
+msgid "Type to filter options"
+msgstr "键入过滤选项"
+
+msgid "No results found for {{searchQuery}}"
+msgstr "未找到以下结果{{searchQuery}}"
+
 msgid "Clear selections"
 msgstr "清除选择"
 
@@ -239,9 +279,6 @@ msgstr "已审核"
 
 msgid "Failed to load approval state"
 msgstr "未能加载批准状态"
-
-msgid "Choose a period first"
-msgstr "首先选择一个时期"
 
 msgid "Choose a workflow and period first"
 msgstr "首先选择工作流程和时间段"
@@ -270,8 +307,27 @@ msgstr "选择工作流程"
 msgid "No workflows found. None may exist, or you may not have access to any."
 msgstr "未找到工作流。可能不存在，或者您可能无法访问任何。"
 
+msgid "0 selections"
+msgstr "0 个选择"
+
+msgid "1 selection"
+msgstr "1 个选择"
+
+msgid "{{amount}} selections"
+msgstr "{{amount}}个选择"
+
 msgid "Could not load approval data"
 msgstr "无法加载批准数据"
+
+msgid ""
+"The selected workflow \"{{workflowName}}\" does not have any associated data"
+" sets."
+msgstr "所选工作流程 \"{{workflowName}}\" 没有任何相关数据集。"
+
+msgid ""
+"Please verify the workflow configuration or select a different workflow that"
+" includes data sets."
+msgstr "请验证工作流程配置或选择其他包含数据集的工作流程。"
 
 msgid "Retry loading approval data"
 msgstr "重试加载审批数据"

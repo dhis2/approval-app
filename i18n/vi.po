@@ -1,16 +1,16 @@
 # 
 # Translators:
-# Philip Larsen Donnelly, 2021
 # Viktor Varland <viktor@dhis2.org>, 2021
 # Mai Nguyen <thanhmai.jica@gmail.com>, 2021
-# Em Le <em.hispvietnam@gmail.com>, 2024
+# Philip Larsen Donnelly, 2026
+# Em Le <em.hispvietnam@gmail.com>, 2026
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-10-07T11:59:16.763Z\n"
+"POT-Creation-Date: 2025-07-30T04:53:04.803Z\n"
 "PO-Revision-Date: 2021-11-04 13:40+0000\n"
-"Last-Translator: Em Le <em.hispvietnam@gmail.com>, 2024\n"
+"Last-Translator: Em Le <em.hispvietnam@gmail.com>, 2026\n"
 "Language-Team: Vietnamese (https://app.transifex.com/hisp-uio/teams/100509/vi/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -74,7 +74,10 @@ msgstr ""
 msgid "Unapprove"
 msgstr "Bỏ duyệt"
 
-msgid "This workflow does not contain any data sets."
+msgid ""
+"Workflow \"{{ workflowName }}\", organisation unit \"{{ orgunitName }}\" and"
+" attribute option combo \"{{ attrOptionComboName }}\" does not contain any "
+"data sets."
 msgstr ""
 
 msgid "Choose a data set to review"
@@ -231,6 +234,43 @@ msgstr "Năm Tài Chính - Tháng 7"
 msgid "Financial year (Start April)"
 msgstr "Năm Tài Chính - Tháng 4"
 
+msgid "Choose a period first"
+msgstr ""
+
+msgid "Choose an organisation unit first"
+msgstr ""
+
+msgid "Category Option Combo"
+msgstr ""
+
+msgid "Choose a category option combo"
+msgstr ""
+
+msgid "Choose a combination"
+msgstr ""
+
+msgid "Hide menu"
+msgstr "Ẩn danh mục"
+
+msgid "No available options"
+msgstr "Không có tùy chọn nào"
+
+msgid ""
+"There are no options for {{categoryName}} for the selected period or "
+"organisation unit."
+msgstr ""
+"Không có tùy chọn nào cho {{categoryName}} cho thời điểm và đơn vị được "
+"chọn."
+
+msgid "No options found"
+msgstr ""
+
+msgid "Type to filter options"
+msgstr "Nhập để lọc tùy chọn"
+
+msgid "No results found for {{searchQuery}}"
+msgstr ""
+
 msgid "Clear selections"
 msgstr "Xóa các lựa chọn"
 
@@ -241,9 +281,6 @@ msgid "Approved"
 msgstr "Đã duyệt"
 
 msgid "Failed to load approval state"
-msgstr ""
-
-msgid "Choose a period first"
 msgstr ""
 
 msgid "Choose a workflow and period first"
@@ -273,7 +310,26 @@ msgstr ""
 msgid "No workflows found. None may exist, or you may not have access to any."
 msgstr ""
 
+msgid "0 selections"
+msgstr "0 lựa chọn"
+
+msgid "1 selection"
+msgstr "1 lựa chọn"
+
+msgid "{{amount}} selections"
+msgstr "{{amount}} lựa chọn"
+
 msgid "Could not load approval data"
+msgstr ""
+
+msgid ""
+"The selected workflow \"{{workflowName}}\" does not have any associated data"
+" sets."
+msgstr ""
+
+msgid ""
+"Please verify the workflow configuration or select a different workflow that"
+" includes data sets."
 msgstr ""
 
 msgid "Retry loading approval data"
