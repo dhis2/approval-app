@@ -1,3 +1,12 @@
+## [100.1.5](https://github.com/dhis2/approval-app/compare/v100.1.4...v100.1.5) (2026-02-17)
+
+
+### Bug Fixes
+
+* e2e updates ([77dfbed](https://github.com/dhis2/approval-app/commit/77dfbedde1cdaad2867663dd8ba8230c1b2512b2))
+* linting ([ab19bd4](https://github.com/dhis2/approval-app/commit/ab19bd481e323ac04c387c936fc18dd885815314))
+* update cypress (start with claude ai) ([d4aeb18](https://github.com/dhis2/approval-app/commit/d4aeb185fc7b7ff6324abdd1b1df7d2067c3aff0))
+
 ## [100.1.4](https://github.com/dhis2/approval-app/compare/v100.1.3...v100.1.4) (2026-02-15)
 
 
