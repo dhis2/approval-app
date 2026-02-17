@@ -1,3 +1,4 @@
 {
-    "nonGlobalStepDefinitions": true
+    "stepDefinitions": "cypress/e2e/**/*.js",
+    "specPattern": "**/*.feature"
 }

@@ -3,7 +3,7 @@ import {
     Then,
     When,
     defineParameterType,
-} from 'cypress-cucumber-preprocessor/steps'
+} from '@badeball/cypress-cucumber-preprocessor'
 
 Given('the admin user visits the app', () => {
     cy.visit('/')
