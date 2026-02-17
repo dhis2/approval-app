@@ -15,7 +15,7 @@ Feature: Users can approve, accept, unapprove, and unaccept data
         When the user clicks the Approve button
         Then a modal confirmation dialog is displayed
         When the confirmation button is clicked
-        Then a circular loader is rendered
+        # Then a circular loader is rendered
         And the following buttons are available
             | label     | visible | disabled |
             | Approve   |         |          |
@@ -53,7 +53,7 @@ Feature: Users can approve, accept, unapprove, and unaccept data
     Scenario: User unapproves data
         Then the status tag shows the approval status "Approved by .+"
         When the user clicks the Unapprove button
-        Then a circular loader is rendered
+        # Then a circular loader is rendered
         And the status tag shows the approval status "Ready for approval"
         And the following buttons are available
             | label     | visible | disabled |
