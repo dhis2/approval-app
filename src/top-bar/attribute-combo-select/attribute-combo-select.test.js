@@ -174,7 +174,7 @@ afterEach(() => {
 })
 
 describe('<AttributeComboSelect>', () => {
-    it('does not render if a workflow is not selected', () => {
+    it('is disabled if a workflow and a period are not selected', () => {
         useSelectionContext.mockImplementation(() => ({
             workflow: null,
             period: {},
@@ -187,10 +187,13 @@ describe('<AttributeComboSelect>', () => {
             setOpenedSelect: () => {},
         }))
         const wrapper = shallow(<AttributeComboSelect />)
-        expect(wrapper.children()).toHaveLength(0)
+        const contextSelect = wrapper.find(ContextSelect)
+
+        expect(contextSelect.exists()).toBe(true)
+        expect(contextSelect.prop('disabled')).toBe(true)
     })
 
-    it('does not render if a period and an orgUnit have not been set', () => {
+    it('is disabled if a period is not set', () => {
         useSelectionContext.mockImplementation(() => ({
             workflow: mockWorkflows[0],
             period: null,
@@ -202,59 +205,19 @@ describe('<AttributeComboSelect>', () => {
             setOpenedSelect: () => {},
         }))
         const wrapper = shallow(<AttributeComboSelect />)
+        const contextSelect = wrapper.find(ContextSelect)
 
-        expect(wrapper.children()).toHaveLength(0)
+        expect(contextSelect.exists()).toBe(true)
+        expect(contextSelect.prop('disabled')).toBe(true)
     })
 
-    it('does not render if an orgUnit has not been set', () => {
-        useSelectionContext.mockImplementation(() => ({
-            workflow: mockWorkflows[0],
-            period: {
-                id: '202404',
-                displayName: 'April 2024',
-            },
-            orgUnit: null,
-            attributeOptionCombo: {},
-            openedSelect: '',
-            selectAttributeOptionCombo: () => {},
-            selectPeriod: () => {},
-            setOpenedSelect: () => {},
-        }))
-        const wrapper = shallow(<AttributeComboSelect />)
-
-        expect(wrapper.children()).toHaveLength(0)
-    })
-
-    it('does not render if a period has not been set', () => {
-        useSelectionContext.mockImplementation(() => ({
-            workflow: {
-                id: 'i5m0JPw4DQi',
-            },
-            period: null,
-            orgUnit: {
-                displayName: 'Sierra Leone',
-                id: 'ouId1',
-                path: '/ouId1',
-            },
-            attributeOptionCombo: {},
-            openedSelect: '',
-            selectAttributeOptionCombo: () => {},
-            selectWorkflow: () => {},
-            setOpenedSelect: () => {},
-        }))
-
-        const wrapper = shallow(<AttributeComboSelect />)
-
-        expect(wrapper.children()).toHaveLength(0)
-    })
-
-    it('is enabled if workflow, period and orgUnit have been set', async () => {
+    it('is enabled if a worflow and a period are set', async () => {
         useSelectionContext.mockImplementation(() => ({
             workflow: mockWorkflows[0],
             period: {
                 id: '20120402',
             },
-            orgUnit: mockOrgUnitRoots[0],
+            orgUnit: null,
             attributeOptionCombo: null,
             openedSelect: 'CAT_OPTION_COMBO',
             selectAttributeOptionCombo: () => {},
@@ -262,8 +225,8 @@ describe('<AttributeComboSelect>', () => {
             selectWorkflow: () => {},
             setOpenedSelect: () => {},
             attributeCombo: mockMetadata.categoryCombos['catComboId1'],
-            showAttributeSelect: true,
-            attributeCombos: Object.values(mockMetadata.categoryCombos),
+            isEnabled: true,
+            attributeCombos: null,
             attrComboValue: '0 selections',
         }))
 
@@ -278,5 +241,57 @@ describe('<AttributeComboSelect>', () => {
         expect(contextSelect.exists()).toBe(true)
         expect(contextSelect.prop('disabled')).toBe(false)
         expect(contextSelect.prop('placeholder')).toBe('0 selections')
+    })
+
+    it('is disabled if only one category option combo exists or valid', async () => {
+        useSelectionContext.mockImplementation(() => ({
+            workflow: mockWorkflows[0],
+            period: {
+                id: '20120402',
+            },
+            orgUnit: null,
+            attributeOptionCombo: null,
+            openedSelect: 'CAT_OPTION_COMBO',
+            selectAttributeOptionCombo: () => {},
+            selectAttributeCombo: () => {},
+            selectWorkflow: () => {},
+            setOpenedSelect: () => {},
+            attributeCombo: mockMetadata.categoryCombos['catComboId1'],
+            isEnabled: true,
+            attributeCombos: null,
+            attrComboValue: '0 selections',
+        }))
+
+        const wrapper = mount(<AttributeComboSelect />)
+
+        await act(async () => {
+            await new Promise((resolve) => setTimeout(resolve, 0))
+            wrapper.update()
+        })
+
+        const contextSelect = wrapper.find(ContextSelect)
+        expect(contextSelect.exists()).toBe(true)
+        expect(contextSelect.prop('disabled')).toBe(false)
+        expect(contextSelect.prop('placeholder')).toBe('0 selections')
+    })
+
+    it("passes placeholder prop to ContextSelect even when disabled", async () => {
+        useSelectionContext.mockImplementation(() => ({
+            workflow: null,
+            period: {},
+            orgUnit: {},
+            attributeOptionCombo: {},
+            openedSelect: '',
+            selectAttributeCombo: () => {},
+            selectAttributeOptionCombo: () => {},
+            selectWorkflow: () => {},
+            setOpenedSelect: () => {},
+        }))
+        const wrapper = mount(<AttributeComboSelect />)
+        const placeholder = 'Choose a category option combo'
+
+        expect(wrapper.find(ContextSelect).prop('disabled')).toBe(true)
+        expect(wrapper.find(ContextSelect).prop('value')).toBe(undefined)
+        expect(wrapper.find(ContextSelect).prop('placeholder')).toBe(placeholder)
     })
 })

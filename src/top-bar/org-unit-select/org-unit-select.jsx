@@ -19,12 +19,18 @@ const OrgUnitSelect = () => {
         period,
         openedSelect,
         setOpenedSelect,
+        attributeOptionCombo,
     } = useSelectionContext()
     const open = openedSelect === ORG_UNIT
     const value = orgUnit?.displayName
-    const requiredValuesMessage = workflow?.id
-        ? i18n.t('Choose a period first')
-        : i18n.t('Choose a workflow and period first')
+    const requiredValuesMessage =
+        !workflow
+            ? i18n.t('Choose a workflow, a period and a category option combo first')
+            : !period
+                ? i18n.t('Choose a period and a category option combo first')
+                : !attributeOptionCombo
+                    ? i18n.t('Choose a category option combo first')
+                    : null
     const roots = organisationUnits.map(({ id }) => id)
     const onChange = ({ displayName, id, path }) => {
         selectOrgUnit({ displayName, id, path })
@@ -40,7 +46,7 @@ const OrgUnitSelect = () => {
             placeholder={i18n.t('Choose an organisation unit')}
             value={value}
             open={open}
-            disabled={!(workflow?.id && period?.id)}
+            disabled={!(workflow?.id && period?.id && attributeOptionCombo?.id)}
             onOpen={() => setOpenedSelect(ORG_UNIT)}
             onClose={() => setOpenedSelect('')}
             requiredValuesMessage={requiredValuesMessage}

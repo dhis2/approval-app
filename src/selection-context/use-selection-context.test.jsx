@@ -215,7 +215,7 @@ describe('useSelectionContext', () => {
             selectDataSet: expect.any(Function),
             attrComboValue: '',
             attributeCombos: [],
-            showAttributeSelect: true,
+            isEnabled: false,
         })
     })
 

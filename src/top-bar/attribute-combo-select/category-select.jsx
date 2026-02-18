@@ -25,7 +25,6 @@ HideButton.propTypes = {
 /**
  *
  * @param categoryCombo An object which has an array of category objects (JSON), each options (to be rendered in a menu).
- * @param orgUnit An object
  * @param selected {<attribute option combo>}
  * @param onChange A function to handle changes in the selected options.
  * @param onClose A function to close the menu.

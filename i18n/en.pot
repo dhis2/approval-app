@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2025-07-30T04:53:04.803Z\n"
-"PO-Revision-Date: 2025-07-30T04:53:04.803Z\n"
+"POT-Creation-Date: 2026-02-18T11:10:28.537Z\n"
+"PO-Revision-Date: 2026-02-18T11:10:28.537Z\n"
 
 msgid "Not authorized"
 msgstr "Not authorized"
@@ -235,11 +235,14 @@ msgstr "Financial year (Start July)"
 msgid "Financial year (Start April)"
 msgstr "Financial year (Start April)"
 
+msgid "Choose a workflow and period first"
+msgstr "Choose a workflow and period first"
+
+msgid "No found category option combo"
+msgstr "No found category option combo"
+
 msgid "Choose a period first"
 msgstr "Choose a period first"
-
-msgid "Choose an organisation unit first"
-msgstr "Choose an organisation unit first"
 
 msgid "Category Option Combo"
 msgstr "Category Option Combo"
@@ -284,8 +287,14 @@ msgstr "Approved"
 msgid "Failed to load approval state"
 msgstr "Failed to load approval state"
 
-msgid "Choose a workflow and period first"
-msgstr "Choose a workflow and period first"
+msgid "Choose a workflow, a period and a category option combo first"
+msgstr "Choose a workflow, a period and a category option combo first"
+
+msgid "Choose a period and a category option combo first"
+msgstr "Choose a period and a category option combo first"
+
+msgid "Choose a category option combo first"
+msgstr "Choose a category option combo first"
 
 msgid "Organisation Unit"
 msgstr "Organisation Unit"
@@ -319,6 +328,12 @@ msgstr "1 selection"
 
 msgid "{{amount}} selections"
 msgstr "{{amount}} selections"
+
+msgid "[No options]"
+msgstr "[No options]"
+
+msgid "0 selection"
+msgstr "0 selection"
 
 msgid "Could not load approval data"
 msgstr "Could not load approval data"

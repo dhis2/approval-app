@@ -185,7 +185,7 @@ describe('<Display>', () => {
                             mockMetadata.categoryOptionCombos[
                                 'catOptionComboId1'
                             ],
-                        showAttributeSelect: true,
+                        isEnabled: true,
                         attrComboValue: '2 selections',
                         openedSelect: 'CAT_OPTION_COMBO',
                     }}

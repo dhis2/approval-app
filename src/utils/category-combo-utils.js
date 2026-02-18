@@ -3,9 +3,9 @@ import { isDateALessThanDateB } from './date-utils.js'
 
 export const getCategoryCombosByFilters = (
     metadata,
-    { workflow, orgUnit, period, calendar }
+    { workflow, period, calendar }
 ) => {
-    if (workflow == null || orgUnit == null || period == null) {
+    if (workflow == null || period == null) {
         return []
     }
 
@@ -18,7 +18,6 @@ export const getCategoryCombosByFilters = (
         filterValidCategoryOptions({
             categoryCombo,
             metadata,
-            orgUnit,
             period,
             calendar,
         })
@@ -35,7 +34,7 @@ export const extractValidCatComboAndCatOptionCombo = (
     metadata,
     selection = {}
 ) => {
-    const { workflow, aoc, orgUnit, period, calendar } = selection
+    const { workflow, aoc, period, calendar } = selection
 
     if (!workflow?.dataSets?.length) {
         return null
@@ -60,7 +59,6 @@ export const extractValidCatComboAndCatOptionCombo = (
     const isValid = isCategoryOptionComboValid({
         aoc,
         metadata,
-        orgUnit,
         period,
         calendar,
     })
@@ -170,20 +168,6 @@ const getCategoryComboByDataSet = (workflow, metadata) => {
     return uniqueComboIds.map((id) => getAttributeComboById(metadata, id))
 }
 
-const isOptionAssignedToOrgUnit = ({ categoryOption, orgUnit }) => {
-    // by default, ...
-    if (!categoryOption?.organisationUnits?.length) {
-        return true
-    }
-
-    const found = categoryOption?.organisationUnits.filter(
-        (catOptionOrgUnit) =>
-            orgUnit?.path.indexOf(catOptionOrgUnit.path) >= 0 ||
-            catOptionOrgUnit?.path.indexOf(orgUnit.path) >= 0
-    )
-    return found.length > 0
-}
-
 const isOptionWithinPeriod = ({
     period,
     categoryOption,
@@ -233,11 +217,10 @@ const isOptionWithinPeriod = ({
 const filterValidCategoryOptions = ({
     metadata,
     categoryCombo,
-    orgUnit,
     period,
     calendar,
 }) => {
-    if (!categoryCombo?.categoryIds?.length || !orgUnit || !period) {
+    if (!categoryCombo?.categoryIds?.length || !period) {
         return
     }
 
@@ -251,7 +234,6 @@ const filterValidCategoryOptions = ({
             const categoryOption = metadata.categoryOptions[catOptionId]
             return isCategoryOptionValid({
                 categoryOption,
-                orgUnit,
                 period,
                 calendar,
             })
@@ -262,7 +244,6 @@ const filterValidCategoryOptions = ({
 const isCategoryOptionComboValid = ({
     aoc,
     metadata,
-    orgUnit,
     period,
     calendar,
 }) => {
@@ -272,7 +253,6 @@ const isCategoryOptionComboValid = ({
         const categoryOption = metadata.categoryOptions[optionId]
         return isCategoryOptionValid({
             categoryOption,
-            orgUnit,
             period,
             calendar,
         })
@@ -281,12 +261,10 @@ const isCategoryOptionComboValid = ({
 
 const isCategoryOptionValid = ({
     categoryOption,
-    orgUnit,
     period,
     calendar,
 }) => {
     return (
-        isOptionAssignedToOrgUnit({ categoryOption, orgUnit }) &&
         isOptionWithinPeriod({ categoryOption, period, calendar })
     )
 }
