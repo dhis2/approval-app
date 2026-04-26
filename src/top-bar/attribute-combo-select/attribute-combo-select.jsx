@@ -29,10 +29,10 @@ const AttributeComboSelect = () => {
 
     const open = openedSelect === CAT_OPTION_COMBO
     const getMissingSelectionsMessage = () => {
-        if(!workflow) {
-            return i18n.t("Choose a workflow and period first")
+        if (!workflow) {
+            return i18n.t('Choose a workflow and period first')
         }
-        if(workflow.dataSets?.length === 0 ){
+        if (workflow.dataSets?.length === 0) {
             return i18n.t('No found category option combo')
         }
         if (!period) {
@@ -54,12 +54,10 @@ const AttributeComboSelect = () => {
         <ContextSelect
             dataTest="category-combo-context-select"
             prefix={
-                attributeCombo?.displayName ||
-                i18n.t('Category Option Combo')
+                attributeCombo?.displayName || i18n.t('Category Option Combo')
             }
             placeholder={
-                attrComboValue ||
-                i18n.t('Choose a category option combo')
+                attrComboValue || i18n.t('Choose a category option combo')
             }
             open={open}
             disabled={!isEnabled}
@@ -72,14 +70,11 @@ const AttributeComboSelect = () => {
             <div
                 className={css.menu}
                 style={{
-                    height:
-                        attributeCombos?.length == 1
-                            ? '250px'
-                            : '330px',
+                    height: attributeCombos?.length == 1 ? '250px' : '330px',
                 }}
             >
                 {/* Only show Category Combo dropdown when there are more than one categoryCombo in the list */}
-                {attributeCombos?.length > 1 &&
+                {attributeCombos?.length > 1 && (
                     <div className={css.attributeComboSelect}>
                         <SingleSelect
                             placeholder={i18n.t('Choose a combination')}
@@ -96,17 +91,21 @@ const AttributeComboSelect = () => {
                                 />
                             ))}
                         </SingleSelect>
-                    </div> }
+                    </div>
+                )}
 
-                    {attributeCombo && !attributeCombo.isDefault && <div className={css.categorySelectWrapper}>
+                {attributeCombo && !attributeCombo.isDefault && (
+                    <div className={css.categorySelectWrapper}>
                         <CategorySelect
                             key={`catCombo_${workflow?.id}_${period?.id}_${attributeCombo?.id}`}
                             categoryCombo={attributeCombo}
                             selected={attributeOptionCombo}
+                            period={period}
                             onChange={onChange}
                             onClose={() => setOpenedSelect('')}
                         />
-                    </div>}
+                    </div>
+                )}
             </div>
         </ContextSelect>
     )

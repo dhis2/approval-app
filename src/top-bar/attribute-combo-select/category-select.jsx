@@ -1,7 +1,8 @@
+import { useConfig } from '@dhis2/app-runtime'
 import i18n from '@dhis2/d2-i18n'
 import { Button, NoticeBox } from '@dhis2/ui'
 import PropTypes from 'prop-types'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useAppContext } from '../../app-context/use-app-context.js'
 import { cloneJSON } from '../../utils/array-utils.js'
 import {
@@ -32,11 +33,14 @@ HideButton.propTypes = {
  */
 export default function CategorySelect({
     categoryCombo,
+    period,
     onChange,
     onClose,
     selected, // attributeOptionCombo
 }) {
     const { metadata } = useAppContext()
+    const { systemInfo = {} } = useConfig()
+    const { calendar = 'gregory' } = systemInfo
 
     const mapSelectedCategories = () => {
         const categoryMap = {}
@@ -48,7 +52,12 @@ export default function CategorySelect({
         const categoryOptionIds = selected.categoryOptionIds
 
         // Go through "Categories" of catCombo to find "CategoryOption" we need
-        const categories = getCategoriesByCategoryCombo(categoryCombo, metadata)
+        const categories = getCategoriesByCategoryCombo(
+            categoryCombo,
+            metadata,
+            period,
+            calendar
+        )
         for (const category of categories) {
             const foundCatOptionId = category.categoryOptionIds.filter((id) =>
                 categoryOptionIds.includes(id)
@@ -65,6 +74,24 @@ export default function CategorySelect({
     const [selectedItem, setSelectedItem] = useState(() =>
         mapSelectedCategories()
     )
+
+    useEffect(() => {
+        const categories = getCategoriesByCategoryCombo(
+            categoryCombo,
+            metadata,
+            period,
+            calendar
+        )
+        if (
+            categories.length === 1 &&
+            categories[0].categoryOptionIds?.length === 1
+        ) {
+            categoryItemOnChange(
+                categories[0].id,
+                categories[0].categoryOptionIds[0]
+            )
+        }
+    }, [categoryCombo])
 
     const categoryItemOnChange = (categoryId, selectedOptionId) => {
         let updatedSelected = cloneJSON(selectedItem)
@@ -85,8 +112,12 @@ export default function CategorySelect({
         onChange(selectedCatOptionCombo)
     }
 
-    const categories = getCategoriesByCategoryCombo(categoryCombo, metadata)
-
+    const categories = getCategoriesByCategoryCombo(
+        categoryCombo,
+        metadata,
+        period,
+        calendar
+    )
     // Check if there's exactly one category in the categories array and that category has at least one categoryOption
     if (categories.length === 1) {
         // Extracts the single category from the categories array
@@ -112,6 +143,15 @@ export default function CategorySelect({
 
                     <HideButton onClick={() => onClose()} />
                 </>
+            )
+        }
+
+        if (categoryOptions.length === 1) {
+            // Renders a MenuSelect for the single category with more than one category options
+            return (
+                <div className={css.one-option-selected}>
+                    {categoryOptions[0].displayName}
+                </div>
             )
         }
 
@@ -151,7 +191,7 @@ CategorySelect.propTypes = {
         id: PropTypes.string.isRequired,
         isDefault: PropTypes.bool.isRequired,
     }).isRequired,
-
+    period: PropTypes.object.isRequired,
     onChange: PropTypes.func.isRequired,
     onClose: PropTypes.func.isRequired,
     selected: PropTypes.object,
