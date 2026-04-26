@@ -31,10 +31,11 @@ const OrgUnitSelect = () => {
     const initiallySelected =
         selectedOrgUnitPath || organisationUnits.map(({ path }) => path)
 
-
     const getRequiredValuesMessage = () => {
         if (!workflow?.id) {
-            return i18n.t('Choose a workflow, a period and a category option combo first')
+            return i18n.t(
+                'Choose a workflow, a period and a category option combo first'
+            )
         }
         if (!period) {
             return i18n.t('Choose a period and a category option combo first')
@@ -42,15 +43,17 @@ const OrgUnitSelect = () => {
         if (!attributeOptionCombo) {
             return i18n.t('Choose a category option combo first')
         }
-        return null;
+        return null
     }
+
+    const requiredValuesMessage = getRequiredValuesMessage()
 
     return (
         <ContextSelect
             dataTest="org-unit-context-select"
             prefix={i18n.t('Organisation Unit')}
             placeholder={i18n.t('Choose an organisation unit')}
-            value={value}
+            value={requiredValuesMessage === null ? value : ''}
             open={open}
             disabled={!(workflow?.id && period?.id && attributeOptionCombo?.id)}
             onOpen={() => setOpenedSelect(ORG_UNIT)}

@@ -6,8 +6,10 @@ import {
     getAttributeComboById,
 } from './category-combo-utils.js'
 
-
-const getAttributeOptionComboData = (metadata, {workflow, aoc, period, calendar}) => {
+const getAttributeOptionComboData = (
+    metadata,
+    { workflow, aoc, period, calendar }
+) => {
     return extractValidCatComboAndCatOptionCombo(metadata, {
         workflow,
         aoc,
@@ -17,12 +19,15 @@ const getAttributeOptionComboData = (metadata, {workflow, aoc, period, calendar}
 }
 
 export const handleSelectWorkflow = (state, payload) => {
-    const attributeOptionComboData = getAttributeOptionComboData(payload.metadata, {
-        workflow: payload.workflow,
-        aoc: state.attributeOptionCombo?.id,
-        period: state.period,
-        calendar: payload.calendar,
-    });
+    const attributeOptionComboData = getAttributeOptionComboData(
+        payload.metadata,
+        {
+            workflow: payload.workflow,
+            aoc: state.attributeOptionCombo?.id,
+            period: state.period,
+            calendar: payload.calendar,
+        }
+    )
 
     const samePeriodType =
         state.workflow?.periodType === payload.workflow?.periodType
@@ -31,7 +36,10 @@ export const handleSelectWorkflow = (state, payload) => {
         ...state,
         openedSelect: '',
         workflow: payload.workflow,
-        period: state.workflow && samePeriodType ? state.period : null,
+        period:
+            state.workflow?.dataSets?.length > 0 && samePeriodType
+                ? state.period
+                : null,
         attributeCombo: state.attributeCombo
             ? attributeOptionComboData?.attributeCombo
             : null,
@@ -43,12 +51,15 @@ export const handleSelectWorkflow = (state, payload) => {
 }
 
 export const handleSelectPeriod = (state, payload) => {
-     const attributeOptionComboData = getAttributeOptionComboData(payload.metadata, {
-        workflow: state.workflow,
-        aoc: state.attributeOptionCombo?.id,
-        period: payload.period,
-        calendar: payload.calendar,
-    });
+    const attributeOptionComboData = getAttributeOptionComboData(
+        payload.metadata,
+        {
+            workflow: state.workflow,
+            aoc: state.attributeOptionCombo?.id,
+            period: payload.period,
+            calendar: payload.calendar,
+        }
+    )
 
     return {
         ...state,
@@ -60,7 +71,7 @@ export const handleSelectPeriod = (state, payload) => {
 }
 
 export const handleSelectCatOptionCombo = (state, payload) => {
-   return {
+    return {
         ...state,
         attributeCombo: payload.attributeCombo,
         attributeOptionCombo: null,
@@ -93,7 +104,7 @@ export const getAttributeComboState = ({
 
     let _attributeCombo = attributeCombo
     let _attributeOptionCombo = null
-    let isEnabled =  !!(workflow?.dataSets?.length > 0 && period?.id)
+    let isEnabled = !!(workflow?.dataSets?.length > 0 && period?.id)
     let attributeComboValue = i18n.t('0 selections')
 
     const processCategoryOptions = (metadata, attributeOptionCombo) => {
@@ -153,7 +164,6 @@ export const getAttributeComboState = ({
             metadata.categories[_attributeCombos[0].categoryIds[0]]
                 .categoryOptionIds.length <= 1
         )
-
     } else if (_attributeCombos.length === 1) {
         const [singleCategoryCombo] = _attributeCombos
         const [categoryId] = singleCategoryCombo.categoryIds
