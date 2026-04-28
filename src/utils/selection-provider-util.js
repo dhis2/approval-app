@@ -104,7 +104,7 @@ export const getAttributeComboState = ({
 
     let _attributeCombo = attributeCombo
     let _attributeOptionCombo = null
-    let isEnabled = !!(workflow?.dataSets?.length > 0 && period?.id)
+    let isVisible = !!(workflow?.dataSets?.length > 0 && period?.id)
     let attributeComboValue = i18n.t('0 selections')
 
     const processCategoryOptions = (metadata, attributeOptionCombo) => {
@@ -118,7 +118,7 @@ export const getAttributeComboState = ({
         selectedCategoryItems
     ) => {
         if (selectedAttrCombo?.isDefault) {
-            isEnabled = false
+            isVisible = false
             return ''
         }
 
@@ -139,7 +139,7 @@ export const getAttributeComboState = ({
 
     if (_attributeCombos.length === 0) {
         _attributeCombo = null
-        isEnabled = false
+        isVisible = false
         attributeComboValue = i18n.t('[No options]')
     } else if (attributeOptionCombo) {
         const selectedAttrCombo = getAttributeComboById(
@@ -158,7 +158,7 @@ export const getAttributeComboState = ({
         _attributeCombo = selectedAttrCombo
         _attributeOptionCombo = selectedAttrOptionCombo
         attributeComboValue = value
-        isEnabled = !(
+        isVisible = !(
             _attributeCombos.length === 1 &&
             _attributeCombos[0].categoryIds?.length === 1 &&
             metadata.categories[_attributeCombos[0].categoryIds[0]]
@@ -182,7 +182,7 @@ export const getAttributeComboState = ({
             )
             _attributeCombo = singleCategoryCombo
             attributeComboValue = i18n.t('1 selection')
-            isEnabled = false
+            isVisible = false
         } else {
             _attributeCombo = singleCategoryCombo
             attributeComboValue = i18n.t('0 selection')
@@ -193,7 +193,7 @@ export const getAttributeComboState = ({
         attributeCombos: _attributeCombos,
         attributeCombo: _attributeCombo,
         attributeOptionCombo: _attributeOptionCombo,
-        isEnabled,
+        isVisible,
         attrComboValue: attributeComboValue,
     }
 }

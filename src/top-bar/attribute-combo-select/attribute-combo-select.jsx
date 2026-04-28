@@ -21,7 +21,7 @@ const AttributeComboSelect = () => {
         attributeOptionCombo,
         selectAttributeOptionCombo,
         attributeCombos,
-        isEnabled,
+        isVisible,
         attrComboValue,
     } = useSelectionContext()
 
@@ -51,63 +51,64 @@ const AttributeComboSelect = () => {
     }
 
     return (
-        <ContextSelect
-            dataTest="category-combo-context-select"
-            prefix={
-                attributeCombo?.displayName || i18n.t('Category Option Combo')
-            }
-            placeholder={
-                attrComboValue || i18n.t('Choose a category option combo')
-            }
-            open={open}
-            disabled={!isEnabled}
-            onOpen={() => setOpenedSelect(CAT_OPTION_COMBO)}
-            onClose={() => setOpenedSelect('')}
-            requiredValuesMessage={getMissingSelectionsMessage()}
-            popoverMaxWidth={400}
-        >
-            {/* Renders a SingleSelectField for each category */}
-            <div
-                className={css.menu}
-                style={{
-                    height: attributeCombos?.length == 1 ? '250px' : '330px',
-                }}
+        <>
+            {isVisible && <ContextSelect
+                dataTest="category-combo-context-select"
+                prefix={
+                    attributeCombo?.displayName || i18n.t('Category Option Combo')
+                }
+                placeholder={
+                    attrComboValue || i18n.t('Choose a category option combo')
+                }
+                open={open}
+                onOpen={() => setOpenedSelect(CAT_OPTION_COMBO)}
+                onClose={() => setOpenedSelect('')}
+                requiredValuesMessage={getMissingSelectionsMessage()}
+                popoverMaxWidth={400}
             >
-                {/* Only show Category Combo dropdown when there are more than one categoryCombo in the list */}
-                {attributeCombos?.length > 1 && (
-                    <div className={css.attributeComboSelect}>
-                        <SingleSelect
-                            placeholder={i18n.t('Choose a combination')}
-                            selected={attributeCombo?.id}
-                            onChange={({ selected }) =>
-                                onChangeCatCombo(selected)
-                            }
-                        >
-                            {attributeCombos.map((catCombo) => (
-                                <SingleSelectOption
-                                    key={`wf_${workflow?.id}_${catCombo?.id}`}
-                                    value={catCombo.id}
-                                    label={catCombo.displayName}
-                                />
-                            ))}
-                        </SingleSelect>
-                    </div>
-                )}
+                {/* Renders a SingleSelectField for each category */}
+                <div
+                    className={css.menu}
+                    style={{
+                        height: attributeCombos?.length == 1 ? '250px' : '330px',
+                    }}
+                >
+                    {/* Only show Category Combo dropdown when there are more than one categoryCombo in the list */}
+                    {attributeCombos?.length > 1 && (
+                        <div className={css.attributeComboSelect}>
+                            <SingleSelect
+                                placeholder={i18n.t('Choose a combination')}
+                                selected={attributeCombo?.id}
+                                onChange={({ selected }) =>
+                                    onChangeCatCombo(selected)
+                                }
+                            >
+                                {attributeCombos.map((catCombo) => (
+                                    <SingleSelectOption
+                                        key={`wf_${workflow?.id}_${catCombo?.id}`}
+                                        value={catCombo.id}
+                                        label={catCombo.displayName}
+                                    />
+                                ))}
+                            </SingleSelect>
+                        </div>
+                    )}
 
-                {attributeCombo && !attributeCombo.isDefault && (
-                    <div className={css.categorySelectWrapper}>
-                        <CategorySelect
-                            key={`catCombo_${workflow?.id}_${period?.id}_${attributeCombo?.id}`}
-                            categoryCombo={attributeCombo}
-                            selected={attributeOptionCombo}
-                            period={period}
-                            onChange={onChange}
-                            onClose={() => setOpenedSelect('')}
-                        />
-                    </div>
-                )}
-            </div>
-        </ContextSelect>
+                    {attributeCombo && !attributeCombo.isDefault && (
+                        <div className={css.categorySelectWrapper}>
+                            <CategorySelect
+                                key={`catCombo_${workflow?.id}_${period?.id}_${attributeCombo?.id}`}
+                                categoryCombo={attributeCombo}
+                                selected={attributeOptionCombo}
+                                period={period}
+                                onChange={onChange}
+                                onClose={() => setOpenedSelect('')}
+                            />
+                        </div>
+                    )}
+                </div>
+            </ContextSelect>}
+        </>
     )
 }
 

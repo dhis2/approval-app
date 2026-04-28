@@ -225,7 +225,7 @@ describe('<AttributeComboSelect>', () => {
             selectWorkflow: () => {},
             setOpenedSelect: () => {},
             attributeCombo: mockMetadata.categoryCombos['catComboId1'],
-            isEnabled: true,
+            isVisible: true,
             attributeCombos: null,
             attrComboValue: '0 selections',
         }))
@@ -257,7 +257,7 @@ describe('<AttributeComboSelect>', () => {
             selectWorkflow: () => {},
             setOpenedSelect: () => {},
             attributeCombo: mockMetadata.categoryCombos['catComboId1'],
-            isEnabled: true,
+            isVisible: true,
             attributeCombos: null,
             attrComboValue: '0 selections',
         }))

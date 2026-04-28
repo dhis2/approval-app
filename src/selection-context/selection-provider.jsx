@@ -97,7 +97,7 @@ const SelectionProvider = ({ children }) => {
 
     const [attributeComboState, setAttributeComboState] = useState({
         attributeCombos: [],
-        isEnabled: false,
+        isVisible: false,
         attrComboValue: '',
     })
 
@@ -159,7 +159,7 @@ const SelectionProvider = ({ children }) => {
     const updateAttributeComboState = (_attributeState) => {
         setAttributeComboState({
             attributeCombos: _attributeState.attributeCombos,
-            isEnabled: _attributeState.isEnabled,
+            isVisible: _attributeState.isVisible,
             attrComboValue: _attributeState.attrComboValue,
         })
     }
@@ -202,7 +202,7 @@ const SelectionProvider = ({ children }) => {
             })
             setAttributeComboState({
                 attributeCombos: [],
-                isEnabled: false,
+                isVisible: false,
                 attrComboValue: '',
             })
         },

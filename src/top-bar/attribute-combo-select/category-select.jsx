@@ -149,7 +149,7 @@ export default function CategorySelect({
         if (categoryOptions.length === 1) {
             // Renders a MenuSelect for the single category with more than one category options
             return (
-                <div className={css.one-option-selected}>
+                <div className={css.oneOptionSelected}>
                     {categoryOptions[0].displayName}
                 </div>
             )
