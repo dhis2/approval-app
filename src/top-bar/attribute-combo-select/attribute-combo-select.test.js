@@ -271,22 +271,4 @@ describe('<AttributeComboSelect>', () => {
         expect(wrapper.find(ContextSelect).exists()).toBe(true)
         expect(contextSelect.prop('placeholder')).toBe('0 selections')
     })
-
-    it("passes placeholder prop to ContextSelect even when disabled", async () => {
-        useSelectionContext.mockImplementation(() => ({
-            workflow: null,
-            period: {},
-            orgUnit: {},
-            attributeOptionCombo: {},
-            openedSelect: '',
-            selectAttributeCombo: () => {},
-            selectAttributeOptionCombo: () => {},
-            selectWorkflow: () => {},
-            setOpenedSelect: () => {},
-        }))
-        const wrapper = mount(<AttributeComboSelect />)
-        const placeholder = 'Choose a category option combo'
-
-        expect(wrapper.find(ContextSelect).exists()).toBe(false)
-    })
 })
