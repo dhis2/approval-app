@@ -102,10 +102,6 @@ const SelectionProvider = ({ children }) => {
     })
 
     const _attributeComboState = useMemo(() => {
-        if (!metadata || !workflow || !period) {
-            return null
-        }
-
         return getAttributeComboState({
             metadata,
             workflow,

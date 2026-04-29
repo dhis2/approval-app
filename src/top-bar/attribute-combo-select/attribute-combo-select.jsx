@@ -1,9 +1,9 @@
 import i18n from '@dhis2/d2-i18n'
 import { SingleSelect, SingleSelectOption } from '@dhis2/ui'
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useAppContext } from '../../app-context/use-app-context.js'
 import { useSelectionContext } from '../../selection-context/index.js'
-import { getAttributeComboById } from '../../utils/category-combo-utils.js'
+import { getAttributeComboById, getCategoriesByCategoryCombo } from '../../utils/category-combo-utils.js'
 import { ContextSelect } from '../context-select/context-select.jsx'
 import css from './attribute-combo-select.module.css'
 import CategorySelect from './category-select.jsx'
@@ -28,6 +28,7 @@ const AttributeComboSelect = () => {
     const { metadata } = useAppContext()
 
     const open = openedSelect === CAT_OPTION_COMBO
+
     const getMissingSelectionsMessage = () => {
         if (!workflow) {
             return i18n.t('Choose a workflow and period first')
@@ -70,12 +71,12 @@ const AttributeComboSelect = () => {
                 <div
                     className={css.menu}
                     style={{
-                        height: attributeCombos?.length == 1 ? '250px' : '330px',
+                        height: attributeCombos?.length == 1 ? '270px' : '350px',
                     }}
                 >
                     {/* Only show Category Combo dropdown when there are more than one categoryCombo in the list */}
                     {attributeCombos?.length > 1 && (
-                        <div className={css.attributeComboSelect}>
+                        <div>
                             <SingleSelect
                                 placeholder={i18n.t('Choose a combination')}
                                 selected={attributeCombo?.id}
@@ -95,16 +96,14 @@ const AttributeComboSelect = () => {
                     )}
 
                     {attributeCombo && !attributeCombo.isDefault && (
-                        <div className={css.categorySelectWrapper}>
-                            <CategorySelect
-                                key={`catCombo_${workflow?.id}_${period?.id}_${attributeCombo?.id}`}
-                                categoryCombo={attributeCombo}
-                                selected={attributeOptionCombo}
-                                period={period}
-                                onChange={onChange}
-                                onClose={() => setOpenedSelect('')}
-                            />
-                        </div>
+                        <CategorySelect
+                            key={`catCombo_${workflow?.id}_${period?.id}_${attributeCombo?.id}`}
+                            categoryCombo={attributeCombo}
+                            selected={attributeOptionCombo}
+                            period={period}
+                            onChange={onChange}
+                            onClose={() => setOpenedSelect('')}
+                        />
                     )}
                 </div>
             </ContextSelect>}

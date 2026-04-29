@@ -3,13 +3,6 @@
     overflow-y: auto;
 }
 
-.container {
-    color: #808080;
-    inline-size: 350px;
-    margin-left: 20px;
-    width: 300px;
-}
-
 .bordered {
     border-bottom: 1px solid var(--colors-grey400);
 }
@@ -24,7 +17,7 @@
 }
 
 .hideButton {
-    margin: 0px 5px;
+    margin-top: 32px;
 }
 
 .noOptionsBox {
@@ -39,7 +32,6 @@
 
 .selectContainer label {
     display: block;
-    font-weight: 600;
     margin-bottom: 0.5rem;
     color: #333;
 }
@@ -59,8 +51,6 @@
     color: #666;
 }
 
-.oneOptionSelected {
-    background-color: #e8edf2;
-    color: #000;
-    padding: 4px 16px;
+.attributeComboSelect {
+    padding: 16px;
 }

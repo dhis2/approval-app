@@ -4,6 +4,7 @@ import {
     extractValidCatComboAndCatOptionCombo,
     getCategoryCombosByFilters,
     getAttributeComboById,
+    getCategoriesByCategoryCombo,
 } from './category-combo-utils.js'
 
 const getAttributeOptionComboData = (
@@ -166,8 +167,14 @@ export const getAttributeComboState = ({
         )
     } else if (_attributeCombos.length === 1) {
         const [singleCategoryCombo] = _attributeCombos
+        const categories = getCategoriesByCategoryCombo({
+            categoryCombo: singleCategoryCombo,
+            metadata,
+            period,
+            calendar
+        })
         const [categoryId] = singleCategoryCombo.categoryIds
-        const firstCategory = metadata.categories[categoryId]
+        const [firstCategory] = categories
 
         if (
             singleCategoryCombo.categoryIds?.length === 1 &&

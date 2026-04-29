@@ -90,12 +90,12 @@ export const getDataSetReportFilter = (
         metadata,
         attributeOptionCombo.categoryComboId
     )
-    const categories = getCategoriesByCategoryCombo(
+    const categories = getCategoriesByCategoryCombo({
         categoryCombo,
         metadata,
         period,
         calendar
-    )
+    })
     for (const category of categories) {
         const matchedOptionId = category.categoryOptionIds.find((optionId) =>
             attributeOptionCombo.categoryOptionIds.includes(optionId)
@@ -156,20 +156,16 @@ export const findAttributeOptionCombo = (metadata, categoryOptionMap) => {
     )
 }
 
-// export const getCategoriesByCategoryCombo = (categoryCombo, metadata) =>
-//     categoryCombo.categoryIds.map((id) => metadata.categories[id])
-
-export const getCategoriesByCategoryCombo = (
+export const getCategoriesByCategoryCombo = ({
     categoryCombo,
     metadata,
     period,
     calendar
-) => {
+}) => {
     if (!categoryCombo?.categoryIds?.length) {
         return []
     }
 
-    // const categories = categoryCombo.categoryIds.map((id) => metadata.categories[id])
     const updatedCategories = categoryCombo.categoryIds.map((categoryId) => {
         const category = metadata.categories[categoryId]
 
@@ -265,12 +261,12 @@ const filterValidCategoryOptions = ({
         return
     }
 
-    const updatedCategories = getCategoriesByCategoryCombo(
+    const updatedCategories = getCategoriesByCategoryCombo({
         categoryCombo,
         metadata,
         period,
         calendar
-    )
+    })
 
     // Update categoryCombo.categoryIds to only include categories with options
     categoryCombo.categoryIds = categoryCombo.categoryIds.filter((id) => {
