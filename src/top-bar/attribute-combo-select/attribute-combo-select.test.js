@@ -174,7 +174,7 @@ afterEach(() => {
 })
 
 describe('<AttributeComboSelect>', () => {
-    it('is disabled if a workflow and a period are not selected', () => {
+    it('is hidden if a workflow and a period are not selected', () => {
         useSelectionContext.mockImplementation(() => ({
             workflow: null,
             period: {},
@@ -189,11 +189,10 @@ describe('<AttributeComboSelect>', () => {
         const wrapper = shallow(<AttributeComboSelect />)
         const contextSelect = wrapper.find(ContextSelect)
 
-        expect(contextSelect.exists()).toBe(true)
-        expect(contextSelect.prop('disabled')).toBe(true)
+        expect(contextSelect.exists()).toBe(false)
     })
 
-    it('is disabled if a period is not set', () => {
+    it('is hidden if a period is not set', () => {
         useSelectionContext.mockImplementation(() => ({
             workflow: mockWorkflows[0],
             period: null,
@@ -207,11 +206,10 @@ describe('<AttributeComboSelect>', () => {
         const wrapper = shallow(<AttributeComboSelect />)
         const contextSelect = wrapper.find(ContextSelect)
 
-        expect(contextSelect.exists()).toBe(true)
-        expect(contextSelect.prop('disabled')).toBe(true)
+        expect(contextSelect.exists()).toBe(false)
     })
 
-    it('is enabled if a worflow and a period are set', async () => {
+    it('is visible if a workflow and a period are set', async () => {
         useSelectionContext.mockImplementation(() => ({
             workflow: mockWorkflows[0],
             period: {
@@ -239,11 +237,10 @@ describe('<AttributeComboSelect>', () => {
 
         const contextSelect = wrapper.find(ContextSelect)
         expect(contextSelect.exists()).toBe(true)
-        expect(contextSelect.prop('disabled')).toBe(false)
         expect(contextSelect.prop('placeholder')).toBe('0 selections')
     })
 
-    it('is disabled if only one category option combo exists or valid', async () => {
+    it('is visible if only one category option combo exists or valid', async () => {
         useSelectionContext.mockImplementation(() => ({
             workflow: mockWorkflows[0],
             period: {
@@ -271,7 +268,7 @@ describe('<AttributeComboSelect>', () => {
 
         const contextSelect = wrapper.find(ContextSelect)
         expect(contextSelect.exists()).toBe(true)
-        expect(contextSelect.prop('disabled')).toBe(false)
+        expect(wrapper.find(ContextSelect).exists()).toBe(true)
         expect(contextSelect.prop('placeholder')).toBe('0 selections')
     })
 
@@ -290,8 +287,6 @@ describe('<AttributeComboSelect>', () => {
         const wrapper = mount(<AttributeComboSelect />)
         const placeholder = 'Choose a category option combo'
 
-        expect(wrapper.find(ContextSelect).prop('disabled')).toBe(true)
-        expect(wrapper.find(ContextSelect).prop('value')).toBe(undefined)
-        expect(wrapper.find(ContextSelect).prop('placeholder')).toBe(placeholder)
+        expect(wrapper.find(ContextSelect).exists()).toBe(false)
     })
 })

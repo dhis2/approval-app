@@ -156,7 +156,7 @@ describe('<OrgUnitSelect>', () => {
         const placeholder = 'Choose an organisation unit'
 
         expect(wrapper.find(ContextSelect).prop('disabled')).toBe(true)
-        expect(wrapper.find(ContextSelect).prop('value')).toBe(undefined)
+        expect(wrapper.find(ContextSelect).prop('value')).toBe("")
         expect(wrapper.find(ContextSelect).prop('placeholder')).toBe(
             placeholder
         )
