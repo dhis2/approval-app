@@ -173,7 +173,6 @@ export const getAttributeComboState = ({
             period,
             calendar
         })
-        const [categoryId] = singleCategoryCombo.categoryIds
         const [firstCategory] = categories
 
         if (

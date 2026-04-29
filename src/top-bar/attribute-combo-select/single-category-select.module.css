@@ -1,9 +1,5 @@
 /* Center the container */
 .inputContainer {
-    /* display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 4px 8px 8px 8px; */
     padding: var(--spacers-dp12) var(--spacers-dp12) 0;
     flex-grow: 0;
 }
