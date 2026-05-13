@@ -19,7 +19,6 @@ export const initialValues = (metadata, workflows, calendar) => {
     const attributeComboData = initialAttributeOptionComboValue(
         {
             aoc,
-            orgUnit,
             period,
             calendar,
             workflow,
@@ -76,14 +75,13 @@ export const initialOrgUnitValue = (path, displayName) => {
 }
 
 export const initialAttributeOptionComboValue = (
-    { aoc, orgUnit, period, calendar, workflow = {} },
+    { aoc, period, calendar, workflow = {} },
     metadata = {}
 ) => {
     if (
         !aoc ||
         !workflow.id ||
         !metadata.categoryCombos ||
-        !orgUnit ||
         !period
     ) {
         return null
@@ -92,7 +90,6 @@ export const initialAttributeOptionComboValue = (
     return extractValidCatComboAndCatOptionCombo(metadata, {
         workflow,
         aoc,
-        orgUnit,
         period,
         calendar,
     })

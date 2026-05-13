@@ -4,20 +4,31 @@ import {
     extractValidCatComboAndCatOptionCombo,
     getCategoryCombosByFilters,
     getAttributeComboById,
+    getCategoriesByCategoryCombo,
 } from './category-combo-utils.js'
 
-export const getAttributeOptionComboData = (state, payload) => {
-    return extractValidCatComboAndCatOptionCombo(payload.metadata, {
-        workflow: payload.workflow,
-        attributeOptionComboId: state.attributeOptionCombo?.id,
-        orgUnit: state.orgUnit,
-        period: state.period,
-        calendar: payload.calendar,
+const getAttributeOptionComboData = (
+    metadata,
+    { workflow, aoc, period, calendar }
+) => {
+    return extractValidCatComboAndCatOptionCombo(metadata, {
+        workflow,
+        aoc,
+        period,
+        calendar,
     })
 }
 
 export const handleSelectWorkflow = (state, payload) => {
-    const attributeOptionComboData = getAttributeOptionComboData(state, payload)
+    const attributeOptionComboData = getAttributeOptionComboData(
+        payload.metadata,
+        {
+            workflow: payload.workflow,
+            aoc: state.attributeOptionCombo?.id,
+            period: state.period,
+            calendar: payload.calendar,
+        }
+    )
 
     const samePeriodType =
         state.workflow?.periodType === payload.workflow?.periodType
@@ -26,7 +37,10 @@ export const handleSelectWorkflow = (state, payload) => {
         ...state,
         openedSelect: '',
         workflow: payload.workflow,
-        period: state.workflow && samePeriodType ? state.period : null,
+        period:
+            state.workflow?.dataSets?.length > 0 && samePeriodType
+                ? state.period
+                : null,
         attributeCombo: state.attributeCombo
             ? attributeOptionComboData?.attributeCombo
             : null,
@@ -38,42 +52,39 @@ export const handleSelectWorkflow = (state, payload) => {
 }
 
 export const handleSelectPeriod = (state, payload) => {
-    const attributeOptionComboData = getAttributeOptionComboData(state, payload)
+    const attributeOptionComboData = getAttributeOptionComboData(
+        payload.metadata,
+        {
+            workflow: state.workflow,
+            aoc: state.attributeOptionCombo?.id,
+            period: payload.period,
+            calendar: payload.calendar,
+        }
+    )
 
     return {
         ...state,
+        ...attributeOptionComboData,
         openedSelect: payload.period?.id ? '' : state.openedSelect,
         period: payload.period,
-        attributeCombo: state.attributeCombo
-            ? attributeOptionComboData?.attributeCombo
-            : null,
-        attributeOptionCombo: state.attributeOptionCombo
-            ? attributeOptionComboData?.attributeOptionCombo
-            : null,
+        dataSet: null,
+    }
+}
+
+export const handleSelectCatOptionCombo = (state, payload) => {
+    return {
+        ...state,
+        attributeCombo: payload.attributeCombo,
+        attributeOptionCombo: null,
         dataSet: null,
     }
 }
 
 export const handleSelectOrgUnit = (state, payload) => {
-    const attributeOptionComboData = extractValidCatComboAndCatOptionCombo(
-        payload.metadata,
-        state.workflow,
-        state.attributeOptionCombo?.id,
-        payload.orgUnit,
-        state.period,
-        payload.calendar
-    )
-
     return {
         ...state,
         openedSelect: '',
         orgUnit: payload.orgUnit,
-        attributeCombo: state.attributeCombo
-            ? attributeOptionComboData?.attributeCombo
-            : null,
-        attributeOptionCombo: state.attributeOptionCombo
-            ? attributeOptionComboData?.attributeOptionCombo
-            : null,
         dataSet: null,
     }
 }
@@ -81,7 +92,6 @@ export const handleSelectOrgUnit = (state, payload) => {
 export const getAttributeComboState = ({
     metadata,
     workflow,
-    orgUnit,
     period,
     calendar,
     attributeCombo,
@@ -89,14 +99,13 @@ export const getAttributeComboState = ({
 }) => {
     const _attributeCombos = getCategoryCombosByFilters(metadata, {
         workflow,
-        orgUnit,
         period,
         calendar,
     })
 
     let _attributeCombo = attributeCombo
     let _attributeOptionCombo = null
-    let isShowAttributeComboVisible = true
+    let isVisible = !!(workflow?.dataSets?.length > 0 && period?.id)
     let attributeComboValue = i18n.t('0 selections')
 
     const processCategoryOptions = (metadata, attributeOptionCombo) => {
@@ -110,6 +119,7 @@ export const getAttributeComboState = ({
         selectedCategoryItems
     ) => {
         if (selectedAttrCombo?.isDefault) {
+            isVisible = false
             return ''
         }
 
@@ -130,8 +140,8 @@ export const getAttributeComboState = ({
 
     if (_attributeCombos.length === 0) {
         _attributeCombo = null
-        isShowAttributeComboVisible = false
-        attributeComboValue = i18n.t('0 selections')
+        isVisible = false
+        attributeComboValue = i18n.t('[No options]')
     } else if (attributeOptionCombo) {
         const selectedAttrCombo = getAttributeComboById(
             metadata,
@@ -149,8 +159,7 @@ export const getAttributeComboState = ({
         _attributeCombo = selectedAttrCombo
         _attributeOptionCombo = selectedAttrOptionCombo
         attributeComboValue = value
-
-        isShowAttributeComboVisible = !(
+        isVisible = !(
             _attributeCombos.length === 1 &&
             _attributeCombos[0].categoryIds?.length === 1 &&
             metadata.categories[_attributeCombos[0].categoryIds[0]]
@@ -158,8 +167,13 @@ export const getAttributeComboState = ({
         )
     } else if (_attributeCombos.length === 1) {
         const [singleCategoryCombo] = _attributeCombos
-        const [categoryId] = singleCategoryCombo.categoryIds
-        const firstCategory = metadata.categories[categoryId]
+        const categories = getCategoriesByCategoryCombo({
+            categoryCombo: singleCategoryCombo,
+            metadata,
+            period,
+            calendar
+        })
+        const [firstCategory] = categories
 
         if (
             singleCategoryCombo.categoryIds?.length === 1 &&
@@ -174,10 +188,10 @@ export const getAttributeComboState = ({
             )
             _attributeCombo = singleCategoryCombo
             attributeComboValue = i18n.t('1 selection')
-            isShowAttributeComboVisible = false
+            isVisible = false
         } else {
             _attributeCombo = singleCategoryCombo
-            attributeComboValue = i18n.t('0 selections')
+            attributeComboValue = i18n.t('0 selection')
         }
     }
 
@@ -185,7 +199,7 @@ export const getAttributeComboState = ({
         attributeCombos: _attributeCombos,
         attributeCombo: _attributeCombo,
         attributeOptionCombo: _attributeOptionCombo,
-        showAttributeSelect: isShowAttributeComboVisible,
+        isVisible,
         attrComboValue: attributeComboValue,
     }
 }
