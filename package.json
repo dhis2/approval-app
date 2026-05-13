@@ -10,7 +10,6 @@
         "format": "d2-style apply",
         "format:staged": "d2-style apply --staged",
         "lint": "d2-style check",
-        "postinstall": "patch-package",
         "start": "d2-app-scripts start",
         "start:nobrowser": "BROWSER=none d2-app-scripts start",
         "test": "TZ=Etc/UTC d2-app-scripts test",
@@ -21,8 +20,6 @@
     "devDependencies": {
         "@cfaester/enzyme-adapter-react-18": "^0.8.0",
         "@dhis2/cli-app-scripts": "^12.3.0",
-        "patch-package": "^8.0.1",
-        "postinstall-postinstall": "^2.1.0",
         "@dhis2/cli-style": "^10.7.6",
         "@dhis2/cypress-commands": "^10.1.0",
         "@dhis2/cypress-plugins": "^10.1.0",
@@ -39,9 +36,9 @@
     },
     "dependencies": {
         "@dhis2/app-runtime": "^3.13.1",
-        "@dhis2/multi-calendar-dates": "^2.1.2",
+        "@dhis2/multi-calendar-dates": "^2.0.0",
         "@dhis2/prop-types": "^1.6.4",
-        "@dhis2/ui": "^10.14.0",
+        "@dhis2/ui": "^10.1.11",
         "dompurify": "^3.2.4",
         "history": "^5.0.1",
         "prop-types": "^15.7.2",
