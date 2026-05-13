@@ -1,3 +1,10 @@
+## [100.1.6](https://github.com/dhis2/approval-app/compare/v100.1.5...v100.1.6) (2026-05-13)
+
+
+### Bug Fixes
+
+* patch multi-calendar-dates to map iso8601 to gregory calendar ([3641d04](https://github.com/dhis2/approval-app/commit/3641d04db0dcc3607fb5713fb6e499362bbd4b45))
+
 ## [100.1.5](https://github.com/dhis2/approval-app/compare/v100.1.4...v100.1.5) (2026-02-17)
 
 
