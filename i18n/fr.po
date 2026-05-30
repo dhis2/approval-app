@@ -10,7 +10,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2025-07-30T04:53:04.803Z\n"
+"POT-Creation-Date: 2026-05-20T02:12:18.107Z\n"
 "PO-Revision-Date: 2021-11-04 13:40+0000\n"
 "Last-Translator: Cyrille Kabrane, 2026\n"
 "Language-Team: French (https://app.transifex.com/hisp-uio/teams/100509/fr/)\n"
@@ -253,17 +253,20 @@ msgstr "Année fiscale (Débutant par juillet)"
 msgid "Financial year (Start April)"
 msgstr "Année fiscale (Débutant par avril)"
 
+msgid "Choose a workflow and period first"
+msgstr "Choisissez d'abord un flux de travail et une période"
+
+msgid "No found attribute option combo"
+msgstr ""
+
 msgid "Choose a period first"
 msgstr "Choisissez d'abord une période"
 
-msgid "Choose an organisation unit first"
-msgstr "Choisissez d'abord une unité d'organisation"
+msgid "Attribute Option Combo"
+msgstr ""
 
-msgid "Category Option Combo"
-msgstr "Combinaison d'options de catégorie"
-
-msgid "Choose a category option combo"
-msgstr "Choisissez une combinaison d'options de catégorie"
+msgid "Choose a attribute option combo"
+msgstr ""
 
 msgid "Choose a combination"
 msgstr "Choisissez une combinaison"
@@ -302,9 +305,6 @@ msgstr "Approuvé"
 msgid "Failed to load approval state"
 msgstr "Échec du chargement du statut d'approbation"
 
-msgid "Choose a workflow and period first"
-msgstr "Choisissez d'abord un flux de travail et une période"
-
 msgid "Organisation Unit"
 msgstr "Unité d'organisation"
 
@@ -339,6 +339,12 @@ msgstr "1 sélection"
 
 msgid "{{amount}} selections"
 msgstr "{{amount}} sélection(s)"
+
+msgid "[No options]"
+msgstr ""
+
+msgid "0 selection"
+msgstr ""
 
 msgid "Could not load approval data"
 msgstr "Impossible de charger les données d'approbation"
