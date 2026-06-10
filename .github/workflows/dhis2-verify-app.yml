@@ -122,7 +122,7 @@ jobs:
             - uses: dhis2/action-commit-signing@v1
               with:
                   ssh-signing-key: ${{ secrets.DHIS2_BOT_SSH_SIGNING_KEY }}
-                  ssh-signing-key-passphrase: ${{ secrets.DHIS2_BOT_SSH_SIGNING_PASSPHRASE }}            
+                  ssh-signing-key-passphrase: ${{ secrets.DHIS2_BOT_SSH_SIGNING_PASSPHRASE }}
 
             - uses: dhis2/action-semantic-release@master
               with:
