@@ -10,7 +10,6 @@
         "format": "d2-style apply",
         "format:staged": "d2-style apply --staged",
         "lint": "d2-style check",
-        "postinstall": "patch-package",
         "start": "d2-app-scripts start",
         "start:nobrowser": "BROWSER=none d2-app-scripts start",
         "test": "TZ=Etc/UTC d2-app-scripts test",
@@ -19,10 +18,10 @@
         "cypress:stub": "start-server-and-test 'yarn start:nobrowser' http://localhost:3000 'yarn cypress run --env networkMode=stub'"
     },
     "devDependencies": {
+        "@badeball/cypress-cucumber-preprocessor": "^21.0.0",
         "@cfaester/enzyme-adapter-react-18": "^0.8.0",
+        "@cypress/webpack-preprocessor": "^6.0.2",
         "@dhis2/cli-app-scripts": "^12.3.0",
-        "patch-package": "^8.0.1",
-        "postinstall-postinstall": "^2.1.0",
         "@dhis2/cli-style": "^10.7.6",
         "@dhis2/cypress-commands": "^10.1.0",
         "@dhis2/cypress-plugins": "^10.1.0",
@@ -31,8 +30,6 @@
         "@testing-library/react": "^16.2.0",
         "@testing-library/user-event": "^14.6.1",
         "cypress": "^13.17.0",
-        "@badeball/cypress-cucumber-preprocessor": "^21.0.0",
-        "@cypress/webpack-preprocessor": "^6.0.2",
         "enzyme": "^3.11.0",
         "identity-obj-proxy": "^3.0.0",
         "start-server-and-test": "^1.13.1"
