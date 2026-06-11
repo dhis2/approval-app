@@ -1,3 +1,10 @@
+## [100.2.1](https://github.com/dhis2/approval-app/compare/v100.2.0...v100.2.1) (2026-06-11)
+
+
+### Bug Fixes
+
+* remove multi-calendar dates package ([#394](https://github.com/dhis2/approval-app/issues/394)) ([7137659](https://github.com/dhis2/approval-app/commit/713765930319c0184c88042374cbf434542bd1a0))
+
 # [100.2.0](https://github.com/dhis2/approval-app/compare/v100.1.6...v100.2.0) (2026-05-28)
 
 
