@@ -120,7 +120,7 @@ const shouldShowAttributeCombo = ({
     if (
         attributeCombos.length == 1 &&
         singleCategoryCombo.categoryIds?.length === 1 &&
-        firstCategory.categoryOptionIds?.length <= 1
+        firstCategory.categoryOptionIds?.length === 0
     ) {
         return false
     }
@@ -144,14 +144,7 @@ export const getAttributeComboState = ({
 
     let _attributeCombo = attributeCombo
     let _attributeOptionCombo = null
-    const isVisible = shouldShowAttributeCombo({
-        workflow,
-        period,
-        attributeCombos: _attributeCombos,
-        attributeCombo: _attributeCombo,
-        metadata,
-        calendar,
-    })
+   
     let attributeComboValue = i18n.t('0 selections')
 
     const processCategoryOptions = (metadata, attributeOptionCombo) => {
@@ -231,6 +224,15 @@ export const getAttributeComboState = ({
             attributeComboValue = i18n.t('0 selection')
         }
     }
+
+    const isVisible = shouldShowAttributeCombo({
+        workflow,
+        period,
+        attributeCombos: _attributeCombos,
+        selectedAttrCombo: _attributeCombo,
+        metadata,
+        calendar,
+    })
 
     return {
         attributeCombos: _attributeCombos,

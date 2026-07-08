@@ -139,11 +139,12 @@ const AppProvider = ({ children }) => {
         authorities,
         organisationUnits,
         dataApprovalWorkflows,
-        metadata: normalizeMetadata(
-            categoryCombos,
-            categories,
-            categoryOptionCombos
-        ),
+        metadata: normalizeMetadata({
+            originalCatCombos: categoryCombos,
+            originalCategories: categories,
+            originalCategoryOptionCombos: categoryOptionCombos,
+            organisationUnits,
+        }),
     }
 
     return (

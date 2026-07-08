@@ -76,8 +76,9 @@ const AttributeComboSelect = () => {
                         style={{
                             height:
                                 attributeCombos?.length == 1
-                                    ? '270px'
-                                    : '350px',
+                                    ? 270
+                                    : 350,
+                                overflowY: 'auto',
                         }}
                     >
                         {/* Only show Category Combo dropdown when there are more than one categoryCombo in the list */}

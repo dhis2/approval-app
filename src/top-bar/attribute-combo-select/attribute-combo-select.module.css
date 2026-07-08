@@ -1,7 +1,7 @@
 .menu {
-    height: 330px;
     width: 400px;
-    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
 }
 
 .bordered {
