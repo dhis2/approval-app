@@ -1,12 +1,16 @@
 import { cloneJSON, sortList } from './array-utils.js'
 
-export const normalizeMetadata = (
+export const normalizeMetadata = ({
     originalCatCombos,
     originalCategories,
-    originalCategoryOptionCombos
-) => {
+    originalCategoryOptionCombos,
+    organisationUnits,
+}) => {
     const categoryCombos = normalizeCatCombos(originalCatCombos)
-    const categoryMap = normalizeCategoriesAndOptions(originalCategories)
+    const categoryMap = normalizeCategoriesAndOptions(
+        originalCategories,
+        organisationUnits
+    )
 
     const metadata = {
         categoryCombos,
@@ -73,20 +77,31 @@ const normalizeCatCombos = (originalCatCombos) => {
             },...
         },
 */
-const normalizeCategoriesAndOptions = (originalCategories) => {
+const normalizeCategoriesAndOptions = (
+    originalCategories,
+    organisationUnits
+) => {
     const normalized = { categories: {}, categoryOptions: {} }
     for (const category of originalCategories) {
         // Map each unique categoryOption by ID
         const options = cloneJSON(category.categoryOptions || [])
+        const validOptions = []
         for (const option of options) {
             const found = normalized.categoryOptions[option.id]
             if (!found) {
-                normalized.categoryOptions[option.id] = option
+                const isAssigned = isOptionAssignedToUserOrgUnits(
+                    option,
+                    organisationUnits
+                )
+                if (isAssigned) {
+                    normalized.categoryOptions[option.id] = option
+                    validOptions.push(option)
+                }
             }
         }
 
         // Map category by ID
-        const categoryOptionIds = options.map((item) => item.id)
+        const categoryOptionIds = validOptions.map((item) => item.id)
         delete category.categoryOptions
         normalized.categories[category.id] = {
             ...category,
@@ -155,4 +170,26 @@ const omitField = (obj, keyToRemove) => {
     // eslint-disable-next-line no-unused-vars
     const { [keyToRemove]: _, ...rest } = obj
     return rest
+}
+
+const isChildOfAnyParent = (userOrgUnitPaths, catOptionOrgUnitPath) =>
+    userOrgUnitPaths.some(
+        (userOrgUnitPath) =>
+            catOptionOrgUnitPath === userOrgUnitPath ||
+            catOptionOrgUnitPath.startsWith(userOrgUnitPath + '/')
+    )
+
+const isOptionAssignedToUserOrgUnits = (
+    categoryOption,
+    userOrganisationUnits
+) => {
+    // by default,
+    if (!categoryOption?.organisationUnits?.length) {
+        return true
+    }
+
+    const userOrgUnitPaths = userOrganisationUnits.map((ou) => ou.path)
+    return categoryOption.organisationUnits.some((catOptionOrgUnit) =>
+        isChildOfAnyParent(userOrgUnitPaths, catOptionOrgUnit.path)
+    )
 }
