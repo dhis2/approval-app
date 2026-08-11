@@ -44,7 +44,7 @@ export const extractValidCatComboAndCatOptionCombo = (
         return null
     }
 
-    const datasetHasMatchingCatCombo = workflow.dataSets.find(
+    const datasetHasMatchingCatCombo = workflow.dataSets.some(
         (ds) => ds.categoryCombo.id === categoryOptionCombo?.categoryComboId
     )
     if (!datasetHasMatchingCatCombo) {
@@ -127,7 +127,7 @@ export const filterDataSetsByAttributeOptionComboAndOrgUnit = (
                 catCombo.id === dataSet.categoryCombo.id
 
             // Check if the data set assigned to "orgUnit"
-            const checkOrgunit = dataSet.organisationUnits.find((dsOrgUnit) =>
+            const checkOrgunit = dataSet.organisationUnits.some((dsOrgUnit) =>
                 dsOrgUnit.path.includes(orgUnit?.path)
             )
 
