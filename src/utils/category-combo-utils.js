@@ -142,16 +142,39 @@ export const filterDataSetsByAttributeOptionComboAndOrgUnit = (
 
 /**
  *
+ * @param {*} metadata
  * @param {*} categoryCombo
  * @param {*} categoryOptionMap {<category_id>: <category_option_id>, ...}
  * @returns
  */
-export const findAttributeOptionCombo = (metadata, categoryOptionMap) => {
+export const findAttributeOptionCombo = ({
+    metadata,
+    categoryCombo,
+    categoryOptionMap,
+}) => {
+    const checkedCategoryIds = Object.keys(categoryOptionMap)
+    if (categoryCombo.categoryIds.length !== checkedCategoryIds.length) {
+        return null
+    }
+
+    const checkMatchedCategoryIds = areListsEqual(
+        categoryCombo.categoryIds,
+        checkedCategoryIds
+    )
+    if (!checkMatchedCategoryIds) {
+        return null
+    }
+
     const selectedOptionIds = Object.values(categoryOptionMap) // Get the selected category list
 
     return (
-        Object.values(metadata.categoryOptionCombos).find((catOptionCombo) =>
-            areListsEqual(catOptionCombo.categoryOptionIds, selectedOptionIds)
+        Object.values(metadata.categoryOptionCombos).find(
+            (metadataCatOptionCombo) =>
+                areListsEqual(
+                    metadataCatOptionCombo.categoryOptionIds,
+                    selectedOptionIds
+                ) &&
+                metadataCatOptionCombo.categoryCombo.id === categoryCombo.id
         ) || null
     )
 }

@@ -2,8 +2,9 @@ import { useConfig } from '@dhis2/app-runtime'
 import i18n from '@dhis2/d2-i18n'
 import { Button, NoticeBox } from '@dhis2/ui'
 import PropTypes from 'prop-types'
-import React, { useMemo, useState } from 'react'
+import React, { useMemo, useState, useEffect } from 'react'
 import { useAppContext } from '../../app-context/use-app-context.js'
+import { useSelectionContext } from '../../selection-context/use-selection-context.js'
 import { cloneJSON } from '../../utils/array-utils.js'
 import {
     findAttributeOptionCombo,
@@ -39,9 +40,11 @@ export default function CategorySelect({
     selected, // attributeOptionCombo
 }) {
     const { metadata } = useAppContext()
+    const { selectedCategoryItems, setSelectedCategoryItems } =
+        useSelectionContext()
     const { systemInfo = {} } = useConfig()
-    const { calendar = 'gregory' } = systemInfo
 
+    const { calendar = 'gregory' } = systemInfo
     const categories = useMemo(() => {
         return getCategoriesByCategoryCombo({
             categoryCombo,
@@ -55,7 +58,7 @@ export default function CategorySelect({
         const categoryMap = {}
 
         if (!selected) {
-            return categoryMap
+            return selectedCategoryItems || categoryMap
         }
 
         const categoryOptionIds = selected.categoryOptionIds
@@ -78,23 +81,43 @@ export default function CategorySelect({
         mapSelectedCategories()
     )
 
-    const categoryItemOnChange = (categoryId, selectedOptionId) => {
-        let updatedSelected = cloneJSON(selectedItem)
-        if (selectedItem) {
-            updatedSelected[categoryId] = selectedOptionId
-        } else {
-            updatedSelected = {
-                ...selectedItem,
-                [categoryId]: selectedOptionId,
-            }
+    // Keep local selectedItem in sync with incoming `selected` prop
+    // and preserve partial selection state in context.
+    useEffect(() => {
+        if (selected) {
+            const selectedCategories = mapSelectedCategories()
+            setSelectedCategoryItems(selectedCategories)
+            setSelectedItem(selectedCategories)
+        } else if (
+            selectedCategoryItems &&
+            Object.keys(selectedCategoryItems).length
+        ) {
+            setSelectedItem(selectedCategoryItems)
         }
+    }, [selected, categories, selectedCategoryItems, setSelectedCategoryItems])
+
+    const categoryItemOnChange = (categoryId, selectedOptionId) => {
+        const updatedSelected = {
+            ...cloneJSON(selectedItem),
+            [categoryId]: selectedOptionId,
+        }
+
         setSelectedItem(updatedSelected)
 
-        const selectedCatOptionCombo = findAttributeOptionCombo(
+        const selectedCatOptionCombo = findAttributeOptionCombo({
             metadata,
-            updatedSelected
-        )
-        onChange(selectedCatOptionCombo)
+            categoryCombo,
+            categoryOptionMap: updatedSelected,
+        })
+
+        setSelectedCategoryItems(updatedSelected)
+        if (selectedCatOptionCombo) {
+            onChange(selectedCatOptionCombo)
+        }
+
+        if (categories.length === 1) {
+            onClose()
+        }
     }
 
     // Check if there's exactly one category in the categories array and that category has at least one categoryOption
