@@ -82,9 +82,9 @@ const normalizeCategoriesAndOptions = (
     organisationUnits
 ) => {
     const normalized = { categories: {}, categoryOptions: {} }
-    for (const category of originalCategories) {
+    for (const { categoryOptions = [], ...category } of originalCategories) {
         // Map each unique categoryOption by ID
-        const options = cloneJSON(category.categoryOptions || [])
+        const options = cloneJSON(categoryOptions)
         const validOptions = []
         for (const option of options) {
             const found = normalized.categoryOptions[option.id]
@@ -102,7 +102,6 @@ const normalizeCategoriesAndOptions = (
 
         // Map category by ID
         const categoryOptionIds = validOptions.map((item) => item.id)
-        delete category.categoryOptions
         normalized.categories[category.id] = {
             ...category,
             categoryOptionIds,

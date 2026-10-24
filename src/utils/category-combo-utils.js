@@ -158,7 +158,7 @@ export const findAttributeOptionCombo = ({
     }
 
     const checkMatchedCategoryIds = areListsEqual(
-        categoryCombo.categoryIds,
+        [...categoryCombo.categoryIds],
         checkedCategoryIds
     )
     if (!checkMatchedCategoryIds) {
@@ -171,7 +171,7 @@ export const findAttributeOptionCombo = ({
         Object.values(metadata.categoryOptionCombos).find(
             (metadataCatOptionCombo) =>
                 areListsEqual(
-                    metadataCatOptionCombo.categoryOptionIds,
+                    [...metadataCatOptionCombo.categoryOptionIds],
                     selectedOptionIds
                 ) &&
                 metadataCatOptionCombo.categoryCombo.id === categoryCombo.id
