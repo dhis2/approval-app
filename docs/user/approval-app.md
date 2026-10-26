@@ -26,9 +26,9 @@ Some data sets are linked to a category combination, for example one that splits
 
 The app shows the attribute option combo menu only when it is needed:
 
-- If the data sets in the workflow use only the default category combination, the menu does not appear. The app uses the default combination for you.
-- If the workflow has one category combination with one category, and only one option of that category is valid for the period, the menu does not appear. The app uses that option for you.
-- In other cases, the menu appears after you choose a workflow and a period.
+-   If the data sets in the workflow use only the default category combination, the menu does not appear. The app uses the default combination for you.
+-   If the workflow has one category combination with one category, and only one option of that category is valid for the period, the menu does not appear. The app uses that option for you.
+-   In other cases, the menu appears after you choose a workflow and a period.
 
 The menu is named after the category combination, or **Attribute Option Combo** until a combination is known. Its value shows how many options you have chosen, for example **1 selection**.
 
@@ -83,10 +83,10 @@ If no data set matches your choices, the app tells you that the workflow, organi
 
 After you review the data, you can take an approval action. The actions are:
 
-- **Approve**
-- **Accept**
-- **Unapprove**
-- **Unaccept**
+-   **Approve**
+-   **Accept**
+-   **Unapprove**
+-   **Unaccept**
 
 The actions you can take depend on the actions already taken at this and other levels of the organisation unit hierarchy, and on your authorities. Each action applies to the workflow, period, organisation unit, and attribute option combo that you chose.
 
@@ -102,13 +102,13 @@ After you confirm, the app shows the message **Approval saved** and updates the 
 
 The app shows the approval status in two places:
 
-- In the heading of the reports, next to the workflow name.
-- In the bottom bar, next to the buttons.
+-   In the heading of the reports, next to the workflow name.
+-   In the bottom bar, next to the buttons.
 
 The two tags can show different information because they have different meanings:
 
-- The tag in the heading of the reports shows the approval status of the workflow for the period, organisation unit, and attribute option combo that you chose.
-- The tag in the bottom bar shows the same status, and it also takes your authorities into account.
+-   The tag in the heading of the reports shows the approval status of the workflow for the period, organisation unit, and attribute option combo that you chose.
+-   The tag in the bottom bar shows the same status, and it also takes your authorities into account.
 
 The data can be ready for approval at an organisation unit, but you can still lack the authority to approve it. In that case, the bottom bar shows **You do not have authority to approve data**.
 
