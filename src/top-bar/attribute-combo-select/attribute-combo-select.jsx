@@ -20,6 +20,7 @@ const AttributeComboSelect = () => {
         selectAttributeCombo,
         attributeOptionCombo,
         selectAttributeOptionCombo,
+        setSelectedCategoryItems,
         attributeCombos,
         isVisible,
         attrComboValue,
@@ -48,6 +49,7 @@ const AttributeComboSelect = () => {
     const onChangeCatCombo = (catComboId) => {
         const catCombo = getAttributeComboById(metadata, catComboId)
         // Update the selected attribute combo and reset attribute combo value
+        setSelectedCategoryItems({})
         selectAttributeCombo(catCombo)
     }
 
@@ -74,10 +76,8 @@ const AttributeComboSelect = () => {
                     <div
                         className={css.menu}
                         style={{
-                            height:
-                                attributeCombos?.length == 1
-                                    ? '270px'
-                                    : '350px',
+                            height: attributeCombos?.length == 1 ? 270 : 350,
+                            overflowY: 'auto',
                         }}
                     >
                         {/* Only show Category Combo dropdown when there are more than one categoryCombo in the list */}
