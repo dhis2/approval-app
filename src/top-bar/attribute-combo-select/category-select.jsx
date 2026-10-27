@@ -86,7 +86,6 @@ export default function CategorySelect({
     useEffect(() => {
         if (selected) {
             const selectedCategories = mapSelectedCategories()
-            setSelectedCategoryItems(selectedCategories)
             setSelectedItem(selectedCategories)
         } else if (
             selectedCategoryItems &&
@@ -94,7 +93,7 @@ export default function CategorySelect({
         ) {
             setSelectedItem(selectedCategoryItems)
         }
-    }, [selected, categories, selectedCategoryItems, setSelectedCategoryItems])
+    }, [selected, categories, selectedCategoryItems])
 
     const categoryItemOnChange = (categoryId, selectedOptionId) => {
         const updatedSelected = {
