@@ -11,7 +11,7 @@ const WORKFLOW = 'WORKFLOW'
 
 const WorkflowSelect = () => {
     const { dataApprovalWorkflows } = useAppContext()
-    const [searchQuery, setSearchQuery] = useState('');
+    const [searchQuery, setSearchQuery] = useState('')
 
     const {
         workflow: selectedWorkflow,
@@ -24,7 +24,12 @@ const WorkflowSelect = () => {
 
     const filteredWorkflows = dataApprovalWorkflows.filter((workflow) =>
         workflow.displayName.toLowerCase().includes(searchQuery.toLowerCase())
-    );
+    )
+
+    const onClose = () => {
+        setOpenedSelect('')
+        setSearchQuery('')
+    }
 
     return (
         <ContextSelect
@@ -34,7 +39,7 @@ const WorkflowSelect = () => {
             value={value}
             open={open}
             onOpen={() => setOpenedSelect(WORKFLOW)}
-            onClose={() => setOpenedSelect('')}
+            onClose={onClose}
         >
             {dataApprovalWorkflows.length === 0 ? (
                 <div className={classes.message}>
@@ -45,29 +50,36 @@ const WorkflowSelect = () => {
             ) : (
                 <>
                     {/* Search Input */}
-                    {dataApprovalWorkflows.length >= 10 && <div className={classes.inputContainer}>
-                        <InputField
-                            dense
-                            type="text"
-                            name="workflow-filterinput"
-                            placeholder={i18n.t('Search workflow')}
-                            value={searchQuery}
-                            initialFocus
-                            onChange={({ value }) => setSearchQuery(value ?? '')}
-                            className={classes.input}
-                        />
-                    </div>}
+                    {dataApprovalWorkflows.length >= 10 && (
+                        <div className={classes.inputContainer}>
+                            <InputField
+                                dense
+                                type="text"
+                                name="workflow-filterinput"
+                                placeholder={i18n.t('Search workflow')}
+                                value={searchQuery}
+                                initialFocus
+                                onChange={({ value }) =>
+                                    setSearchQuery(value ?? '')
+                                }
+                                className={classes.input}
+                            />
+                        </div>
+                    )}
 
-                    {filteredWorkflows.length === 0
-                        ? <div className={classes.empty}>
+                    {filteredWorkflows.length === 0 ? (
+                        <div className={classes.empty}>
                             <span>
-                                {i18n.t('No results found for {{searchQuery}}', {
-                                    searchQuery: searchQuery,
-                                    nsSeparator: '-:-'
-                                })}
+                                {i18n.t(
+                                    'No results found for {{searchQuery}}',
+                                    {
+                                        searchQuery: searchQuery,
+                                        nsSeparator: '-:-',
+                                    }
+                                )}
                             </span>
                         </div>
-                        :
+                    ) : (
                         <Menu className={classes.menu}>
                             {filteredWorkflows.map((workflow) => (
                                 <WorkflowSelectOption
@@ -75,11 +87,14 @@ const WorkflowSelect = () => {
                                     id={workflow.id}
                                     name={workflow.displayName}
                                     periodType={workflow.periodType}
-                                    active={workflow.id === selectedWorkflow?.id}
+                                    active={
+                                        workflow.id === selectedWorkflow?.id
+                                    }
                                     onClick={() => selectWorkflow(workflow)}
                                 />
                             ))}
-                        </Menu>}
+                        </Menu>
+                    )}
                 </>
             )}
         </ContextSelect>

@@ -32,6 +32,12 @@ const mockWorkflows = [
     },
 ]
 
+const createWorkflows = (count) =>
+    Array.from({ length: count }, (_, index) => ({
+        displayName: `Workflow ${index + 1}`,
+        id: `workflow-${index + 1}`,
+    }))
+
 beforeEach(() => {
     useAppContext.mockImplementation(() => ({
         dataApprovalWorkflows: mockWorkflows,
@@ -122,6 +128,101 @@ describe('<WorkflowSelect>', () => {
                     'No workflows found. None may exist, or you may not have access to any.'
                 )
         ).toBe(true)
+    })
+
+    it('hides the search input when there are fewer than 10 workflows', () => {
+        useAppContext.mockImplementation(() => ({
+            dataApprovalWorkflows: createWorkflows(9),
+        }))
+        useSelectionContext.mockImplementation(() => ({
+            workflow: null,
+            openedSelect: WORKFLOW,
+            selectWorkflow: () => {},
+            setOpenedSelect: () => {},
+        }))
+
+        const { queryByRole } = render(<WorkflowSelect />)
+
+        expect(queryByRole('textbox')).not.toBeInTheDocument()
+    })
+
+    it('filters workflows as the search text is typed', async () => {
+        useAppContext.mockImplementation(() => ({
+            dataApprovalWorkflows: createWorkflows(12),
+        }))
+        useSelectionContext.mockImplementation(() => ({
+            workflow: null,
+            openedSelect: WORKFLOW,
+            selectWorkflow: () => {},
+            setOpenedSelect: () => {},
+        }))
+
+        const { getAllByRole, getByRole, queryByText } = render(
+            <WorkflowSelect />
+        )
+        await userEvent.type(getByRole('textbox'), 'Workflow 3')
+
+        expect(getAllByRole('menuitem')).toHaveLength(1)
+        expect(queryByText('Workflow 2')).not.toBeInTheDocument()
+    })
+
+    it('shows a message when the search has no matching workflows', async () => {
+        useAppContext.mockImplementation(() => ({
+            dataApprovalWorkflows: createWorkflows(12),
+        }))
+        useSelectionContext.mockImplementation(() => ({
+            workflow: null,
+            openedSelect: WORKFLOW,
+            selectWorkflow: () => {},
+            setOpenedSelect: () => {},
+        }))
+
+        const { getByRole, getByText } = render(<WorkflowSelect />)
+        await userEvent.type(getByRole('textbox'), 'xyz')
+
+        expect(getByText('No results found for xyz')).toBeInTheDocument()
+    })
+
+    it('clears the search when the dropdown closes and reopens', async () => {
+        useAppContext.mockImplementation(() => ({
+            dataApprovalWorkflows: createWorkflows(12),
+        }))
+        useSelectionContext.mockImplementation(() => {
+            const [openedSelect, setOpenedSelect] = React.useState('')
+
+            return {
+                workflow: null,
+                openedSelect,
+                selectWorkflow: () => {},
+                setOpenedSelect,
+            }
+        })
+
+        const { getAllByRole, getByRole, queryByRole } = render(
+            <WorkflowSelect />
+        )
+        await userEvent.click(
+            document.querySelector(
+                '[data-test="workflow-context-select-button"]'
+            )
+        )
+        await userEvent.type(getByRole('textbox'), 'xyz')
+
+        const backdrop = document.querySelector(
+            '[data-test="dhis2-uicore-layer"] > .backdrop'
+        )
+        await userEvent.click(backdrop)
+
+        expect(queryByRole('textbox')).not.toBeInTheDocument()
+
+        await userEvent.click(
+            document.querySelector(
+                '[data-test="workflow-context-select-button"]'
+            )
+        )
+
+        expect(getByRole('textbox')).toHaveValue('')
+        expect(getAllByRole('menuitem')).toHaveLength(12)
     })
 
     it('calls the setOpenedSelect to open when clicking the ContextSelect button', () => {
