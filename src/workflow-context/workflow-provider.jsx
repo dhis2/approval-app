@@ -19,7 +19,7 @@ const query = {
 }
 
 const WorkflowProvider = ({ children }) => {
-    const { workflow, period, orgUnit, attributeOptionCombo } =
+    const { workflow, period, orgUnit, attributeOptionCombo, attributeCombos } =
         useSelectionContext()
     const { fetching, error, data, called, refetch } = useDataQuery(query, {
         lazy: true,
@@ -51,6 +51,20 @@ const WorkflowProvider = ({ children }) => {
                         'Please verify the workflow configuration or select a different workflow that includes data sets.'
                     )}
                 </p>
+            </ErrorMessage>
+        )
+    }
+
+    if (workflow && period && attributeCombos?.length === 0) {
+        return (
+            <ErrorMessage title={i18n.t('Could not load approval data')}>
+                {i18n.t(
+                    'Workflow "{{ workflowName }}" and period "{{periodName}}" does not contain any category combos.',
+                    {
+                        workflowName: workflow?.displayName,
+                        periodName: period?.displayName,
+                    }
+                )}
             </ErrorMessage>
         )
     }
