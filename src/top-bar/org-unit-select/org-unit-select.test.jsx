@@ -62,6 +62,7 @@ describe('<OrgUnitSelect>', () => {
             period: { id: '20120402' },
             orgUnit: {},
             attributeOptionCombo: { id: '1234' },
+            attributeCombos: [{ id: '1' }],
             openedSelect: '',
             selectWorkflow: () => {},
             setOpenedSelect: () => {},
@@ -124,6 +125,7 @@ describe('<OrgUnitSelect>', () => {
             },
             orgUnit: {},
             attributeOptionCombo: { id: '1234' },
+            attributeCombos: [{ id: '1' }],
             openedSelect: '',
             selectWorkflow: () => {},
             setOpenedSelect: () => {},
@@ -179,6 +181,7 @@ describe('<OrgUnitSelect>', () => {
             attributeOptionCombo: {
                 id: 'wertyuiopas',
             },
+            attributeCombos: [{ id: '1' }],
             openedSelect: '',
             selectWorkflow: () => {},
             setOpenedSelect: () => {},
@@ -218,16 +221,14 @@ describe('<OrgUnitSelect>', () => {
             },
             orgUnit: {},
             attributeOptionCombo: { id: '1234' },
+            attributeCombos: [{ id: '1' }],
             openedSelect: '',
             selectWorkflow: () => {},
             setOpenedSelect,
         }))
 
-        shallow(<OrgUnitSelect />)
-            .find(ContextSelect)
-            .dive()
-            .find('button')
-            .simulate('click')
+        const wrapper = shallow(<OrgUnitSelect />)
+        wrapper.find(ContextSelect).prop('onOpen')()
 
         expect(setOpenedSelect).toHaveBeenCalledTimes(1)
         expect(setOpenedSelect).toHaveBeenCalledWith(ORG_UNIT)
@@ -265,7 +266,7 @@ describe('<OrgUnitSelect>', () => {
             </CustomDataProvider>
         )
 
-        await waitFor(() => screen.getByText('Sierra Leone'))
+        await screen.findByText('Sierra Leone')
         await userEvent.click(screen.getByText('Sierra Leone'))
 
         expect(selectOrgUnit).toHaveBeenCalledTimes(1)
